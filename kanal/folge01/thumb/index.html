@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de"><head><meta charset="UTF-8"/><meta name="viewport" content="width=1080, height=1920"/>
+<style>
+@font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-display:block;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0E1530}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0E1530}
+#glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 52%,#24387A 0%,#16224A 38%,#0E1530 72%)}
+#rays{position:absolute;left:-760px;top:-200px;width:2600px;height:2600px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.055) 0deg 6deg,rgba(255,255,255,0) 6deg 15deg)}
+#vig{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(0,0,0,0) 55%,rgba(4,7,20,.6) 100%)}
+.hook-stk{filter:drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35))}
+#hook-burst{position:absolute;left:110px;top:780px;width:800px;height:800px;opacity:.9}
+#hook-map{position:absolute;left:120px;top:880px;width:720px;height:624px}
+#hook-emu{position:absolute;left:370px;top:940px;width:250px;height:325px}
+#stage{position:absolute;inset:0;transform:scale(1.12);transform-origin:480px 1180px}
+#txt{position:absolute;left:80px;top:300px;width:920px;text-align:center;font-family:'Lilita One';color:#FFD23F;line-height:1;-webkit-text-stroke:24px #0A0F22;paint-order:stroke fill;text-shadow:0 16px 0 #050814}
+#txt .a{font-size:150px} #txt .b{font-size:220px}
+#klotz{position:absolute;left:690px;top:1480px;width:260px;height:286px}
+#kshadow{position:absolute;left:715px;top:1748px;width:210px;height:30px;border-radius:50%;background:rgba(0,0,0,.35)}
+</style></head><body>
+<div id="root" data-composition-id="thumb" data-start="0" data-duration="1" data-width="1080" data-height="1920" data-no-timeline>
+<svg width="0" height="0" style="position:absolute"><defs><symbol id="hook-emuh" viewBox="0 0 200 260">
+  <g stroke="#E0A060" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M85 178 L76 214 L88 246 M88 246 L72 252 M88 246 L104 252"/>
+    <path d="M116 178 L124 214 L114 246 M114 246 L98 252 M114 246 L130 252"/>
+  </g>
+  <path d="M146 116 C150 84 144 62 150 44" stroke="#8FB8E0" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <ellipse cx="100" cy="140" rx="72" ry="54" fill="#8A6A50"/>
+  <g fill="#8A6A50"><circle cx="40" cy="122" r="18"/><circle cx="60" cy="100" r="21"/><circle cx="88" cy="90" r="23"/><circle cx="118" cy="93" r="20"/><circle cx="142" cy="106" r="17"/><circle cx="36" cy="152" r="16"/><circle cx="164" cy="138" r="14"/></g>
+  <ellipse cx="110" cy="150" rx="42" ry="26" fill="#A8876C"/>
+  <g stroke="#5E4634" stroke-width="5" fill="none" stroke-linecap="round"><path d="M62 124 q18 -10 36 0"/><path d="M76 146 q16 -8 30 0"/></g>
+  <circle cx="152" cy="38" r="22" fill="#6E5442"/>
+  <path d="M170 31 L198 39 L170 47 Z" fill="#F2C14E"/>
+  <circle cx="157" cy="32" r="8.5" fill="#fff"/><circle cx="159.5" cy="32" r="4.6" fill="#111"/>
+  <path d="M124 34 Q124 4 154 4 Q182 4 182 30 Z" fill="#6B8E3D"/>
+  <path d="M116 33 L190 30 Q192 38 184 39 L120 41 Q112 40 116 33 Z" fill="#4A6629"/>
+  <path d="M136 16 Q144 9 156 9" stroke="#9CC06A" stroke-width="5" fill="none" stroke-linecap="round"/></symbol></defs></svg>
+<div id="glow"></div><div id="rays"></div><div id="vig"></div>
+<div id="stage"><div id="hook-burst"><svg viewBox="0 0 200 200" width="100%" height="100%"><path fill="#FF3B3B" d="M198.0 100.0 L159.9 116.0 L184.9 149.0 L143.8 143.8 L149.0 184.9 L116.0 159.9 L100.0 198.0 L84.0 159.9 L51.0 184.9 L56.2 143.8 L15.1 149.0 L40.1 116.0 L2.0 100.0 L40.1 84.0 L15.1 51.0 L56.2 56.2 L51.0 15.1 L84.0 40.1 L100.0 2.0 L116.0 40.1 L149.0 15.1 L143.8 56.2 L184.9 51.0 L159.9 84.0 Z"/></svg></div>
+      <div id="hook-map" class="hook-stk"><svg viewBox="0 0 600 530" width="100%" height="100%"><path d="M60 232 L112 192 L170 150 L208 104 L258 92 L290 60 L330 70 L346 100 L380 86 L396 122 L382 160 L410 192 L440 170 L452 110 L470 30 L492 92 L512 152 L546 220 L576 282 L582 342 L562 402 L532 442 L482 452 L442 432 L412 402 L392 420 L372 382 L332 372 L262 346 L200 352 L142 382 L82 396 L60 362 L54 300 Z" fill="#3FAE6A" stroke="#1E6B3F" stroke-width="8" stroke-linejoin="round"/><path d="M466 482 L512 476 L506 512 L482 520 Z" fill="#3FAE6A" stroke="#1E6B3F" stroke-width="8" stroke-linejoin="round"/><path d="M150 250 Q260 220 330 260" stroke="#57C783" stroke-width="10" fill="none" stroke-linecap="round" opacity=".7"/></svg></div>
+      <div id="hook-emu" class="hook-stk"><svg viewBox="0 0 200 260" width="100%" height="100%" overflow="visible"><use href="#hook-emuh"/></svg></div></div>
+<div id="txt"><span class="a">KRIEG GEGEN</span><br/><span class="b">EMUS?!</span></div>
+<div id="kshadow"></div><div id="klotz"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+  <defs>
+    <clipPath id="k-clipL"><ellipse cx="108" cy="140" rx="40" ry="46"/></clipPath>
+    <clipPath id="k-clipR"><ellipse cx="192" cy="140" rx="40" ry="46"/></clipPath>
+  </defs>
+  <g id="k-armL" transform="rotate(70 48 190)"><rect x="31" y="186" width="34" height="84" rx="17" fill="#F06A0C" stroke="#7A2E00" stroke-width="6"/><circle cx="48" cy="270" r="21" fill="#FF7A1A" stroke="#7A2E00" stroke-width="6"/></g>
+  <g id="k-armR" transform="rotate(-70 252 190)"><rect x="235" y="186" width="34" height="84" rx="17" fill="#F06A0C" stroke="#7A2E00" stroke-width="6"/><circle cx="252" cy="270" r="21" fill="#FF7A1A" stroke="#7A2E00" stroke-width="6"/></g>
+  <ellipse cx="105" cy="304" rx="36" ry="17" fill="#D95F0A" stroke="#7A2E00" stroke-width="6"/>
+  <ellipse cx="195" cy="304" rx="36" ry="17" fill="#D95F0A" stroke="#7A2E00" stroke-width="6"/>
+  <rect x="40" y="48" width="220" height="250" rx="72" fill="#FF7A1A" stroke="#7A2E00" stroke-width="8"/>
+  <path d="M48 220 Q60 290 150 292 Q240 290 252 220 L252 236 Q246 294 150 294 Q54 294 48 236 Z" fill="#E8650C"/>
+  <ellipse cx="92" cy="86" rx="38" ry="18" fill="#fff" opacity=".28" transform="rotate(-24 92 86)"/>
+  <ellipse cx="72" cy="196" rx="20" ry="12" fill="#FF5A6E" opacity=".45"/><ellipse cx="228" cy="196" rx="20" ry="12" fill="#FF5A6E" opacity=".45"/>
+  <g id="k-eyes">
+    <g id="k-eyeL" transform="translate(108 140) scale(1.14) translate(-108 -140)"><ellipse cx="108" cy="140" rx="40" ry="46" fill="#fff" stroke="#3A1400" stroke-width="5"/>
+      <g clip-path="url(#k-clipL)"><g id="k-pupL" transform="translate(108 142) scale(0.58) translate(-108 -142)"><circle cx="108" cy="142" r="18" fill="#141414"/><circle cx="114" cy="135" r="6" fill="#fff"/></g>
+      <rect id="k-lidL" transform="scale(1 0)" x="64" y="90" width="88" height="100" fill="#FF7A1A"/></g></g>
+    <g id="k-eyeR" transform="translate(192 140) scale(1.14) translate(-192 -140)"><ellipse cx="192" cy="140" rx="40" ry="46" fill="#fff" stroke="#3A1400" stroke-width="5"/>
+      <g clip-path="url(#k-clipR)"><g id="k-pupR" transform="translate(192 142) scale(0.58) translate(-192 -142)"><circle cx="192" cy="142" r="18" fill="#141414"/><circle cx="198" cy="135" r="6" fill="#fff"/></g>
+      <rect id="k-lidR" transform="scale(1 0)" x="148" y="90" width="88" height="100" fill="#FF7A1A"/></g></g>
+  </g>
+  <rect id="k-browL" transform="translate(0 -20) rotate(-8 109 81)" x="80" y="74" width="58" height="15" rx="7.5" fill="#5A2200"/>
+  <rect id="k-browR" transform="translate(0 -20) rotate(8 191 81)" x="162" y="74" width="58" height="15" rx="7.5" fill="#5A2200"/>
+  <g id="k-mouth" transform="translate(150 228) scale(1.05 1.25) translate(-150 -228)"><ellipse cx="150" cy="228" rx="26" ry="28" fill="#3A0A0A" stroke="#2A0505" stroke-width="4"/><ellipse cx="150" cy="244" rx="15" ry="8" fill="#FF5A6E"/></g>
+  <g id="k-grin" transform="scale(0)"><path d="M98 212 Q150 278 202 212 Q150 226 98 212 Z" fill="#3A0A0A" stroke="#2A0505" stroke-width="4" stroke-linejoin="round"/><path d="M128 246 Q150 256 172 246 Q150 238 128 246 Z" fill="#FF5A6E"/></g>
+  <path id="k-sweat" d="M262 70 Q274 92 266 102 Q254 108 250 96 Q250 86 262 70 Z" fill="#7FD3FF" stroke="#2A5A80" stroke-width="4"/>
+</svg></div>
+</div></body></html>

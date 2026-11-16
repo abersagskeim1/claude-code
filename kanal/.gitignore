@@ -1,0 +1,7 @@
+*.mp4
+node_modules/
+.hyperframes/
+renders/
+meta/
+subs/
+thumbs/

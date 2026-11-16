@@ -1,0 +1,56 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #klemmt-out, #klemmt-kb { position: absolute; inset: 0; transform-origin: 540px 1120px; }
+    .klemmt-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    #klemmt-mg{position:absolute;left:110px;top:1000px;width:820px;height:332px;}
+     .klemmt-p{position:absolute;top:1010px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#E8EDF3,#9AA6B4);opacity:0;}
+     #klemmt-boom{position:absolute;left:560px;top:740px;width:420px;height:300px;}
+     #klemmt-btxt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:110px;font-family:'Lilita One';color:#FFD23F;-webkit-text-stroke:16px #0A0F22;paint-order:stroke fill;text-shadow:0 10px 0 #050814;color:#fff;-webkit-text-stroke:14px #0A0F22;}
+  </style>
+  <div id="root" data-composition-id="klemmt" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="klemmt-mgsym" viewBox="0 0 420 170">
+  <path d="M10 72 L94 60 L102 112 L18 132 Z" fill="#8B5A2B"/><path d="M18 80 L90 70" stroke="#A8743E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M120 100 L142 100 L134 142 L112 142 Z" fill="#2D3540"/>
+  <rect x="90" y="55" width="124" height="52" rx="9" fill="#3B4552"/>
+  <rect x="200" y="58" width="172" height="42" rx="19" fill="#4B5563"/>
+  <rect x="210" y="62" width="150" height="7" rx="3" fill="#6B7684"/>
+  <g stroke="#2D3540" stroke-width="4"><line x1="216" y1="72" x2="216" y2="96"/><line x1="230" y1="72" x2="230" y2="96"/><line x1="244" y1="72" x2="244" y2="96"/><line x1="258" y1="72" x2="258" y2="96"/><line x1="272" y1="72" x2="272" y2="96"/><line x1="286" y1="72" x2="286" y2="96"/><line x1="300" y1="72" x2="300" y2="96"/><line x1="314" y1="72" x2="314" y2="96"/><line x1="328" y1="72" x2="328" y2="96"/><line x1="342" y1="72" x2="342" y2="96"/><line x1="356" y1="72" x2="356" y2="96"/></g>
+  <rect x="366" y="70" width="46" height="17" rx="6" fill="#2D3540"/>
+  <ellipse cx="160" cy="42" rx="64" ry="19" fill="#5B6573"/><ellipse cx="160" cy="38" rx="64" ry="15" fill="#6B7684"/><ellipse cx="160" cy="38" rx="20" ry="6" fill="#2D3540"/>
+  <g stroke="#2D3540" stroke-width="8" stroke-linecap="round"><line x1="330" y1="98" x2="302" y2="160"/><line x1="330" y1="98" x2="360" y2="160"/></g>
+</symbol></defs></svg>
+    <div id="klemmt-out"><div id="klemmt-kb">
+      <div id="klemmt-mg" class="klemmt-stk"><svg viewBox="0 0 420 170" width="100%" height="100%" overflow="visible"><use href="#klemmt-mgsym"/></svg></div>
+      <div id="klemmt-p0" class="klemmt-p" style="left:731px;"></div>
+      <div id="klemmt-p1" class="klemmt-p" style="left:662px;"></div>
+      <div id="klemmt-p2" class="klemmt-p" style="left:752px;"></div>
+      <div id="klemmt-p3" class="klemmt-p" style="left:709px;"></div>
+      <div id="klemmt-p4" class="klemmt-p" style="left:701px;"></div>
+      <div id="klemmt-p5" class="klemmt-p" style="left:717px;"></div>
+      <div id="klemmt-p6" class="klemmt-p" style="left:767px;"></div>
+      <div id="klemmt-p7" class="klemmt-p" style="left:769px;"></div>
+      <div id="klemmt-p8" class="klemmt-p" style="left:664px;"></div>
+      <div id="klemmt-boom"><svg viewBox="0 0 420 300" width="100%" height="100%"><path fill="#FF3B3B" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round" d="M40 150 L110 120 L70 50 L170 90 L200 20 L240 90 L330 40 L310 120 L400 140 L320 180 L370 260 L260 210 L220 285 L180 210 L80 250 L120 180 Z"/></svg><div id="klemmt-btxt">KLACK!</div></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow Ken-Burns drift on the graphics so the frame never stands still
+      tl.fromTo("#klemmt-kb", { scale: 1 }, { scale: 1.06, duration: 1.8, ease: "none" }, 0);
+      tl.fromTo("#klemmt-mg", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(2)" }, 0);
+      tl.fromTo("#klemmt-boom", { scale: 0, rotation: -25 }, { scale: 1, rotation: 6, duration: 0.22, ease: "back.out(3)" }, 0.12);
+      tl.to("#klemmt-kb", { keyframes: { x: [0, -24, 20, -14, 8, -4, 0], y: [0, 12, -10, 6, -2, 0, 0] }, duration: 0.4, ease: "none" }, 0.12);
+      tl.to("#klemmt-mg", { rotation: 7, y: 30, duration: 0.6, ease: "power2.out", transformOrigin: "20% 60%" }, 0.45);
+      tl.to("#klemmt-boom", { rotation: -4, scale: 0.92, duration: 0.8, ease: "sine.inOut" }, 0.5);
+      [[0.15,1.48],[0.31,1.25],[0.47,1.37],[0.63,1.36],[0.79,1.32],[0.95,1.02],[1.11,1.36],[1.27,0.97],[1.43,1.01]].forEach(([d, s], i) => {
+        tl.fromTo("#klemmt-p" + i, { opacity: 0.95, scale: 0.3, y: 0, x: 0 }, { opacity: 0, scale: s * 2, y: -330, x: (i % 2 ? 40 : -40), duration: 1.1, ease: "power1.out", immediateRender: false }, d);
+      });
+      // overlap exit: fades while the next scene is already entering
+      tl.to("#klemmt-out", { opacity: 0, scale: 0.92, duration: 0.28, ease: "power2.in" }, 1.8);
+      window.__timelines["klemmt"] = tl;
+    })();
+  </script>
+</template>

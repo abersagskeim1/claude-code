@@ -1,0 +1,43 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #abbruch-out, #abbruch-kb { position: absolute; inset: 0; transform-origin: 540px 1120px; }
+    .abbruch-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .abbruch-pg{position:absolute;left:300px;top:800px;width:480px;height:470px;border-radius:30px;background:#fff;box-shadow:0 14px 0 rgba(0,0,0,.35);overflow:hidden;border:6px solid #0A0F22;}
+     .abbruch-hd{height:120px;background:#FF3B3B;display:flex;align-items:center;justify-content:center;font-family:'Lilita One';font-size:84px;color:#fff;}
+     .abbruch-day{height:330px;display:flex;align-items:center;justify-content:center;font-family:'Inter';font-weight:900;font-size:136px;color:#0E1530;letter-spacing:-.03em;}
+     #abbruch-stamp{position:absolute;left:270px;top:1170px;width:540px;height:180px;display:flex;align-items:center;justify-content:center;font-family:'Lilita One';font-size:140px;color:#FF3B3B;border:14px solid #FF3B3B;border-radius:24px;background:rgba(255,255,255,.9);opacity:0;}
+  </style>
+  <div id="root" data-composition-id="abbruch" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="abbruch-out"><div id="abbruch-kb">
+      <div id="abbruch-p0" class="abbruch-pg" data-layout-allow-overlap><div class="abbruch-hd">1932</div><div class="abbruch-day">10.12.</div></div>
+      <div id="abbruch-p1" class="abbruch-pg" data-layout-allow-overlap><div class="abbruch-hd">1932</div><div class="abbruch-day">30.11.</div></div>
+      <div id="abbruch-p2" class="abbruch-pg" data-layout-allow-overlap><div class="abbruch-hd">1932</div><div class="abbruch-day">23.11.</div></div>
+      <div id="abbruch-p3" class="abbruch-pg" data-layout-allow-overlap><div class="abbruch-hd">1932</div><div class="abbruch-day">16.11.</div></div>
+      <div id="abbruch-p4" class="abbruch-pg" data-layout-allow-overlap><div class="abbruch-hd">1932</div><div class="abbruch-day">9.11.</div></div>
+      <div id="abbruch-p5" class="abbruch-pg" data-layout-allow-overlap><div class="abbruch-hd">1932</div><div class="abbruch-day">2.11.</div></div>
+      <div id="abbruch-stamp" data-layout-allow-overlap data-layout-allow-occlusion>ENDE</div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow Ken-Burns drift on the graphics so the frame never stands still
+      tl.fromTo("#abbruch-kb", { scale: 1 }, { scale: 1.06, duration: 2, ease: "none" }, 0);
+      tl.fromTo(".abbruch-pg", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "back.out(2)" }, 0);
+      // tear off the pages from 2.11. to 30.11.
+      [5, 4, 3, 2, 1].forEach((i, k) => {
+        tl.to("#abbruch-p" + i, { y: -700, x: (k % 2 ? 380 : -380), rotation: (k % 2 ? 40 : -40), opacity: 0, duration: 0.32, ease: "power2.in" }, 0.25 + k * 0.17);
+      });
+      tl.fromTo("#abbruch-p0", { rotation: 0 }, { rotation: -3, duration: 0.2, ease: "back.out(3)" }, 1.1);
+      tl.fromTo("#abbruch-stamp", { scale: 3, opacity: 0, rotation: -25 }, { scale: 1, opacity: 1, rotation: -12, duration: 0.18, ease: "power4.in" }, 1.2);
+      tl.to("#abbruch-kb", { keyframes: { x: [0, -18, 14, -8, 0], y: [0, 10, -6, 2, 0] }, duration: 0.3, ease: "none" }, 1.38);
+      tl.to("#abbruch-stamp", { rotation: -9, scale: 1.04, duration: 0.5, ease: "sine.inOut" }, 1.5);
+      // overlap exit: fades while the next scene is already entering
+      tl.to("#abbruch-out", { opacity: 0, scale: 0.92, duration: 0.28, ease: "power2.in" }, 2);
+      window.__timelines["abbruch"] = tl;
+    })();
+  </script>
+</template>

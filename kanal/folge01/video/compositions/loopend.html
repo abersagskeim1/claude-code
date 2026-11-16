@@ -1,0 +1,46 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #loopend-out, #loopend-kb { position: absolute; inset: 0; transform-origin: 540px 1120px; }
+    .loopend-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    #loopend-burst{position:absolute;left:110px;top:780px;width:800px;height:800px;opacity:.9;}
+   #loopend-map{position:absolute;left:120px;top:880px;width:720px;height:624px;}
+   #loopend-emu{position:absolute;left:370px;top:940px;width:250px;height:325px;}
+  </style>
+  <div id="root" data-composition-id="loopend" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="loopend-emuh" viewBox="0 0 200 260">
+  <g stroke="#E0A060" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M85 178 L76 214 L88 246 M88 246 L72 252 M88 246 L104 252"/>
+    <path d="M116 178 L124 214 L114 246 M114 246 L98 252 M114 246 L130 252"/>
+  </g>
+  <path d="M146 116 C150 84 144 62 150 44" stroke="#8FB8E0" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <ellipse cx="100" cy="140" rx="72" ry="54" fill="#8A6A50"/>
+  <g fill="#8A6A50"><circle cx="40" cy="122" r="18"/><circle cx="60" cy="100" r="21"/><circle cx="88" cy="90" r="23"/><circle cx="118" cy="93" r="20"/><circle cx="142" cy="106" r="17"/><circle cx="36" cy="152" r="16"/><circle cx="164" cy="138" r="14"/></g>
+  <ellipse cx="110" cy="150" rx="42" ry="26" fill="#A8876C"/>
+  <g stroke="#5E4634" stroke-width="5" fill="none" stroke-linecap="round"><path d="M62 124 q18 -10 36 0"/><path d="M76 146 q16 -8 30 0"/></g>
+  <circle cx="152" cy="38" r="22" fill="#6E5442"/>
+  <path d="M170 31 L198 39 L170 47 Z" fill="#F2C14E"/>
+  <circle cx="157" cy="32" r="8.5" fill="#fff"/><circle cx="159.5" cy="32" r="4.6" fill="#111"/>
+  <path d="M124 34 Q124 4 154 4 Q182 4 182 30 Z" fill="#6B8E3D"/>
+  <path d="M116 33 L190 30 Q192 38 184 39 L120 41 Q112 40 116 33 Z" fill="#4A6629"/>
+  <path d="M136 16 Q144 9 156 9" stroke="#9CC06A" stroke-width="5" fill="none" stroke-linecap="round"/></symbol></defs></svg>
+    <div id="loopend-out"><div id="loopend-kb">
+      <div id="loopend-burst"><svg viewBox="0 0 200 200" width="100%" height="100%"><path fill="#FF3B3B" d="M198.0 100.0 L159.9 116.0 L184.9 149.0 L143.8 143.8 L149.0 184.9 L116.0 159.9 L100.0 198.0 L84.0 159.9 L51.0 184.9 L56.2 143.8 L15.1 149.0 L40.1 116.0 L2.0 100.0 L40.1 84.0 L15.1 51.0 L56.2 56.2 L51.0 15.1 L84.0 40.1 L100.0 2.0 L116.0 40.1 L149.0 15.1 L143.8 56.2 L184.9 51.0 L159.9 84.0 Z"/></svg></div>
+      <div id="loopend-map" class="loopend-stk"><svg viewBox="0 0 600 530" width="100%" height="100%"><path d="M60 232 L112 192 L170 150 L208 104 L258 92 L290 60 L330 70 L346 100 L380 86 L396 122 L382 160 L410 192 L440 170 L452 110 L470 30 L492 92 L512 152 L546 220 L576 282 L582 342 L562 402 L532 442 L482 452 L442 432 L412 402 L392 420 L372 382 L332 372 L262 346 L200 352 L142 382 L82 396 L60 362 L54 300 Z" fill="#3FAE6A" stroke="#1E6B3F" stroke-width="8" stroke-linejoin="round"/><path d="M466 482 L512 476 L506 512 L482 520 Z" fill="#3FAE6A" stroke="#1E6B3F" stroke-width="8" stroke-linejoin="round"/><path d="M150 250 Q260 220 330 260" stroke="#57C783" stroke-width="10" fill="none" stroke-linecap="round" opacity=".7"/></svg></div>
+      <div id="loopend-emu" class="loopend-stk"><svg viewBox="0 0 200 260" width="100%" height="100%" overflow="visible"><use href="#loopend-emuh"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow Ken-Burns drift on the graphics so the frame never stands still
+
+      tl.fromTo("#loopend-map", { opacity: 0, scale: 0.5, rotation: -8 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.0);
+      tl.fromTo("#loopend-burst", { opacity: 0, scale: 0.3, rotation: -50 }, { opacity: 0.9, scale: 1, rotation: 0, duration: 0.32, ease: "power3.out" }, 0.04);
+      tl.fromTo("#loopend-emu", { opacity: 0, y: -520 }, { opacity: 1, y: 0, duration: 0.24, ease: "power3.in" }, 0.08);
+
+      window.__timelines["loopend"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,150 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #sieger-out, #sieger-kb { position: absolute; inset: 0; transform-origin: 540px 1120px; }
+    .sieger-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    #sieger-rays{position:absolute;left:-260px;top:140px;width:1600px;height:1600px;background:repeating-conic-gradient(from 0deg, rgba(255,210,63,.28) 0deg 8deg, rgba(255,210,63,0) 8deg 20deg);border-radius:50%;-webkit-mask-image:radial-gradient(circle,#000 25%,transparent 65%);mask-image:radial-gradient(circle,#000 25%,transparent 65%);}
+     .sieger-blk{position:absolute;bottom:450px;border-radius:18px 18px 0 0;border:8px solid #0A0F22;display:flex;justify-content:center;font-family:'Lilita One';font-size:130px;color:#fff;-webkit-text-stroke:12px #0A0F22;paint-order:stroke fill;padding-top:10px;}
+     #sieger-b1{left:390px;width:300px;height:300px;background:#FFD23F;}
+     #sieger-b2{left:100px;width:290px;height:210px;background:#C9D3E0;}
+     #sieger-b3{left:690px;width:290px;height:150px;background:#E08A4A;}
+     #sieger-emu{position:absolute;left:425px;top:862px;width:230px;height:299px;}
+     #sieger-tro{position:absolute;left:600px;top:830px;width:120px;height:140px;}
+     #sieger-helm{position:absolute;left:140px;top:1132px;width:210px;height:131px;}
+     #sieger-mg{position:absolute;left:705px;top:1215px;width:260px;height:105px;}
+     .sieger-c{position:absolute;top:0;border-radius:4px;}
+  </style>
+  <div id="root" data-composition-id="sieger" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="sieger-helmsym" viewBox="0 0 240 150">
+  <path d="M34 112 Q34 18 120 18 Q206 18 206 112 Z" fill="#6B8E3D"/>
+  <path d="M70 52 Q88 34 116 32" stroke="#9CC06A" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <ellipse cx="120" cy="116" rx="114" ry="20" fill="#4A6629"/></symbol><symbol id="sieger-mgsym" viewBox="0 0 420 170">
+  <path d="M10 72 L94 60 L102 112 L18 132 Z" fill="#8B5A2B"/><path d="M18 80 L90 70" stroke="#A8743E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M120 100 L142 100 L134 142 L112 142 Z" fill="#2D3540"/>
+  <rect x="90" y="55" width="124" height="52" rx="9" fill="#3B4552"/>
+  <rect x="200" y="58" width="172" height="42" rx="19" fill="#4B5563"/>
+  <rect x="210" y="62" width="150" height="7" rx="3" fill="#6B7684"/>
+  <g stroke="#2D3540" stroke-width="4"><line x1="216" y1="72" x2="216" y2="96"/><line x1="230" y1="72" x2="230" y2="96"/><line x1="244" y1="72" x2="244" y2="96"/><line x1="258" y1="72" x2="258" y2="96"/><line x1="272" y1="72" x2="272" y2="96"/><line x1="286" y1="72" x2="286" y2="96"/><line x1="300" y1="72" x2="300" y2="96"/><line x1="314" y1="72" x2="314" y2="96"/><line x1="328" y1="72" x2="328" y2="96"/><line x1="342" y1="72" x2="342" y2="96"/><line x1="356" y1="72" x2="356" y2="96"/></g>
+  <rect x="366" y="70" width="46" height="17" rx="6" fill="#2D3540"/>
+  <ellipse cx="160" cy="42" rx="64" ry="19" fill="#5B6573"/><ellipse cx="160" cy="38" rx="64" ry="15" fill="#6B7684"/><ellipse cx="160" cy="38" rx="20" ry="6" fill="#2D3540"/>
+  <g stroke="#2D3540" stroke-width="8" stroke-linecap="round"><line x1="330" y1="98" x2="302" y2="160"/><line x1="330" y1="98" x2="360" y2="160"/></g>
+</symbol><symbol id="sieger-emusym" viewBox="0 0 200 260">
+  <g stroke="#E0A060" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M85 178 L76 214 L88 246 M88 246 L72 252 M88 246 L104 252"/>
+    <path d="M116 178 L124 214 L114 246 M114 246 L98 252 M114 246 L130 252"/>
+  </g>
+  <path d="M146 116 C150 84 144 62 150 44" stroke="#8FB8E0" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <ellipse cx="100" cy="140" rx="72" ry="54" fill="#8A6A50"/>
+  <g fill="#8A6A50"><circle cx="40" cy="122" r="18"/><circle cx="60" cy="100" r="21"/><circle cx="88" cy="90" r="23"/><circle cx="118" cy="93" r="20"/><circle cx="142" cy="106" r="17"/><circle cx="36" cy="152" r="16"/><circle cx="164" cy="138" r="14"/></g>
+  <ellipse cx="110" cy="150" rx="42" ry="26" fill="#A8876C"/>
+  <g stroke="#5E4634" stroke-width="5" fill="none" stroke-linecap="round"><path d="M62 124 q18 -10 36 0"/><path d="M76 146 q16 -8 30 0"/></g>
+  <circle cx="152" cy="38" r="22" fill="#6E5442"/>
+  <path d="M170 31 L198 39 L170 47 Z" fill="#F2C14E"/>
+  <circle cx="157" cy="32" r="8.5" fill="#fff"/><circle cx="159.5" cy="32" r="4.6" fill="#111"/></symbol><symbol id="sieger-trosym" viewBox="0 0 120 140">
+  <g stroke="#E0A93A" stroke-width="10" fill="none" stroke-linecap="round"><path d="M28 22 Q2 22 8 46 Q14 62 32 64"/><path d="M92 22 Q118 22 112 46 Q106 62 88 64"/></g>
+  <path d="M24 8 H96 V40 Q96 86 60 90 Q24 86 24 40 Z" fill="#FFD23F"/><path d="M38 18 V44 Q40 66 54 74" stroke="#FFF2B0" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <rect x="52" y="88" width="16" height="22" fill="#E0A93A"/><rect x="28" y="108" width="64" height="24" rx="6" fill="#E0A93A"/><rect x="36" y="114" width="48" height="8" rx="3" fill="#FFD23F"/></symbol></defs></svg>
+    <div id="sieger-out"><div id="sieger-kb">
+      <div id="sieger-rays"></div>
+      <div id="sieger-b2" class="sieger-blk" data-layout-ignore>2</div><div id="sieger-b3" class="sieger-blk" data-layout-ignore>3</div><div id="sieger-b1" class="sieger-blk" data-layout-ignore>1</div>
+      <div id="sieger-helm" class="sieger-stk"><svg viewBox="0 0 240 150" width="100%" height="100%" overflow="visible"><use href="#sieger-helmsym"/></svg></div>
+      <div id="sieger-mg" class="sieger-stk"><svg viewBox="0 0 420 170" width="100%" height="100%" overflow="visible"><use href="#sieger-mgsym"/></svg></div>
+      <div id="sieger-emu" class="sieger-stk"><svg viewBox="0 0 200 260" width="100%" height="100%" overflow="visible"><use href="#sieger-emusym"/></svg></div>
+      <div id="sieger-tro" class="sieger-stk"><svg viewBox="0 0 120 140" width="100%" height="100%" overflow="visible"><use href="#sieger-trosym"/></svg></div>
+      <div id="sieger-c0" class="sieger-c" style="left:970px;width:16px;height:35px;background:#FFD23F;"></div>
+      <div id="sieger-c1" class="sieger-c" style="left:163px;width:22px;height:27px;background:#FF3B3B;"></div>
+      <div id="sieger-c2" class="sieger-c" style="left:717px;width:16px;height:28px;background:#3FAE6A;"></div>
+      <div id="sieger-c3" class="sieger-c" style="left:751px;width:18px;height:32px;background:#4FC3F7;"></div>
+      <div id="sieger-c4" class="sieger-c" style="left:169px;width:23px;height:24px;background:#FF7A1A;"></div>
+      <div id="sieger-c5" class="sieger-c" style="left:445px;width:23px;height:29px;background:#FFFFFF;"></div>
+      <div id="sieger-c6" class="sieger-c" style="left:951px;width:14px;height:25px;background:#FFD23F;"></div>
+      <div id="sieger-c7" class="sieger-c" style="left:26px;width:15px;height:36px;background:#FF3B3B;"></div>
+      <div id="sieger-c8" class="sieger-c" style="left:334px;width:15px;height:30px;background:#3FAE6A;"></div>
+      <div id="sieger-c9" class="sieger-c" style="left:933px;width:16px;height:36px;background:#4FC3F7;"></div>
+      <div id="sieger-c10" class="sieger-c" style="left:494px;width:22px;height:32px;background:#FF7A1A;"></div>
+      <div id="sieger-c11" class="sieger-c" style="left:533px;width:21px;height:31px;background:#FFFFFF;"></div>
+      <div id="sieger-c12" class="sieger-c" style="left:562px;width:22px;height:25px;background:#FFD23F;"></div>
+      <div id="sieger-c13" class="sieger-c" style="left:1056px;width:21px;height:26px;background:#FF3B3B;"></div>
+      <div id="sieger-c14" class="sieger-c" style="left:910px;width:19px;height:34px;background:#3FAE6A;"></div>
+      <div id="sieger-c15" class="sieger-c" style="left:981px;width:16px;height:26px;background:#4FC3F7;"></div>
+      <div id="sieger-c16" class="sieger-c" style="left:953px;width:22px;height:29px;background:#FF7A1A;"></div>
+      <div id="sieger-c17" class="sieger-c" style="left:461px;width:17px;height:35px;background:#FFFFFF;"></div>
+      <div id="sieger-c18" class="sieger-c" style="left:637px;width:14px;height:27px;background:#FFD23F;"></div>
+      <div id="sieger-c19" class="sieger-c" style="left:347px;width:14px;height:30px;background:#FF3B3B;"></div>
+      <div id="sieger-c20" class="sieger-c" style="left:477px;width:18px;height:32px;background:#3FAE6A;"></div>
+      <div id="sieger-c21" class="sieger-c" style="left:705px;width:15px;height:29px;background:#4FC3F7;"></div>
+      <div id="sieger-c22" class="sieger-c" style="left:778px;width:21px;height:25px;background:#FF7A1A;"></div>
+      <div id="sieger-c23" class="sieger-c" style="left:576px;width:14px;height:35px;background:#FFFFFF;"></div>
+      <div id="sieger-c24" class="sieger-c" style="left:525px;width:18px;height:33px;background:#FFD23F;"></div>
+      <div id="sieger-c25" class="sieger-c" style="left:959px;width:21px;height:25px;background:#FF3B3B;"></div>
+      <div id="sieger-c26" class="sieger-c" style="left:821px;width:21px;height:34px;background:#3FAE6A;"></div>
+      <div id="sieger-c27" class="sieger-c" style="left:795px;width:20px;height:36px;background:#4FC3F7;"></div>
+      <div id="sieger-c28" class="sieger-c" style="left:569px;width:19px;height:34px;background:#FF7A1A;"></div>
+      <div id="sieger-c29" class="sieger-c" style="left:1007px;width:22px;height:31px;background:#FFFFFF;"></div>
+      <div id="sieger-c30" class="sieger-c" style="left:838px;width:16px;height:36px;background:#FFD23F;"></div>
+      <div id="sieger-c31" class="sieger-c" style="left:313px;width:21px;height:26px;background:#FF3B3B;"></div>
+      <div id="sieger-c32" class="sieger-c" style="left:257px;width:18px;height:33px;background:#3FAE6A;"></div>
+      <div id="sieger-c33" class="sieger-c" style="left:103px;width:24px;height:38px;background:#4FC3F7;"></div>
+      <div id="sieger-c34" class="sieger-c" style="left:940px;width:24px;height:37px;background:#FF7A1A;"></div>
+      <div id="sieger-c35" class="sieger-c" style="left:157px;width:15px;height:31px;background:#FFFFFF;"></div>
+      <div id="sieger-c36" class="sieger-c" style="left:579px;width:21px;height:32px;background:#FFD23F;"></div>
+      <div id="sieger-c37" class="sieger-c" style="left:853px;width:23px;height:26px;background:#FF3B3B;"></div>
+      <div id="sieger-c38" class="sieger-c" style="left:560px;width:19px;height:35px;background:#3FAE6A;"></div>
+      <div id="sieger-c39" class="sieger-c" style="left:252px;width:16px;height:30px;background:#4FC3F7;"></div>
+      <div id="sieger-c40" class="sieger-c" style="left:749px;width:14px;height:34px;background:#FF7A1A;"></div>
+      <div id="sieger-c41" class="sieger-c" style="left:826px;width:15px;height:27px;background:#FFFFFF;"></div>
+      <div id="sieger-c42" class="sieger-c" style="left:331px;width:20px;height:33px;background:#FFD23F;"></div>
+      <div id="sieger-c43" class="sieger-c" style="left:23px;width:21px;height:33px;background:#FF3B3B;"></div>
+      <div id="sieger-c44" class="sieger-c" style="left:827px;width:23px;height:24px;background:#3FAE6A;"></div>
+      <div id="sieger-c45" class="sieger-c" style="left:576px;width:18px;height:35px;background:#4FC3F7;"></div>
+      <div id="sieger-c46" class="sieger-c" style="left:503px;width:17px;height:38px;background:#FF7A1A;"></div>
+      <div id="sieger-c47" class="sieger-c" style="left:419px;width:23px;height:36px;background:#FFFFFF;"></div>
+      <div id="sieger-c48" class="sieger-c" style="left:552px;width:22px;height:29px;background:#FFD23F;"></div>
+      <div id="sieger-c49" class="sieger-c" style="left:384px;width:21px;height:30px;background:#FF3B3B;"></div>
+      <div id="sieger-c50" class="sieger-c" style="left:365px;width:19px;height:38px;background:#3FAE6A;"></div>
+      <div id="sieger-c51" class="sieger-c" style="left:954px;width:17px;height:27px;background:#4FC3F7;"></div>
+      <div id="sieger-c52" class="sieger-c" style="left:289px;width:20px;height:25px;background:#FF7A1A;"></div>
+      <div id="sieger-c53" class="sieger-c" style="left:291px;width:21px;height:28px;background:#FFFFFF;"></div>
+      <div id="sieger-c54" class="sieger-c" style="left:342px;width:16px;height:31px;background:#FFD23F;"></div>
+      <div id="sieger-c55" class="sieger-c" style="left:574px;width:18px;height:32px;background:#FF3B3B;"></div>
+      <div id="sieger-c56" class="sieger-c" style="left:856px;width:14px;height:31px;background:#3FAE6A;"></div>
+      <div id="sieger-c57" class="sieger-c" style="left:8px;width:15px;height:31px;background:#4FC3F7;"></div>
+      <div id="sieger-c58" class="sieger-c" style="left:405px;width:19px;height:31px;background:#FF7A1A;"></div>
+      <div id="sieger-c59" class="sieger-c" style="left:838px;width:22px;height:28px;background:#FFFFFF;"></div>
+      <div id="sieger-c60" class="sieger-c" style="left:940px;width:17px;height:28px;background:#FFD23F;"></div>
+      <div id="sieger-c61" class="sieger-c" style="left:1043px;width:16px;height:32px;background:#FF3B3B;"></div>
+      <div id="sieger-c62" class="sieger-c" style="left:990px;width:19px;height:36px;background:#3FAE6A;"></div>
+      <div id="sieger-c63" class="sieger-c" style="left:801px;width:17px;height:31px;background:#4FC3F7;"></div>
+      <div id="sieger-c64" class="sieger-c" style="left:343px;width:23px;height:30px;background:#FF7A1A;"></div>
+      <div id="sieger-c65" class="sieger-c" style="left:697px;width:19px;height:33px;background:#FFFFFF;"></div>
+      <div id="sieger-c66" class="sieger-c" style="left:235px;width:19px;height:29px;background:#FFD23F;"></div>
+      <div id="sieger-c67" class="sieger-c" style="left:347px;width:21px;height:29px;background:#FF3B3B;"></div>
+      <div id="sieger-c68" class="sieger-c" style="left:99px;width:19px;height:30px;background:#3FAE6A;"></div>
+      <div id="sieger-c69" class="sieger-c" style="left:354px;width:20px;height:33px;background:#4FC3F7;"></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow Ken-Burns drift on the graphics so the frame never stands still
+      tl.fromTo("#sieger-kb", { scale: 1 }, { scale: 1.06, duration: 1.8, ease: "none" }, 0);
+      tl.fromTo("#sieger-rays", { scale: 0.4, opacity: 0, rotation: 0 }, { scale: 1, opacity: 1, rotation: 30, duration: 1.8, ease: "power2.out" }, 0);
+      tl.fromTo(["#sieger-b2", "#sieger-b1", "#sieger-b3"], { y: 520 }, { y: 0, duration: 0.35, ease: "back.out(1.4)", stagger: 0.05 }, 0);
+      tl.fromTo("#sieger-emu", { scale: 0, y: 60 }, { scale: 1, y: 0, duration: 0.35, ease: "back.out(2)", transformOrigin: "50% 100%" }, 0.2);
+      tl.fromTo("#sieger-emu", { scaleY: 0.7, scaleX: 1.2 }, { scaleY: 1, scaleX: 1, duration: 0.45, ease: "elastic.out(1, 0.4)", transformOrigin: "50% 100%", immediateRender: false }, 0.56);
+      tl.fromTo("#sieger-tro", { scale: 0, rotation: -40 }, { scale: 1, rotation: 12, duration: 0.35, ease: "back.out(3)" }, 0.55);
+      tl.to("#sieger-tro", { y: -30, rotation: -6, duration: 0.25, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.9);
+      tl.to("#sieger-emu", { rotation: 7, duration: 0.2, yoyo: true, repeat: 4, ease: "sine.inOut", transformOrigin: "50% 100%" }, 0.95);
+      tl.fromTo(["#sieger-helm", "#sieger-mg"], { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.08 }, 0.25);
+      tl.to("#sieger-helm", { rotation: -12, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.6);
+      const C = [[-373.03,-158.83,-212.33,0.15,1.49],[-311.77,105.97,176.23,0.04,1.76],[-156.67,144.72,-310.57,0.06,1.48],[-415.18,-100.39,2.26,0.18,1.68],[-372.46,-122.76,-285.51,0.06,1.98],[-181.82,-37.28,-343.74,0.01,1.64],[-403.06,-1.32,-514.3,0.33,1.86],[-172.66,-73.75,424.63,0.31,1.43],[-305.82,-132.63,346.99,0,1.93],[-90.66,91.57,-293.93,0.15,1.99],[-326.92,63.34,-259.09,0.08,1.4],[-133.71,-71.29,195.08,0.2,1.95],[-378.75,-153.02,459.67,0.25,1.53],[-238.25,-148.4,-4.13,0.05,1.48],[-391.19,-133.89,587.17,0.13,1.98],[-101.94,19.03,652.38,0.15,1.73],[-153.84,-46.35,-714.92,0.32,1.54],[-42.23,89.05,-373.44,0.01,1.57],[-199.54,-38.41,-454.18,0.21,1.84],[-280.77,46.54,-338.45,0.02,1.69],[-246.37,124.47,73.73,0.29,1.85],[-66.86,77.58,-710.6,0.19,1.53],[-173.2,-90.36,592.26,0.22,1.87],[-386.85,50.19,522.46,0.31,1.76],[-405.88,85.26,253.47,0.23,1.96],[-296.66,18.48,580.54,0.15,2.01],[-157.23,81.9,264.16,0.29,1.66],[-404.72,-67.5,208.62,0.33,1.49],[-185.97,76.07,490.72,0.15,1.95],[-241.19,-42.62,-153.07,0.24,2.03],[-166.54,124.58,-299.22,0.31,1.84],[-145.73,72.17,308.43,0.12,1.9],[-289.93,-115.09,-41.69,0.12,1.43],[-209.38,155.97,573.28,0.15,1.59],[-183.2,-86.9,688.2,0.18,1.83],[-381.64,-101.86,472.66,0.11,1.63],[-354.13,86.78,-228,0.17,1.42],[-305.73,-35.84,636.56,0.33,1.5],[-174.88,149.69,23.76,0.04,2],[-302.63,26.86,476.42,0.13,1.46],[-211.18,-12.69,-156.66,0.16,1.63],[-412.1,144.4,695.4,0.32,1.42],[-280.75,149.95,547.43,0.33,1.8],[-232.89,-69.46,136.56,0.09,1.59],[-288.99,64.18,422.67,0.29,2],[-407.36,-15.15,-264.48,0.1,1.52],[-318.71,-111.73,662.96,0.18,1.56],[-296.63,109.85,-218.64,0.01,1.54],[-176.13,-63.46,343.7,0.33,1.41],[-314.2,-55.46,-94.93,0.09,2.09],[-254.28,115.86,328.32,0.03,1.65],[-64.71,68.07,629.07,0.33,2.07],[-83.05,-16.4,-569.17,0.25,1.81],[-225.08,109.48,-696.06,0,1.43],[-350.21,109.21,-320.44,0.09,1.81],[-390.2,-60.62,-294.01,0.04,2.04],[-104.28,140.48,-423.66,0.11,1.79],[-286.55,-147.44,-512.74,0.25,1.97],[-253.79,105.63,421.84,0.28,1.89],[-178.58,-76.07,584.63,0.06,2.01],[-392.76,-109.74,422.09,0.23,1.95],[-75.61,-125.65,-103.55,0.25,1.88],[-253.83,-159.48,98.73,0.33,1.62],[-173,133.66,-409.44,0.33,2],[-181.67,-137.54,260.96,0.29,1.56],[-65.83,76.04,573.49,0.12,2.09],[-200.97,52.49,-534.67,0.16,1.51],[-197.45,83.85,-581.36,0.01,1.87],[-94.1,68.09,-29.87,0.01,1.91],[-289.39,41.92,-229.09,0.13,1.46]];
+      C.forEach(([y0, dx, rot, d, dur], i) => {
+        tl.fromTo("#sieger-c" + i, { y: y0, x: 0, rotation: 0 }, { y: y0 + 2300, x: dx, rotation: rot, duration: dur, ease: "power1.in" }, 0.05 + d);
+      });
+      // overlap exit: fades while the next scene is already entering
+      tl.to("#sieger-out", { opacity: 0, scale: 0.92, duration: 0.18, ease: "power2.in" }, 1.7);
+      window.__timelines["sieger"] = tl;
+    })();
+  </script>
+</template>
