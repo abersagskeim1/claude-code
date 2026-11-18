@@ -1,0 +1,40 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #frage-out, #frage-kb { position: absolute; inset: 0; transform-origin: 540px 1080px; }
+    .frage-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .pxe { position: absolute; }
+    .frage-btn{position:absolute;left:170px;width:740px;height:180px;border-radius:40px;border:10px solid #0A0F22;display:flex;align-items:center;justify-content:center;gap:34px;font-family:'Lilita One';font-size:118px;line-height:1;color:#fff;-webkit-text-stroke:12px #0A0F22;paint-order:stroke fill;box-shadow:0 16px 0 #050814;}
+     #frage-b1{top:820px;background:#3FAE6A;} #frage-b2{top:1060px;background:#FF3B3B;}
+     #frage-cur{left:700px;top:1300px;}
+  </style>
+  <div id="root" data-composition-id="frage" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="frage-plus" viewBox="0 0 7 7" shape-rendering="crispEdges"><rect x="2" y="0" width="3.03" height="1.03" fill="#0A0F22"/><rect x="2" y="1" width="1.03" height="1.03" fill="#0A0F22"/><rect x="3" y="1" width="1.03" height="1.03" fill="#3FE07A"/><rect x="4" y="1" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="2" width="3.03" height="1.03" fill="#0A0F22"/><rect x="3" y="2" width="1.03" height="1.03" fill="#3FE07A"/><rect x="4" y="2" width="3.03" height="1.03" fill="#0A0F22"/><rect x="0" y="3" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="3" width="5.03" height="1.03" fill="#3FE07A"/><rect x="6" y="3" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="4" width="3.03" height="1.03" fill="#0A0F22"/><rect x="3" y="4" width="1.03" height="1.03" fill="#3FE07A"/><rect x="4" y="4" width="3.03" height="1.03" fill="#0A0F22"/><rect x="2" y="5" width="1.03" height="1.03" fill="#0A0F22"/><rect x="3" y="5" width="1.03" height="1.03" fill="#3FE07A"/><rect x="4" y="5" width="1.03" height="1.03" fill="#0A0F22"/><rect x="2" y="6" width="3.03" height="1.03" fill="#0A0F22"/></symbol><symbol id="frage-cursor" viewBox="0 0 8 13" shape-rendering="crispEdges"><rect x="0" y="0" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="1" width="2.03" height="1.03" fill="#0A0F22"/><rect x="0" y="2" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="2" width="1.03" height="1.03" fill="#FFFFFF"/><rect x="2" y="2" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="3" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="3" width="2.03" height="1.03" fill="#FFFFFF"/><rect x="3" y="3" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="4" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="4" width="3.03" height="1.03" fill="#FFFFFF"/><rect x="4" y="4" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="5" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="5" width="4.03" height="1.03" fill="#FFFFFF"/><rect x="5" y="5" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="6" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="6" width="5.03" height="1.03" fill="#FFFFFF"/><rect x="6" y="6" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="7" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="7" width="6.03" height="1.03" fill="#FFFFFF"/><rect x="7" y="7" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="8" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="8" width="3.03" height="1.03" fill="#FFFFFF"/><rect x="4" y="8" width="4.03" height="1.03" fill="#0A0F22"/><rect x="0" y="9" width="1.03" height="1.03" fill="#0A0F22"/><rect x="1" y="9" width="1.03" height="1.03" fill="#FFFFFF"/><rect x="2" y="9" width="1.03" height="1.03" fill="#0A0F22"/><rect x="3" y="9" width="1.03" height="1.03" fill="#FFFFFF"/><rect x="4" y="9" width="1.03" height="1.03" fill="#0A0F22"/><rect x="0" y="10" width="2.03" height="1.03" fill="#0A0F22"/><rect x="3" y="10" width="1.03" height="1.03" fill="#0A0F22"/><rect x="4" y="10" width="1.03" height="1.03" fill="#FFFFFF"/><rect x="5" y="10" width="1.03" height="1.03" fill="#0A0F22"/><rect x="4" y="11" width="1.03" height="1.03" fill="#0A0F22"/><rect x="5" y="11" width="1.03" height="1.03" fill="#FFFFFF"/><rect x="6" y="11" width="1.03" height="1.03" fill="#0A0F22"/><rect x="5" y="12" width="1.03" height="1.03" fill="#0A0F22"/></symbol></defs></svg>
+    <div id="frage-out"><div id="frage-kb">
+      <div id="frage-b1" class="frage-btn"><svg viewBox="0 0 7 7" width="91" height="91" overflow="visible" shape-rendering="crispEdges" style="display:block;"><use href="#frage-plus"/></svg><span>HELFEN</span></div>
+      <div id="frage-b2" class="frage-btn"><svg viewBox="0 0 100 100" width="100" height="100"><path d="M10 50 H70 M50 22 L82 50 L50 78" stroke="#0A0F22" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 50 H70 M50 22 L82 50 L50 78" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>FLIEHEN</span></div>
+      <div id="frage-cur" class="pxe frage-stk" style="left:700px;top:1300px;width:88px;height:143px;"><svg viewBox="0 0 8 13" width="88" height="143" overflow="visible" shape-rendering="crispEdges" style="display:block;"><use href="#frage-cursor"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow Ken-Burns drift so the frame never stands still
+      tl.fromTo("#frage-kb", { scale: 1 }, { scale: 1.05, duration: 3.4, ease: "none" }, 0);
+      tl.fromTo("#frage-b1", { x: -900, rotation: -8 }, { x: 0, rotation: -2, duration: 0.4, ease: "back.out(1.5)" }, 0.05);
+      tl.fromTo("#frage-b2", { x: 900, rotation: 8 }, { x: 0, rotation: 2, duration: 0.4, ease: "back.out(1.5)" }, 0.2);
+      tl.fromTo("#frage-cur", { x: 300, y: 300, opacity: 0 }, { x: -40, y: -380, opacity: 1, duration: 0.5, ease: "power2.inOut" }, 0.6);
+      tl.to("#frage-cur", { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1 }, 1.1);
+      tl.to("#frage-b1", { scale: 0.94, duration: 0.08, yoyo: true, repeat: 1 }, 1.1);
+      tl.to("#frage-cur", { x: 60, y: -150, duration: 0.45, ease: "power2.inOut" }, 1.5);
+      tl.to("#frage-cur", { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1 }, 2.0);
+      tl.to("#frage-b2", { scale: 0.94, duration: 0.08, yoyo: true, repeat: 1 }, 2.0);
+      tl.to("#frage-cur", { x: -20, y: -260, duration: 0.5, ease: "sine.inOut" }, 2.4);
+      tl.to(["#frage-b1", "#frage-b2"], { rotation: 0, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.15 }, 0.5);
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#frage-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 3.4);
+      window.__timelines["frage"] = tl;
+    })();
+  </script>
+</template>

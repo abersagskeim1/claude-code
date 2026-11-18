@@ -1,0 +1,44 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #paper-out, #paper-kb { position: absolute; inset: 0; transform-origin: 540px 1080px; }
+    .paper-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .pxe { position: absolute; }
+    #paper-pg{position:absolute;left:200px;top:720px;width:680px;height:720px;}
+     #paper-stamp{position:absolute;left:420px;top:1080px;width:470px;height:210px;display:flex;align-items:center;justify-content:center;font-family:'Lilita One';font-size:150px;color:#FF3B3B;border:16px solid #FF3B3B;border-radius:26px;background:rgba(255,255,255,.88);opacity:0;}
+  </style>
+  <div id="root" data-composition-id="paper" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="paper-out"><div id="paper-kb">
+      <div id="paper-pg" class="paper-stk"><svg viewBox="0 0 680 720" width="100%" height="100%">
+        <rect x="0" y="0" width="680" height="720" rx="18" fill="#FFFFFF" stroke="#0A0F22" stroke-width="8"/>
+        <rect x="4" y="4" width="672" height="96" rx="14" fill="#1B2550"/>
+        <rect x="40" y="34" width="300" height="34" rx="10" fill="#FFFFFF"/><rect x="520" y="34" width="120" height="34" rx="10" fill="#FFD23F"/>
+        <rect x="40" y="130" width="560" height="30" rx="10" fill="#0E1530"/><rect x="40" y="172" width="400" height="30" rx="10" fill="#0E1530"/>
+        <rect x="40" y="230" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="256" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="282" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="308" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="334" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="360" width="168" height="12" rx="6" fill="#C9D3E0"/>
+        <rect x="350" y="226" width="290" height="230" rx="10" fill="#EEF3FA" stroke="#8A96A6" stroke-width="4"/>
+        <path d="M370 430 Q440 420 480 330 Q510 260 540 330 Q570 410 620 430" stroke="#FF3B3B" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <g shape-rendering="crispEdges" fill="#5BE36A" stroke="#0A0F22" stroke-width="3"><rect x="470" y="250" width="40" height="40"/></g>
+        <rect x="40" y="400" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="426" width="280" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="452" width="168" height="12" rx="6" fill="#C9D3E0"/>
+        <rect x="40" y="490" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="516" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="542" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="568" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="594" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="620" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="646" width="600" height="12" rx="6" fill="#C9D3E0"/><rect x="40" y="672" width="360" height="12" rx="6" fill="#C9D3E0"/>
+      </svg></div>
+      <div id="paper-stamp">2007</div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow Ken-Burns drift so the frame never stands still
+      tl.fromTo("#paper-kb", { scale: 1 }, { scale: 1.05, duration: 2.4, ease: "none" }, 0);
+      tl.fromTo("#paper-pg", { y: 900, rotation: 16 }, { y: 0, rotation: -3, duration: 0.45, ease: "back.out(1.3)" }, 0);
+      tl.to("#paper-pg", { rotation: 1.5, duration: 1.6, ease: "sine.inOut" }, 0.5);
+      tl.fromTo("#paper-stamp", { scale: 3, opacity: 0, rotation: -28 }, { scale: 1, opacity: 1, rotation: -12, duration: 0.18, ease: "power4.in" }, 0.85);
+      tl.to("#paper-kb", { keyframes: { x: [0, -18, 14.4, -9, 5.4, 0], y: [0, 9, -7.2, 3.6, 0, 0] }, duration: 0.3, ease: "none" }, 1.03);
+      tl.to("#paper-stamp", { rotation: -9, scale: 1.04, duration: 0.6, ease: "sine.inOut" }, 1.2);
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#paper-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.4);
+      window.__timelines["paper"] = tl;
+    })();
+  </script>
+</template>

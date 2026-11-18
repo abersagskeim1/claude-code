@@ -1,0 +1,27 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0E1530; }
+    #bg-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, #24387A 0%, #16224A 40%, #0E1530 74%); }
+    #bg-rays { position: absolute; left: -760px; top: -240px; width: 2600px; height: 2600px; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, rgba(255,255,255,.05) 0deg 6deg, rgba(255,255,255,0) 6deg 15deg); }
+    #bg-grid { position: absolute; left: 0; top: -60px; width: 1080px; height: 2040px;
+      background-image: linear-gradient(rgba(255,255,255,.035) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.035) 2px, transparent 2px);
+      background-size: 60px 60px; }
+    #bg-vig { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 55%, rgba(4,7,20,.6) 100%); }
+  </style>
+  <div id="root" data-composition-id="bg" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="bg-glow"></div>
+    <div id="bg-rays"></div>
+    <div id="bg-grid"></div>
+    <div id="bg-vig"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // 45 degrees = three ray periods, 60 px = one grid cell: both land on the frame-0 state for the loop
+      tl.fromTo("#bg-rays", { rotation: 0 }, { rotation: 45, duration: 38.6, ease: "none" }, 0);
+      tl.fromTo("#bg-grid", { y: 0 }, { y: 60, duration: 38.6, ease: "none" }, 0);
+      window.__timelines["bg"] = tl;
+    })();
+  </script>
+</template>
