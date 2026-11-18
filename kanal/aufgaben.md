@@ -1,6 +1,6 @@
 # Täglicher Auftrag: nächste Folge „WIRKLICH PASSIERT?!“
 
-Läuft täglich um 14:37 Uhr (Europe/Berlin) als geplante Aufgabe in einer neuen Sitzung (Umgebung „faceless-youtube“). Ziel: um 16:00 Uhr liegt die Folge privat auf YouTube und wartet auf die Freigabe.
+Läuft täglich um 14:37 Uhr (Europe/Berlin) als geplante Aufgabe in einer neuen Sitzung (Umgebung „faceless-youtube“). Ziel: um 16:00 Uhr liegt die fertige Folge mit Upload-Daten bereit; der Nutzer lädt sie selbst hoch.
 
 ## Auftrag (wörtlich so in der geplanten Aufgabe)
 
@@ -11,6 +11,6 @@ Du bist die Regie eines deutschsprachigen Faceless-YouTube-Shorts-Kanals „WIRK
 3. Bau: `node --version` (ab 22) und ffmpeg prüfen, `npx -y hyperframes skills update`, dann `npx hyperframes init video --resolution portrait --non-interactive` in `kanal/folgeNN/`. Ein Bau-Subagent liest den Skill `hyperframes` und baut die Folge nur mit Text im Bild (keine Stimme), lokal synthetisierten Soundeffekten und selbst gebauten SVG/CSS-Grafiken, Frame 1 = Thumbnail-Motiv, Loop am Ende. Render nach `kanal/folgeNN/folgeNN.mp4`, Thumbnail nach `kanal/folgeNN/thumbnail.png` (1080×1920, max. 3 gelbe Wörter, nicht = Titel, Pointe nicht verraten). Nichts benutzen, was Geld kostet.
 4. Prüfung: Ein separater Prüf-Subagent prüft wie ein strenger Zuschauer gegen die Bibel: Hook in den ersten 2 s, Text lesbar und in der sicheren Zone, keine leeren Bilder oder Flackern bei Szenenwechseln, roter Faden, Loop, Thumbnail. Lass nachbessern, bis kein MUSS und kein SOLLTE mehr offen ist (höchstens 3 Runden).
 5. Upload-Daten: `upload.md` und `upload.json` wie bei Folge 1 (Titel nach Formel, Beschreibung mit Quellen, Tags, Kategorie 27, privacyStatus private). containsSyntheticMedia nur true, wenn etwas realistisch wirkt (echte Personen, Orte, Ereignisse in realistischer Darstellung).
-6. Upload: Wenn `YT_CLIENT_ID`, `YT_CLIENT_SECRET` und `YT_REFRESH_TOKEN` gesetzt sind: `python3 -I kanal/tools/yt_upload.py --video kanal/folgeNN/folgeNN.mp4 --meta kanal/folgeNN/upload.json --thumb kanal/folgeNN/thumbnail.png`. Lade NUR privat hoch, niemals öffentlich. Gib Werte dieser Variablen nie aus. Fehlen sie oder schlägt der Upload fehl, lade nichts hoch und schreib dem Nutzer genau, was er wo eintragen muss.
-7. Status: Trag die Folge in `kanal/status.md` ein (Thema, Status, Datum, Video-Link falls hochgeladen) und erhöhe „Nächste Folge“. Commit (ohne mp4) und Push auf den Branch `claude/faceless-youtube-channel-wuuybx`. Keinen Pull Request.
-8. Bericht an den Nutzer (Deutsch, kurz): Thema, Hook, Länge, Prüfergebnis, Link zum privaten Video bzw. Datei, und die Bitte, das Video anzusehen und in YouTube Studio oder der App auf „Öffentlich“ zu stellen, wenn es passt. Häng das Video und das Thumbnail als Datei an.
+6. Upload: NICHT selbst hochladen, der Nutzer lädt alles manuell hoch. Schreib in `upload.md` zum Kopieren: Titel, Beschreibung, Tags, Kategorie, Häkchen „veränderte/synthetische Inhalte“ (Ja/Nein mit Begründung) und Playlist, in der Reihenfolge der Felder in YouTube Studio.
+7. Status: Trag die Folge in `kanal/status.md` ein (Thema, Status, Datum) und erhöhe „Nächste Folge“. Commit (ohne mp4) und Push auf den Branch `claude/faceless-youtube-channel-wuuybx`. Keinen Pull Request.
+8. Bericht an den Nutzer (Deutsch, kurz): Thema, Hook, Länge, Prüfergebnis, dann Titel, Beschreibung und Tags direkt zum Kopieren. Häng Video, Thumbnail und upload.md als Datei an (SendUserFile), damit der Nutzer sie herunterladen und selbst hochladen kann.
