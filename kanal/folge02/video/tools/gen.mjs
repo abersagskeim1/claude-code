@@ -250,9 +250,9 @@ SPR.cloud = sprite([
   ".wwwwwwwwww.",
 ], { w: "#E8EDF3" });
 
-const sym = (p, name) => { const s = SPR[name]; return `<symbol id="${p}-${name}" viewBox="0 0 ${s.w} ${s.h}" shape-rendering="crispEdges">${s.rects}</symbol>`; };
+const sym = (p, name) => { const s = SPR[name]; return `<symbol id="${p}-sym-${name}" viewBox="0 0 ${s.w} ${s.h}" shape-rendering="crispEdges">${s.rects}</symbol>`; };
 const syms = (p, names) => names.map((n) => sym(p, n)).join("");
-const pxSvg = (p, name, sc, flip) => { const s = SPR[name]; return `<svg viewBox="0 0 ${s.w} ${s.h}" width="${s.w * sc}" height="${s.h * sc}" overflow="visible" shape-rendering="crispEdges" style="display:block;${flip ? "transform:scaleX(-1);" : ""}"><use href="#${p}-${name}"/></svg>`; };
+const pxSvg = (p, name, sc, flip) => { const s = SPR[name]; return `<svg viewBox="0 0 ${s.w} ${s.h}" width="${s.w * sc}" height="${s.h * sc}" overflow="visible" shape-rendering="crispEdges" style="display:block;${flip ? "transform:scaleX(-1);" : ""}"><use href="#${p}-sym-${name}"/></svg>`; };
 // positioned pixel element: id, sprite, scale, x, y
 const px = (id, p, name, sc, x, y, extra = "", cls = "", flip = false) => { const s = SPR[name]; return `<div id="${id}" class="pxe ${cls}" style="left:${Math.round(x)}px;top:${Math.round(y)}px;width:${s.w * sc}px;height:${s.h * sc}px;${extra}">${pxSvg(p, name, sc, flip)}</div>`; };
 const pxW = (name, sc) => SPR[name].w * sc, pxH = (name, sc) => SPR[name].h * sc;
@@ -311,7 +311,7 @@ const LABEL = `font-family:'Lilita One';color:#FFD23F;-webkit-text-stroke:14px $
 const abs = (l, t, w, h) => `position:absolute;left:${l}px;top:${t}px;width:${w}px;${h != null ? `height:${h}px;` : ""}`;
 
 function scene(id, title, start, dur, css, body, js, defs = "", opts = {}) {
-  const exit = opts.exit !== false, kb = opts.kb !== false, exDur = opts.exitDur || 0.28;
+  const exit = opts.exit !== false, kb = opts.kb !== false, exDur = opts.exitDur || 0.28, exLead = opts.exitLead || 0;
   const html = `<template>
   <style>
     ${FONTFACE}
@@ -334,7 +334,7 @@ ${kb ? `      // slow Ken-Burns drift so the frame never stands still
       tl.fromTo("#${id}-kb", { scale: 1 }, { scale: 1.05, duration: ${dur}, ease: "none" }, 0);` : ""}
 ${js}
 ${exit ? `      // overlap exit: fades while the next scene is already entering (no empty frames)
-      tl.to("#${id}-out", { opacity: 0, scale: 0.93, duration: ${exDur}, ease: "power2.in" }, ${dur});` : ""}
+      tl.to("#${id}-out", { opacity: 0, scale: 0.93, duration: ${exDur}, ease: "power2.in" }, ${+(dur - exLead).toFixed(2)});` : ""}
       window.__timelines["${id}"] = tl;
     })();
   </script>
@@ -348,18 +348,18 @@ const shake = (sel, at, a = 18, d = 0.32) => `      tl.to("${sel}", { keyframes:
 const scenes = [];
 
 // ================= HOOK picture (frame 0 = thumbnail motif) =================
-// monitor 740x560 at (170, 960); screen 620x360 at (230, 1015); blob 400x400 centred at (540, 880)
+// monitor 740x560 at (170, 1010); screen 620x360 at (230, 1065); blob 360x360 at (360, 830)
 const hookCss = (p) => `
-   #${p}-glow{${abs(90, 430, 900, 900)}border-radius:50%;background:radial-gradient(circle,rgba(91,227,106,.55) 0%,rgba(91,227,106,.18) 40%,rgba(91,227,106,0) 68%);}
-   #${p}-mon{${abs(170, 960, 740, 560)}}
-   #${p}-scr{${abs(230, 1015, 620, 360)}border-radius:30px;overflow:hidden;background:linear-gradient(#123A2A,#0B2219);border:6px solid ${K};}
+   #${p}-glow{${abs(190, 880, 700, 700)}border-radius:50%;background:radial-gradient(circle,rgba(91,227,106,.55) 0%,rgba(91,227,106,.18) 40%,rgba(91,227,106,0) 68%);}
+   #${p}-mon{${abs(170, 1010, 740, 560)}}
+   #${p}-scr{${abs(230, 1065, 620, 360)}border-radius:30px;overflow:hidden;background:linear-gradient(#123A2A,#0B2219);border:6px solid ${K};}
    #${p}-scr .gr{position:absolute;left:0;right:0;bottom:0;height:70px;background:repeating-linear-gradient(90deg,#2E8B4A 0 30px,#3FAE6A 30px 60px);border-top:6px solid ${K};}
    #${p}-scr .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 3px,rgba(0,0,0,0) 3px 7px);}
    #${p}-scr .glare{position:absolute;left:-60px;top:-120px;width:420px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);transform:rotate(-18deg);}
-   #${p}-blob{${abs(345, 715, 390, 390)}}
+   #${p}-blob{${abs(360, 830, 360, 360)}}
    .${p}-sq{position:absolute;width:22px;height:22px;background:#7CF08A;border:4px solid ${K};}`;
 const hookFig = [[40, 218, 0], [150, 218, 1], [270, 218, 2], [390, 218, 3], [500, 218, 4]];
-const hookSq = [[150, 760], [890, 720], [110, 990], [930, 1000], [250, 640], [820, 600]];
+const hookSq = [[150, 900], [900, 880], [100, 1120], [950, 1130], [250, 850], [790, 850]];
 const hookBody = (p) => `      <div id="${p}-glow"></div>
       <div id="${p}-monw">
       <div id="${p}-mon" class="${p}-stk">${MONITOR_SVG}</div>
@@ -377,15 +377,17 @@ scenes.push(scene("hook", "Hook: Seuche", 0, 2.6, hookCss("hook"), hookBody("hoo
       tl.to("#hook-blob", { keyframes: { scaleX: [1, 1.06, 0.97, 1.03, 1], scaleY: [1, 0.95, 1.04, 0.98, 1], rotation: [0, -4, 3, -2, 0] }, duration: 1.2, ease: "sine.inOut" }, 0.05);
       tl.to("#hook-blob", { y: -16, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.25);
       tl.to("#hook-kb", { keyframes: { x: [0, -20, 16, -12, 8, -4, 0], y: [0, 8, -6, 4, -2, 0, 0] }, duration: 0.42, ease: "none" }, 0.28);
-      tl.to("#hook-glow", { scale: 1.12, opacity: 0.8, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
+      tl.to("#hook-glow", { scale: 1.08, opacity: 0.8, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0);
       ${JSON.stringify(hookSq.map((_, i) => i))}.forEach((i) => tl.to("#hook-sq" + i, { y: (i % 2 ? -26 : 22), rotation: (i % 2 ? 20 : -15), duration: 0.65, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.02 * i));
       [0, 1, 2, 3, 4].forEach((k) => tl.to("#hook-f" + k, { y: -14, duration: 0.16, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.05 + k * 0.05));
       [0, 2, 4].forEach((k, j) => tl.fromTo("#hook-fd" + k, { scale: 1 }, { scale: 1.35, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.4 + j * 0.12));`,
   hookDefs("hook")));
 
 // ================= S02 zoom into the monitor (2.6 - 4.6) =================
-scenes.push(scene("zoom", "Zoom in den Monitor", 2.6, 2.0, hookCss("zoom") + `#zoom-monw{position:absolute;inset:0;transform-origin:540px 1195px;}`, hookBody("zoom"),
-  `      tl.to("#zoom-blob", { y: -900, rotation: 40, scale: 0.6, duration: 0.45, ease: "power3.in" }, 0.05);
+scenes.push(scene("zoom", "Zoom in den Monitor", 2.6, 2.0, hookCss("zoom") + `#zoom-monw{position:absolute;inset:0;transform-origin:540px 1245px;} #zoom-clip{position:absolute;left:0;top:620px;width:1080px;height:1300px;overflow:hidden;} #zoom-in{position:absolute;left:0;top:-620px;width:1080px;height:1920px;}`, `<div id="zoom-clip"><div id="zoom-in">
+${hookBody("zoom")}
+</div></div>`,
+  `      tl.to("#zoom-blob", { y: -260, rotation: 40, scale: 0.3, opacity: 0, duration: 0.35, ease: "power3.in" }, 0.05);
       tl.to("#zoom-glow", { opacity: 0, duration: 0.3 }, 0.05);
       tl.to(".zoom-sq", { opacity: 0, scale: 0, duration: 0.25, stagger: 0.03 }, 0.0);
       tl.fromTo("#zoom-monw", { scale: 1 }, { scale: 4.4, duration: 1.45, ease: "power2.inOut" }, 0.35);
@@ -413,7 +415,7 @@ scenes.push(scene("zoom", "Zoom in den Monitor", 2.6, 2.0, hookCss("zoom") + `#z
         <div id="welt-scan"></div>
       </div>
       <div id="welt-tag">World of Warcraft</div>`,
-    `      tl.fromTo("#welt-frame", { scale: 1.6, opacity: 0.2 }, { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, 0);
+    `      tl.fromTo("#welt-frame", { scale: 0.45, opacity: 0.2 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 0);
       tl.fromTo(["#welt-m0", "#welt-m1"], { y: 160 }, { y: 0, duration: 0.4, ease: "back.out(1.6)", stagger: 0.08 }, 0.15);
       tl.fromTo("#welt-castle", { y: 220, scale: 0.6 }, { y: 0, scale: 1, duration: 0.45, ease: "back.out(1.8)", transformOrigin: "50% 100%" }, 0.3);
       tl.fromTo(["#welt-t0", "#welt-t1"], { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2.5)", stagger: 0.07, transformOrigin: "50% 100%" }, 0.4);
@@ -433,14 +435,14 @@ scenes.push(scene("zoom", "Zoom in den Monitor", 2.6, 2.0, hookCss("zoom") + `#z
   const p = "boss";
   const heroes = [[110, 1220], [330, 1250], [610, 1250], [840, 1220]];
   scenes.push(scene(p, "Boss", 6.6, 2.4,
-    `#boss-aura{${abs(240, 640, 600, 600)}border-radius:50%;background:radial-gradient(circle,rgba(255,59,59,.45),rgba(255,59,59,0) 65%);}
+    `#boss-aura{${abs(300, 720, 480, 480)}border-radius:50%;background:radial-gradient(circle,rgba(255,59,59,.45),rgba(255,59,59,0) 65%);}
      #boss-floor{${abs(60, 1360, 960, 40)}background:repeating-linear-gradient(90deg,#3B4552 0 40px,#2D3540 40px 80px);border:6px solid ${K};}`,
     `      <div id="boss-aura"></div>
       <div id="boss-floor"></div>
-      ${px("boss-b", p, "boss", 21, 540 - pxW("boss", 21) / 2, 700, "", "boss-stk")}
+      ${px("boss-b", p, "boss", 19, 540 - pxW("boss", 19) / 2, 790, "", "boss-stk")}
 ${heroes.map(([x, y], i) => "      " + px("boss-h" + i, p, "hero" + i, 9, x, y, "", "boss-stk")).join("\n")}
-${heroes.map(([x, y], i) => "      " + px("boss-d" + i, p, "drop", 9, 508, 920)).join("\n")}`,
-    `      tl.fromTo("#boss-b", { y: -700 }, { y: 0, duration: 0.35, ease: "power3.in" }, 0);
+${heroes.map(([x, y], i) => "      " + px("boss-d" + i, p, "drop", 9, 508, 960)).join("\n")}`,
+    `      tl.fromTo("#boss-b", { scale: 0, y: 120 }, { scale: 1, y: 0, duration: 0.35, ease: "back.out(1.7)", transformOrigin: "50% 100%" }, 0.05);
       tl.fromTo("#boss-b", { scaleY: 0.75, scaleX: 1.2 }, { scaleY: 1, scaleX: 1, duration: 0.4, ease: "elastic.out(1,0.4)", transformOrigin: "50% 100%", immediateRender: false }, 0.35);
 ${shake("#boss-kb", 0.35, 20, 0.36)}
       tl.fromTo("#boss-aura", { scale: 0.5, opacity: 0 }, { scale: 1.1, opacity: 1, duration: 0.5, ease: "power2.out" }, 0.3);
@@ -449,7 +451,7 @@ ${shake("#boss-kb", 0.35, 20, 0.36)}
       ${JSON.stringify(heroes)}.forEach(([x, y], i) => {
         const t0 = 0.75 + i * 0.25;
         tl.to("#boss-b", { keyframes: { scaleY: [1, 0.92, 1.04, 1] }, duration: 0.22, ease: "none", transformOrigin: "50% 100%" }, t0 - 0.05);
-        tl.fromTo("#boss-d" + i, { x: 0, y: 0, scale: 0.4, opacity: 1, rotation: 0 }, { keyframes: { x: [0, (x - 508) * 0.5, x - 508 + 9], y: [0, -180, y - 920 - 80] }, scale: 1, rotation: (i < 2 ? -180 : 180), duration: 0.42, ease: "power1.in", immediateRender: true }, t0);
+        tl.fromTo("#boss-d" + i, { x: 0, y: 0, scale: 0.4, opacity: 1, rotation: 0 }, { keyframes: { x: [0, (x - 508) * 0.5, x - 508 + 9], y: [0, -150, y - 960 - 80] }, scale: 1, rotation: (i < 2 ? -180 : 180), duration: 0.42, ease: "power1.in", immediateRender: true }, t0);
         tl.to("#boss-d" + i, { rotation: 0, duration: 0.01 }, t0 + 0.42);
         tl.to("#boss-d" + i, { y: "-=24", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, t0 + 0.45);
         tl.to("#boss-h" + i, { keyframes: { x: [0, -14, 12, -8, 0], rotation: [0, -10, 8, -4, 0] }, duration: 0.3, ease: "none" }, t0 + 0.42);
@@ -461,19 +463,19 @@ ${shake("#boss-kb", 0.35, 20, 0.36)}
 {
   const p = "blut";
   scenes.push(scene(p, "Verdorbenes Blut", 9.0, 2.4,
-    `#blut-arena{${abs(110, 760, 860, 650)}border-radius:30px;border:12px dashed #FFD23F;background:rgba(255,210,63,.07);}
-     #blut-floor{${abs(122, 1250, 836, 148)}border-radius:0 0 20px 20px;background:repeating-linear-gradient(90deg,#3B4552 0 44px,#2D3540 44px 88px);}
-     #blut-tag{${abs(130, 690, 380, 110)}display:flex;align-items:center;justify-content:center;background:#FF3B3B;border:7px solid ${K};border-radius:22px;font-family:'Lilita One';font-size:84px;color:#fff;-webkit-text-stroke:10px ${K};paint-order:stroke fill;}
-     #blut-bar{${abs(330, 1290, 600, 70)}border:7px solid ${K};background:#1B2550;}
+    `#blut-arena{${abs(110, 810, 860, 610)}border-radius:30px;border:12px dashed #FFD23F;background:rgba(255,210,63,.07);}
+     #blut-floor{${abs(122, 1272, 836, 136)}border-radius:0 0 20px 20px;background:repeating-linear-gradient(90deg,#3B4552 0 44px,#2D3540 44px 88px);}
+     #blut-tag{${abs(130, 785, 380, 100)}display:flex;align-items:center;justify-content:center;background:#FF3B3B;border:7px solid ${K};border-radius:22px;font-family:'Lilita One';font-size:84px;color:#fff;-webkit-text-stroke:10px ${K};paint-order:stroke fill;}
+     #blut-bar{${abs(330, 1310, 600, 70)}border:7px solid ${K};background:#1B2550;}
      #blut-fill{position:absolute;left:0;top:0;bottom:0;width:100%;background:repeating-linear-gradient(90deg,#3FE07A 0 44px,#2EBF62 44px 50px);transform-origin:0 50%;}
      #blut-red{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#FF3B3B 0 44px,#D92B2B 44px 50px);opacity:0;}`,
     `      <div id="blut-arena"></div>
       <div id="blut-floor"></div>
-      ${px("blut-drop", p, "drop", 22, 190, 850, "", "blut-stk")}
-      ${px("blut-h", p, "hero1", 13, 620, 1000, "", "blut-stk")}
-      ${px("blut-heart", p, "heart", 12, 220, 1280)}
+      ${px("blut-drop", p, "drop", 20, 190, 900, "", "blut-stk")}
+      ${px("blut-h", p, "hero1", 13, 620, 1040, "", "blut-stk")}
+      ${px("blut-heart", p, "heart", 12, 220, 1300)}
       <div id="blut-bar"><div id="blut-fill"><div id="blut-red"></div></div></div>
-${[0, 1, 2].map((i) => "      " + px("blut-s" + i, p, "drop", 6, 640 + i * 40, 980)).join("\n")}
+${[0, 1, 2].map((i) => "      " + px("blut-s" + i, p, "drop", 6, 640 + i * 40, 1020)).join("\n")}
       <div id="blut-tag">nur hier!</div>`,
     `      tl.fromTo("#blut-arena", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, 0);
       tl.fromTo("#blut-drop", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2.4)" }, 0.08);
@@ -487,7 +489,7 @@ ${[0, 1, 2].map((i) => "      " + px("blut-s" + i, p, "drop", 6, 640 + i * 40, 9
         tl.to("#blut-h", { keyframes: { x: [0, -12, 10, 0] }, duration: 0.2, ease: "none" }, 0.5 + i * 0.4);
       });
       tl.to("#blut-heart", { scale: 1.2, duration: 0.15, yoyo: true, repeat: 5, ease: "sine.inOut" }, 0.6);
-      tl.fromTo("#blut-tag", { scale: 2.6, opacity: 0, rotation: -20 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.2, ease: "power4.in" }, 0.55);
+      tl.fromTo("#blut-tag", { scale: 1.3, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: -6, duration: 0.2, ease: "power4.in" }, 0.55);
 ${shake("#blut-kb", 0.75, 12, 0.26)}
       tl.to("#blut-tag", { rotation: -2, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.0);`,
     syms(p, ["drop", "hero1", "heart"])));
@@ -536,7 +538,7 @@ ${[0, 1, 2, 3, 4, 5].map((i) => "      " + px("tier-t" + i, p, "drop", 5, 260 + 
 ${hx.map((x, i) => "      " + px("stadt-h" + i, p, "hero" + (i % 5), 9, x, 1222, "", "stadt-stk")).join("\n")}
 ${hx.map((x, i) => "      " + px("stadt-m" + i, p, "drop", 5, x + 18, 1160)).join("\n")}
       ${px("stadt-hop", p, "drop", 8, hx[0] + 8, 1100)}`,
-    `      ${JSON.stringify([0, 1, 2, 3])}.forEach((i) => tl.fromTo("#stadt-house" + i, { y: 500 }, { y: 0, duration: 0.35, ease: "back.out(1.5)" }, 0.03 + i * 0.06));
+    `      ${JSON.stringify([0, 1, 2, 3])}.forEach((i) => tl.fromTo("#stadt-house" + i, { y: 560, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(1.3)" }, 0.5 + i * 0.07));
       tl.fromTo("#stadt-road", { y: 120 }, { y: 0, duration: 0.3, ease: "power2.out" }, 0);
       ${JSON.stringify(hx.map((_, i) => i))}.forEach((i) => tl.fromTo("#stadt-h" + i, { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2.5)", transformOrigin: "50% 100%" }, 0.15 + i * 0.04));
       tl.fromTo("#stadt-hop", { scale: 0 }, { scale: 1, duration: 0.2, ease: "back.out(3)" }, 0.3);
@@ -709,11 +711,11 @@ ${fig.map(([x, y, i], k) => `          ${px("reset-n" + k, p, "hero" + i, 6, x +
 {
   const p = "forsch";
   scenes.push(scene(p, "Forscher", 27.0, 2.4,
-    `#forsch-glasses{${abs(170, 760, 740, 250)}}
-     #forsch-board{${abs(110, 1030, 480, 400)}}
-     #forsch-cup{${abs(660, 1120, 300, 300)}}
+    `#forsch-glasses{${abs(225, 800, 630, 213)}}
+     #forsch-board{${abs(110, 1060, 480, 400)}}
+     #forsch-cup{${abs(660, 1140, 300, 300)}}
      .forsch-steam{position:absolute;width:26px;height:90px;border-radius:13px;background:#E8EDF3;opacity:0;}
-     #forsch-glint{position:absolute;left:0;top:0;width:60px;height:250px;background:rgba(255,255,255,.75);transform:skewX(-20deg);opacity:0;}`,
+     #forsch-glint{position:absolute;left:0;top:0;width:60px;height:213px;background:rgba(255,255,255,.75);transform:skewX(-20deg);opacity:0;}`,
     `      <div id="forsch-glasses" class="forsch-stk"><svg viewBox="0 0 740 250" width="100%" height="100%">
         <rect x="20" y="30" width="300" height="200" rx="60" fill="#BFE6FF" stroke="${K}" stroke-width="28"/>
         <rect x="420" y="30" width="300" height="200" rx="60" fill="#BFE6FF" stroke="${K}" stroke-width="28"/>
@@ -743,7 +745,7 @@ ${fig.map(([x, y, i], k) => `          ${px("reset-n" + k, p, "hero" + i, 6, x +
       </svg>
         <div id="forsch-st0" class="forsch-steam" style="left:90px;top:-40px;"></div><div id="forsch-st1" class="forsch-steam" style="left:140px;top:-70px;"></div><div id="forsch-st2" class="forsch-steam" style="left:190px;top:-40px;"></div>
       </div>`,
-    `      tl.fromTo("#forsch-glasses", { scale: 3, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.25, ease: "power4.in" }, 0.05);
+    `      tl.fromTo("#forsch-glasses", { scale: 0.2, opacity: 0, rotation: -14 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.05);
 ${shake("#forsch-kb", 0.3, 22, 0.36)}
       tl.fromTo("#forsch-glint", { x: -80, opacity: 0.9 }, { x: 760, opacity: 0.9, duration: 0.45, ease: "power2.inOut" }, 0.7);
       tl.to("#forsch-glint", { opacity: 0, duration: 0.05 }, 1.15);
@@ -753,7 +755,7 @@ ${shake("#forsch-kb", 0.3, 22, 0.36)}
       tl.fromTo("#forsch-cup", { x: 600, rotation: 20 }, { x: 0, rotation: 4, duration: 0.4, ease: "back.out(1.4)" }, 0.5);
       tl.to("#forsch-cup", { rotation: -3, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.95);
       [0, 1, 2].forEach((i) => tl.fromTo("#forsch-st" + i, { opacity: 0, y: 30, scaleY: 0.5 }, { keyframes: { opacity: [0, 0.8, 0], y: [30, -30, -110], x: [0, 14, -10] }, scaleY: 1.2, duration: 1.0, ease: "none", immediateRender: false }, 0.9 + i * 0.25));
-      tl.to("#forsch-glasses", { y: -14, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.8);`,
+      tl.to("#forsch-glasses", { y: 14, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 0.8);`,
     ""));
 }
 
@@ -852,7 +854,7 @@ ${pos.map(([dx, dy], i) => "        " + human("split-hr" + i, 215 - 40 + dx, 330
       tl.to("#frage-b2", { scale: 0.94, duration: 0.08, yoyo: true, repeat: 1 }, 2.0);
       tl.to("#frage-cur", { x: -20, y: -260, duration: 0.5, ease: "sine.inOut" }, 2.4);
       tl.to(["#frage-b1", "#frage-b2"], { rotation: 0, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.15 }, 0.5);`,
-    syms(p, ["plus", "cursor"])));
+    syms(p, ["plus", "cursor"]), { exitLead: 0.35, exitDur: 0.2 }));
 }
 
 // ================= loop end: rebuilds the frame-0 picture (38.1 - 38.6) =================
@@ -860,8 +862,8 @@ scenes.push(scene("loopend", "Loop zurück", 38.1, 0.5, hookCss("loopend"), hook
   `      tl.fromTo("#loopend-monw", { opacity: 0, y: 500, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.4)" }, 0.0);
       tl.fromTo("#loopend-glow", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0.04);
       tl.fromTo(".loopend-sq", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.2, stagger: 0.02, ease: "back.out(2)" }, 0.1);
-      tl.fromTo("#loopend-blob", { opacity: 0, y: -620, rotation: 30 }, { opacity: 1, y: 0, rotation: 0, duration: 0.26, ease: "power3.in" }, 0.08);
-      tl.fromTo("#loopend-blob", { scaleX: 1.25, scaleY: 0.78 }, { scaleX: 1, scaleY: 1, duration: 0.14, ease: "power2.out", immediateRender: false }, 0.34);`,
+      tl.fromTo("#loopend-blob", { opacity: 0, scale: 0.2, rotation: 30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.26, ease: "back.out(1.4)" }, 0.08);
+      `,
   hookDefs("loopend"), { exit: false, kb: false }));
 
 // ================= background: night blue + pixel grid + slow rays =================
@@ -902,7 +904,7 @@ const caps = [
   { id: "c02", s: 2.6, e: 4.6, words: ["Aber", "nicht", "in", "echt."] },
   { id: "c03", s: 4.6, e: 6.6, words: ["Sondern", "in", "einem", "*ONLINE-SPIEL."], kwsize: 124 },
   { id: "c04", s: 6.6, e: 9.0, words: ["Ein", "Boss", "verteilt", "einen", "*FLUCH."] },
-  { id: "c05", s: 9.0, e: 11.4, top: 290, words: ["~„Verdorbenes", "~Blut“.", "Nur", "im", "Kampf."], size: 80 },
+  { id: "c05", s: 9.0, e: 11.4, top: 290, words: ["~„Verdorbenes", "~Blut“.", "Nur", "im", "Kampf."], size: 88 },
   { id: "c06", s: 11.4, e: 13.8, words: ["Doch", "*HAUSTIERE", "tragen", "ihn", "raus."], kwsize: 150 },
   { id: "c07", s: 13.8, e: 15.8, words: ["Direkt", "in", "die", "*STÄDTE."] },
   { id: "c08", s: 15.8, e: 17.8, words: ["Tausende", "Figuren:", "*K.O."], shake: true },
@@ -913,8 +915,8 @@ const caps = [
   { id: "c13", s: 27.0, e: 29.4, words: ["Und", "dann?", "*FORSCHER", "werden", "neugierig."], kwsize: 205, shake: true },
   { id: "c14", s: 29.4, e: 31.8, words: ["*2007:", "Artikel", "in", "~The", "~Lancet."] },
   { id: "c15", s: 31.8, e: 34.7, words: ["Spieler", "handeln", "wie", "bei", "echten", "*SEUCHEN."], kwsize: 140 },
-  { id: "c16", s: 34.7, e: 38.1, top: 290, words: ["Hättest", "du", "geholfen"], size: 88 },
-  { id: "c17", s: 35.05, e: 38.1, top: 500, words: ["oder", "wärst", "du", "geflohen?"], size: 88 },
+  { id: "c16", s: 34.7, e: 38.1, top: 290, words: ["Hättest", "du", "geholfen"], size: 96 },
+  { id: "c17", s: 35.05, e: 38.1, top: 515, words: ["oder", "wärst", "du", "geflohen?"], size: 96 },
   { id: "c18", s: 38.1, e: DUR, special: "year" },
 ];
 const ST = 0.065, PD = 0.22, KD = 0.24, EXIT = 0.12;
@@ -965,7 +967,7 @@ fs.writeFileSync(path.join(OUT, "compositions", "captions.html"), `<template>
     ${FONTFACE}
     #root { position: absolute; inset: 0; }
     .cap { position: absolute; left: 80px; width: 920px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900;
-      font-size: 84px; line-height: 1.12; color: #fff; letter-spacing: -0.01em; }
+      font-size: 92px; line-height: 1.12; color: #fff; letter-spacing: -0.01em; }
     .w { display: inline-block; margin: 0 0.14em; -webkit-text-stroke: 16px ${K}; paint-order: stroke fill; text-shadow: 0 9px 0 #050814; }
     .g { display: inline-block; }
     .kw { font-family: 'Lilita One'; font-weight: 400; color: #FFD23F; font-size: 160px; line-height: 1.0; text-transform: uppercase; letter-spacing: 0.01em; padding: 0 6px; }
@@ -1200,5 +1202,10 @@ ${sfxTags.join("\n")}
 </html>
 `;
 fs.writeFileSync(path.join(OUT, "index.html"), index);
+for (const f of fs.readdirSync(path.join(OUT, "compositions"))) {
+  const ids = [...fs.readFileSync(path.join(OUT, "compositions", f), "utf8").matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+  const dup = ids.filter((x, i) => ids.indexOf(x) !== i);
+  if (dup.length) throw new Error("duplicate ids in " + f + ": " + [...new Set(dup)].join(", "));
+}
 console.log(report.join("\n"));
 console.log("written", scenes.length, "scenes,", sfx.length, "sfx, lanes", lanes.length);

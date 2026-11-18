@@ -38,7 +38,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#0E1530}
 ${css}
 #stage{position:absolute;inset:0;transform:scale(1.13);transform-origin:500px 1330px}
 #txt{position:absolute;left:80px;top:280px;width:920px;text-align:center;font-family:'Lilita One';color:#FFD23F;line-height:.98;-webkit-text-stroke:26px #0A0F22;paint-order:stroke fill;text-shadow:0 16px 0 #050814}
-#txt .a{font-size:205px} #txt .b{font-size:165px}
+#txt .a{font-size:180px} #txt .b{font-size:230px}
 #klotz{position:absolute;left:700px;top:1480px;width:260px;height:286px;transform:rotate(-6deg)}
 #kshadow{position:absolute;left:725px;top:1748px;width:210px;height:30px;border-radius:50%;background:rgba(0,0,0,.35)}
 </style></head><body>
@@ -46,7 +46,7 @@ ${css}
 <svg width="0" height="0" style="position:absolute"><defs>${defs}</defs></svg>
 <div id="glow"></div><div id="rays"></div><div id="grid"></div><div id="vig"></div>
 <div id="stage">${body}</div>
-<div id="txt"><span class="a">SEUCHE</span><br/><span class="b">IM SPIEL?!</span></div>
+<div id="txt"><span class="a">TAUSENDE</span><br/><span class="b">K.O.?!</span></div>
 <div id="kshadow"></div><div id="klotz">${svg}</div>
 </div>
 <script>window.__timelines = window.__timelines || {}; window.__timelines["thumb"] = gsap.timeline({ paused: true });</script>

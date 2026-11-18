@@ -20,3 +20,11 @@
 - 4,4–4,7 s: Der Zoom in den Monitor ist im Übergang unruhig, weil der Rahmen des Monitors hinter „Aber nicht in echt.“ durchläuft.
 - 23,5 s: Die fliehenden Figuren laufen kurz vor den Häusern übereinander.
 - Klotz' Mund ist hinter der Maske verdeckt (16–25,7 s), seine Mimik liegt dort nur in Augen und Brauen.
+
+## Nachbesserung nach Prüfung (18.11.)
+- Ursache für Häuser, Tor und Tropfen, die über den Text springen: Symbol-IDs (`<symbol id="tier-gate">`) waren identisch mit Div-IDs. Dadurch hat GSAP das Symbol animiert. Symbole heißen jetzt `<szene>-sym-<name>`, und gen.mjs bricht bei doppelten IDs ab.
+- Neue Regel „keine Grafik am Textblock“: `tools/overlap.mjs` misst jedes Frame (Wortboxen ±8 px gegen jede sichtbare Grafikbox, beschnitten durch overflow:hidden). Ergebnis: ganze Folge ≥ 40 px Abstand, 0 Treffer. Aufruf über die laufende Preview: `PUPPETEER_CORE=<pfad> node tools/overlap.mjs http://localhost:<port>/api/projects/video/preview 40`.
+- Zoom läuft in einem Ausschnitt ab y 620, Text immer auf dunklem Grund. Der Boss poppt unter dem Text auf. Häuser kommen erst nach dem Text und von unten. Hook-Grafik, Arena und Sticker „nur hier!“ liegen tiefer. Die Brille poppt an Ort und Stelle auf.
+- Fließtext 84 → 92 px (Frage 96 px). Die Buttons sind vor dem Loop ausgeblendet (bis 38,0 s).
+- Thumbnail „TAUSENDE K.O.?!“.
+- Ton: +7 dB und Limiter → −14,0 LUFS, True Peak −1,6 dBTP, 38,600 s wie das Bild.
