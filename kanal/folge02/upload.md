@@ -7,7 +7,7 @@ Reihenfolge wie in YouTube Studio:
 
 ## Titel
 ```
-Ein SPIEL-Virus wurde zum Forschungsfall?! 🤯🦠 #Shorts
+Eine Seuche legte ein GAME lahm?! 🤯🦠 #Shorts
 ```
 
 ## Beschreibung
