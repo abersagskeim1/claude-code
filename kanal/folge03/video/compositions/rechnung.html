@@ -5,19 +5,19 @@
     #rechnung-out, #rechnung-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
     .rechnung-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
     .cn, .pe { position: absolute; }
-    #rechnung-calc{position:absolute;left:200px;top:860px;width:680px;height:620px;}
-     #rechnung-disp{position:absolute;left:50px;top:44px;width:580px;height:130px;border-radius:18px;background:#BFE6C9;border:8px solid #0A0F22;font-family:'Lilita One';font-size:62px;line-height:114px;color:#0A0F22;text-align:right;padding-right:24px;white-space:nowrap;overflow:hidden;}
-     #rechnung-q{position:absolute;left:50px;top:44px;width:580px;height:130px;font-family:'Lilita One';font-size:96px;line-height:120px;color:#FF3B3B;text-align:center;opacity:0;}
-     #rechnung-eq{position:absolute;left:470px;top:490px;width:160px;height:96px;border-radius:20px;background:#FFD23F;border:7px solid #0A0F22;}
+    #rechnung-calc{position:absolute;left:200px;top:860px;width:680px;height:560px;}
+     #rechnung-disp{position:absolute;left:50px;top:44px;width:580px;height:210px;border-radius:18px;background:#BFE6C9;border:8px solid #0A0F22;font-family:'Lilita One';font-size:78px;line-height:92px;padding-top:6px;color:#0A0F22;text-align:center;white-space:nowrap;overflow:hidden;}
+     #rechnung-q{position:absolute;left:50px;top:44px;width:580px;height:210px;font-family:'Lilita One';font-size:120px;line-height:210px;color:#FF3B3B;text-align:center;opacity:0;}
+     #rechnung-eq{position:absolute;left:470px;top:410px;width:160px;height:96px;border-radius:20px;background:#FFD23F;border:7px solid #0A0F22;}
   </style>
   <div id="root" data-composition-id="rechnung" data-width="1080" data-height="1920" data-layout-allow-overflow>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
     <div id="rechnung-out"><div id="rechnung-kb">
-      <div id="rechnung-calc" class="rechnung-stk"><svg viewBox="0 0 680 620" width="680" height="620" style="position:absolute;left:0;top:0" overflow="visible">
-        <rect x="6" y="6" width="668" height="608" rx="50" fill="#5B6577" stroke="#0A0F22" stroke-width="10"/>
-        <g fill="#E8EDF3" stroke="#0A0F22" stroke-width="6"><rect x="50" y="210" width="130" height="96" rx="20"/><rect x="200" y="210" width="130" height="96" rx="20"/><rect x="350" y="210" width="130" height="96" rx="20"/><rect x="500" y="210" width="130" height="96" rx="20"/><rect x="50" y="340" width="130" height="96" rx="20"/><rect x="200" y="340" width="130" height="96" rx="20"/><rect x="350" y="340" width="130" height="96" rx="20"/><rect x="500" y="340" width="130" height="96" rx="20"/><rect x="50" y="470" width="130" height="96" rx="20"/><rect x="200" y="470" width="130" height="96" rx="20"/><rect x="350" y="470" width="130" height="96" rx="20"/></g>
+      <div id="rechnung-calc" class="rechnung-stk"><svg viewBox="0 0 680 560" width="680" height="560" style="position:absolute;left:0;top:0" overflow="visible">
+        <rect x="6" y="6" width="668" height="548" rx="50" fill="#5B6577" stroke="#0A0F22" stroke-width="10"/>
+        <g fill="#E8EDF3" stroke="#0A0F22" stroke-width="6"><rect x="50" y="280" width="130" height="96" rx="20"/><rect x="200" y="280" width="130" height="96" rx="20"/><rect x="350" y="280" width="130" height="96" rx="20"/><rect x="500" y="280" width="130" height="96" rx="20"/><rect x="50" y="410" width="130" height="96" rx="20"/><rect x="200" y="410" width="130" height="96" rx="20"/><rect x="350" y="410" width="130" height="96" rx="20"/></g>
       </svg>
-        <div id="rechnung-disp"><span id="rechnung-tx">10.000 × 126.000 $</span></div>
+        <div id="rechnung-disp"><span id="rechnung-tx">10.000 ×<br/>126.000 $</span></div>
         <div id="rechnung-q">= ???</div>
         <div id="rechnung-eq"></div>
       </div>
@@ -35,7 +35,7 @@
       tl.to("#rechnung-q", { keyframes: { opacity: [0, 1, 0.3, 1] }, duration: 0.4, ease: "steps(3)" }, 2.0);
       tl.to("#rechnung-calc", { keyframes: { rotation: [-2, 2, -2, 1, -2] }, duration: 0.5, ease: "none" }, 1.95);
       // overlap exit: fades while the next scene is already entering (no empty frames)
-      tl.to("#rechnung-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.5);
+      tl.to("#rechnung-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power2.in" }, 2.32);
       window.__timelines["rechnung"] = tl;
     })();
   </script>

@@ -31,7 +31,7 @@
       tl.fromTo("#chart-arw", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.5)" }, 1.3);
       tl.to("#chart-arw", { x: 14, y: -14, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.6);
       // overlap exit: fades while the next scene is already entering (no empty frames)
-      tl.to("#chart-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.1);
+      tl.to("#chart-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power2.in" }, 1.92);
       window.__timelines["chart"] = tl;
     })();
   </script>

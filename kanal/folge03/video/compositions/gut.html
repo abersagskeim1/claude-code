@@ -37,7 +37,7 @@
       tl.to("#gut-pz", { rotation: 12, duration: 1.2, ease: "sine.inOut" }, 0.4);
       [0, 1, 2].forEach((i) => tl.fromTo("#gut-st" + i, { opacity: 0, y: 30, scaleY: 0.5 }, { keyframes: { opacity: [0, 0.8, 0], y: [30, -20, -90], x: [0, 12, -8] }, scaleY: 1.1, duration: 0.9, ease: "none", immediateRender: false }, 0.3 + i * 0.25));
       // overlap exit: fades while the next scene is already entering (no empty frames)
-      tl.to("#gut-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 1.7);
+      tl.to("#gut-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power2.in" }, 1.52);
       window.__timelines["gut"] = tl;
     })();
   </script>

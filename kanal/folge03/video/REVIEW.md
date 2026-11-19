@@ -18,3 +18,9 @@
 ## Schwächen
 - Frame 1: „2010.“ steht leicht links, weil „Zwei“ in derselben Zeile unsichtbar Platz hält.
 - 21,35–23,4 s: Kerzen im Schwenk sind klein, die Linie trägt die Szene.
+
+## Nachbesserung nach Prüfung (19.11.)
+- Preisschild jetzt „≈ 630 Mio. $“ (vorher falsch 600.000.000 $).
+- Beschriftungen ≥ 74 px: Fähnchen „≈ 126.000 $ / pro [Münze]“ 76 px, Rechner zweizeilig 78 px, Preisschild 78 px, Kalender „BITCOIN / PIZZA DAY“ 74 px.
+- Konfetti liegt hinter dem Kalender. Alte Szene blendet 0,18 s vor dem Schnitt aus (fertig 0,06 s danach), neue Grafik deckt die alte nicht mehr.
+- Thumbnail „~41 DOLLAR?!“. Ton wieder −14,0 LUFS / −1,6 dBTP, 39,500 s.

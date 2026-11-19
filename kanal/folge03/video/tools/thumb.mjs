@@ -47,7 +47,7 @@ ${css}
 <svg width="0" height="0" style="position:absolute"><defs>${defs}</defs></svg>
 <div id="glow"></div><div id="rays"></div><div id="dots"></div><div id="vig"></div>
 <div id="stage">${body}</div>
-<div id="txt"><span class="a">41</span><br/><span class="b">DOLLAR?!</span></div>
+<div id="txt"><span class="a">~41</span><br/><span class="b">DOLLAR?!</span></div>
 <div id="kshadow"></div><div id="klotz">${svg}</div>
 </div>
 </body></html>`;

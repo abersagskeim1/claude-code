@@ -73,7 +73,7 @@
       tl.to(["#hook-boxA", "#hook-boxB"], { keyframes: { scaleY: [1, 0.9, 1.03, 1] }, duration: 0.35, ease: "none", transformOrigin: "50% 100%", stagger: 0.04 }, 1.22);
       [0, 1, 2, 3, 4, 5].forEach((i) => tl.to("#hook-col" + i, { rotation: (i % 2 ? -2 : 2), duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, 1.9 + 0.03 * i));
       // overlap exit: fades while the next scene is already entering (no empty frames)
-      tl.to("#hook-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 3.4);
+      tl.to("#hook-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power2.in" }, 3.22);
       window.__timelines["hook"] = tl;
     })();
   </script>

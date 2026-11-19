@@ -110,7 +110,7 @@ const FONTFACE = `@font-face{font-family:'Lilita One';src:url('assets/fonts/Lili
 const abs = (l, t, w, h) => `position:absolute;left:${l}px;top:${t}px;width:${w}px;${h != null ? `height:${h}px;` : ""}`;
 
 function scene(id, title, start, dur, css, body, js, defs = "", opts = {}) {
-  const exit = opts.exit !== false, kb = opts.kb !== false, exDur = opts.exitDur || 0.28, exLead = opts.exitLead || 0;
+  const exit = opts.exit !== false, kb = opts.kb !== false, exDur = opts.exitDur || 0.24, exLead = opts.exitLead ?? 0.18;
   const html = `<template>
   <style>
     ${FONTFACE}
@@ -497,10 +497,10 @@ ${shake("#steil-kb", 1.9, 10, 0.3)}`,
           <rect x="332" y="70" width="14" height="230" rx="6" fill="#E8EDF3" stroke="${K}" stroke-width="5"/>
           <path d="M346 74 L548 74 L520 140 L548 206 L346 206 Z" fill="${RED}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
           <g transform="translate(400 96)"><path d="M10 0 L70 0 L66 40 Q60 66 40 66 Q20 66 14 40 Z" fill="${YEL}" stroke="${K}" stroke-width="6" stroke-linejoin="round"/><path d="M10 10 Q-8 10 -4 26 Q0 40 16 42 M70 10 Q88 10 84 26 Q80 40 64 42" stroke="${K}" stroke-width="6" fill="none"/><rect x="30" y="66" width="20" height="16" fill="${YEL}" stroke="${K}" stroke-width="5"/><rect x="18" y="82" width="44" height="14" rx="4" fill="${YEL}" stroke="${K}" stroke-width="5"/></g>
-          <rect x="-170" y="-10" width="490" height="160" rx="24" fill="#fff" stroke="${K}" stroke-width="8"/>
-          <text x="75" y="58" text-anchor="middle" font-family="Lilita One" font-size="74" fill="${K}">≈ 126.000 $</text>
-          <text x="40" y="128" text-anchor="middle" font-family="Lilita One" font-size="58" fill="#5B6577">pro</text>
-          <g transform="translate(98 82) scale(.29)"><use href="#gipfel-sym-coin"/></g>
+          <rect x="-170" y="-14" width="490" height="190" rx="24" fill="#fff" stroke="${K}" stroke-width="8"/>
+          <text x="75" y="62" text-anchor="middle" font-family="Lilita One" font-size="76" fill="${K}">≈ 126.000 $</text>
+          <text x="30" y="150" text-anchor="middle" font-family="Lilita One" font-size="76" fill="#5B6577">pro</text>
+          <g transform="translate(96 84) scale(.42)"><use href="#gipfel-sym-coin"/></g>
         </svg></div>
 ${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => `        <div id="gipfel-cf${i}" class="gipfel-cf" style="left:${560 + r(-40, 260)}px;top:${80 + r(0, 120)}px;background:${[YEL, GREEN, RED, "#4FC3F7"][i % 4]};"></div>`).join("\n")}
       </div>`,
@@ -519,15 +519,15 @@ ${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => `        <div id="gipfel-cf${i}" class="gi
   const p = "rechnung";
   const [s, d] = S(p);
   scenes.push(scene(p, "Rechnung", s, d,
-    `#rechnung-calc{${abs(200, 860, 680, 620)}}
-     #rechnung-disp{position:absolute;left:50px;top:44px;width:580px;height:130px;border-radius:18px;background:#BFE6C9;border:8px solid ${K};font-family:'Lilita One';font-size:62px;line-height:114px;color:${K};text-align:right;padding-right:24px;white-space:nowrap;overflow:hidden;}
-     #rechnung-q{position:absolute;left:50px;top:44px;width:580px;height:130px;font-family:'Lilita One';font-size:96px;line-height:120px;color:${RED};text-align:center;opacity:0;}
-     #rechnung-eq{position:absolute;left:470px;top:490px;width:160px;height:96px;border-radius:20px;background:${YEL};border:7px solid ${K};}`,
-    `      <div id="rechnung-calc" class="rechnung-stk"><svg viewBox="0 0 680 620" width="680" height="620" style="position:absolute;left:0;top:0" overflow="visible">
-        <rect x="6" y="6" width="668" height="608" rx="50" fill="#5B6577" stroke="${K}" stroke-width="10"/>
-        <g fill="#E8EDF3" stroke="${K}" stroke-width="6">${[0, 1, 2].map((row) => [0, 1, 2, 3].map((c) => `<rect x="${50 + c * 150}" y="${210 + row * 130}" width="130" height="96" rx="20"/>`).join("")).join("").replace(/<rect x="500" y="470"[^>]*\/>/, "")}</g>
+    `#rechnung-calc{${abs(200, 860, 680, 560)}}
+     #rechnung-disp{position:absolute;left:50px;top:44px;width:580px;height:210px;border-radius:18px;background:#BFE6C9;border:8px solid ${K};font-family:'Lilita One';font-size:78px;line-height:92px;padding-top:6px;color:${K};text-align:center;white-space:nowrap;overflow:hidden;}
+     #rechnung-q{position:absolute;left:50px;top:44px;width:580px;height:210px;font-family:'Lilita One';font-size:120px;line-height:210px;color:${RED};text-align:center;opacity:0;}
+     #rechnung-eq{position:absolute;left:470px;top:410px;width:160px;height:96px;border-radius:20px;background:${YEL};border:7px solid ${K};}`,
+    `      <div id="rechnung-calc" class="rechnung-stk"><svg viewBox="0 0 680 560" width="680" height="560" style="position:absolute;left:0;top:0" overflow="visible">
+        <rect x="6" y="6" width="668" height="548" rx="50" fill="#5B6577" stroke="${K}" stroke-width="10"/>
+        <g fill="#E8EDF3" stroke="${K}" stroke-width="6">${[0, 1].map((row) => [0, 1, 2, 3].map((c) => `<rect x="${50 + c * 150}" y="${280 + row * 130}" width="130" height="96" rx="20"/>`).join("")).join("").replace(/<rect x="500" y="410"[^>]*\/>/, "")}</g>
       </svg>
-        <div id="rechnung-disp"><span id="rechnung-tx">10.000 × 126.000 $</span></div>
+        <div id="rechnung-disp"><span id="rechnung-tx">10.000 ×<br/>126.000 $</span></div>
         <div id="rechnung-q">= ???</div>
         <div id="rechnung-eq"></div>
       </div>`,
@@ -574,15 +574,15 @@ ${shake("#milliarde-kb", 1.1, 12, 0.3)}
     `#stueck-sl{${abs(150, 740, 400, 506)}transform-origin:50% 50%;}
      #stueck-glint{position:absolute;left:0;top:0;width:70px;height:506px;background:rgba(255,255,255,.7);transform:skewX(-18deg);opacity:0;}
      #stueck-mask{position:absolute;inset:0;overflow:hidden;clip-path:polygon(5% 12%,50% 0%,95% 12%,50% 98%);}
-     #stueck-str{${abs(450, 900, 200, 140)}}
-     #stueck-tag{${abs(520, 1000, 470, 190)}transform-origin:6% 50%;}`,
-    `      <div id="stueck-str"><svg viewBox="0 0 200 140" width="200" height="140" overflow="visible"><path id="stueck-sp" d="M10 20 Q100 20 180 110" stroke="#E8EDF3" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"/></svg></div>
+     #stueck-str{${abs(380, 960, 140, 260)}}
+     #stueck-tag{${abs(430, 1100, 560, 190)}transform-origin:6% 50%;}`,
+    `      <div id="stueck-str"><svg viewBox="0 0 140 260" width="140" height="260" overflow="visible"><path id="stueck-sp" d="M20 10 Q50 130 100 232" stroke="#E8EDF3" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"/></svg></div>
       <div id="stueck-sl" class="stueck-stk">${SLICE(p)}<div id="stueck-mask"><div id="stueck-glint"></div></div></div>
-      <div id="stueck-tag" class="stueck-stk"><svg viewBox="0 0 470 190" width="100%" height="100%" overflow="visible">
-        <path d="M60 8 L456 8 Q464 8 464 18 L464 172 Q464 182 456 182 L60 182 L6 95 Z" fill="${YEL}" stroke="${K}" stroke-width="9" stroke-linejoin="round"/>
+      <div id="stueck-tag" class="stueck-stk"><svg viewBox="0 0 560 190" width="100%" height="100%" overflow="visible">
+        <path d="M60 8 L546 8 Q554 8 554 18 L554 172 Q554 182 546 182 L60 182 L6 95 Z" fill="${YEL}" stroke="${K}" stroke-width="9" stroke-linejoin="round"/>
         <circle cx="52" cy="95" r="14" fill="#0E1530" stroke="${K}" stroke-width="5"/>
-        <text x="268" y="122" text-anchor="middle" font-family="Lilita One" font-size="54" fill="${K}">600.000.000 $</text></svg></div>
-      ${spk("stueck-k0", 170, 760, 90)}${spk("stueck-k1", 470, 1150, 70)}${spk("stueck-k2", 120, 1100, 60)}${spk("stueck-k3", 860, 1250, 80)}`,
+        <text x="306" y="122" text-anchor="middle" font-family="Lilita One" font-size="78" fill="${K}">≈ 630 Mio. $</text></svg></div>
+      ${spk("stueck-k0", 170, 760, 90)}${spk("stueck-k1", 600, 960, 70)}${spk("stueck-k2", 120, 1100, 60)}${spk("stueck-k3", 860, 1250, 80)}`,
     `      tl.fromTo("#stueck-sl", { scale: 0, rotation: -40 }, { scale: 1, rotation: -10, duration: 0.35, ease: "back.out(1.8)" }, 0);
       tl.to("#stueck-goldl", { opacity: 0.7, duration: 0.4 }, 0.5);
       tl.to("#stueck-sp", { strokeDashoffset: 0, duration: 0.25 }, 0.45);
@@ -599,22 +599,23 @@ ${shake("#milliarde-kb", 1.1, 12, 0.3)}
 {
   const p = "kalender";
   const [s, d] = S(p);
-  const sheet = (id, day, front) => `<div id="${id}" class="kalender-sh" style="${front ? "" : ""}"><div class="kalender-hd">MAI</div><div class="kalender-day">${day}</div>${front ? `<div class="kalender-ft">Bitcoin Pizza Day</div>` : ""}</div>`;
+  const sheet = (id, day, front) => `<div id="${id}" class="kalender-sh" style="${front ? "" : ""}"><div class="kalender-hd">MAI</div><div class="kalender-day">${day}</div>${front ? `<div class="kalender-ft">BITCOIN<br/>PIZZA DAY</div>` : ""}</div>`;
   scenes.push(scene(p, "Pizza-Tag", s, d,
     `#kalender-wrap{${abs(240, 760, 600, 640)}}
      .kalender-sh{position:absolute;left:0;top:30px;width:600px;height:600px;border-radius:30px;background:#fff;border:10px solid ${K};overflow:hidden;transform-origin:50% 0%;}
-     .kalender-hd{position:absolute;left:0;right:0;top:0;height:150px;background:${RED};border-bottom:10px solid ${K};font-family:'Lilita One';font-size:110px;line-height:150px;text-align:center;color:#fff;-webkit-text-stroke:10px ${K};paint-order:stroke fill;}
-     .kalender-day{position:absolute;left:0;right:0;top:150px;height:330px;font-family:'Lilita One';font-size:300px;line-height:330px;text-align:center;color:${K};}
-     .kalender-ft{position:absolute;left:30px;right:30px;bottom:24px;height:76px;border-radius:38px;background:${YEL};border:6px solid ${K};font-family:'Inter';font-weight:900;font-size:44px;line-height:64px;text-align:center;color:${K};}
+     .kalender-hd{position:absolute;left:0;right:0;top:0;height:130px;background:${RED};border-bottom:10px solid ${K};font-family:'Lilita One';font-size:100px;line-height:130px;text-align:center;color:#fff;-webkit-text-stroke:10px ${K};paint-order:stroke fill;}
+     .kalender-day{position:absolute;left:0;right:0;top:130px;height:256px;font-family:'Lilita One';font-size:236px;line-height:256px;text-align:center;color:${K};}
+     .kalender-ft{position:absolute;left:30px;right:30px;bottom:14px;height:176px;border-radius:34px;background:${YEL};border:6px solid ${K};font-family:'Lilita One';font-size:74px;line-height:80px;padding-top:4px;text-align:center;color:${K};}
      .kalender-ring{position:absolute;top:0;width:36px;height:76px;border-radius:18px;background:#A8B3C2;border:7px solid ${K};}
      .kalender-cf{position:absolute;width:22px;height:36px;border-radius:5px;}`,
-    `      <div id="kalender-wrap" class="kalender-stk" data-layout-allow-overlap>
+    `${Array.from({ length: 10 }, (_, i) => `      <div id="kalender-cf${i}" class="kalender-cf" style="left:${r(120, 920)}px;top:${r(780, 900)}px;background:${[YEL, GREEN, RED, "#4FC3F7", "#FF7A1A"][i % 5]};"></div>`).join("\n")}
+      <div id="kalender-wrap" class="kalender-stk" data-layout-allow-overlap>
         ${sheet("kalender-s22", 22, true)}
         ${sheet("kalender-s21", 21, false)}
         ${sheet("kalender-s20", 20, false)}
         <div id="kalender-r0" class="kalender-ring" style="left:130px;"></div><div id="kalender-r1" class="kalender-ring" style="left:434px;"></div>
       </div>
-${Array.from({ length: 10 }, (_, i) => `      <div id="kalender-cf${i}" class="kalender-cf" style="left:${r(120, 920)}px;top:${r(780, 900)}px;background:${[YEL, GREEN, RED, "#4FC3F7", "#FF7A1A"][i % 5]};"></div>`).join("\n")}`,
+`,
     `      tl.fromTo("#kalender-wrap", { y: 800, rotation: 10 }, { y: 0, rotation: -3, duration: 0.4, ease: "back.out(1.3)" }, 0);
       tl.to("#kalender-s20", { rotationX: -100, y: -60, opacity: 0, duration: 0.3, ease: "power2.in", transformPerspective: 900 }, 0.45);
       tl.to("#kalender-s21", { rotationX: -100, y: -60, opacity: 0, duration: 0.3, ease: "power2.in", transformPerspective: 900 }, 0.75);
