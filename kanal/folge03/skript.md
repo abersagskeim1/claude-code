@@ -33,6 +33,7 @@ Klotz-Gag (neu): Klotz isst genüsslich ein Pizzastück, sieht den Chart steigen
 | Rekordhoch ≈ 126.000 $ (06.10.2025) | belegt | Marktberichte Nov. 2026 (ifyouspent/news, CoinMarketCap-Angaben) |
 | 10.000 × 126.000 $ = 1,26 Mrd. $; ÷ 2 = 630 Mio. $ → „über 600 Millionen“ | gerechnet | – |
 | 22. Mai = „Bitcoin Pizza Day“ | belegt | CoinDesk, TechCrunch |
+| „< 1 Cent“ pro Bitcoin damals | gerechnet: 41 $ ÷ 10.000 ≈ 0,4 Cent | – |
 | ~~Heutiger Wert~~ | stark schwankend (Mitte Nov. 2026 ≈ 64–68 Tsd. $) → nicht verwendet | – |
 
 Quellen für die Beschreibung:

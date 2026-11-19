@@ -7,7 +7,7 @@ Reihenfolge wie in YouTube Studio:
 
 ## Titel
 ```
-Die TEUERSTEN Pizzen der Welt?! 🍕🤯 #Shorts
+Die TEUERSTEN Pizzen der Welt?! 🤯🍕 #Shorts
 ```
 
 ## Beschreibung
