@@ -1,0 +1,38 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #chart-out, #chart-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .chart-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .cn, .pe { position: absolute; }
+    #chart-pan{position:absolute;left:80px;top:720px;width:920px;height:700px;border-radius:30px;background:#0B1226;border:10px solid #0A0F22;overflow:hidden;}
+     #chart-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.07) 2px,transparent 2px);background-size:100px 100px;}#chart-arw{position:absolute;left:700px;top:40px;width:160px;height:160px;}
+  </style>
+  <div id="root" data-composition-id="chart" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="chart-out"><div id="chart-kb">
+      <div id="chart-pan" class="chart-stk"><div id="chart-grid"></div>
+        <svg viewBox="0 0 900 680" width="900" height="680" style="position:absolute;left:0;top:0" overflow="visible">
+          <g class="chart-cd"><line x1="82" y1="534" x2="82" y2="646" stroke="#3FE07A" stroke-width="7"/><rect x="60" y="560" width="44" height="60" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="162" y1="514" x2="162" y2="616" stroke="#FF3B3B" stroke-width="7"/><rect x="140" y="540" width="44" height="50" rx="6" fill="#FF3B3B" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="242" y1="494" x2="242" y2="616" stroke="#3FE07A" stroke-width="7"/><rect x="220" y="520" width="44" height="70" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="322" y1="444" x2="322" y2="556" stroke="#3FE07A" stroke-width="7"/><rect x="300" y="470" width="44" height="60" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="402" y1="444" x2="402" y2="536" stroke="#FF3B3B" stroke-width="7"/><rect x="380" y="470" width="44" height="40" rx="6" fill="#FF3B3B" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="482" y1="354" x2="482" y2="496" stroke="#3FE07A" stroke-width="7"/><rect x="460" y="380" width="44" height="90" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="562" y1="274" x2="562" y2="426" stroke="#3FE07A" stroke-width="7"/><rect x="540" y="300" width="44" height="100" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="642" y1="164" x2="642" y2="336" stroke="#3FE07A" stroke-width="7"/><rect x="620" y="190" width="44" height="120" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g><g class="chart-cd"><line x1="722" y1="74" x2="722" y2="236" stroke="#3FE07A" stroke-width="7"/><rect x="700" y="100" width="44" height="110" rx="6" fill="#3FE07A" stroke="#0A0F22" stroke-width="4"/></g>
+          <path id="chart-line" d="M40 620 L160 600 L240 590 L320 520 L400 540 L480 430 L560 340 L640 230 L740 120" stroke="#FFD23F" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 2" stroke-dashoffset="1.2"/>
+        </svg>
+        <div id="chart-arw"><svg viewBox="0 0 160 160" width="160" height="160" overflow="visible"><path d="M20 140 L110 50 M60 40 L120 40 L120 100" stroke="#0A0F22" stroke-width="40" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 140 L110 50 M60 40 L120 40 L120 100" stroke="#3FE07A" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow drift so the frame never stands still
+      tl.fromTo("#chart-kb", { scale: 1 }, { scale: 1.04, duration: 2.1, ease: "none" }, 0);
+      tl.fromTo("#chart-pan", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(".chart-cd", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.2, ease: "back.out(2.5)", stagger: 0.11 }, 0.2);
+      tl.to("#chart-line", { strokeDashoffset: 0, duration: 1.1, ease: "power2.in" }, 0.25);
+      tl.fromTo("#chart-arw", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.5)" }, 1.3);
+      tl.to("#chart-arw", { x: 14, y: -14, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.6);
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#chart-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.1);
+      window.__timelines["chart"] = tl;
+    })();
+  </script>
+</template>

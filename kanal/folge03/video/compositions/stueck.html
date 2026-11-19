@@ -1,0 +1,52 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #stueck-out, #stueck-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .stueck-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .cn, .pe { position: absolute; }
+    #stueck-sl{position:absolute;left:150px;top:740px;width:400px;height:506px;transform-origin:50% 50%;}
+     #stueck-glint{position:absolute;left:0;top:0;width:70px;height:506px;background:rgba(255,255,255,.7);transform:skewX(-18deg);opacity:0;}
+     #stueck-mask{position:absolute;inset:0;overflow:hidden;clip-path:polygon(5% 12%,50% 0%,95% 12%,50% 98%);}
+     #stueck-str{position:absolute;left:450px;top:900px;width:200px;height:140px;}
+     #stueck-tag{position:absolute;left:520px;top:1000px;width:470px;height:190px;transform-origin:6% 50%;}
+  </style>
+  <div id="root" data-composition-id="stueck" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="stueck-out"><div id="stueck-kb">
+      <div id="stueck-str"><svg viewBox="0 0 200 140" width="200" height="140" overflow="visible"><path id="stueck-sp" d="M10 20 Q100 20 180 110" stroke="#E8EDF3" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"/></svg></div>
+      <div id="stueck-sl" class="stueck-stk"><svg viewBox="0 0 300 380" width="100%" height="100%" overflow="visible">
+  <defs><linearGradient id="stueck-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF2A8"/><stop offset=".5" stop-color="#FFC52E"/><stop offset="1" stop-color="#C98400"/></linearGradient></defs>
+  <path d="M20 60 Q150 0 280 60 L150 370 Z" fill="#FFD86B" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M14 58 Q150 -16 286 58 L276 84 Q150 24 24 84 Z" fill="#E8A54B" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+  <g fill="#D9412B" stroke="#8E2215" stroke-width="4"><circle cx="110" cy="130" r="26"/><circle cx="190" cy="150" r="24"/><circle cx="148" cy="230" r="20"/><circle cx="150" cy="300" r="13"/></g>
+  <path d="M60 110 q10 40 0 70 M230 120 q-6 30 4 50" stroke="#FFE9A8" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path id="stueck-goldl" d="M20 60 Q150 0 280 60 L150 370 Z" fill="url(#stueck-gold)" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round" opacity="0"/>
+</svg><div id="stueck-mask"><div id="stueck-glint"></div></div></div>
+      <div id="stueck-tag" class="stueck-stk"><svg viewBox="0 0 470 190" width="100%" height="100%" overflow="visible">
+        <path d="M60 8 L456 8 Q464 8 464 18 L464 172 Q464 182 456 182 L60 182 L6 95 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+        <circle cx="52" cy="95" r="14" fill="#0E1530" stroke="#0A0F22" stroke-width="5"/>
+        <text x="268" y="122" text-anchor="middle" font-family="Lilita One" font-size="54" fill="#0A0F22">600.000.000 $</text></svg></div>
+      <div id="stueck-k0" class="pe" style="left:170px;top:760px;width:90px;height:90px;"><svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 0 Q56 44 100 50 Q56 56 50 100 Q44 56 0 50 Q44 44 50 0Z" fill="#FFF6CF"/></svg></div><div id="stueck-k1" class="pe" style="left:470px;top:1150px;width:70px;height:70px;"><svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 0 Q56 44 100 50 Q56 56 50 100 Q44 56 0 50 Q44 44 50 0Z" fill="#FFF6CF"/></svg></div><div id="stueck-k2" class="pe" style="left:120px;top:1100px;width:60px;height:60px;"><svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 0 Q56 44 100 50 Q56 56 50 100 Q44 56 0 50 Q44 44 50 0Z" fill="#FFF6CF"/></svg></div><div id="stueck-k3" class="pe" style="left:860px;top:1250px;width:80px;height:80px;"><svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 0 Q56 44 100 50 Q56 56 50 100 Q44 56 0 50 Q44 44 50 0Z" fill="#FFF6CF"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow drift so the frame never stands still
+      tl.fromTo("#stueck-kb", { scale: 1 }, { scale: 1.04, duration: 2.5, ease: "none" }, 0);
+      tl.fromTo("#stueck-sl", { scale: 0, rotation: -40 }, { scale: 1, rotation: -10, duration: 0.35, ease: "back.out(1.8)" }, 0);
+      tl.to("#stueck-goldl", { opacity: 0.7, duration: 0.4 }, 0.5);
+      tl.to("#stueck-sp", { strokeDashoffset: 0, duration: 0.25 }, 0.45);
+      tl.fromTo("#stueck-tag", { scale: 0, rotation: 30 }, { scale: 1, rotation: -6, duration: 0.35, ease: "back.out(2.2)" }, 0.55);
+      tl.to("#stueck-tag", { rotation: 3, duration: 0.5, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.95);
+      tl.fromTo("#stueck-glint", { x: -120, opacity: 0.9 }, { x: 480, opacity: 0.9, duration: 0.5, ease: "power2.inOut", immediateRender: false }, 0.9);
+      tl.fromTo("#stueck-glint", { x: -120 }, { x: 480, duration: 0.5, ease: "power2.inOut", immediateRender: false }, 1.8);
+      tl.to("#stueck-sl", { rotation: -4, y: -14, duration: 0.6, yoyo: true, repeat: 2, ease: "sine.inOut" }, 0.5);
+      ["#stueck-k0", "#stueck-k1", "#stueck-k2", "#stueck-k3"].forEach((id, i) => tl.fromTo(id, { scale: 0, rotation: 0 }, { keyframes: { scale: [0, 1.2, 0, 1, 0] }, rotation: 90, duration: 1.4, ease: "none" }, 0.6 + i * 0.18));
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#stueck-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.5);
+      window.__timelines["stueck"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,26 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0E1530; }
+    #bg-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 58%, #2A3A80 0%, #17234D 42%, #0E1530 76%); }
+    #bg-rays { position: absolute; left: -760px; top: -200px; width: 2600px; height: 2600px; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, rgba(255,210,63,.045) 0deg 7.5deg, rgba(255,255,255,0) 7.5deg 20deg); }
+    #bg-dots { position: absolute; left: -80px; top: -80px; width: 1240px; height: 2080px;
+      background-image: radial-gradient(circle, rgba(255,255,255,.05) 7px, transparent 8px); background-size: 80px 80px; }
+    #bg-vig { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 55%, rgba(4,7,20,.6) 100%); }
+  </style>
+  <div id="root" data-composition-id="bg" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="bg-glow"></div>
+    <div id="bg-rays"></div>
+    <div id="bg-dots"></div>
+    <div id="bg-vig"></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // 40 degrees = two ray periods, 80 px = one dot cell: both land on the frame-0 state for the loop
+      tl.fromTo("#bg-rays", { rotation: 0 }, { rotation: -40, duration: 39.5, ease: "none" }, 0);
+      tl.fromTo("#bg-dots", { x: 0, y: 0 }, { x: 80, y: 80, duration: 39.5, ease: "none" }, 0);
+      window.__timelines["bg"] = tl;
+    })();
+  </script>
+</template>

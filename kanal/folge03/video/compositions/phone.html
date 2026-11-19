@@ -1,0 +1,65 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #phone-out, #phone-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .phone-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .cn, .pe { position: absolute; }
+    #phone-ph{position:absolute;left:100px;top:860px;width:400px;height:380px;transform-origin:50% 100%;}
+     #phone-rings{position:absolute;left:60px;top:760px;width:480px;height:200px;}
+     #phone-b1{position:absolute;left:540px;top:1180px;width:460px;height:175px;} #phone-b2{position:absolute;left:570px;top:1040px;width:460px;height:175px;}
+     .phone-st{position:absolute;width:24px;height:90px;border-radius:12px;background:#E8EDF3;opacity:0;}
+  </style>
+  <div id="root" data-composition-id="phone" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="phone-out"><div id="phone-kb">
+      <div id="phone-rings"><svg viewBox="0 0 480 200" width="100%" height="100%" overflow="visible"><g fill="none" stroke="#FFD23F" stroke-width="16" stroke-linecap="round">
+        <path id="phone-r0" d="M150 150 Q120 100 150 50"/><path id="phone-r1" d="M100 170 Q50 100 100 30"/><path id="phone-r2" d="M330 150 Q360 100 330 50"/><path id="phone-r3" d="M380 170 Q430 100 380 30"/></g></svg></div>
+      <div id="phone-ph" class="phone-stk"><svg viewBox="0 0 400 380" width="100%" height="100%" overflow="visible">
+        <path id="phone-hand" d="M40 70 Q40 20 100 24 L300 24 Q360 20 360 70 L360 100 Q360 120 330 120 L290 120 Q270 120 270 100 L270 82 L130 82 L130 100 Q130 120 110 120 L70 120 Q40 120 40 100 Z" fill="#FF3B3B" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M70 160 Q80 130 120 130 L280 130 Q320 130 330 160 L380 350 Q382 372 360 372 L40 372 Q18 372 20 350 Z" fill="#FF3B3B" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+        <circle cx="200" cy="262" r="78" fill="#fff" stroke="#0A0F22" stroke-width="9"/>
+        <g fill="#0A0F22"><circle cx="169.4" cy="304.1" r="10"/><circle cx="152.9" cy="284.1" r="10"/><circle cx="148.1" cy="258.7" r="10"/><circle cx="156.1" cy="234.1" r="10"/><circle cx="174.9" cy="216.4" r="10"/><circle cx="200.0" cy="210.0" r="10"/><circle cx="225.1" cy="216.4" r="10"/><circle cx="243.9" cy="234.1" r="10"/><circle cx="251.9" cy="258.7" r="10"/><circle cx="247.1" cy="284.1" r="10"/></g>
+        <circle cx="200" cy="262" r="20" fill="#FFD23F" stroke="#0A0F22" stroke-width="6"/>
+      </svg></div>
+      <div id="phone-b1" class="phone-stk"><svg viewBox="0 0 500 190" width="100%" height="100%" overflow="visible">
+  <path d="M40 8 L460 8 L494 66 L6 66 Z" fill="#F6E6C4" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="6" y="66" width="488" height="116" rx="8" fill="#E0BF86" stroke="#0A0F22" stroke-width="7"/>
+  <ellipse cx="250" cy="37" rx="78" ry="22" fill="#E8A54B" stroke="#0A0F22" stroke-width="5"/><ellipse cx="250" cy="37" rx="62" ry="15" fill="#FFD86B"/>
+  <g fill="#D9412B"><ellipse cx="222" cy="33" rx="10" ry="5"/><ellipse cx="262" cy="28" rx="10" ry="5"/><ellipse cx="282" cy="42" rx="10" ry="5"/><ellipse cx="240" cy="45" rx="10" ry="5"/></g>
+  <path d="M40 96 L96 96 L68 160 Z" fill="#FFD86B" stroke="#FF3B3B" stroke-width="6" stroke-linejoin="round"/><path d="M36 94 Q68 84 100 94" stroke="#FF3B3B" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <rect x="124" y="100" width="336" height="16" rx="8" fill="#FF3B3B"/><rect x="124" y="132" width="250" height="12" rx="6" fill="#C9A26A"/>
+  <path d="M20 74 L480 74" stroke="#FFF3D6" stroke-width="5" opacity=".7"/>
+</svg></div>
+      <div id="phone-b2" class="phone-stk"><svg viewBox="0 0 500 190" width="100%" height="100%" overflow="visible">
+  <path d="M40 8 L460 8 L494 66 L6 66 Z" fill="#F6E6C4" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="6" y="66" width="488" height="116" rx="8" fill="#E0BF86" stroke="#0A0F22" stroke-width="7"/>
+  <ellipse cx="250" cy="37" rx="78" ry="22" fill="#E8A54B" stroke="#0A0F22" stroke-width="5"/><ellipse cx="250" cy="37" rx="62" ry="15" fill="#FFD86B"/>
+  <g fill="#D9412B"><ellipse cx="222" cy="33" rx="10" ry="5"/><ellipse cx="262" cy="28" rx="10" ry="5"/><ellipse cx="282" cy="42" rx="10" ry="5"/><ellipse cx="240" cy="45" rx="10" ry="5"/></g>
+  <path d="M40 96 L96 96 L68 160 Z" fill="#FFD86B" stroke="#FF3B3B" stroke-width="6" stroke-linejoin="round"/><path d="M36 94 Q68 84 100 94" stroke="#FF3B3B" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <rect x="124" y="100" width="336" height="16" rx="8" fill="#FF3B3B"/><rect x="124" y="132" width="250" height="12" rx="6" fill="#C9A26A"/>
+  <path d="M20 74 L480 74" stroke="#FFF3D6" stroke-width="5" opacity=".7"/>
+</svg></div>
+      <div id="phone-st0" class="phone-st" style="left:680px;top:960px;"></div><div id="phone-st1" class="phone-st" style="left:780px;top:940px;"></div><div id="phone-st2" class="phone-st" style="left:880px;top:960px;"></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow drift so the frame never stands still
+      tl.fromTo("#phone-kb", { scale: 1 }, { scale: 1.04, duration: 2.5, ease: "none" }, 0);
+      tl.fromTo("#phone-ph", { y: 700 }, { y: 0, duration: 0.35, ease: "back.out(1.4)" }, 0);
+      tl.to("#phone-ph", { keyframes: { rotation: [0, -7, 7, -7, 7, -5, 5, 0] }, duration: 0.6, ease: "none" }, 0.3);
+      tl.to("#phone-ph", { keyframes: { rotation: [0, -7, 7, -7, 7, -5, 5, 0] }, duration: 0.6, ease: "none" }, 1.1);
+      tl.to("#phone-hand", { y: -40, rotation: -8, svgOrigin: "200 70", duration: 0.25, ease: "power2.out" }, 1.8);
+      ["#phone-r0", "#phone-r1", "#phone-r2", "#phone-r3"].forEach((id, i) => tl.fromTo(id, { opacity: 0 }, { keyframes: { opacity: [0, 1, 0, 1, 0] }, duration: 1.4, ease: "none" }, 0.3 + (i % 2) * 0.08));
+      tl.fromTo("#phone-b1", { x: 700 }, { x: 0, duration: 0.4, ease: "back.out(1.3)" }, 0.9);
+      tl.fromTo("#phone-b2", { x: 700 }, { x: 0, duration: 0.4, ease: "back.out(1.3)" }, 1.1);
+      tl.to(["#phone-b1", "#phone-b2"], { keyframes: { scaleY: [1, 0.9, 1.04, 1] }, duration: 0.3, ease: "none", transformOrigin: "50% 100%", stagger: 0.15 }, 1.3);
+      [0, 1, 2].forEach((i) => tl.fromTo("#phone-st" + i, { opacity: 0, y: 30, scaleY: 0.5 }, { keyframes: { opacity: [0, 0.8, 0], y: [30, -20, -90], x: [0, 12, -8] }, scaleY: 1.1, duration: 0.9, ease: "none", immediateRender: false }, 1.5 + i * 0.2));
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#phone-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.5);
+      window.__timelines["phone"] = tl;
+    })();
+  </script>
+</template>

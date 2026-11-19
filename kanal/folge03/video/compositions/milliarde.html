@@ -1,0 +1,67 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #milliarde-out, #milliarde-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .milliarde-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .cn, .pe { position: absolute; }
+    #milliarde-rain{position:absolute;left:0;top:880px;width:1080px;height:1040px;overflow:hidden;}
+     .milliarde-bar{position:absolute;}
+     #milliarde-glow{position:absolute;left:140px;top:960px;width:800px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,197,46,.55),rgba(255,197,46,0) 66%);}
+  </style>
+  <div id="root" data-composition-id="milliarde" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="milliarde-sym-coin" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="94" fill="#C98400" stroke="#0A0F22" stroke-width="8"/>
+  <circle cx="100" cy="94" r="86" fill="#FFC52E"/>
+  <circle cx="100" cy="94" r="68" fill="none" stroke="#C98400" stroke-width="7"/>
+  <g fill="#C98400"><rect x="80" y="38" width="11" height="22" rx="4"/><rect x="104" y="38" width="11" height="22" rx="4"/><rect x="80" y="128" width="11" height="22" rx="4"/><rect x="104" y="128" width="11" height="22" rx="4"/></g>
+  <text x="100" y="135" text-anchor="middle" font-family="Lilita One" font-size="104" fill="#C98400">B</text>
+  <path d="M46 70 Q60 40 96 30" stroke="#FFF6CF" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/>
+</symbol></defs></svg>
+    <div id="milliarde-out"><div id="milliarde-kb">
+      <div id="milliarde-glow"></div>
+      <div id="milliarde-b0" class="milliarde-bar milliarde-stk" style="left:160px;top:1360px;"><svg viewBox="0 0 260 120" width="260" height="120" overflow="visible"><path d="M40 0 L220 0 L258 116 L2 116 Z" fill="#FFC52E" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M50 16 L210 16" stroke="#FFF6CF" stroke-width="10" stroke-linecap="round"/><path d="M30 100 L230 100" stroke="#C98400" stroke-width="8"/></svg></div><div id="milliarde-b1" class="milliarde-bar milliarde-stk" style="left:420px;top:1360px;"><svg viewBox="0 0 260 120" width="260" height="120" overflow="visible"><path d="M40 0 L220 0 L258 116 L2 116 Z" fill="#FFC52E" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M50 16 L210 16" stroke="#FFF6CF" stroke-width="10" stroke-linecap="round"/><path d="M30 100 L230 100" stroke="#C98400" stroke-width="8"/></svg></div><div id="milliarde-b2" class="milliarde-bar milliarde-stk" style="left:290px;top:1240px;"><svg viewBox="0 0 260 120" width="260" height="120" overflow="visible"><path d="M40 0 L220 0 L258 116 L2 116 Z" fill="#FFC52E" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M50 16 L210 16" stroke="#FFF6CF" stroke-width="10" stroke-linecap="round"/><path d="M30 100 L230 100" stroke="#C98400" stroke-width="8"/></svg></div><div id="milliarde-b3" class="milliarde-bar milliarde-stk" style="left:160px;top:1120px;"><svg viewBox="0 0 260 120" width="260" height="120" overflow="visible"><path d="M40 0 L220 0 L258 116 L2 116 Z" fill="#FFC52E" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M50 16 L210 16" stroke="#FFF6CF" stroke-width="10" stroke-linecap="round"/><path d="M30 100 L230 100" stroke="#C98400" stroke-width="8"/></svg></div><div id="milliarde-b4" class="milliarde-bar milliarde-stk" style="left:420px;top:1120px;"><svg viewBox="0 0 260 120" width="260" height="120" overflow="visible"><path d="M40 0 L220 0 L258 116 L2 116 Z" fill="#FFC52E" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M50 16 L210 16" stroke="#FFF6CF" stroke-width="10" stroke-linecap="round"/><path d="M30 100 L230 100" stroke="#C98400" stroke-width="8"/></svg></div>
+      <div id="milliarde-rain">
+        <div id="milliarde-d0" class="cn" style="left:442px;top:-140px;width:81.48px;height:81.48px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d1" class="cn" style="left:90.11px;top:-140px;width:95.19px;height:95.19px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d2" class="cn" style="left:814.02px;top:-140px;width:76.15px;height:76.15px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d3" class="cn" style="left:560.45px;top:-140px;width:94.49px;height:94.49px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d4" class="cn" style="left:390.38px;top:-140px;width:90.4px;height:90.4px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d5" class="cn" style="left:894.89px;top:-140px;width:116.61px;height:116.61px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d6" class="cn" style="left:107.62px;top:-140px;width:103.72px;height:103.72px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d7" class="cn" style="left:250.51px;top:-140px;width:91.24px;height:91.24px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d8" class="cn" style="left:147.41px;top:-140px;width:112.77px;height:112.77px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d9" class="cn" style="left:896.59px;top:-140px;width:81px;height:81px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d10" class="cn" style="left:799.59px;top:-140px;width:85.21px;height:85.21px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d11" class="cn" style="left:566.85px;top:-140px;width:102.1px;height:102.1px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d12" class="cn" style="left:215.74px;top:-140px;width:89.52px;height:89.52px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d13" class="cn" style="left:110.53px;top:-140px;width:104.96px;height:104.96px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d14" class="cn" style="left:266.44px;top:-140px;width:83.55px;height:83.55px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d15" class="cn" style="left:939.63px;top:-140px;width:75.02px;height:75.02px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d16" class="cn" style="left:191.67px;top:-140px;width:74.86px;height:74.86px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d17" class="cn" style="left:123.9px;top:-140px;width:72.96px;height:72.96px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d18" class="cn" style="left:506.18px;top:-140px;width:76.06px;height:76.06px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d19" class="cn" style="left:851.2px;top:-140px;width:105.21px;height:105.21px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d20" class="cn" style="left:609.56px;top:-140px;width:106.87px;height:106.87px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+        <div id="milliarde-d21" class="cn" style="left:166.13px;top:-140px;width:117.95px;height:117.95px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#milliarde-sym-coin"/></svg></div>
+      </div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow drift so the frame never stands still
+      tl.fromTo("#milliarde-kb", { scale: 1 }, { scale: 1.04, duration: 2.6, ease: "none" }, 0);
+      tl.fromTo("#milliarde-glow", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }, 0.1);
+      tl.to("#milliarde-glow", { scale: 1.12, duration: 0.4, yoyo: true, repeat: 4, ease: "sine.inOut" }, 0.5);
+      ["#milliarde-b0", "#milliarde-b1", "#milliarde-b2", "#milliarde-b3", "#milliarde-b4"].forEach((id, i) => tl.fromTo(id, { y: 700 }, { y: 0, duration: 0.3, ease: "back.out(1.6)" }, 0.2 + i * 0.12));
+      tl.to("#milliarde-kb", { keyframes: { x: [0, -26, 20.8, -13, 7.8, 0], y: [0, 13, -10.4, 5.2, 0, 0] }, duration: 0.42, ease: "none" }, 0.3);
+      tl.to("#milliarde-kb", { keyframes: { x: [0, -12, 9.6, -6, 3.6, 0], y: [0, 6, -4.8, 2.4, 0, 0] }, duration: 0.3, ease: "none" }, 1.1);
+      const D = [{"x":442,"s":81.48,"t":0.13,"rot":116.28},{"x":90.11,"s":95.19,"t":0.2,"rot":-127.66},{"x":814.02,"s":76.15,"t":0.29,"rot":-79.87},{"x":560.45,"s":94.49,"t":0.33,"rot":33.12},{"x":390.38,"s":90.4,"t":0.4,"rot":212.81},{"x":894.89,"s":116.61,"t":0.48,"rot":3.93},{"x":107.62,"s":103.72,"t":0.6,"rot":-344.28},{"x":250.51,"s":91.24,"t":0.65,"rot":218.02},{"x":147.41,"s":112.77,"t":0.74,"rot":-275.29},{"x":896.59,"s":81,"t":0.79,"rot":-104.65},{"x":799.59,"s":85.21,"t":0.86,"rot":-58.01},{"x":566.85,"s":102.1,"t":0.93,"rot":-290.74},{"x":215.74,"s":89.52,"t":1.02,"rot":52.65},{"x":110.53,"s":104.96,"t":1.1,"rot":-34.1},{"x":266.44,"s":83.55,"t":1.18,"rot":105.38},{"x":939.63,"s":75.02,"t":1.27,"rot":-308.94},{"x":191.67,"s":74.86,"t":1.34,"rot":157.58},{"x":123.9,"s":72.96,"t":1.4,"rot":-265.58},{"x":506.18,"s":76.06,"t":1.47,"rot":-91.5},{"x":851.2,"s":105.21,"t":1.56,"rot":100.97},{"x":609.56,"s":106.87,"t":1.6,"rot":28.9},{"x":166.13,"s":117.95,"t":1.72,"rot":-172.38}];
+      D.forEach((q, i) => tl.fromTo("#milliarde-d" + i, { y: 0, rotation: 0 }, { y: 1250, rotation: q.rot, duration: 0.9, ease: "power1.in", immediateRender: false }, q.t));
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#milliarde-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.6);
+      window.__timelines["milliarde"] = tl;
+    })();
+  </script>
+</template>

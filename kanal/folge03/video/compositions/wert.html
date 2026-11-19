@@ -1,0 +1,63 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #wert-out, #wert-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .wert-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .cn, .pe { position: absolute; }
+    #wert-c{position:absolute;left:300px;top:800px;width:300px;height:300px;}
+     #wert-lens{position:absolute;left:250px;top:760px;width:440px;height:520px;}
+     #wert-tag{position:absolute;left:560px;top:760px;width:400px;height:170px;transform-origin:12% 50%;}
+     #wert-str{position:absolute;left:470px;top:830px;width:160px;height:160px;}
+     #wert-arrow{position:absolute;left:110px;top:1080px;width:150px;height:220px;}
+     .wert-puff{position:absolute;width:60px;height:60px;border-radius:50%;background:#E8EDF3;opacity:0;}
+  </style>
+  <div id="root" data-composition-id="wert" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="wert-sym-coin" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="94" fill="#C98400" stroke="#0A0F22" stroke-width="8"/>
+  <circle cx="100" cy="94" r="86" fill="#FFC52E"/>
+  <circle cx="100" cy="94" r="68" fill="none" stroke="#C98400" stroke-width="7"/>
+  <g fill="#C98400"><rect x="80" y="38" width="11" height="22" rx="4"/><rect x="104" y="38" width="11" height="22" rx="4"/><rect x="80" y="128" width="11" height="22" rx="4"/><rect x="104" y="128" width="11" height="22" rx="4"/></g>
+  <text x="100" y="135" text-anchor="middle" font-family="Lilita One" font-size="104" fill="#C98400">B</text>
+  <path d="M46 70 Q60 40 96 30" stroke="#FFF6CF" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/>
+</symbol></defs></svg>
+    <div id="wert-out"><div id="wert-kb">
+      <div id="wert-str"><svg viewBox="0 0 160 160" width="100%" height="100%" overflow="visible"><path id="wert-sp" d="M10 140 Q60 120 140 15" stroke="#E8EDF3" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"/></svg></div>
+      <div id="wert-c" class="cn" style="left:300px;top:800px;width:300px;height:300px;"><svg viewBox="0 0 200 200" width="100%" height="100%" overflow="visible"><use href="#wert-sym-coin"/></svg></div>
+      <div id="wert-pf0" class="wert-puff" style="left:330px;top:830px;"></div>
+      <div id="wert-pf1" class="wert-puff" style="left:520px;top:830px;"></div>
+      <div id="wert-pf2" class="wert-puff" style="left:340px;top:1020px;"></div>
+      <div id="wert-pf3" class="wert-puff" style="left:510px;top:1020px;"></div>
+      <div id="wert-tag" class="wert-stk"><svg viewBox="0 0 400 170" width="100%" height="100%" overflow="visible">
+        <path d="M60 8 L380 8 Q394 8 394 22 L394 148 Q394 162 380 162 L60 162 L6 85 Z" fill="#fff" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+        <circle cx="54" cy="85" r="14" fill="#0E1530" stroke="#0A0F22" stroke-width="5"/>
+        <text x="238" y="112" text-anchor="middle" font-family="Lilita One" font-size="76" fill="#FF3B3B">&lt; 1 Cent</text></svg></div>
+      <div id="wert-lens"><svg viewBox="0 0 440 520" width="100%" height="100%" overflow="visible">
+        <path d="M300 330 L410 480" stroke="#0A0F22" stroke-width="64" stroke-linecap="round"/><path d="M300 330 L410 480" stroke="#8B5A2B" stroke-width="40" stroke-linecap="round"/>
+        <circle cx="200" cy="200" r="160" fill="rgba(191,230,255,.18)" stroke="#0A0F22" stroke-width="38"/><circle cx="200" cy="200" r="160" fill="none" stroke="#A8B3C2" stroke-width="14"/>
+        <path d="M110 130 Q140 90 190 80" stroke="#fff" stroke-width="16" fill="none" stroke-linecap="round" opacity=".8"/></svg></div>
+      <div id="wert-arrow" class="wert-stk"><svg viewBox="0 0 150 220" width="100%" height="100%" overflow="visible"><path d="M45 0 L105 0 L105 130 L145 130 L75 215 L5 130 L45 130 Z" fill="#FF3B3B" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // slow drift so the frame never stands still
+      tl.fromTo("#wert-kb", { scale: 1 }, { scale: 1.04, duration: 2.85, ease: "none" }, 0);
+      tl.fromTo("#wert-c", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2)" }, 0);
+      tl.to("#wert-c", { scale: 0.22, duration: 0.35, ease: "back.in(2)" }, 0.55);
+      [0, 1, 2, 3].forEach((i) => tl.fromTo("#wert-pf" + i, { opacity: 0, scale: 0.3 }, { keyframes: { opacity: [0, 0.9, 0] }, scale: 1.6, x: [-50, 50, -50, 50][i], y: [-40, -40, 40, 40][i], duration: 0.5, ease: "power2.out", immediateRender: false }, 0.85));
+      tl.fromTo("#wert-arrow", { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "bounce.out" }, 0.6);
+      tl.fromTo("#wert-lens", { x: 600, y: 300, rotation: 30, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" }, 1.0);
+      tl.to("#wert-c", { scale: 0.4, duration: 0.25, ease: "back.out(2)" }, 1.4);
+      tl.to("#wert-lens", { x: 26, y: -14, duration: 0.5, yoyo: true, repeat: 2, ease: "sine.inOut" }, 1.5);
+      tl.to("#wert-sp", { strokeDashoffset: 0, duration: 0.3, ease: "power1.out" }, 1.2);
+      tl.fromTo("#wert-tag", { scale: 0, rotation: -40 }, { scale: 1, rotation: 8, duration: 0.35, ease: "back.out(2)" }, 1.35);
+      tl.to("#wert-tag", { rotation: -4, duration: 0.45, yoyo: true, repeat: 2, ease: "sine.inOut" }, 1.7);
+      tl.to("#wert-c", { rotation: 20, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 1.0);
+      // overlap exit: fades while the next scene is already entering (no empty frames)
+      tl.to("#wert-out", { opacity: 0, scale: 0.93, duration: 0.28, ease: "power2.in" }, 2.85);
+      window.__timelines["wert"] = tl;
+    })();
+  </script>
+</template>
