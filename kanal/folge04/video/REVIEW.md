@@ -14,3 +14,9 @@
 - overlap.mjs (40 px, jedes Frame): keine Treffer. layout.mjs: alle 18 Einblendungen ohne Waise, Breite ≤ 855 px, y 290–636. Pointe DRINK 168 px = größte Schrift, Fließtext 92 px.
 - Szenenwechsel: alte Szene blendet 0,18 s vor dem Schnitt aus (power3.in, fertig +0,06 s), neue Szene erst ab +0,04 s sichtbar; im MP4 an mehreren Schnitten Bild für Bild geprüft. Loop: Felsen + Fahnen stehen ab 36,1 s bereits im Frame-0-Zustand, Blasen gehen, Hook-Text baut sich auf; letzte 18 Frames Bild für Bild geprüft, keines leer.
 - Ton (gemessen, nicht gehört): +8,75 dB + Limiter (4× überabgetastet) → −14,0 LUFS, True Peak −1,6 dBTP, 39,200 s wie das Bild.
+
+## Nachbesserung nach Prüfung (20.11.)
+- Klotz 25,35–34 s: deutliches Kopfschütteln, schiebt beide Flaschen mit beiden Armen weg; ab 26,45 s Kakaotasse mit Dampf/Marshmallows, Schal; Augen offen, Nase orange statt rot, Wangen nur leicht (0,3), kein Wiegen mehr.
+- Schlagworte jetzt 140 px: „HANS-INSEL / heißt der Felsen.“, „Fahne rein. / WHISKY dazu.“, „DÄNEMARK / rückt an.“, „Fahne getauscht. / SCHNAPS dazu.“, „FRIEDEN! / Endlich, 2022.“
+- Karte: GRÖNLAND 78 px, 38 px weiter links / 40 px tiefer, Grönland-Eis dafür nach links erweitert. Szenen „jahre“ und „insel“ ab dem Schnitt sichtbar (keine fast leeren Frames bei 2,3 und 18,4 s).
+- Thumbnail „49 JAHRE STREIT?!“. layout.mjs gruppiert Zeilen jetzt nach vertikaler Überlappung (gemischte Schriftgrößen). Ton −14,0 LUFS / −2,1 dBTP, 39,200 s.

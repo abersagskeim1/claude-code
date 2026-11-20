@@ -15,9 +15,13 @@ for (const c of caps) {
   const t = c.s + c.d - 0.2;
   await p.evaluate(async (t) => { window.__player.renderSeek(t); if (window.__hfWaitForSeekCompletion) await window.__hfWaitForSeekCompletion(); }, t);
   const res = await p.evaluate((id) => {
-    const lines = {}; let L = 1e9, T = 1e9, Rr = -1e9, B = -1e9;
-    document.querySelectorAll(`#${id} .g`).forEach((g) => { const r = g.getBoundingClientRect(); const k = Math.round(r.bottom / 25); (lines[k] ||= []).push(g.textContent); L = Math.min(L, r.left); T = Math.min(T, r.top); Rr = Math.max(Rr, r.right); B = Math.max(B, r.bottom); });
-    return { lines: Object.keys(lines).sort((a, b) => a - b).map((k) => lines[k]), box: [L, T, Rr, B].map(Math.round) };
+    // words belong to one line when their boxes overlap vertically (mixed font sizes have different bottoms)
+    let L = 1e9, T = 1e9, Rr = -1e9, B = -1e9; const ws = [];
+    document.querySelectorAll(`#${id} .g`).forEach((g) => { const r = g.getBoundingClientRect(); ws.push({ t: g.textContent, top: r.top, bot: r.bottom, l: r.left }); L = Math.min(L, r.left); T = Math.min(T, r.top); Rr = Math.max(Rr, r.right); B = Math.max(B, r.bottom); });
+    const lines = [];
+    for (const w of ws) { const ln = lines.find((x) => Math.min(x.bot, w.bot) - Math.max(x.top, w.top) > 0.5 * Math.min(x.bot - x.top, w.bot - w.top)); if (ln) { ln.w.push(w); ln.top = Math.min(ln.top, w.top); ln.bot = Math.max(ln.bot, w.bot); } else lines.push({ top: w.top, bot: w.bot, w: [w] }); }
+    lines.sort((a, b) => a.top - b.top);
+    return { lines: lines.map((x) => x.w.sort((a, b) => a.l - b.l).map((w) => w.t)), box: [L, T, Rr, B].map(Math.round) };
   }, c.id);
   const last = res.lines[res.lines.length - 1];
   const issues = [];

@@ -1,4 +1,4 @@
-// Builds the upload thumbnail (frame-1 motif, enlarged, "50 JAHRE KRIEG?!") and screenshots it to PNG.
+// Builds the upload thumbnail (frame-1 motif, enlarged, "49 JAHRE STREIT?!") and screenshots it to PNG.
 // Usage: PUPPETEER_CORE=<path> node tools/thumb.mjs <video_dir> <thumb_dir> <out_png>
 import fs from "node:fs";
 import path from "node:path";
@@ -49,7 +49,7 @@ ${css}
 <div id="root">
 <div id="bgw">${bgBody}</div>
 <div id="stage">${body}</div>
-<div id="txt"><span class="a">50 JAHRE</span><br/><span class="b">KRIEG?!</span></div>
+<div id="txt"><span class="a">49 JAHRE</span><br/><span class="b">STREIT?!</span></div>
 <div id="floe">${floe}</div><div id="klotz">${svg}</div>
 </div>
 </body></html>`;
@@ -59,7 +59,7 @@ const b = await puppeteer.launch({ executablePath: "/usr/bin/google-chrome", arg
 const p = await b.newPage(); await p.setViewport({ width: 1080, height: 1920 });
 await p.goto("file://" + path.resolve(OUTD, "index.html"), { waitUntil: "networkidle0" });
 await p.evaluate(() => document.fonts.ready);
-const box = await p.evaluate(() => { const r = document.getElementById("txt").getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom].map(Math.round); });
+const box = await p.evaluate(() => { return [...document.querySelectorAll("#txt span")].map((e) => { const r = e.getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom].map(Math.round).join(","); }).join(" / "); });
 await p.screenshot({ path: PNG, type: "png" });
 await b.close();
-console.log("ok text box", box.join(","));
+console.log("ok text spans", box);

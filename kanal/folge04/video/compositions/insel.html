@@ -109,8 +109,7 @@
   <script>
     (function () {
       const tl = gsap.timeline({ paused: true });
-      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
-      tl.fromTo("#insel-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);
+
       // slow drift so the frame never stands still
       tl.fromTo("#insel-kb", { scale: 1 }, { scale: 1.04, duration: 11.6, ease: "none" }, 0);
       tl.fromTo("#insel-fw", { x: 0 }, { x: -696, duration: 11.6, ease: "none" }, 0);

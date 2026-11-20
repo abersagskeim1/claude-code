@@ -110,7 +110,7 @@ ${body}
   <script>
     (function () {
       const tl = gsap.timeline({ paused: true });
-${opts.hold0 ? "" : `      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
+${opts.hold0 || opts.reveal0 ? "" : `      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
       tl.fromTo("#${id}-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);`}
 ${kb ? `      // slow drift so the frame never stands still
       tl.fromTo("#${id}-kb", { scale: 1 }, { scale: 1.04, duration: ${dur}, ease: "none" }, 0);` : ""}
@@ -208,7 +208,7 @@ ${sheets}
       tl.set("#jahre-s2022 span", { opacity: 0 }, 0);
       tl.fromTo("#jahre-s2022 span", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, ${(0.75 + N * 0.13 + 0.12).toFixed(2)});
 ${shake("#jahre-cal", +(0.75 + N * 0.13 + 0.15).toFixed(2), 14, 0.3)}`,
-    ""));
+    "", { reveal0: true }));
 }
 
 // ================= WAFFEN?: two shy cannons on ice floes, a big question mark (4.8 - 6.5) =================
@@ -310,8 +310,8 @@ ${shake("#jahre-cal", +(0.75 + N * 0.13 + 0.15).toFixed(2), 14, 0.3)}`,
   const [s, d] = S(p);
   const L1 = 2.95, L2 = 5.45; // local beats: border line (13.4), open rock (15.9)
   const CA = "M0 0 L250 0 L290 60 L270 130 L310 190 L290 260 L330 330 L300 400 L350 470 L330 540 L380 610 L360 730 L0 730 Z";
-  const GL = "M900 0 L500 0 L520 70 L600 120 L580 190 L630 250 L610 330 L650 400 L630 480 L680 550 L660 640 L700 730 L900 730 Z";
-  const ticks = Array.from({ length: 9 }, (_, i) => { const x = 330 + (i % 3) * 90 + (i > 2 ? 30 : 0), y = 90 + Math.floor(i / 3) * 230 + (i % 2) * 40; return `<path d="M${x} ${y} q12 -10 24 0 t24 0" stroke="#8CC4F0" stroke-width="5" fill="none" stroke-linecap="round"/>`; }).join("");
+  const GL = "M900 0 L478 0 L482 160 L540 196 L590 220 L580 250 L630 250 L610 330 L650 400 L630 480 L680 550 L660 640 L700 730 L900 730 Z";
+  const ticks = Array.from({ length: 9 }, (_, i) => { const x = 330 + (i % 3) * 90 + (i > 2 ? 30 : 0), y = 90 + Math.floor(i / 3) * 230 + (i % 2) * 40; if (x + 48 > 470 && y < 240) return ""; return `<path d="M${x} ${y} q12 -10 24 0 t24 0" stroke="#8CC4F0" stroke-width="5" fill="none" stroke-linecap="round"/>`; }).join("");
   const dashB = [700, 654, 608, 562, 516, 470], dashT = [0, 46, 92, 138, 184, 230, 276];
   const dash = (id, y) => `<rect id="${id}" class="karte-d" x="452" y="${y}" width="16" height="30" rx="5" fill="${YEL}" stroke="${K}" stroke-width="4"/>`;
   scenes.push(scene(p, "Karte und Grenze", s, d,
@@ -335,7 +335,7 @@ ${shake("#jahre-cal", +(0.75 + N * 0.13 + 0.15).toFixed(2), 14, 0.3)}`,
           </g>
         </svg>
         <div id="karte-lca" class="karte-lbl" style="left:28px;top:576px;">KANADA</div>
-        <div id="karte-lgl" class="karte-lbl" style="left:532px;top:22px;font-size:72px;">GRÖNLAND</div>
+        <div id="karte-lgl" class="karte-lbl" style="left:494px;top:62px;font-size:78px;">GRÖNLAND</div>
       </div>
       <div id="karte-q">?</div>`,
     `      tl.fromTo("#karte-pan", { y: 900, rotation: 5 }, { y: 0, rotation: 0, duration: 0.38, ease: "back.out(1.3)" }, 0);
@@ -452,7 +452,7 @@ ${back("#insel-d2", 910 - f2x, 1290 - f2y, DKOUT - 0.25)}
       tl.to("#insel-ff", { keyframes: { x: [0, 14, 0] }, duration: 0.3, ease: "none", repeat: 8 }, ${TL + 0.25});
       tl.set([${stackPos.map((_, i) => `"#insel-st${i}"`).join(", ")}], { opacity: 1 }, ${TL + 0.4});
 ${tlJs}      tl.to("#insel-rock", { keyframes: { rotation: [0, -1.5, 1.5, -1, 0] }, duration: 2.4, ease: "none" }, ${TL + 0.3});`,
-    ""));
+    "", { reveal0: true }));
 }
 
 // ================= FRIEDEN 2022: two mittens shake hands, snowflake confetti (30.0 - 31.8) =================
@@ -667,16 +667,16 @@ const caps = [
   { id: "c02", words: ["Und", "zwar", "/", "fast", "*50", "*JAHRE."] },
   { id: "c03", words: ["Die", "*WAFFEN?"] },
   { id: "c04", words: ["*WHISKY", "/", "und", "*SCHNAPS."], shake: true },
-  { id: "c05", words: ["Der", "Felsen:", "/", "die", "*HANS-INSEL."], kwsize: 118 },
+  { id: "c05", words: ["*HANS-INSEL", "/", "heißt", "der", "Felsen."] },
   { id: "c06", words: ["Kahl,", "winzig,", "/", "zwischen", "Kanada", "/", "und", "Grönland."] },
   { id: "c07", words: ["*1973:", "Grenze", "/", "im", "Meer", "gezogen."] },
   { id: "c08", words: ["Nur", "der", "Felsen", "/", "bleibt", "*OFFEN."], shake: true },
   { id: "c09", words: ["*1984:", "/", "Kanadas", "Soldaten", "/", "landen", "dort."] },
-  { id: "c10", words: ["Fahne", "rein.", "/", "*WHISKY", "dazu."], kwsize: 120 },
-  { id: "c11", words: ["Dann", "rückt", "/", "*DÄNEMARK", "an."], kwsize: 118 },
-  { id: "c12", words: ["Fahne", "getauscht.", "/", "*SCHNAPS", "dazu."], kwsize: 120 },
+  { id: "c10", words: ["Fahne", "rein.", "/", "*WHISKY", "dazu."] },
+  { id: "c11", words: ["*DÄNEMARK", "/", "rückt", "an."] },
+  { id: "c12", words: ["Fahne", "getauscht.", "/", "*SCHNAPS", "dazu."] },
   { id: "c13", words: ["Und", "so", "geht's", "/", "hin", "und", "her."] },
-  { id: "c14", words: ["*2022:", "/", "endlich", "*FRIEDEN."], kwsize: 100 },
+  { id: "c14", words: ["*FRIEDEN!", "/", "Endlich,", "*2022."] },
   { id: "c15", words: ["Die", "Insel", "/", "wird", "*GETEILT."], shake: true },
   { id: "c16", words: ["Besiegelt", "mit …", "/", "einem", "!DRINK."], shake: true },
   { id: "c17", words: ["Welcher", "Streit", "/", "verdient", "/", "ein", "Getränk?"] },
@@ -760,18 +760,19 @@ const M = {
   curious:   { eye: 1.05, ps: 1.1, px: -14, py: -10, lL: 0.1, lR: 0.1, bL: -18, bR: -4, tL: 0, tR: 0, mx: 0.5, my: 0.35, g: 0, aL: 40, aR: -40 },
   suspicious:{ eye: 1, ps: 1, px: -14, py: 2, lL: 0.55, lR: 0.1, bL: 4, bR: -20, tL: 14, tR: 4, mx: 0.7, my: 0.18, g: 0, aL: 30, aR: -30 },
   look:      { eye: 1.06, ps: 1.0, px: -14, py: -8, lL: 0, lR: 0, bL: -14, bR: -14, tL: -4, tR: -4, mx: 0.5, my: 0.5, g: 0, aL: 40, aR: -40 },
-  happy:     { eye: 1, ps: 1, px: 0, py: 0, lL: 0.2, lR: 0.2, bL: -10, bR: -10, tL: -4, tR: -4, mx: 0, my: 0, g: 1, aL: 35, aR: -35 },
+  happy:     { eye: 1.04, ps: 1, px: 0, py: 0, lL: 0, lR: 0, bL: -10, bR: -10, tL: -4, tR: -4, mx: 0, my: 0, g: 1, gs: 0.8, aL: 35, aR: -35 },
   jawdrop:   { eye: 1.18, ps: 0.55, px: -6, py: -8, lL: 0, lR: 0, bL: -22, bR: -22, tL: -4, tR: -4, mx: 1.1, my: 1.7, g: 0, aL: 60, aR: -60 },
-  cozy:      { eye: 1, ps: 1, px: 0, py: 0, lL: 0.55, lR: 0.55, bL: -6, bR: -6, tL: -4, tR: -4, mx: 0, my: 0, g: 1, aL: 25, aR: -30 },
-  cheer:     { eye: 1, ps: 1, px: 0, py: 0, lL: 0.55, lR: 0.55, bL: -16, bR: -16, tL: -6, tR: -6, mx: 0.55, my: 0.3, g: 0, aL: 168, aR: -160 },
+  stern:     { eye: 1.02, ps: 1, px: 0, py: 0, lL: 0.1, lR: 0.1, bL: 6, bR: 6, tL: 14, tR: 14, mx: 0.55, my: 0.2, g: 0, aL: 30, aR: -30 },
+  content:   { eye: 1.04, ps: 1, px: 0, py: 0, lL: 0, lR: 0, bL: -10, bR: -10, tL: -4, tR: -4, mx: 0, my: 0, g: 1, gs: 0.6, aL: 25, aR: -30 },
+  cheer:     { eye: 1.04, ps: 1, px: 0, py: 0, lL: 0, lR: 0, bL: -16, bR: -16, tL: -6, tR: -6, mx: 0.55, my: 0.3, g: 0, aL: 168, aR: -160 },
   smug:      { eye: 1, ps: 1, px: 8, py: 0, lL: 0.45, lR: 0.45, bL: -4, bR: -10, tL: 6, tR: -2, mx: 0, my: 0, g: 1, aL: 20, aR: -40 },
 };
-const CUP0 = 33.85, CUP1 = 38.6; // cocoa mug in the right hand
+const CUP0 = 26.4, CUP1 = 38.6; // cocoa mug in the right hand
 const LOOPK = C.c18[0];
 const moods = [
   [2.3, "surprised"], [4.8, "fists"], [6.5, "impressed"], [8.4, "curious"], [10.45, "suspicious"], [13.4, "look"], [15.9, "jawdrop"],
-  [18.4, "impressed"], [20.9, "surprised"], [22.95, "look"], [25.0, "suspicious"], [26.2, "cozy"], [30.0, "cheer"], [31.8, "happy"],
-  [33.85, "cozy"], [36.05, "smug"], [LOOPK + 0.08, "shock"],
+  [18.4, "impressed"], [20.9, "surprised"], [22.95, "look"], [25.0, "stern"], [26.45, "content"], [30.0, "cheer"], [31.8, "happy"],
+  [33.85, "content"], [36.05, "smug"], [LOOPK + 0.08, "shock"],
 ];
 const blinks = [3.7, 7.4, 9.6, 12.2, 14.8, 17.2, 19.8, 23.9, 28.4, 31.2, 37.4];
 
@@ -791,7 +792,7 @@ const klotzSvg = `<svg viewBox="0 0 300 330" width="100%" height="100%" overflow
   <ellipse cx="92" cy="86" rx="38" ry="18" fill="#fff" opacity=".28" transform="rotate(-24 92 86)"/>
   <path id="k-snow" d="M66 64 Q78 34 118 42 Q146 26 178 40 Q222 30 236 62 Q232 78 212 72 Q194 84 172 72 Q150 86 128 74 Q104 86 88 74 Q70 80 66 64 Z" fill="#fff" stroke="#8FB8D8" stroke-width="5"/>
   <ellipse id="k-chkL" cx="72" cy="198" rx="20" ry="12" fill="#FF5A6E" opacity=".45"/><ellipse id="k-chkR" cx="228" cy="198" rx="20" ry="12" fill="#FF5A6E" opacity=".45"/>
-  <ellipse id="k-rosyL" cx="72" cy="198" rx="25" ry="15" fill="#FF2E4E" opacity="0"/><ellipse id="k-rosyR" cx="228" cy="198" rx="25" ry="15" fill="#FF2E4E" opacity="0"/>
+  <ellipse id="k-rosyL" cx="72" cy="198" rx="24" ry="14" fill="#FF5A72" opacity="0"/><ellipse id="k-rosyR" cx="228" cy="198" rx="24" ry="14" fill="#FF5A72" opacity="0"/>
   <g id="k-eyes">
     <g id="k-eyeL"><ellipse cx="108" cy="140" rx="40" ry="46" fill="#fff" stroke="#3A1400" stroke-width="5"/>
       <g clip-path="url(#k-clipL)"><g id="k-pupL"><circle cx="108" cy="142" r="18" fill="#141414"/><circle cx="114" cy="135" r="6" fill="#fff"/></g>
@@ -804,7 +805,7 @@ const klotzSvg = `<svg viewBox="0 0 300 330" width="100%" height="100%" overflow
   <rect id="k-browR" x="162" y="74" width="58" height="15" rx="7.5" fill="#5A2200"/>
   <g id="k-mouth"><ellipse cx="150" cy="228" rx="26" ry="28" fill="#3A0A0A" stroke="#2A0505" stroke-width="4"/><ellipse cx="150" cy="244" rx="15" ry="8" fill="#FF5A6E"/></g>
   <g id="k-grin"><path d="M98 212 Q150 278 202 212 Q150 226 98 212 Z" fill="#3A0A0A" stroke="#2A0505" stroke-width="4" stroke-linejoin="round"/><path d="M128 246 Q150 256 172 246 Q150 238 128 246 Z" fill="#FF5A6E"/></g>
-  <circle id="k-nose" cx="150" cy="184" r="12" fill="#FF4A5A" stroke="#7A2E00" stroke-width="5"/>
+  <circle id="k-nose" cx="150" cy="184" r="12" fill="#F28A3A" stroke="#7A2E00" stroke-width="5"/>
   <g id="k-ice"><path d="M140 192 L160 192 L151 244 Z" fill="${ICE}" stroke="${ICE_D}" stroke-width="4" stroke-linejoin="round"/><path d="M146 198 L149 226" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g>
   <g id="k-scarf">
     <path d="M226 270 L262 268 L270 338 L238 342 Z" fill="${FRED}" stroke="#7A0E14" stroke-width="6" stroke-linejoin="round"/>
@@ -838,7 +839,7 @@ const setMood = (m, t, dur) => {
       tl.to("#k-browL", { y: ${p.bL}, rotation: ${p.tL}, ${o} }, ${t});
       tl.to("#k-browR", { y: ${p.bR}, rotation: ${-p.tR}, ${o} }, ${t});
       tl.to("#k-mouth", { scaleX: ${p.mx || 0.001}, scaleY: ${p.my || 0.001}, opacity: ${p.g ? 0 : 1}, ${o} }, ${t});
-      tl.to("#k-grin", { scale: ${p.g ? 1 : 0.2}, opacity: ${p.g}, ${o} }, ${t});
+      tl.to("#k-grin", { scale: ${p.g ? (p.gs || 1) : 0.2}, opacity: ${p.g}, ${o} }, ${t});
       tl.to("#k-armL", { rotation: ${p.aL}, duration: ${+(dur * 1.3).toFixed(3)}, ease: "back.out(1.6)" }, ${+(t + 0.04).toFixed(2)});
       tl.to("#k-armR", { rotation: ${aR}, duration: ${+(dur * 1.3).toFixed(3)}, ease: "back.out(1.6)" }, ${+(t + 0.08).toFixed(2)});
 ${hold ? `      tl.to("#k-mugarm", { rotation: ${aR}, duration: ${+(dur * 1.3).toFixed(3)}, ease: "back.out(1.6)" }, ${+(t + 0.08).toFixed(2)});
@@ -854,7 +855,7 @@ kJs += `      gsap.set("#k-armL", { svgOrigin: "48 190" }); gsap.set("#k-armR", 
       gsap.set("#k-browL", { svgOrigin: "109 81" }); gsap.set("#k-browR", { svgOrigin: "191 81" });
       gsap.set("#k-mouth", { svgOrigin: "150 228" }); gsap.set("#k-grin", { svgOrigin: "150 230" });
       gsap.set("#k-ice", { svgOrigin: "150 192" }); gsap.set("#k-scarf", { svgOrigin: "150 280" });
-      gsap.set("#k-mug", { svgOrigin: "261 257" }); gsap.set("#k-mugarm", { svgOrigin: "252 190", rotation: -35, opacity: 0 }); gsap.set("#k-steam", { svgOrigin: "262 200" });
+      gsap.set("#k-mug", { svgOrigin: "261 257" }); gsap.set("#k-mugarm", { svgOrigin: "252 190", rotation: -30, opacity: 0 }); gsap.set("#k-steam", { svgOrigin: "262 200" });
       gsap.set(["#k-eyeL", "#k-eyeR"], { scale: ${p0.eye} });
       gsap.set(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: ${p0.ps} });
       gsap.set(["#k-lidL", "#k-lidR"], { scaleY: 0 });
@@ -890,29 +891,36 @@ ${shiver(4.85, 1.4, 5)}${shiver(10.5, 0.7, 4)}${shiver(15.95, 0.84, 5)}
       tl.set("#k-botR", { opacity: 1 }, 25.15);
       tl.fromTo("#k-botR", { x: 220, rotation: 30 }, { x: 0, rotation: -10, duration: 0.35, ease: "back.out(1.6)" }, 25.15);
       tl.to(["#k-pupL", "#k-pupR"], { x: 16, duration: 0.2 }, 25.25);
-      tl.to("#k-wrap", { keyframes: { rotation: [0, -7, 7, -7, 7, 0] }, duration: 0.55, ease: "none" }, 25.55);
-      tl.to("#k-armL", { keyframes: { rotation: [30, 100, 60, 100, 30] }, duration: 0.55, ease: "none" }, 25.55);
-      tl.to("#k-botL", { x: -330, y: 60, rotation: -60, duration: 0.4, ease: "power2.in" }, 25.95);
-      tl.to("#k-botR", { x: 260, y: 60, rotation: 60, duration: 0.4, ease: "power2.in" }, 26.0);
-      tl.set(["#k-botL", "#k-botR"], { opacity: 0 }, 26.45);
-      tl.to("#k-scarf", { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 26.2);
-      tl.to("#k-ice", { scaleY: 0, opacity: 0, duration: 0.35, ease: "power2.in" }, 26.25);
-      tl.to("#k-frost", { opacity: 0, duration: 0.4 }, 26.25);
-      tl.to(["#k-rosyL", "#k-rosyR"], { opacity: 0.85, duration: 0.3 }, 26.3);
-      tl.to("#k-wrap", { keyframes: { rotation: [0, 4, -4, 3, -3, 0] }, duration: 2.6, ease: "sine.inOut" }, 27.1);
+      // clear "no": the whole head shakes, eyes and brows go with it, then both arms push the bottles away
+      tl.to("#k-wrap", { keyframes: { rotation: [0, -12, 12, -12, 12, -8, 0], x: [0, -14, 14, -14, 14, -8, 0] }, duration: 0.6, ease: "none" }, 25.35);
+      tl.to(["#k-browL", "#k-browR"], { y: 6, duration: 0.15 }, 25.35);
+      tl.to("#k-armL", { keyframes: { rotation: [30, 115, 115, 30] }, duration: 0.5, ease: "power1.inOut" }, 25.95);
+      tl.to("#k-armR", { keyframes: { rotation: [-30, -115, -115, -30] }, duration: 0.5, ease: "power1.inOut" }, 25.95);
+      tl.to("#k-botL", { x: -360, y: 40, rotation: -50, duration: 0.4, ease: "power2.in" }, 26.08);
+      tl.to("#k-botR", { x: 300, y: 40, rotation: 50, duration: 0.4, ease: "power2.in" }, 26.1);
+      tl.set(["#k-botL", "#k-botR"], { opacity: 0 }, 26.52);
+      // cosy because of the scarf and the cocoa (slight cold cheeks only)
+      tl.to("#k-scarf", { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 26.45);
+      tl.to("#k-ice", { scaleY: 0, opacity: 0, duration: 0.35, ease: "power2.in" }, 26.5);
+      tl.to("#k-frost", { opacity: 0, duration: 0.4 }, 26.5);
+      tl.to(["#k-rosyL", "#k-rosyR"], { opacity: 0.3, duration: 0.3 }, 26.5);
+      tl.set("#k-mugarm", { opacity: 1 }, 26.45);
+      tl.to("#k-mug", { scale: 1.45, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 26.45);
+      tl.to("#k-steam", { keyframes: { y: [0, -10, 0], opacity: [0.85, 0.4, 0.85] }, duration: 0.8, ease: "sine.inOut", repeat: 13 }, 26.7);
+      // a sip during the fast motion, eyes stay open
+      tl.to(["#k-armR", "#k-mugarm"], { rotation: 62, duration: 0.3, ease: "power2.out" }, 28.3);
+      tl.to("#k-mug", { rotation: -87, duration: 0.3, ease: "power2.out" }, 28.3);
+      tl.to(["#k-armR", "#k-mugarm"], { rotation: -25, duration: 0.3, ease: "back.out(1.6)" }, 28.85);
+      tl.to("#k-mug", { rotation: 25, duration: 0.3, ease: "back.out(1.6)" }, 28.85);
       // GAG 3: the drink scene - Klotz lifts a cocoa mug with marshmallows, sips, winks
-      tl.set("#k-mugarm", { opacity: 1 }, 34.0);
-      tl.to("#k-mug", { scale: 1.45, opacity: 1, duration: 0.3, ease: "back.out(2.4)" }, 34.0);
-      tl.to("#k-steam", { keyframes: { y: [0, -10, 0], opacity: [0.85, 0.4, 0.85] }, duration: 0.8, ease: "sine.inOut", repeat: 5 }, 34.2);
       tl.to(["#k-armR", "#k-mugarm"], { rotation: 62, duration: 0.3, ease: "power2.out" }, 34.45);
       tl.to("#k-mug", { rotation: -87, duration: 0.3, ease: "power2.out" }, 34.45);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0.85, duration: 0.15 }, 34.5);
       tl.to(["#k-armR", "#k-mugarm"], { rotation: -25, duration: 0.3, ease: "back.out(1.6)" }, 35.05);
       tl.to("#k-mug", { rotation: 25, duration: 0.3, ease: "back.out(1.6)" }, 35.05);
       tl.to("#k-lidR", { scaleY: 0, duration: 0.12 }, 35.15);
       tl.to("#k-lidL", { scaleY: 1, duration: 0.1 }, 35.15);
       tl.to("#k-browL", { y: 4, rotation: 10, duration: 0.15 }, 35.15);
-      tl.to("#k-lidL", { scaleY: 0.55, duration: 0.12 }, 35.75);
+      tl.to("#k-lidL", { scaleY: 0, duration: 0.12 }, 35.75);
       tl.to("#k-wrap", { keyframes: { rotation: [0, -5, 0] }, duration: 0.5, ease: "sine.inOut" }, 35.15);
       // second sip in the question scene
       tl.to(["#k-armR", "#k-mugarm"], { rotation: 62, duration: 0.3, ease: "power2.out" }, 37.0);
@@ -970,7 +978,7 @@ const sfx = [
   [18.4, "splash", 0.55], [18.5, "motor", 0.5], [19.15, "hop", 0.45], [19.4, "hop", 0.45],
   [20.9, "pop2", 0.45], [21.05, "flap", 0.45], [21.2, "pop1", 0.45], [21.45, "clinkS", 0.4],
   [22.6, "whoosh2", 0.35], [22.95, "splash", 0.45], [23.0, "motor", 0.45], [23.5, "hop", 0.45], [23.7, "hop", 0.45],
-  [25.0, "whoosh1", 0.4], [25.25, "flap", 0.45], [25.15, "pop1", 0.45], [25.55, "nope", 0.5], [26.0, "splash", 0.4], [26.2, "sparkle", 0.45],
+  [25.0, "whoosh1", 0.4], [25.25, "flap", 0.45], [25.15, "pop1", 0.45], [25.4, "nope", 0.5], [26.1, "whoosh2", 0.4], [26.5, "pop1", 0.4], [26.0, "splash", 0.4], [26.2, "sparkle", 0.45],
   [27.05, "rewind", 0.5], [27.45, "pop2", 0.3], [27.85, "pop1", 0.3], [28.25, "pop2", 0.3], [28.65, "pop1", 0.3], [29.05, "pop2", 0.3], [29.45, "pop1", 0.3],
   [30.0, "whoosh2", 0.4], [30.35, "impact", 0.6], [30.45, "sparkle", 0.55], [30.5, "chime", 0.45],
   [31.8, "splash", 0.4], [32.15, "ticks", 0.4], [32.65, "crack", 0.55],
