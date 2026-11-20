@@ -33,6 +33,7 @@ Klotz-Gag (neu): Klotz friert (Eiszapfen an der Nase, Zittern), bekommt von beid
 | Dänemark antwortet mit Flagge und Schnaps, Hin und Her | belegt | Wikipedia, National Geographic, UNRIC |
 | 14.06.2022: Einigung, Insel entlang eines Grats geteilt | belegt | CBC, Library of Congress Blog, Bloomberg |
 | Abschluss mit Austausch von Spirituosen | belegt | Library of Congress Blog, Inquirer |
+| Thumbnail „49 JAHRE“ | 1973–2022 = 49 Jahre | gerechnet |
 | ~~1,2 km²~~ | nicht exakt bestätigt → nur „winzig“ | – |
 | ~~Erste Landgrenze Kanada–Europa~~ | strittig (Grönland geografisch Nordamerika) → nicht verwendet | – |
 | ~~Markennamen der Flaschen~~ | uneinheitlich → keine Marken | – |
