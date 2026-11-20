@@ -1,0 +1,56 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hans-out, #hans-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .hans-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .fw { position: absolute; left: -360px; top: 1385px; width: 1800px; height: 540px; }
+    #hans-cam{position:absolute;inset:0;transform-origin:540px 1150px;}
+     #hans-rock{position:absolute;left:40px;top:940px;width:1000.1600000000001px;height:552.72px;}
+     #hans-post{position:absolute;left:420.8px;top:820px;width:28px;height:275.3600000000001px;background:#8A5A2B;border:7px solid #0A0F22;border-radius:8px;transform-origin:50% 100%;}
+     #hans-sign{position:absolute;left:224.8px;top:700px;width:420px;height:170px;transform-origin:50% 0%;}
+     #hans-board{position:absolute;inset:0;border-radius:24px;background:linear-gradient(#D49A55,#B07A3E);border:10px solid #0A0F22;box-shadow:0 12px 0 rgba(0,0,0,.35);}
+     #hans-board i{position:absolute;left:24px;right:24px;height:8px;border-radius:4px;background:rgba(122,74,30,.45);}
+     #hans-txt{position:absolute;left:0;right:0;top:22px;text-align:center;font-family:'Lilita One';font-size:124px;line-height:1;color:#fff;-webkit-text-stroke:12px #0A0F22;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.35);white-space:nowrap;}
+     .hans-n{position:absolute;top:30px;width:22px;height:22px;border-radius:50%;background:#5A4636;border:5px solid #0A0F22;}
+     #hans-ring{position:absolute;left:190px;top:930px;width:700.1600000000001px;height:560px;border-radius:50%;border:12px dashed #FFD23F;opacity:0;}
+  </style>
+  <div id="root" data-composition-id="hans" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="hans-out"><div id="hans-kb">
+      <div id="hans-cam">
+      <div id="hans-ring"></div>
+      <div id="hans-rock" class="hans-stk"><svg viewBox="0 0 760 420" width="100%" height="100%" overflow="visible"><path d="M20 420 L60 300 L130 230 L200 150 L290 110 L360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 Z" fill="#7D8796"/>
+  <path d="M360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 L470 420 L430 260 Z" fill="#5B6475"/>
+  <path d="M200 150 L290 110 L360 60 L332 172 L238 232 Z" fill="#A6B0BD"/>
+  <path d="M60 300 L130 230 L178 262 L118 344 Z" fill="#A6B0BD" opacity=".7"/>
+  <path d="M520 140 L600 170 L560 230 Z" fill="#7D8796" opacity=".8"/>
+  <path d="M332 172 L300 262 L322 334 M566 214 L528 296 L540 352 M150 304 L190 364 M640 300 L612 372" stroke="#3E4555" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M228 150 L282 124" stroke="#D3DAE3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M20 420 L60 300 L130 230 L200 150 L290 110 L360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 Z" fill="none" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/></svg></div>
+      <div id="hans-post"></div>
+      <div id="hans-sign"><div id="hans-board"><i style="top:56px"></i><i style="top:104px"></i></div><div class="hans-n" style="left:28px"></div><div class="hans-n" style="right:28px"></div><div id="hans-txt">HANS</div></div>
+      <div id="hans-fw" class="fw"><svg viewBox="0 0 1800 540" width="1800" height="540" overflow="visible"><defs><linearGradient id="hans-fw-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2464A8"/><stop offset=".35" stop-color="#1A4E92"/><stop offset="1" stop-color="#0E2E66"/></linearGradient></defs><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30 L1800 540 L0 540 Z" fill="url(#hans-fw-g)"/><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30" fill="none" stroke="#0A0F22" stroke-width="7"/><path d="M0 110 Q45 98 90 110 T180 110 Q225 98 270 110 T360 110 Q405 98 450 110 T540 110 Q585 98 630 110 T720 110 Q765 98 810 110 T900 110 Q945 98 990 110 T1080 110 Q1125 98 1170 110 T1260 110 Q1305 98 1350 110 T1440 110 Q1485 98 1530 110 T1620 110 Q1665 98 1710 110 T1800 110" fill="none" stroke="rgba(191,230,255,.25)" stroke-width="7"/><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30" fill="none" stroke="#BFE6FF" stroke-width="6" transform="translate(0 6)"/></svg></div>
+      </div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
+      tl.fromTo("#hans-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);
+      // slow drift so the frame never stands still
+      tl.fromTo("#hans-kb", { scale: 1 }, { scale: 1.04, duration: 2.05, ease: "none" }, 0);
+      tl.fromTo("#hans-fw", { x: 0 }, { x: -123, duration: 2.05, ease: "none" }, 0);
+      tl.fromTo("#hans-cam", { scale: 0.62, y: 120 }, { scale: 1, y: 0, duration: 0.5, ease: "back.out(1.2)" }, 0);
+      tl.fromTo("#hans-post", { scaleY: 0 }, { scaleY: 1, duration: 0.22, ease: "back.out(2)" }, 0.45);
+      tl.fromTo("#hans-sign", { scale: 0, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.2)" }, 0.55);
+      tl.to("#hans-sign", { keyframes: { rotation: [0, 7, -5, 3, -1.5, 0] }, duration: 1.0, ease: "none" }, 0.85);
+      tl.fromTo("#hans-ring", { opacity: 0, scale: 1.3, rotation: 0 }, { opacity: 0.9, scale: 1, rotation: 30, duration: 0.4, ease: "power2.out" }, 1.0);
+      tl.to("#hans-ring", { rotation: 80, duration: 0.95, ease: "none" }, 1.4);
+      // overlap exit: old graphic is gone 0.06 s after the cut, the next scene builds up from the cut on
+      tl.to("#hans-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power3.in" }, 1.87);
+      window.__timelines["hans"] = tl;
+    })();
+  </script>
+</template>

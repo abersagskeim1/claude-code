@@ -1,0 +1,50 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #jahre-out, #jahre-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .jahre-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .fw { position: absolute; left: -360px; top: 1385px; width: 1800px; height: 540px; }
+    #jahre-cal{position:absolute;left:250px;top:690px;width:580px;height:640px;}
+     #jahre-back{position:absolute;left:0;top:30px;width:580px;height:610px;border-radius:28px;background:#2B5BD7;border:10px solid #0A0F22;box-shadow:0 16px 0 rgba(0,0,0,.35);}
+     #jahre-head{position:absolute;left:0;top:30px;width:580px;height:120px;border-radius:28px 28px 0 0;background:#E3202F;border:10px solid #0A0F22;}
+     .jahre-ring{position:absolute;top:0;width:34px;height:80px;border-radius:17px;background:#C9D3DE;border:7px solid #0A0F22;}
+     .jahre-sh{position:absolute;left:30px;top:160px;width:520px;height:450px;border-radius:14px;background:#DDF3FF;border:8px solid #0A0F22;transform-origin:50% 0%;}
+     .jahre-sh span{position:absolute;left:0;right:0;top:110px;text-align:center;font-family:'Lilita One';font-size:200px;line-height:1;color:#fff;-webkit-text-stroke:12px #0A0F22;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.35);white-space:nowrap;-webkit-text-stroke:16px #0A0F22;}
+     .jahre-sh i{position:absolute;left:90px;top:170px;width:340px;height:34px;border-radius:17px;background:#B8D4E8;}
+     #jahre-arrow{position:absolute;left:120px;top:1370px;width:0px;height:0px;}
+  </style>
+  <div id="root" data-composition-id="jahre" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="jahre-out"><div id="jahre-kb">
+      <div id="jahre-cal">
+        <div id="jahre-back"></div><div id="jahre-head"></div>
+<div id="jahre-s2022" class="jahre-sh"><span style="color:#FFD23F">2022</span></div><div id="jahre-sb5" class="jahre-sh"><i></i><i style="top:250px;width:300px"></i><i style="top:330px;width:340px"></i></div><div id="jahre-sb4" class="jahre-sh"><i></i><i style="top:250px;width:300px"></i><i style="top:330px;width:340px"></i></div><div id="jahre-sb3" class="jahre-sh"><i></i><i style="top:250px;width:300px"></i><i style="top:330px;width:340px"></i></div><div id="jahre-sb2" class="jahre-sh"><i></i><i style="top:250px;width:300px"></i><i style="top:330px;width:340px"></i></div><div id="jahre-sb1" class="jahre-sh"><i></i><i style="top:250px;width:300px"></i><i style="top:330px;width:340px"></i></div><div id="jahre-sb0" class="jahre-sh"><i></i><i style="top:250px;width:300px"></i><i style="top:330px;width:340px"></i></div><div id="jahre-s1973" class="jahre-sh"><span style="color:#fff">1973</span></div>
+        <div class="jahre-ring" style="left:120px"></div><div class="jahre-ring" style="left:273px"></div><div class="jahre-ring" style="left:426px"></div>
+      </div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
+      tl.fromTo("#jahre-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);
+      // slow drift so the frame never stands still
+      tl.fromTo("#jahre-kb", { scale: 1 }, { scale: 1.04, duration: 2.5, ease: "none" }, 0);
+      tl.fromTo("#jahre-cal", { y: 900, rotation: -8 }, { y: 0, rotation: 0, duration: 0.38, ease: "back.out(1.4)" }, 0);
+      tl.to("#jahre-cal", { keyframes: { rotation: [0, -2, 2, 0] }, duration: 0.5, ease: "sine.inOut" }, 0.4);
+      // 1973 tears off, blank sheets fly away fast, 2022 stays
+      const ids = ["#jahre-s1973", "#jahre-sb5", "#jahre-sb4", "#jahre-sb3", "#jahre-sb2", "#jahre-sb1", "#jahre-sb0"];
+      ids.forEach((id, i) => {
+        const at = 0.75 + i * 0.13, side = i % 2 ? 1 : -1;
+        tl.to(id, { keyframes: { y: [0, -30, 260], x: [0, side * 160, side * 820], rotation: [0, side * 14, side * 70] }, opacity: 0.0, duration: 0.42, ease: "power1.in" }, at);
+      });
+      tl.set("#jahre-s2022 span", { opacity: 0 }, 0);
+      tl.fromTo("#jahre-s2022 span", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, 1.65);
+      tl.to("#jahre-cal", { keyframes: { x: [0, -14, 11.2, -7, 4.2, 0], y: [0, 7, -5.6, 2.8, 0, 0] }, duration: 0.3, ease: "none" }, 1.68);
+      // overlap exit: old graphic is gone 0.06 s after the cut, the next scene builds up from the cut on
+      tl.to("#jahre-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power3.in" }, 2.32);
+      window.__timelines["jahre"] = tl;
+    })();
+  </script>
+</template>

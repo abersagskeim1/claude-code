@@ -1,0 +1,194 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #insel-out, #insel-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .insel-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .fw { position: absolute; left: -360px; top: 1385px; width: 1800px; height: 540px; }
+    #insel-rock{position:absolute;left:230px;top:1060px;width:620.16px;height:342.71999999999997px;transform-origin:50% 100%;}
+     #insel-pole{position:absolute;left:516px;top:770px;width:16px;height:351px;background:linear-gradient(90deg,#8A96A6,#E6ECF2 45%,#8A96A6);border:4px solid #0A0F22;border-radius:7px;transform-origin:50% 100%;}
+     .insel-flag{position:absolute;left:528px;top:776px;width:240px;height:144px;transform-origin:0% 100%;}
+     .insel-boat{position:absolute;top:1262px;width:300px;height:150px;}
+     #insel-bca{left:-10px;} #insel-bdk{left:790px;}
+     .insel-pp{position:absolute;width:50px;height:90px;}
+     .insel-bt{position:absolute;transform-origin:50% 100%;}
+     #insel-ff{position:absolute;left:110px;top:640px;width:190px;height:110px;}
+  </style>
+  <div id="root" data-composition-id="insel" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="insel-out"><div id="insel-kb">
+      <div id="insel-pole"></div>
+      <div id="insel-fca" class="insel-flag"><svg viewBox="0 0 300 180" width="100%" height="100%" overflow="visible"><rect x="4" y="4" width="292" height="172" rx="6" fill="#fff"/><rect x="4" y="4" width="76" height="172" fill="#E3202F"/><rect x="220" y="4" width="76" height="172" fill="#E3202F"/><path d="M150 30 L162 58 L180 50 L174 82 L198 74 L190 98 L208 106 L170 124 L176 140 L154 130 L154 156 L146 156 L146 130 L124 140 L130 124 L92 106 L110 98 L102 74 L126 82 L120 50 L138 58 Z" fill="#E3202F" stroke="#9E1020" stroke-width="3" stroke-linejoin="round"/><rect x="4" y="4" width="292" height="172" rx="6" fill="none" stroke="#0A0F22" stroke-width="8"/></svg></div>
+      <div id="insel-fdk" class="insel-flag"><svg viewBox="0 0 300 180" width="100%" height="100%" overflow="visible"><rect x="4" y="4" width="292" height="172" rx="6" fill="#E3202F"/><rect x="92" y="4" width="40" height="172" fill="#fff"/><rect x="4" y="70" width="292" height="40" fill="#fff"/><rect x="4" y="4" width="292" height="172" rx="6" fill="none" stroke="#0A0F22" stroke-width="8"/></svg></div>
+      <div id="insel-rock" class="insel-stk"><svg viewBox="0 0 760 420" width="100%" height="100%" overflow="visible"><path d="M20 420 L60 300 L130 230 L200 150 L290 110 L360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 Z" fill="#7D8796"/>
+  <path d="M360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 L470 420 L430 260 Z" fill="#5B6475"/>
+  <path d="M200 150 L290 110 L360 60 L332 172 L238 232 Z" fill="#A6B0BD"/>
+  <path d="M60 300 L130 230 L178 262 L118 344 Z" fill="#A6B0BD" opacity=".7"/>
+  <path d="M520 140 L600 170 L560 230 Z" fill="#7D8796" opacity=".8"/>
+  <path d="M332 172 L300 262 L322 334 M566 214 L528 296 L540 352 M150 304 L190 364 M640 300 L612 372" stroke="#3E4555" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M228 150 L282 124" stroke="#D3DAE3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M20 420 L60 300 L130 230 L200 150 L290 110 L360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 Z" fill="none" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/></svg></div>
+      <div id="insel-bw" class="insel-bt" style="left:386px;top:1020px;width:64px;height:160px;"><svg viewBox="0 0 120 300" width="100%" height="100%" overflow="visible">
+  <rect x="44" y="2" width="32" height="26" rx="6" fill="#8A5A2B" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M46 28 L74 28 L74 78 Q110 92 112 120 L112 280 Q112 296 96 296 L24 296 Q8 296 8 280 L8 120 Q10 92 46 78 Z" fill="#C8742A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M14 150 L106 150 L106 280 Q106 290 96 290 L24 290 Q14 290 14 280 Z" fill="#A85A1A" opacity=".55"/>
+  <rect x="18" y="168" width="84" height="62" rx="6" fill="#F4E6C8" stroke="#0A0F22" stroke-width="5"/><rect x="28" y="184" width="64" height="8" rx="4" fill="#C8742A"/><rect x="36" y="204" width="48" height="8" rx="4" fill="#C8742A"/>
+  <path d="M24 112 Q22 140 24 160" stroke="#FFE2B0" stroke-width="9" fill="none" stroke-linecap="round" opacity=".8"/>
+</svg></div>
+      <div id="insel-bs" class="insel-bt" style="left:610px;top:1002px;width:56px;height:168px;"><svg viewBox="0 0 100 300" width="100%" height="100%" overflow="visible">
+  <rect x="34" y="2" width="32" height="24" rx="6" fill="#B8C4D2" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M38 26 L62 26 L62 104 Q90 116 90 150 L90 280 Q90 296 74 296 L26 296 Q10 296 10 280 L10 150 Q10 116 38 104 Z" fill="#CFF3F2" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M16 170 L84 170 L84 280 Q84 290 74 290 L26 290 Q16 290 16 280 Z" fill="#9EE3E6" opacity=".7"/>
+  <rect x="12" y="196" width="76" height="34" rx="4" fill="#2B5BD7" stroke="#0A0F22" stroke-width="5"/>
+  <path d="M24 130 Q20 160 24 186" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".9"/>
+</svg></div>
+      <div id="insel-st0" class="insel-bt" style="left:280px;top:1172px;width:46px;height:116px;"><svg viewBox="0 0 120 300" width="100%" height="100%" overflow="visible">
+  <rect x="44" y="2" width="32" height="26" rx="6" fill="#8A5A2B" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M46 28 L74 28 L74 78 Q110 92 112 120 L112 280 Q112 296 96 296 L24 296 Q8 296 8 280 L8 120 Q10 92 46 78 Z" fill="#C8742A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M14 150 L106 150 L106 280 Q106 290 96 290 L24 290 Q14 290 14 280 Z" fill="#A85A1A" opacity=".55"/>
+  <rect x="18" y="168" width="84" height="62" rx="6" fill="#F4E6C8" stroke="#0A0F22" stroke-width="5"/><rect x="28" y="184" width="64" height="8" rx="4" fill="#C8742A"/><rect x="36" y="204" width="48" height="8" rx="4" fill="#C8742A"/>
+  <path d="M24 112 Q22 140 24 160" stroke="#FFE2B0" stroke-width="9" fill="none" stroke-linecap="round" opacity=".8"/>
+</svg></div>
+      <div id="insel-st1" class="insel-bt" style="left:729px;top:1134px;width:46px;height:116px;"><svg viewBox="0 0 100 300" width="100%" height="100%" overflow="visible">
+  <rect x="34" y="2" width="32" height="24" rx="6" fill="#B8C4D2" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M38 26 L62 26 L62 104 Q90 116 90 150 L90 280 Q90 296 74 296 L26 296 Q10 296 10 280 L10 150 Q10 116 38 104 Z" fill="#CFF3F2" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M16 170 L84 170 L84 280 Q84 290 74 290 L26 290 Q16 290 16 280 Z" fill="#9EE3E6" opacity=".7"/>
+  <rect x="12" y="196" width="76" height="34" rx="4" fill="#2B5BD7" stroke="#0A0F22" stroke-width="5"/>
+  <path d="M24 130 Q20 160 24 186" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".9"/>
+</svg></div>
+      <div id="insel-st2" class="insel-bt" style="left:321px;top:1130px;width:46px;height:116px;"><svg viewBox="0 0 120 300" width="100%" height="100%" overflow="visible">
+  <rect x="44" y="2" width="32" height="26" rx="6" fill="#8A5A2B" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M46 28 L74 28 L74 78 Q110 92 112 120 L112 280 Q112 296 96 296 L24 296 Q8 296 8 280 L8 120 Q10 92 46 78 Z" fill="#C8742A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M14 150 L106 150 L106 280 Q106 290 96 290 L24 290 Q14 290 14 280 Z" fill="#A85A1A" opacity=".55"/>
+  <rect x="18" y="168" width="84" height="62" rx="6" fill="#F4E6C8" stroke="#0A0F22" stroke-width="5"/><rect x="28" y="184" width="64" height="8" rx="4" fill="#C8742A"/><rect x="36" y="204" width="48" height="8" rx="4" fill="#C8742A"/>
+  <path d="M24 112 Q22 140 24 160" stroke="#FFE2B0" stroke-width="9" fill="none" stroke-linecap="round" opacity=".8"/>
+</svg></div>
+      <div id="insel-st3" class="insel-bt" style="left:697px;top:1091px;width:46px;height:116px;"><svg viewBox="0 0 100 300" width="100%" height="100%" overflow="visible">
+  <rect x="34" y="2" width="32" height="24" rx="6" fill="#B8C4D2" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M38 26 L62 26 L62 104 Q90 116 90 150 L90 280 Q90 296 74 296 L26 296 Q10 296 10 280 L10 150 Q10 116 38 104 Z" fill="#CFF3F2" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M16 170 L84 170 L84 280 Q84 290 74 290 L26 290 Q16 290 16 280 Z" fill="#9EE3E6" opacity=".7"/>
+  <rect x="12" y="196" width="76" height="34" rx="4" fill="#2B5BD7" stroke="#0A0F22" stroke-width="5"/>
+  <path d="M24 130 Q20 160 24 186" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".9"/>
+</svg></div>
+      <div id="insel-st4" class="insel-bt" style="left:350px;top:1098px;width:46px;height:116px;"><svg viewBox="0 0 120 300" width="100%" height="100%" overflow="visible">
+  <rect x="44" y="2" width="32" height="26" rx="6" fill="#8A5A2B" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M46 28 L74 28 L74 78 Q110 92 112 120 L112 280 Q112 296 96 296 L24 296 Q8 296 8 280 L8 120 Q10 92 46 78 Z" fill="#C8742A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M14 150 L106 150 L106 280 Q106 290 96 290 L24 290 Q14 290 14 280 Z" fill="#A85A1A" opacity=".55"/>
+  <rect x="18" y="168" width="84" height="62" rx="6" fill="#F4E6C8" stroke="#0A0F22" stroke-width="5"/><rect x="28" y="184" width="64" height="8" rx="4" fill="#C8742A"/><rect x="36" y="204" width="48" height="8" rx="4" fill="#C8742A"/>
+  <path d="M24 112 Q22 140 24 160" stroke="#FFE2B0" stroke-width="9" fill="none" stroke-linecap="round" opacity=".8"/>
+</svg></div>
+      <div id="insel-st5" class="insel-bt" style="left:762px;top:1175px;width:46px;height:116px;"><svg viewBox="0 0 100 300" width="100%" height="100%" overflow="visible">
+  <rect x="34" y="2" width="32" height="24" rx="6" fill="#B8C4D2" stroke="#0A0F22" stroke-width="6"/>
+  <path d="M38 26 L62 26 L62 104 Q90 116 90 150 L90 280 Q90 296 74 296 L26 296 Q10 296 10 280 L10 150 Q10 116 38 104 Z" fill="#CFF3F2" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M16 170 L84 170 L84 280 Q84 290 74 290 L26 290 Q16 290 16 280 Z" fill="#9EE3E6" opacity=".7"/>
+  <rect x="12" y="196" width="76" height="34" rx="4" fill="#2B5BD7" stroke="#0A0F22" stroke-width="5"/>
+  <path d="M24 130 Q20 160 24 186" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".9"/>
+</svg></div>
+      <div id="insel-c1" class="insel-pp" style="left:425px;top:1069px;"><svg viewBox="0 0 50 90" width="100%" height="100%" overflow="visible"><rect x="8" y="34" width="34" height="48" rx="14" fill="#E3202F" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="22" r="17" fill="#B0182A" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="24" r="10" fill="#F2C29B"/><circle cx="21" cy="23" r="2.4" fill="#0A0F22"/><circle cx="29" cy="23" r="2.4" fill="#0A0F22"/><rect x="12" y="78" width="10" height="12" rx="4" fill="#0A0F22"/><rect x="28" y="78" width="10" height="12" rx="4" fill="#0A0F22"/></svg></div><div id="insel-c2" class="insel-pp" style="left:556px;top:1035px;"><svg viewBox="0 0 50 90" width="100%" height="100%" overflow="visible"><rect x="8" y="34" width="34" height="48" rx="14" fill="#E3202F" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="22" r="17" fill="#B0182A" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="24" r="10" fill="#F2C29B"/><circle cx="21" cy="23" r="2.4" fill="#0A0F22"/><circle cx="29" cy="23" r="2.4" fill="#0A0F22"/><rect x="12" y="78" width="10" height="12" rx="4" fill="#0A0F22"/><rect x="28" y="78" width="10" height="12" rx="4" fill="#0A0F22"/></svg></div>
+      <div id="insel-d1" class="insel-pp" style="left:425px;top:1069px;"><svg viewBox="0 0 50 90" width="100%" height="100%" overflow="visible"><rect x="8" y="34" width="34" height="48" rx="14" fill="#2B5BD7" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="22" r="17" fill="#F4F6FA" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="24" r="10" fill="#F2C29B"/><circle cx="21" cy="23" r="2.4" fill="#0A0F22"/><circle cx="29" cy="23" r="2.4" fill="#0A0F22"/><rect x="12" y="78" width="10" height="12" rx="4" fill="#0A0F22"/><rect x="28" y="78" width="10" height="12" rx="4" fill="#0A0F22"/></svg></div><div id="insel-d2" class="insel-pp" style="left:556px;top:1035px;"><svg viewBox="0 0 50 90" width="100%" height="100%" overflow="visible"><rect x="8" y="34" width="34" height="48" rx="14" fill="#2B5BD7" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="22" r="17" fill="#F4F6FA" stroke="#0A0F22" stroke-width="5"/><circle cx="25" cy="24" r="10" fill="#F2C29B"/><circle cx="21" cy="23" r="2.4" fill="#0A0F22"/><circle cx="29" cy="23" r="2.4" fill="#0A0F22"/><rect x="12" y="78" width="10" height="12" rx="4" fill="#0A0F22"/><rect x="28" y="78" width="10" height="12" rx="4" fill="#0A0F22"/></svg></div>
+      <div id="insel-bca" class="insel-boat"><svg viewBox="0 0 300 150" width="100%" height="100%" overflow="visible"><g>
+  <rect x="146" y="10" width="8" height="70" fill="#5A4636" stroke="#0A0F22" stroke-width="4"/>
+  <g transform="translate(154 12) scale(0.24)"><rect width="300" height="180" fill="#fff" stroke="#0A0F22" stroke-width="16"/><rect width="76" height="180" fill="#E3202F"/><rect x="224" width="76" height="180" fill="#E3202F"/><path d="M150 30 L162 58 L180 50 L174 82 L198 74 L190 98 L208 106 L170 124 L176 140 L154 130 L154 156 L146 156 L146 130 L124 140 L130 124 L92 106 L110 98 L102 74 L126 82 L120 50 L138 58 Z" fill="#E3202F"/></g>
+  <rect x="70" y="52" width="110" height="46" rx="10" fill="#F4F6FA" stroke="#0A0F22" stroke-width="7"/>
+  <rect x="88" y="62" width="30" height="24" rx="6" fill="#BFE6FF" stroke="#0A0F22" stroke-width="5"/><rect x="130" y="62" width="30" height="24" rx="6" fill="#BFE6FF" stroke="#0A0F22" stroke-width="5"/>
+  <path d="M8 92 L292 92 Q280 140 236 144 L56 144 Q22 140 8 92 Z" fill="#E3202F" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M26 110 L276 110" stroke="#fff" stroke-width="9"/>
+</g></svg></div>
+      <div id="insel-bdk" class="insel-boat"><svg viewBox="0 0 300 150" width="100%" height="100%" overflow="visible"><g transform="translate(300 0) scale(-1 1)">
+  <rect x="146" y="10" width="8" height="70" fill="#5A4636" stroke="#0A0F22" stroke-width="4"/>
+  <g transform="translate(154 12) scale(0.24)"><rect width="300" height="180" fill="#E3202F" stroke="#0A0F22" stroke-width="16"/><rect x="92" width="40" height="180" fill="#fff"/><rect y="70" width="300" height="40" fill="#fff"/></g>
+  <rect x="70" y="52" width="110" height="46" rx="10" fill="#E3202F" stroke="#0A0F22" stroke-width="7"/>
+  <rect x="88" y="62" width="30" height="24" rx="6" fill="#BFE6FF" stroke="#0A0F22" stroke-width="5"/><rect x="130" y="62" width="30" height="24" rx="6" fill="#BFE6FF" stroke="#0A0F22" stroke-width="5"/>
+  <path d="M8 92 L292 92 Q280 140 236 144 L56 144 Q22 140 8 92 Z" fill="#F4F6FA" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M26 110 L276 110" stroke="#fff" stroke-width="9"/>
+</g></svg></div>
+      <div id="insel-fw" class="fw"><svg viewBox="0 0 1800 540" width="1800" height="540" overflow="visible"><defs><linearGradient id="insel-fw-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2464A8"/><stop offset=".35" stop-color="#1A4E92"/><stop offset="1" stop-color="#0E2E66"/></linearGradient></defs><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30 L1800 540 L0 540 Z" fill="url(#insel-fw-g)"/><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30" fill="none" stroke="#0A0F22" stroke-width="7"/><path d="M0 110 Q45 98 90 110 T180 110 Q225 98 270 110 T360 110 Q405 98 450 110 T540 110 Q585 98 630 110 T720 110 Q765 98 810 110 T900 110 Q945 98 990 110 T1080 110 Q1125 98 1170 110 T1260 110 Q1305 98 1350 110 T1440 110 Q1485 98 1530 110 T1620 110 Q1665 98 1710 110 T1800 110" fill="none" stroke="rgba(191,230,255,.25)" stroke-width="7"/><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30" fill="none" stroke="#BFE6FF" stroke-width="6" transform="translate(0 6)"/></svg></div>
+      <div id="insel-ff"><svg viewBox="0 0 190 110" width="190" height="110" overflow="visible"><path d="M8 8 L92 55 L8 102 Z M96 8 L180 55 L96 102 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
+      tl.fromTo("#insel-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);
+      // slow drift so the frame never stands still
+      tl.fromTo("#insel-kb", { scale: 1 }, { scale: 1.04, duration: 11.6, ease: "none" }, 0);
+      tl.fromTo("#insel-fw", { x: 0 }, { x: -696, duration: 11.6, ease: "none" }, 0);
+      tl.set(["#insel-fca", "#insel-fdk", "#insel-pole", "#insel-bw", "#insel-bs", "#insel-ff", "#insel-st0", "#insel-st1", "#insel-st2", "#insel-st3", "#insel-st4", "#insel-st5"], { opacity: 0 }, 0);
+      tl.set(["#insel-c1", "#insel-c2", "#insel-d1", "#insel-d2"], { opacity: 0 }, 0);
+      tl.fromTo("#insel-rock", { y: 420 }, { y: 0, duration: 0.36, ease: "back.out(1.3)" }, 0);
+      tl.fromTo("#insel-bdk", { x: 460 }, { x: 460, duration: 0.01 }, 0);
+      // 1984: Canadian boat comes, two people hop onto the rock
+      tl.fromTo("#insel-bca", { x: -460 }, { x: 0, duration: 0.6, ease: "power2.out" }, 0.1);
+      tl.to("#insel-bca", { keyframes: { rotation: [0, -3, 2, 0] }, duration: 0.8, ease: "sine.inOut" }, 0.7);
+      tl.set("#insel-c1", { opacity: 1 }, 0.75);
+      tl.fromTo("#insel-c1", { x: -300, y: 133 }, { keyframes: { x: [-300, -150, 0], y: [133, -140, 0] }, duration: 0.42, ease: "none", immediateRender: false }, 0.75);
+      tl.set("#insel-c2", { opacity: 1 }, 1);
+      tl.fromTo("#insel-c2", { x: -411, y: 167 }, { keyframes: { x: [-411, -205.5, 0], y: [167, -140, 0] }, duration: 0.42, ease: "none", immediateRender: false }, 1);
+      tl.to(["#insel-c1", "#insel-c2"], { y: -14, duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut", stagger: 0.09 }, 1.5);
+      // 2.5: flag in, whisky next to it
+      tl.set(["#insel-pole", "#insel-fca"], { opacity: 1 }, 2.5);
+      tl.fromTo("#insel-pole", { scaleY: 0 }, { scaleY: 1, duration: 0.25, ease: "back.out(1.6)" }, 2.5);
+      tl.fromTo("#insel-fca", { y: 230, scaleY: 0.3 }, { y: 0, scaleY: 1, duration: 0.3, ease: "back.out(1.8)" }, 2.65);
+      tl.to("#insel-fca", { keyframes: { skewY: [0, 5, -4, 3, 0], scaleX: [1, 0.93, 1, 0.95, 1] }, duration: 0.9, ease: "none", repeat: 2 }, 3);
+      tl.set("#insel-bw", { opacity: 1 }, 3.05);
+      tl.fromTo("#insel-bw", { scale: 0, rotation: -40 }, { scale: 1, rotation: -6, duration: 0.3, ease: "back.out(2.4)" }, 3.05);
+      tl.to("#insel-c1", { keyframes: { x: [0, -150, -300], y: [0, -140, 133] }, duration: 0.38, ease: "none" }, 3.2);
+      tl.set("#insel-c1", { opacity: 0 }, 3.58);
+      tl.to("#insel-c2", { keyframes: { x: [0, -205.5, -411], y: [0, -140, 167] }, duration: 0.38, ease: "none" }, 3.35);
+      tl.set("#insel-c2", { opacity: 0 }, 3.73);
+      tl.to("#insel-bca", { x: -460, duration: 0.45, ease: "power2.in" }, 3.6);
+      // 4.55: Danish boat from the right
+      tl.fromTo("#insel-bdk", { x: 460 }, { x: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, 4.55);
+      tl.to("#insel-bdk", { keyframes: { rotation: [0, 3, -2, 0] }, duration: 0.8, ease: "sine.inOut" }, 5.1499999999999995);
+      tl.set("#insel-d1", { opacity: 1 }, 5.1);
+      tl.fromTo("#insel-d1", { x: 480, y: 133 }, { keyframes: { x: [480, 240, 0], y: [133, -140, 0] }, duration: 0.42, ease: "none", immediateRender: false }, 5.1);
+      tl.set("#insel-d2", { opacity: 1 }, 5.3);
+      tl.fromTo("#insel-d2", { x: 329, y: 167 }, { keyframes: { x: [329, 164.5, 0], y: [167, -140, 0] }, duration: 0.42, ease: "none", immediateRender: false }, 5.3);
+      tl.to(["#insel-d1", "#insel-d2"], { rotation: 8, duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut", stagger: 0.1 }, 5.8);
+      // 6.6: flag swapped, schnaps added
+      tl.to("#insel-fca", { y: 230, scaleY: 0.3, opacity: 0, duration: 0.22, ease: "power2.in" }, 6.6);
+      tl.fromTo("#insel-fdk", { y: 230, scaleY: 0.3, opacity: 0 }, { y: 0, scaleY: 1, opacity: 1, duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, 6.78);
+      tl.to("#insel-fdk", { keyframes: { skewY: [0, 6, -4.800000000000001, 3.5999999999999996, 0], scaleX: [1, 0.93, 1, 0.95, 1] }, duration: 0.9, ease: "none", repeat: 1 }, 7.1);
+      tl.set("#insel-bs", { opacity: 1 }, 7.1);
+      tl.fromTo("#insel-bs", { scale: 0, rotation: 40 }, { scale: 1, rotation: 6, duration: 0.3, ease: "back.out(2.4)" }, 7.1);
+      tl.to("#insel-kb", { keyframes: { x: [0, -10, 8, -5, 3, 0], y: [0, 5, -4, 2, 0, 0] }, duration: 0.28, ease: "none" }, 7.1499999999999995);
+      tl.to("#insel-d1", { keyframes: { x: [0, 240, 480], y: [0, -140, 133] }, duration: 0.38, ease: "none" }, 7.3);
+      tl.set("#insel-d1", { opacity: 0 }, 7.68);
+      tl.to("#insel-d2", { keyframes: { x: [0, 164.5, 329], y: [0, -140, 167] }, duration: 0.38, ease: "none" }, 7.45);
+      tl.set("#insel-d2", { opacity: 0 }, 7.83);
+      tl.to("#insel-bdk", { x: 460, duration: 0.45, ease: "power2.in" }, 7.7);
+      // 8.65: back and forth in fast motion, bottles pile up
+      tl.set("#insel-ff", { opacity: 1 }, 8.65);
+      tl.fromTo("#insel-ff", { scale: 0 }, { scale: 1, duration: 0.25, ease: "back.out(2.6)" }, 8.65);
+      tl.to("#insel-ff", { keyframes: { x: [0, 14, 0] }, duration: 0.3, ease: "none", repeat: 8 }, 8.9);
+      tl.set(["#insel-st0", "#insel-st1", "#insel-st2", "#insel-st3", "#insel-st4", "#insel-st5"], { opacity: 1 }, 9.05);
+      tl.to("#insel-fca", { y: 230, scaleY: 0.3, opacity: 0, duration: 0.22, ease: "power2.in" }, 9);
+      tl.fromTo("#insel-fdk", { y: 230, scaleY: 0.3, opacity: 0 }, { y: 0, scaleY: 1, opacity: 1, duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, 9.18);
+      tl.to("#insel-fdk", { y: 230, scaleY: 0.3, opacity: 0, duration: 0.22, ease: "power2.in" }, 9.6);
+      tl.fromTo("#insel-fca", { y: 230, scaleY: 0.3, opacity: 0 }, { y: 0, scaleY: 1, opacity: 1, duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, 9.78);
+      tl.to("#insel-fca", { y: 230, scaleY: 0.3, opacity: 0, duration: 0.22, ease: "power2.in" }, 10.2);
+      tl.fromTo("#insel-fdk", { y: 230, scaleY: 0.3, opacity: 0 }, { y: 0, scaleY: 1, opacity: 1, duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, 10.38);
+      tl.to("#insel-fdk", { y: 230, scaleY: 0.3, opacity: 0, duration: 0.22, ease: "power2.in" }, 10.8);
+      tl.fromTo("#insel-fca", { y: 230, scaleY: 0.3, opacity: 0 }, { y: 0, scaleY: 1, opacity: 1, duration: 0.26, ease: "back.out(1.8)", immediateRender: false }, 10.98);
+      tl.fromTo("#insel-bca", { x: 460 }, { x: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 8.75);
+      tl.to("#insel-bca", { x: 460, duration: 0.2, ease: "power2.in" }, 9.2);
+      tl.fromTo("#insel-bdk", { x: -460 }, { x: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 9.35);
+      tl.to("#insel-bdk", { x: -460, duration: 0.2, ease: "power2.in" }, 9.8);
+      tl.fromTo("#insel-bca", { x: 460 }, { x: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 9.95);
+      tl.to("#insel-bca", { x: 460, duration: 0.2, ease: "power2.in" }, 10.4);
+      tl.fromTo("#insel-bdk", { x: -460 }, { x: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 10.55);
+      tl.to("#insel-bdk", { x: -460, duration: 0.2, ease: "power2.in" }, 11);
+      tl.fromTo("#insel-st0", { scale: 0, rotation: -30 }, { scale: 1, rotation: -6, duration: 0.22, ease: "back.out(2.6)" }, 9.05);
+      tl.fromTo("#insel-st1", { scale: 0, rotation: 30 }, { scale: 1, rotation: 6, duration: 0.22, ease: "back.out(2.6)" }, 9.45);
+      tl.fromTo("#insel-st2", { scale: 0, rotation: -30 }, { scale: 1, rotation: -6, duration: 0.22, ease: "back.out(2.6)" }, 9.85);
+      tl.fromTo("#insel-st3", { scale: 0, rotation: 30 }, { scale: 1, rotation: 6, duration: 0.22, ease: "back.out(2.6)" }, 10.25);
+      tl.fromTo("#insel-st4", { scale: 0, rotation: -30 }, { scale: 1, rotation: -6, duration: 0.22, ease: "back.out(2.6)" }, 10.65);
+      tl.fromTo("#insel-st5", { scale: 0, rotation: 30 }, { scale: 1, rotation: 6, duration: 0.22, ease: "back.out(2.6)" }, 11.05);
+      tl.to("#insel-rock", { keyframes: { rotation: [0, -1.5, 1.5, -1, 0] }, duration: 2.4, ease: "none" }, 8.950000000000001);
+      // overlap exit: old graphic is gone 0.06 s after the cut, the next scene builds up from the cut on
+      tl.to("#insel-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power3.in" }, 11.42);
+      window.__timelines["insel"] = tl;
+    })();
+  </script>
+</template>

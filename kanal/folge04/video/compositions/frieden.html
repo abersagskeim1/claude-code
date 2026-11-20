@@ -1,0 +1,71 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #frieden-out, #frieden-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .frieden-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .fw { position: absolute; left: -360px; top: 1385px; width: 1800px; height: 540px; }
+    #frieden-L{position:absolute;left:-40px;top:860px;width:560px;height:300px;} #frieden-R{position:absolute;left:560px;top:900px;width:560px;height:300px;}
+     #frieden-shake{position:absolute;inset:0;}
+     .frieden-fk{position:absolute;left:510px;top:1000px;}
+     #frieden-glow{position:absolute;left:140px;top:760px;width:800px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,210,63,.4),rgba(255,210,63,0) 64%);}
+  </style>
+  <div id="root" data-composition-id="frieden" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="frieden-out"><div id="frieden-kb">
+      <div id="frieden-glow"></div>
+      <div id="frieden-f0" class="frieden-fk" style="width:75.79px;height:75.79px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#9FD6F5" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f1" class="frieden-fk" style="width:86.22px;height:86.22px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f2" class="frieden-fk" style="width:75.54px;height:75.54px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f3" class="frieden-fk" style="width:68.21px;height:68.21px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#9FD6F5" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f4" class="frieden-fk" style="width:66.65px;height:66.65px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f5" class="frieden-fk" style="width:78.9px;height:78.9px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f6" class="frieden-fk" style="width:55.55px;height:55.55px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#9FD6F5" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f7" class="frieden-fk" style="width:77.52px;height:77.52px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f8" class="frieden-fk" style="width:62.57px;height:62.57px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f9" class="frieden-fk" style="width:79.31px;height:79.31px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#9FD6F5" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f10" class="frieden-fk" style="width:55.22px;height:55.22px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f11" class="frieden-fk" style="width:69.21px;height:69.21px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f12" class="frieden-fk" style="width:56.6px;height:56.6px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#9FD6F5" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-f13" class="frieden-fk" style="width:84.33px;height:84.33px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><g stroke="#0A0F22" stroke-width="14" stroke-linecap="round"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/></g><g stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none"><path d="M50 6 V94 M12 28 L88 72 M12 72 L88 28"/><path d="M38 14 L50 24 L62 14 M38 86 L50 76 L62 86"/></g></svg></div>
+      <div id="frieden-shake">
+        <div id="frieden-L" class="frieden-stk"><svg viewBox="0 0 560 300" width="100%" height="100%" overflow="visible">
+    <path d="M-40 110 L300 110 L300 250 L-40 250 Z" fill="#E3202F" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M60 128 L60 232 M100 128 L100 232" stroke="#9E1020" stroke-width="8" opacity=".5"/>
+    <rect x="270" y="96" width="70" height="168" rx="22" fill="#fff" stroke="#0A0F22" stroke-width="10"/>
+    <path d="M330 104 Q470 70 520 150 Q540 210 470 254 L340 256 Z" fill="#E3202F" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M420 104 Q440 50 486 70 Q506 90 470 122" fill="#E3202F" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+  </svg></div>
+        <div id="frieden-R" class="frieden-stk"><svg viewBox="0 0 560 300" width="100%" height="100%" overflow="visible"><g transform="translate(560 0) scale(-1 1)">
+    <path d="M-40 110 L300 110 L300 250 L-40 250 Z" fill="#fff" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M120 110 V250" stroke="#fff" stroke-width="22"/>
+    <rect x="270" y="96" width="70" height="168" rx="22" fill="#E3202F" stroke="#0A0F22" stroke-width="10"/>
+    <path d="M330 104 Q470 70 520 150 Q540 210 470 254 L340 256 Z" fill="#F4F6FA" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M420 104 Q440 50 486 70 Q506 90 470 122" fill="#F4F6FA" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+  </g></svg></div>
+      </div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
+      tl.fromTo("#frieden-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);
+      // slow drift so the frame never stands still
+      tl.fromTo("#frieden-kb", { scale: 1 }, { scale: 1.04, duration: 1.8, ease: "none" }, 0);
+      tl.fromTo("#frieden-L", { x: -620 }, { x: 0, duration: 0.32, ease: "back.out(1.4)" }, 0);
+      tl.fromTo("#frieden-R", { x: 620 }, { x: -40, duration: 0.32, ease: "back.out(1.4)" }, 0.04);
+      tl.fromTo("#frieden-glow", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.35, ease: "power2.out" }, 0.3);
+      tl.to("#frieden-shake", { keyframes: { y: [0, -36, 0, -36, 0, -24, 0] }, duration: 0.95, ease: "none" }, 0.4);
+      tl.to("#frieden-kb", { keyframes: { x: [0, -12, 9.6, -6, 3.6, 0], y: [0, 6, -4.8, 2.4, 0, 0] }, duration: 0.26, ease: "none" }, 0.36);
+      const F = [{"x":263,"y":-18,"s":75.79,"rot":-152.12,"t":0.42},{"x":397,"y":-26,"s":86.22,"rot":96.71,"t":0.46},{"x":283,"y":37,"s":75.54,"rot":-49.67,"t":0.5},{"x":321,"y":151,"s":68.21,"rot":-48.82,"t":0.54},{"x":209,"y":177,"s":66.65,"rot":-28.72,"t":0.42},{"x":166,"y":291,"s":78.9,"rot":-90.2,"t":0.46},{"x":54,"y":298,"s":55.55,"rot":-67.91,"t":0.5},{"x":-52,"y":290,"s":77.52,"rot":97.65,"t":0.54},{"x":-138,"y":232,"s":62.57,"rot":-144.09,"t":0.42},{"x":-181,"y":145,"s":79.31,"rot":37.08,"t":0.46},{"x":-340,"y":164,"s":55.22,"rot":30.14,"t":0.5},{"x":-349,"y":59,"s":69.21,"rot":64.38,"t":0.54},{"x":-365,"y":-29,"s":56.6,"rot":137.2,"t":0.42},{"x":-331,"y":-7,"s":84.33,"rot":-46.95,"t":0.46}];
+      F.forEach((f, i) => {
+        tl.fromTo("#frieden-f" + i, { x: 0, y: 0, scale: 0, rotation: 0 }, { x: f.x, y: f.y, scale: 1, rotation: f.rot, duration: 0.5, ease: "power3.out" }, f.t);
+        tl.to("#frieden-f" + i, { y: f.y + 120, rotation: f.rot + 60, duration: 0.85, ease: "sine.in" }, f.t + 0.5);
+      });
+      // overlap exit: old graphic is gone 0.06 s after the cut, the next scene builds up from the cut on
+      tl.to("#frieden-out", { opacity: 0, scale: 0.93, duration: 0.24, ease: "power3.in" }, 1.62);
+      window.__timelines["frieden"] = tl;
+    })();
+  </script>
+</template>

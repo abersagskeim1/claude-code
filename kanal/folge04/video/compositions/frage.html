@@ -1,0 +1,61 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #frage-out, #frage-kb { position: absolute; inset: 0; transform-origin: 540px 1200px; }
+    .frage-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .fw { position: absolute; left: -360px; top: 1385px; width: 1800px; height: 540px; }
+    
+   #frage-glow{position:absolute;left:40px;top:820px;width:1000px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(159,214,245,.42) 0%,rgba(159,214,245,.12) 45%,rgba(159,214,245,0) 68%);}
+   #frage-rock{position:absolute;left:160px;top:1010px;width:760px;height:420px;transform-origin:50% 100%;}
+   .frage-pole{position:absolute;width:16px;background:linear-gradient(90deg,#8A96A6,#E6ECF2 45%,#8A96A6);border:4px solid #0A0F22;border-radius:7px;transform-origin:50% 100%;}
+   .frage-flag{position:absolute;width:250px;height:150px;transform-origin:0% 50%;}
+     .frage-bub{position:absolute;top:1150px;width:300px;height:220px;transform-origin:30% 100%;}
+  </style>
+  <div id="root" data-composition-id="frage" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs></defs></svg>
+    <div id="frage-out"><div id="frage-kb">
+      <div id="frage-glow"></div>
+      <div id="frage-pl" class="frage-pole" style="left:352px;top:760px;height:410px;"><div id="frage-fl" class="frage-flag" style="left:10px;top:4px;"><svg viewBox="0 0 300 180" width="100%" height="100%" overflow="visible"><rect x="4" y="4" width="292" height="172" rx="6" fill="#fff"/><rect x="4" y="4" width="76" height="172" fill="#E3202F"/><rect x="220" y="4" width="76" height="172" fill="#E3202F"/><path d="M150 30 L162 58 L180 50 L174 82 L198 74 L190 98 L208 106 L170 124 L176 140 L154 130 L154 156 L146 156 L146 130 L124 140 L130 124 L92 106 L110 98 L102 74 L126 82 L120 50 L138 58 Z" fill="#E3202F" stroke="#9E1020" stroke-width="3" stroke-linejoin="round"/><rect x="4" y="4" width="292" height="172" rx="6" fill="none" stroke="#0A0F22" stroke-width="8"/></svg></div></div>
+      <div id="frage-pr" class="frage-pole" style="left:712px;top:770px;height:405px;"><div id="frage-fr" class="frage-flag" style="left:10px;top:4px;"><svg viewBox="0 0 300 180" width="100%" height="100%" overflow="visible"><rect x="4" y="4" width="292" height="172" rx="6" fill="#E3202F"/><rect x="92" y="4" width="40" height="172" fill="#fff"/><rect x="4" y="70" width="292" height="40" fill="#fff"/><rect x="4" y="4" width="292" height="172" rx="6" fill="none" stroke="#0A0F22" stroke-width="8"/></svg></div></div>
+      <div id="frage-rock" class="frage-stk"><svg viewBox="0 0 760 420" width="100%" height="100%" overflow="visible"><path d="M20 420 L60 300 L130 230 L200 150 L290 110 L360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 Z" fill="#7D8796"/>
+  <path d="M360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 L470 420 L430 260 Z" fill="#5B6475"/>
+  <path d="M200 150 L290 110 L360 60 L332 172 L238 232 Z" fill="#A6B0BD"/>
+  <path d="M60 300 L130 230 L178 262 L118 344 Z" fill="#A6B0BD" opacity=".7"/>
+  <path d="M520 140 L600 170 L560 230 Z" fill="#7D8796" opacity=".8"/>
+  <path d="M332 172 L300 262 L322 334 M566 214 L528 296 L540 352 M150 304 L190 364 M640 300 L612 372" stroke="#3E4555" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M228 150 L282 124" stroke="#D3DAE3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M20 420 L60 300 L130 230 L200 150 L290 110 L360 60 L440 80 L520 140 L600 170 L660 250 L720 320 L745 420 Z" fill="none" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/></svg></div>
+      <div id="frage-fw" class="fw"><svg viewBox="0 0 1800 540" width="1800" height="540" overflow="visible"><defs><linearGradient id="frage-fw-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2464A8"/><stop offset=".35" stop-color="#1A4E92"/><stop offset="1" stop-color="#0E2E66"/></linearGradient></defs><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30 L1800 540 L0 540 Z" fill="url(#frage-fw-g)"/><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30" fill="none" stroke="#0A0F22" stroke-width="7"/><path d="M0 110 Q45 98 90 110 T180 110 Q225 98 270 110 T360 110 Q405 98 450 110 T540 110 Q585 98 630 110 T720 110 Q765 98 810 110 T900 110 Q945 98 990 110 T1080 110 Q1125 98 1170 110 T1260 110 Q1305 98 1350 110 T1440 110 Q1485 98 1530 110 T1620 110 Q1665 98 1710 110 T1800 110" fill="none" stroke="rgba(191,230,255,.25)" stroke-width="7"/><path d="M0 30 Q45 4 90 30 T180 30 Q225 4 270 30 T360 30 Q405 4 450 30 T540 30 Q585 4 630 30 T720 30 Q765 4 810 30 T900 30 Q945 4 990 30 T1080 30 Q1125 4 1170 30 T1260 30 Q1305 4 1350 30 T1440 30 Q1485 4 1530 30 T1620 30 Q1665 4 1710 30 T1800 30" fill="none" stroke="#BFE6FF" stroke-width="6" transform="translate(0 6)"/></svg></div>
+      <div id="frage-b1" class="frage-bub" style="left:120px;"><svg viewBox="0 0 300 220" width="100%" height="100%" overflow="visible">
+    <path d="M30 10 L270 10 Q292 10 292 32 L292 148 Q292 170 270 170 L130 170 L84 214 L92 170 L30 170 Q8 170 8 148 L8 32 Q8 10 30 10 Z" fill="#fff" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <g transform="translate(40 30) scale(0.4)"><path d="M30 30 L270 30 L250 280 L50 280 Z" fill="#E9F7FF" stroke="#0A0F22" stroke-width="16" stroke-linejoin="round"/><path d="M44 150 L256 150 L246 272 L54 272 Z" fill="#E09A3E"/></g><g fill="#0A0F22"><circle cx="190" cy="92" r="11"/><circle cx="222" cy="92" r="11"/><circle cx="254" cy="92" r="11"/></g></svg></div>
+      <div id="frage-b2" class="frage-bub" style="left:560px;"><svg viewBox="0 0 300 220" width="100%" height="100%" overflow="visible">
+    <path d="M30 10 L270 10 Q292 10 292 32 L292 148 Q292 170 270 170 L130 170 L84 214 L92 170 L30 170 Q8 170 8 148 L8 32 Q8 10 30 10 Z" fill="#fff" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <g transform="translate(36 34)"><rect x="0" y="20" width="96" height="96" rx="16" fill="#7FC4EA" stroke="#0A0F22" stroke-width="8"/><path d="M96 44 Q130 44 130 70 Q130 96 96 96" fill="none" stroke="#0A0F22" stroke-width="10"/><ellipse cx="48" cy="24" rx="44" ry="12" fill="#6B3A1E" stroke="#0A0F22" stroke-width="6"/><rect x="18" y="6" width="22" height="20" rx="6" fill="#fff" stroke="#0A0F22" stroke-width="5"/><rect x="50" y="2" width="22" height="20" rx="6" fill="#FFC7D6" stroke="#0A0F22" stroke-width="5"/></g><path d="M200 70 q20 -26 40 0 q-20 26 -40 0 Z M218 100 h4" fill="none" stroke="#E3202F" stroke-width="0"/><path d="M220 112 C190 90 180 62 204 56 C214 54 220 62 220 68 C220 62 226 54 236 56 C260 62 250 90 220 112 Z" fill="#E3202F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // the new picture shows up only once the old one is (nearly) gone: no graphic covers the fading one
+      tl.fromTo("#frage-out", { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 0.04);
+
+      // the hook picture rises out of the sea right away and ends exactly in its frame-0 state
+      tl.fromTo("#frage-fw", { x: 189 }, { x: 0, duration: 3.15, ease: "none" }, 0);
+      tl.fromTo("#frage-rock", { y: 520 }, { y: 0, duration: 0.36, ease: "back.out(1.3)" }, 0);
+      tl.fromTo(["#frage-pl", "#frage-pr"], { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.08 }, 0.2);
+      tl.fromTo("#frage-glow", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.1);
+      tl.to("#frage-kb", { keyframes: { scale: [1, 1.03, 1] }, duration: 3.1, ease: "sine.inOut" }, 0);
+      tl.to("#frage-fl", { keyframes: { skewY: [0, 5, -4, 3, 0], scaleX: [1, 0.93, 1, 0.95, 1] }, duration: 0.9, ease: "none", repeat: 2 }, 0.45);
+      tl.to("#frage-fr", { keyframes: { skewY: [0, 6, -4.800000000000001, 3.5999999999999996, 0], scaleX: [1, 0.93, 1, 0.95, 1] }, duration: 0.9, ease: "none", repeat: 2 }, 0.45);
+      tl.fromTo("#frage-b1", { scale: 0, rotation: -12 }, { scale: 1, rotation: -3, duration: 0.3, ease: "back.out(2.4)" }, 0.55);
+      tl.fromTo("#frage-b2", { scale: 0, rotation: 12 }, { scale: 1, rotation: 3, duration: 0.3, ease: "back.out(2.4)" }, 0.8);
+      tl.to(["#frage-b1", "#frage-b2"], { y: -14, duration: 0.35, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.15 }, 1.1);
+      // loop: the bubbles are gone before the hook caption builds up again
+      tl.to(["#frage-b1", "#frage-b2"], { opacity: 0, scale: 0.6, duration: 0.2, ease: "power2.in", stagger: 0.04 }, 2.42);
+
+      window.__timelines["frage"] = tl;
+    })();
+  </script>
+</template>
