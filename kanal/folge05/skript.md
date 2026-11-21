@@ -17,7 +17,7 @@ Klotz-Gag (neu): Klotz salutiert falsch herum (linke Hand, wackelt), bekommt am 
 | 19,4 | 2016: **BRIGADIER**. | Stufe höher, ein Stern mehr |
 | 21,4 | 2023: **GENERALMAJOR**. | Stufe höher, Sterne funkeln, Klotz Kinnlade fällt |
 | 23,6 | Plus Adelstitel: Baron der Bouvetinsel. | Wappen-Schild mit Eisinsel |
-| 26,0 | Die Garde marschiert zu ihm. | Ehrengarde steht stramm vor dem Pinguin, er „inspiziert“ |
+| 26,0 | Er inspiziert die Garde. | Ehrengarde steht stramm, Pinguin watschelt die Reihe ab |
 | 28,2 | Und das Beste? | Klotz beugt sich vor |
 | 29,6 | Es ist schon der **DRITTE**. | drei Pinguin-Silhouetten mit „I“, „II“, „III“; größte Schrift |
 | 32,0 | Der Titel wird einfach vererbt. | Krone/Orden wandert von Silhouette zu Silhouette |
