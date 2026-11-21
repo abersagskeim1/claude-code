@@ -1,0 +1,58 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #wappen-out, #wappen-kb { position: absolute; inset: 0; transform-origin: 540px 1100px; }
+    .wappen-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    #wappen-sh{position:absolute;left:309px;top:836px;width:462px;height:564px;transform-origin:50% 50%;}
+     #wappen-cr{position:absolute;left:440px;top:750px;width:200px;height:118px;transform-origin:50% 100%;}
+     .wappen-lr{position:absolute;top:870px;width:140px;height:520px;}
+     .spk{position:absolute;}
+  </style>
+  <div id="root" data-composition-id="wappen" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="wappen-out"><div id="wappen-kb">
+      <div id="wappen-lL" class="wappen-lr" style="left:150px;"><svg viewBox="0 0 140 520" width="140" height="520" overflow="visible"><g><path d="M110 500 Q20 300 100 40" fill="none" stroke="#2E7A38" stroke-width="10" stroke-linecap="round"/><ellipse cx="50" cy="80" rx="34" ry="15" transform="rotate(-40 50 80)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="98" cy="150" rx="34" ry="15" transform="rotate(40 98 150)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="50" cy="220" rx="34" ry="15" transform="rotate(-40 50 220)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="98" cy="290" rx="34" ry="15" transform="rotate(40 98 290)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="50" cy="360" rx="34" ry="15" transform="rotate(-40 50 360)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="98" cy="430" rx="34" ry="15" transform="rotate(40 98 430)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/></g></svg></div>
+      <div id="wappen-lR" class="wappen-lr" style="left:790px;"><svg viewBox="0 0 140 520" width="140" height="520" overflow="visible"><g transform="translate(140 0) scale(-1 1)"><path d="M110 500 Q20 300 100 40" fill="none" stroke="#2E7A38" stroke-width="10" stroke-linecap="round"/><ellipse cx="50" cy="80" rx="34" ry="15" transform="rotate(-40 50 80)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="98" cy="150" rx="34" ry="15" transform="rotate(40 98 150)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="50" cy="220" rx="34" ry="15" transform="rotate(-40 50 220)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="98" cy="290" rx="34" ry="15" transform="rotate(40 98 290)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="50" cy="360" rx="34" ry="15" transform="rotate(-40 50 360)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/><ellipse cx="98" cy="430" rx="34" ry="15" transform="rotate(40 98 430)" fill="#3FA34D" stroke="#0A0F22" stroke-width="5"/></g></svg></div>
+      <div id="wappen-sh" class="wappen-stk"><svg viewBox="0 0 500 610" width="462" height="564" overflow="visible">
+        <defs><clipPath id="wappen-clip"><path d="M20 20 L480 20 L480 300 Q480 500 250 600 Q20 500 20 300 Z"/></clipPath></defs>
+        <g clip-path="url(#wappen-clip)">
+          <rect x="0" y="0" width="500" height="620" fill="#2B4FB0"/>
+          <g fill="#fff"><path transform="translate(80 70) scale(.5)" d="M50 4 L62 36 L96 38 L70 60 L79 94 L50 75 L21 94 L30 60 L4 38 L38 36 Z"/><path transform="translate(370 60) scale(.4)" d="M50 4 L62 36 L96 38 L70 60 L79 94 L50 75 L21 94 L30 60 L4 38 L38 36 Z"/><path transform="translate(300 130) scale(.3)" d="M50 4 L62 36 L96 38 L70 60 L79 94 L50 75 L21 94 L30 60 L4 38 L38 36 Z"/></g>
+          <g id="wappen-isl"><path d="M70 420 L150 330 L200 350 L250 230 L310 330 L360 320 L440 420 Z" fill="#F4FAFF" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M250 230 L270 300 L240 340 M150 330 L170 380" stroke="#9FD6F5" stroke-width="8" fill="none" stroke-linecap="round"/></g>
+          <rect x="0" y="410" width="500" height="220" fill="#173C8C"/>
+          <path id="wappen-wv" d="M-60 440 q30 -18 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#9FD6F5" stroke-width="8" stroke-linecap="round"/>
+          <path d="M-60 500 q30 -18 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#5E8FD8" stroke-width="7" stroke-linecap="round"/>
+          <rect id="wappen-shine" x="-140" y="0" width="70" height="620" fill="#fff" opacity=".35" transform="skewX(-18)"/>
+        </g>
+        <path d="M20 20 L480 20 L480 300 Q480 500 250 600 Q20 500 20 300 Z" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linejoin="round"/><path d="M20 20 L480 20 L480 300 Q480 500 250 600 Q20 500 20 300 Z" fill="none" stroke="#F2B705" stroke-width="10" stroke-linejoin="round"/>
+      </svg></div>
+      <div id="wappen-cr" class="wappen-stk"><svg viewBox="0 0 220 130" width="100%" height="100%" overflow="visible"><path d="M14 120 L4 30 L60 70 L110 6 L160 70 L216 30 L206 120 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><rect x="14" y="96" width="192" height="26" rx="6" fill="#F2B705" stroke="#0A0F22" stroke-width="7"/><circle cx="60" cy="109" r="7" fill="#C8202F"/><circle cx="110" cy="109" r="7" fill="#1F3F9E"/><circle cx="160" cy="109" r="7" fill="#C8202F"/><circle cx="4" cy="30" r="9" fill="#fff" stroke="#0A0F22" stroke-width="5"/><circle cx="110" cy="6" r="10" fill="#fff" stroke="#0A0F22" stroke-width="5"/><circle cx="216" cy="30" r="9" fill="#fff" stroke="#0A0F22" stroke-width="5"/></svg></div>
+      <div id="wappen-b-0" class="spk" style="left:515px;top:1085px;width:50px;height:50px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="wappen-b-1" class="spk" style="left:517px;top:1087px;width:46px;height:46px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="wappen-b-2" class="spk" style="left:523px;top:1093px;width:34px;height:34px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="wappen-b-3" class="spk" style="left:519.5px;top:1089.5px;width:41px;height:41px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="wappen-b-4" class="spk" style="left:518.5px;top:1088.5px;width:43px;height:43px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="wappen-b-5" class="spk" style="left:514px;top:1084px;width:52px;height:52px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="wappen-b-6" class="spk" style="left:520px;top:1090px;width:40px;height:40px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      // slow drift so the frame never stands still
+      tl.fromTo("#wappen-kb", { scale: 1 }, { scale: 1.04, duration: 2.85, ease: "none" }, 0);
+      tl.fromTo("#wappen-sh", { scale: 0.8, rotation: 6 }, { scale: 1, rotation: 0, duration: 0.38, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(["#wappen-lL", "#wappen-lR"], { scaleY: 0.4, opacity: 0.6, transformOrigin: "50% 100%" }, { scaleY: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)", stagger: 0.05 }, 0.05);
+      tl.fromTo("#wappen-isl", { y: 200 }, { y: 0, duration: 0.6, ease: "back.out(1.2)" }, 0.35);
+      tl.fromTo("#wappen-wv", { x: 0 }, { x: -120, duration: 2.85, ease: "none" }, 0);
+      tl.fromTo("#wappen-cr", { scale: 0, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.32, ease: "back.out(2.6)" }, 0.9);
+      tl.fromTo("#wappen-b-0", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 226], y: [0, 102], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-b-1", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 115], y: [0, 269], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-b-2", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -151], y: [0, 186], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-b-3", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -289], y: [0, 27], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-b-4", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -249], y: [0, -178], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-b-5", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -25], y: [0, -215], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-b-6", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 196], y: [0, -105], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 1.05);
+      tl.fromTo("#wappen-shine", { x: -140 }, { x: 720, duration: 0.7, ease: "power1.inOut" }, 1.5);
+      tl.to("#wappen-cr", { keyframes: { rotation: [0, -6, 5, 0] }, duration: 0.6, ease: "sine.inOut" }, 1.9);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#wappen-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.75);
+      window.__timelines["wappen"] = tl;
+    })();
+  </script>
+</template>

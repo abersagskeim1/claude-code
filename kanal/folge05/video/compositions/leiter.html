@@ -1,0 +1,107 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #leiter-out, #leiter-kb { position: absolute; inset: 0; transform-origin: 540px 1100px; }
+    .leiter-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    #leiter-lad{position:absolute;left:400px;top:975px;width:280px;height:445px;transform-origin:50% 100%;}
+     #leiter-pw{position:absolute;left:469px;top:1182px;width:142px;height:204px;}
+     #leiter-pg{position:absolute;inset:0;transform-origin:50% 100%;}
+     #leiter-plq{position:absolute;left:110px;top:830px;width:230px;height:430px;transform-origin:50% 100%;}
+     .leiter-st{position:absolute;left:52px;width:126px;height:126px;}
+     #leiter-sword{position:absolute;left:585px;top:1045px;width:300px;height:80px;transform-origin:100% 50%;}
+     .spk{position:absolute;}
+  </style>
+  <div id="root" data-composition-id="leiter" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="leiter-out"><div id="leiter-kb">
+      <div id="leiter-plq" class="leiter-stk"><svg viewBox="0 0 230 430" width="230" height="430" overflow="visible"><path d="M10 10 L220 10 L220 300 Q220 390 115 424 Q10 390 10 300 Z" fill="#1E3A8A" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/><path d="M28 28 L202 28 L202 296 Q202 372 115 402 Q28 372 28 296 Z" fill="none" stroke="#F2B705" stroke-width="7"/><path d="M75 112 h80 M75 262 h80" stroke="#2E4CA6" stroke-width="0"/></svg>
+        <div id="leiter-s0" class="leiter-st" style="top:70px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 4 L62 36 L96 38 L70 60 L79 94 L50 75 L21 94 L30 60 L4 38 L38 36 Z" fill="#E9EEF5" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M50 18 L57 38" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/></svg></div>
+        <div id="leiter-s1" class="leiter-st" style="top:224px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 4 L62 36 L96 38 L70 60 L79 94 L50 75 L21 94 L30 60 L4 38 L38 36 Z" fill="#E9EEF5" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M50 18 L57 38" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/></svg></div>
+      </div>
+      <div id="leiter-lad" class="leiter-stk"><svg viewBox="0 0 280 445" width="280" height="445" overflow="visible">
+        <rect x="0" y="0" width="30" height="445" rx="12" fill="#B07A3E" stroke="#0A0F22" stroke-width="8"/><rect x="250" y="0" width="30" height="445" rx="12" fill="#B07A3E" stroke="#0A0F22" stroke-width="8"/>
+        <rect x="0" y="395" width="280" height="22" rx="9" fill="#C98A46" stroke="#0A0F22" stroke-width="7"/><rect x="0" y="275" width="280" height="22" rx="9" fill="#C98A46" stroke="#0A0F22" stroke-width="7"/><rect x="0" y="155" width="280" height="22" rx="9" fill="#C98A46" stroke="#0A0F22" stroke-width="7"/><rect x="0" y="35" width="280" height="22" rx="9" fill="#C98A46" stroke="#0A0F22" stroke-width="7"/></svg></div>
+      <div id="leiter-pw"><div id="leiter-pg" class="leiter-stk"><svg viewBox="0 0 300 430" width="100%" height="100%" overflow="visible">
+    <defs><linearGradient id="leiter-bel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB627"/><stop offset=".2" stop-color="#FFE08A"/><stop offset=".42" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E9EEF6"/></linearGradient></defs>
+    <ellipse cx="112" cy="410" rx="42" ry="16" fill="#FF9A1F" stroke="#0A0F22" stroke-width="6"/><ellipse cx="188" cy="410" rx="42" ry="16" fill="#FF9A1F" stroke="#0A0F22" stroke-width="6"/>
+    <path d="M150 18 C 236 18 268 130 268 250 C 268 350 226 412 150 412 C 74 412 32 350 32 250 C 32 130 64 18 150 18 Z" fill="#1F2636" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M70 70 C 80 40 110 26 140 24" stroke="#3A4560" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M150 128 C 214 128 236 200 236 268 C 236 350 200 396 150 396 C 100 396 64 350 64 268 C 64 200 86 128 150 128 Z" fill="url(#leiter-bel)"/>
+    <path d="M86 70 C 66 92 66 134 96 156 C 100 136 98 104 114 86 Z" fill="#FFB627" stroke="#0A0F22" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M214 70 C 234 92 234 134 204 156 C 200 136 202 104 186 86 Z" fill="#FFB627" stroke="#0A0F22" stroke-width="5" stroke-linejoin="round"/>
+    <g id="leiter-eyes"><circle cx="122" cy="84" r="18" fill="#fff" stroke="#0A0F22" stroke-width="5"/><circle cx="178" cy="84" r="18" fill="#fff" stroke="#0A0F22" stroke-width="5"/>
+      <g id="leiter-pup"><circle cx="124" cy="87" r="8.5" fill="#0A0F22"/><circle cx="180" cy="87" r="8.5" fill="#0A0F22"/><circle cx="127" cy="83" r="3" fill="#fff"/><circle cx="183" cy="83" r="3" fill="#fff"/></g></g>
+    <ellipse cx="98" cy="122" rx="12" ry="7" fill="#FF8FA3" opacity=".6"/><ellipse cx="202" cy="122" rx="12" ry="7" fill="#FF8FA3" opacity=".6"/>
+    <path d="M132 100 Q150 92 168 100 L152 150 Q150 154 148 150 Z" fill="#1A1F2C" stroke="#0A0F22" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M140 112 Q150 108 160 112 L151 140 Z" fill="#FF8A1F"/>
+    <g id="leiter-med">
+      <path d="M128 182 L146 236 L158 236 L140 182 Z" fill="#C8202F" stroke="#0A0F22" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M172 182 L154 236 L142 236 L160 182 Z" fill="#1F3F9E" stroke="#0A0F22" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="150" cy="254" r="24" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/>
+      <path d="M150 238 L155 249 L167 250 L158 258 L161 270 L150 263 L139 270 L142 258 L133 250 L145 249 Z" fill="#F2B705" stroke="#B07A00" stroke-width="2.5" stroke-linejoin="round"/></g>
+    
+    <g id="leiter-fR"><path d="M246 168 C 284 206 292 262 278 300 C 262 276 246 236 236 200 Z" fill="#1F2636" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g>
+    <g><g id="leiter-fL"><path d="M54 168 C 16 206 8 262 22 300 C 38 276 54 236 64 200 Z" fill="#1F2636" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></g>
+  </svg></div></div>
+      <div id="leiter-sword"><svg viewBox="0 0 300 80" width="300" height="80" overflow="visible"><path d="M10 32 L190 32 L214 40 L190 48 L10 48 Z" fill="#E6ECF2" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><path d="M24 40 H180" stroke="#A9B6C6" stroke-width="4"/><rect x="196" y="6" width="20" height="68" rx="8" fill="#F2B705" stroke="#0A0F22" stroke-width="5"/><rect x="214" y="28" width="60" height="24" rx="10" fill="#C8202F" stroke="#0A0F22" stroke-width="5"/><circle cx="282" cy="40" r="13" fill="#F2B705" stroke="#0A0F22" stroke-width="5"/></svg></div>
+      <div id="leiter-k-0" class="spk" style="left:580px;top:1100px;width:40px;height:40px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-k-1" class="spk" style="left:571.5px;top:1091.5px;width:57px;height:57px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-k-2" class="spk" style="left:578px;top:1098px;width:44px;height:44px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-k-3" class="spk" style="left:579px;top:1099px;width:42px;height:42px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-k-4" class="spk" style="left:582.5px;top:1102.5px;width:35px;height:35px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-k-5" class="spk" style="left:576.5px;top:1096.5px;width:47px;height:47px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-k-6" class="spk" style="left:577px;top:1097px;width:46px;height:46px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-0" class="spk" style="left:193.5px;top:973.5px;width:53px;height:53px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-1" class="spk" style="left:199px;top:979px;width:42px;height:42px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-2" class="spk" style="left:192.5px;top:972.5px;width:55px;height:55px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-3" class="spk" style="left:194px;top:974px;width:52px;height:52px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-4" class="spk" style="left:194px;top:974px;width:52px;height:52px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-5" class="spk" style="left:193.5px;top:973.5px;width:53px;height:53px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-6" class="spk" style="left:192px;top:972px;width:56px;height:56px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="leiter-m-7" class="spk" style="left:193px;top:973px;width:54px;height:54px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      // slow drift so the frame never stands still
+      tl.fromTo("#leiter-kb", { scale: 1 }, { scale: 1.04, duration: 8.9, ease: "none" }, 0);
+      gsap.set("#leiter-med", { opacity: 0, scale: 0, svgOrigin: "150 236" });
+      tl.set(["#leiter-s0", "#leiter-s1", "#leiter-sword"], { opacity: 0 }, 0);
+      tl.fromTo("#leiter-lad", { scaleY: 0.82 }, { scaleY: 1, duration: 0.36, ease: "back.out(1.5)" }, 0);
+      tl.fromTo("#leiter-plq", { scale: 0.8 }, { scale: 1, duration: 0.34, ease: "back.out(1.6)" }, 0.05);
+      tl.fromTo("#leiter-pw", { y: 0 }, { y: 0, duration: 0.01 }, 0);
+      // the penguin waddles on the bottom rung, then hops up
+      tl.to("#leiter-pg", { keyframes: { rotation: [0, 8, -8, 0] }, duration: 0.5, ease: "none" }, 0.2);
+      tl.to("#leiter-pw", { keyframes: { y: [0, -154, -120] }, duration: 0.42, ease: "power1.inOut" }, 0.8);
+      tl.to("#leiter-pg", { keyframes: { scaleY: [1, 0.86, 1.08, 1], scaleX: [1, 1.08, 0.96, 1] }, duration: 0.5, ease: "none" }, 0.76);
+      tl.to("#leiter-pg", { keyframes: { rotation: [0, 7, -7, 0] }, duration: 0.5, ease: "none" }, 1.6);
+      // 2.85: 2008 knight - the ceremonial sword taps the shoulder, sparkle, medal
+      tl.to("#leiter-pg", { keyframes: { scaleY: [1, 0.92, 1] }, duration: 0.3, ease: "sine.inOut" }, 2.95);
+      tl.set("#leiter-sword", { opacity: 1 }, 3.2);
+      tl.fromTo("#leiter-sword", { x: 360, rotation: 0 }, { x: 0, rotation: 0, duration: 0.35, ease: "back.out(1.3)", immediateRender: false }, 3.2);
+      tl.to("#leiter-sword", { keyframes: { rotation: [0, -14, 0, -14, 0] }, duration: 0.7, ease: "power1.inOut" }, 3.6);
+      tl.fromTo("#leiter-k-0", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 135], y: [0, 30], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.fromTo("#leiter-k-1", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 65], y: [0, 125], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.fromTo("#leiter-k-2", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -80], y: [0, 103], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.fromTo("#leiter-k-3", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -119], y: [0, 7], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.fromTo("#leiter-k-4", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -95], y: [0, -89], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.fromTo("#leiter-k-5", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 28], y: [0, -117], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.fromTo("#leiter-k-6", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 96], y: [0, -51], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 3.75);
+      tl.to("#leiter-med", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.6)" }, 3.85);
+      tl.to("#leiter-sword", { x: 360, duration: 0.3, ease: "power2.in" }, 4.45);
+      tl.set("#leiter-sword", { opacity: 0 }, 4.75);
+      // 5.3: 2016 brigadier - one rung higher, the first star
+      tl.to("#leiter-pw", { keyframes: { y: [-120, -274, -240] }, duration: 0.42, ease: "power1.inOut" }, 5.35);
+      tl.to("#leiter-pg", { keyframes: { scaleY: [1, 0.86, 1.08, 1], scaleX: [1, 1.08, 0.96, 1] }, duration: 0.5, ease: "none" }, 5.31);
+      tl.set("#leiter-s0", { opacity: 1 }, 5.7);
+      tl.fromTo("#leiter-s0", { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(3)", immediateRender: false }, 5.7);
+      tl.to("#leiter-plq", { keyframes: { x: [0, -10, 8, -5, 3, 0], y: [0, 5, -4, 2, 0, 0] }, duration: 0.28, ease: "none" }, 5.8999999999999995);
+      // 7.05: 2023 major general - top rung, the second star, both sparkle
+      tl.to("#leiter-pw", { keyframes: { y: [-240, -394, -360] }, duration: 0.42, ease: "power1.inOut" }, 7.1);
+      tl.to("#leiter-pg", { keyframes: { scaleY: [1, 0.86, 1.08, 1], scaleX: [1, 1.08, 0.96, 1] }, duration: 0.5, ease: "none" }, 7.06);
+      tl.set("#leiter-s1", { opacity: 1 }, 7.45);
+      tl.fromTo("#leiter-s1", { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(3)", immediateRender: false }, 7.45);
+      tl.fromTo("#leiter-m-0", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 179], y: [0, 63], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-1", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 106], y: [0, 112], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-2", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -7], y: [0, 198], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-3", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -131], y: [0, 64], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-4", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -149], y: [0, -44], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-5", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -124], y: [0, -130], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-6", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 59], y: [0, -131], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.fromTo("#leiter-m-7", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 172], y: [0, -67], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 7.6);
+      tl.to(["#leiter-s0", "#leiter-s1"], { keyframes: { scale: [1, 1.2, 1], rotation: [0, 20, 0] }, duration: 0.35, ease: "sine.inOut", repeat: 1, stagger: 0.1 }, 7.8);
+      tl.to("#leiter-pg", { keyframes: { rotation: [0, -6, 6, 0] }, duration: 0.5, ease: "none" }, 8.15);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#leiter-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 8.8);
+      window.__timelines["leiter"] = tl;
+    })();
+  </script>
+</template>
