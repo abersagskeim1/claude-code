@@ -37,15 +37,15 @@ const STAR = (fill = "#E9EEF5", stroke = K, sw = 7) => `<svg viewBox="0 0 100 10
 // king penguin, viewBox 300 x 430. o: { sword, medal, hat, flipL (deg), sil (silhouette) }
 // viewer-left flipper = penguin's right flipper (pivot 58 172), viewer-right flipper pivot 242 172
 function PENG(p, o = {}) {
-  if (o.sil) {
+  if (o.sil) { // side-view silhouette: beak, flipper, feet and eye make it read as a penguin without sound
     const f = o.silFill || "#16204A", s = o.silStroke || YEL;
     return `<svg viewBox="0 0 300 430" width="100%" height="100%" overflow="visible">
     <g fill="${f}" stroke="${s}" stroke-width="9" stroke-linejoin="round">
-      <ellipse cx="112" cy="410" rx="42" ry="16"/><ellipse cx="188" cy="410" rx="42" ry="16"/>
-      <path d="M54 168 C 16 206 8 262 22 300 C 38 276 54 236 64 200 Z"/><path d="M246 168 C 284 206 292 262 278 300 C 262 276 246 236 236 200 Z"/>
-      <path d="M150 18 C 236 18 268 130 268 250 C 268 350 226 412 150 412 C 74 412 32 350 32 250 C 32 130 64 18 150 18 Z"/>
-      <path d="M132 100 Q150 92 168 100 L152 150 Q150 154 148 150 Z" stroke-width="7"/>
-    </g></svg>`;
+      <path d="M118 400 L178 400 Q206 404 214 418 L112 418 Z"/><path d="M170 404 L232 404 Q258 408 264 422 L164 422 Z"/>
+      <path d="M150 22 C 204 22 228 58 226 96 L 292 116 L 226 136 C 252 206 262 286 248 344 C 236 396 198 414 152 414 C 98 414 62 392 54 342 C 42 272 70 196 96 132 C 84 62 104 22 150 22 Z"/>
+      <path d="M96 190 C 60 230 34 290 30 340 C 64 310 94 270 112 232 Z"/>
+    </g>
+    <circle cx="184" cy="82" r="11" fill="${s}"/></svg>`;
   }
   const sword = `<g id="${p}-sw" transform="translate(22 296) rotate(14)">
         <rect x="-7" y="-14" width="14" height="34" rx="5" fill="${CRED}" stroke="${K}" stroke-width="4"/><circle cx="0" cy="-17" r="8" fill="${GOLD}" stroke="${K}" stroke-width="4"/>
@@ -211,7 +211,7 @@ ${hookIdle(p, 0, d)}
   const p = "befo";
   const [s, d] = S(p);
   const fr = Array.from({ length: 15 }, (_, i) => `<rect x="${44 + i * 40}" y="196" width="22" height="${90 + (i % 2) * 14}" rx="11" fill="${GOLD}" stroke="${K}" stroke-width="5"/>`).join("");
-  const slots = [[190, 108], [330, 108], [470, 108], [610, 108]];
+  const slots = [[270, 108], [470, 108]]; // at most 2 stars (major general = 2 stars on the rank plaque)
   scenes.push(scene(p, "Befoerdert: Schulterklappe", s, d,
     `#befo-ep{${abs(130, 880, 820, 330)}transform-origin:50% 40%;}
      .befo-st{position:absolute;width:118px;height:118px;}
@@ -233,12 +233,12 @@ ${slots.map(([x, y], i) => `        <div id="befo-s${i}" class="befo-st" style="
       ${burst("befo-b", 8, 540, 990, 54, 260, 7).html}`,
     `      tl.fromTo("#befo-ep", { scale: 0.8, rotation: -6 }, { scale: 1, rotation: 0, duration: 0.36, ease: "back.out(1.6)" }, 0);
       tl.fromTo("#befo-glow", { opacity: 0.3, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }, 0);
-      // stars multiply: 1, 2, 3, 4
-${slots.map((_, i) => `      tl.fromTo("#befo-s${i}", { scale: ${i ? 0 : 0.5}, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.24, ease: "back.out(3)" }, ${i ? +(0.45 + i * 0.32).toFixed(2) : 0.05});`).join("\n")}
+      // stars multiply: 1, 2
+${slots.map((_, i) => `      tl.fromTo("#befo-s${i}", { scale: ${i ? 0 : 0.5}, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.24, ease: "back.out(3)" }, ${i ? +(0.75 + i * 0.32).toFixed(2) : 0.05});`).join("\n")}
       tl.to("#befo-ep", { keyframes: { y: [0, -14, 0] }, duration: 0.22, ease: "power1.out", repeat: 3 }, 0.75);
       tl.fromTo("#befo-shine", { x: -120 }, { x: 820, duration: 0.6, ease: "power1.inOut" }, 1.5);
 ${burst("befo-b", 8, 540, 990, 54, 260, 7).js(1.5)}
-      tl.to(["#befo-s0", "#befo-s1", "#befo-s2", "#befo-s3"], { keyframes: { scale: [1, 1.15, 1] }, duration: 0.3, ease: "sine.inOut", stagger: 0.06 }, 1.55);`));
+      tl.to([${slots.map((_, i) => `"#befo-s${i}"`).join(", ")}], { keyframes: { scale: [1, 1.15, 1] }, duration: 0.3, ease: "sine.inOut", stagger: 0.06 }, 1.55);`));
 }
 
 // ================= ZOO: gate silhouette with EDINBURGH sign, doors open, a small penguin peeks (4.65 - 7.1) =================
@@ -673,7 +673,7 @@ const caps = [
   { id: "c10", words: ["*BRIGADIER", "/", "ab", "*2016."] },
   { id: "c11", words: ["*GENERAL-", "/", "*MAJOR", "/", "ab", "*2023."], shake: true },
   { id: "c12", words: ["*BARON", "/", "der", "Bouvetinsel", "/", "ist", "er", "auch."] },
-  { id: "c13", words: ["Die", "Garde", "/", "marschiert", "/", "zu", "ihm."] },
+  { id: "c13", words: ["Er", "inspiziert", "/", "die", "Garde."] },
   { id: "c14", words: ["Und", "das", "Beste?"] },
   { id: "c15", words: ["Es", "ist", "schon", "/", "der", "!DRITTE."], shake: true },
   { id: "c16", words: ["Der", "Titel", "wird", "/", "einfach", "vererbt."] },
@@ -772,7 +772,7 @@ const moods = [
   [18.65, "impressed"], [21.1, "surprised"], [22.85, "jawdrop"], [24.7, "curious"], [27.55, "proud"], [30.0, "curious"], [31.65, "shock"],
   [34.15, "look"], [36.6, "happy"], [MED0 + 0.35, "cheer"], [38.1, "proud"], [LOOPK + 0.08, "shock"],
 ];
-const blinks = [3.9, 8.3, 12.9, 17.4, 20.3, 26.1, 33.0, 35.6];
+const blinks = []; // no blinks: a half-closed lid frame reads as sleepy (review 21.11). Only the one-eye wink at 38.4 s stays.
 
 const klotzSvg = `<svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
   <defs>
@@ -909,7 +909,7 @@ ${kJs}      window.__timelines["klotz"] = tl;
 // ================= index.html + sound =================
 const sfx = [
   [0.0, "impact", 0.7], [0.0, "fanfare", 0.5], [0.05, "sparkle", 0.4], [0.35, "shing", 0.45], [0.6, "tap", 0.5], [0.9, "tap", 0.45], [0.3, "boing", 0.4],
-  [2.6, "whoosh1", 0.45], [2.65, "ding", 0.4], [3.42, "ding", 0.4], [3.74, "ding", 0.45], [4.06, "ding", 0.5], [4.1, "sparkle", 0.45],
+  [2.6, "whoosh1", 0.45], [2.65, "ding", 0.4], [3.67, "ding", 0.5], [4.1, "sparkle", 0.45],
   [4.65, "whoosh2", 0.45], [4.75, "creak", 0.5], [5.4, "creak", 0.45], [5.75, "waddle", 0.45], [6.1, "waddle", 0.45],
   [7.1, "whoosh1", 0.4], [7.1, "step", 0.55], [7.6, "step", 0.55], [8.1, "step", 0.55], [8.6, "step", 0.55], [9.15, "stamp", 0.5],
   [9.55, "whoosh2", 0.45], [9.65, "flap", 0.5], [10.05, "sparkle", 0.4], [10.5, "flap", 0.4],

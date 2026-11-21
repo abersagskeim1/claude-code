@@ -1,4 +1,4 @@
-// Builds the upload thumbnail (frame-1 motif: knighted penguin, enlarged; Klotz shocked bottom right; "SIR PINGUIN?!") and screenshots it to PNG.
+// Builds the upload thumbnail (frame-1 motif: knighted penguin, enlarged; Klotz shocked bottom right; "RITTER?!") and screenshots it to PNG.
 // Usage: PUPPETEER_CORE=<path> node tools/thumb.mjs <video_dir> <thumb_dir> <out_png>
 import fs from "node:fs";
 import path from "node:path";
@@ -42,14 +42,14 @@ ${bgCss}
 ${css}
 #stage{position:absolute;inset:0;transform:scale(1.1);transform-origin:520px 1400px}
 #txt{position:absolute;left:80px;top:300px;width:920px;text-align:center;font-family:'Lilita One';color:#FFD23F;line-height:.98;-webkit-text-stroke:28px #0A0F22;paint-order:stroke fill;text-shadow:0 18px 0 #050814}
-#txt .a{font-size:200px} #txt .b{font-size:178px}
+#txt .a{font-size:196px}
 #pod{position:absolute;left:620px;top:1760px;width:420px;height:130px}
 #klotz{position:absolute;left:665px;top:1430px;width:310px;height:341px;transform:rotate(-6deg)}
 </style></head><body>
 <div id="root">
 <div id="bgw">${bgBody}</div>
 <div id="stage">${body}</div>
-<div id="txt"><span class="a">SIR</span><br/><span class="b">PINGUIN?!</span></div>
+<div id="txt"><span class="a">RITTER?!</span></div>
 <div id="pod">${pod}</div><div id="klotz">${svg}</div>
 </div>
 </body></html>`;

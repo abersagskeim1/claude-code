@@ -15,3 +15,8 @@
 - Schnitte: alte Szene schrumpft/dimmt in den letzten 3 Frames und ist am Schnitt weg, neue Szene steht ab dem Schnitt-Frame (Startgröße ≥ 0,8). cutcheck.py: 0 Löcher an 12 Schnitten + Loop; im MP4 Bild für Bild angesehen. Loop: Blasen weg in dem Frame, in dem der Pinguin wächst (Frage-Text steht noch), letzte 18 Frames = Frame-0-Bild, Hook-Text komplett ab 39,54 s.
 - Ton (gemessen, nicht gehört): +8,3 dB + Limiter (4× überabgetastet) → −14,0 LUFS, True Peak −2,0 dBTP, 39,700 s wie das Bild.
 - Schwächster Moment: 31,65–31,9 s, dunkle Silhouetten wirken beim Aufbau kurz leer (Absicht für den Pointen-Pop von III).
+
+## Nachbesserung nach Prüfung (21.11.)
+- Alle Blinzler gestrichen (auch 8,3 s und 20,3 s); nur das Ein-Auge-Zwinkern bei 38,4 s bleibt. Neu `tools/lidcheck.mjs` (Lid-scaleY jedes Frames): kein Frame mit beiden Lidern (teil)geschlossen, nur f1153–1157 rechtes Auge.
+- 27,55–30 s Text jetzt „Er inspiziert / die Garde.“. Silhouetten I/II/III als Seitenprofil mit Schnabel, Flügel, Füßen und Auge. Schulterklappe nur noch 2 Sterne.
+- Thumbnail „RITTER?!“. Ton −14,0 LUFS / −2,1 dBTP, 39,700 s. overlap, layout, cutcheck (0 Löcher) nach dem letzten Render erneut ohne Befund.
