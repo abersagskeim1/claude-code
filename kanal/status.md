@@ -6,11 +6,14 @@
 | 2 | Corrupted Blood | fertig (38,6 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-18 |
 | 3 | Die Bitcoin-Pizza | fertig (39,5 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-19 |
 | 4 | Der Whisky-Krieg | fertig (39,2 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-20 |
+| 5 | Sir Nils Olav | fertig (39,7 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-21 |
 
-Nächste Folge: **5** (siehe serienplan.md)
+Nächste Folge: **6** (siehe serienplan.md)
 
 Offene KANN-Punkte Folge 2 (nicht behoben): 3 Frames nur Hintergrund+Klotz bei 38,07–38,13 s; Zeilenumbrüche „echt.“ / „Land.“ allein in der Zeile.
 
 Offener KANN-Punkt Folge 3: 2–3 Frames nur Klotz beim Loop-Übergang (38,7–38,8 s).
 
 Offene KANN-Punkte Folge 4: kurze Lücke/Überdeckung bei 2,23 s und 18,43 s; Klotz trinkt Kakao mit halb geschlossenen Augen (35,9–38 s).
+
+Folge 5: Hook ohne Zahl bewusst freigegeben (Bibel §2.2 Abweichung).
