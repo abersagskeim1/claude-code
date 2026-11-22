@@ -27,14 +27,16 @@ const MINT = "#7CF0C2", PINK = "#FF8FC8", SKY = "#9FDcFF".toUpperCase(), GRASS =
 const PURP = "#8E5CFF", NAVY = "#1A2238";
 
 // ================= timing: one row per caption; scenes follow the captions =================
-const CD = [["c01", 1.6], ["c02", 2.0], ["c03", 2.9], ["c04", 2.9], ["c05", 2.45], ["c06", 2.45], ["c07", 2.0], ["c08", 2.05], ["c09", 2.0],
-  ["c10", 2.45], ["c11", 2.05], ["c12", 2.9], ["c13", 2.05], ["c14", 2.4], ["c15", 2.9], ["c16", 2.9], ["c17", 0.6]];
+// c01 ends as early as its reading time (4 words x 0.35 s + exit) and the frame grid allow
+// scene cuts sit on whole tenths of a second (on the 30 fps frame grid), captions inside a scene may split freely
+const CD = [["c01", 1.6], ["c02", 2.0], ["c03", 2.8], ["c04", 2.8], ["c05", 2.4], ["c06", 2.4], ["c07", 1.6], ["c08", 1.95], ["c09", 1.95], ["c09b", 2.8],
+  ["c10", 2.35], ["c11", 1.95], ["c12", 2.8], ["c13", 2.0], ["c14", 2.0], ["c15", 2.8], ["c16", 2.8], ["c17", 0.5]];
 const C = {};
 { let t = 0; for (const [id, d] of CD) { C[id] = [f2(t), f2(t + d)]; t += d; } }
 export const DUR = C.c17[1];
 const T = {
   hook: [C.c01[0], C.c01[1]], figur: C.c02, twitch: C.c03, befehle: C.c04, alles: C.c05, menu: C.c06, chaos: C.c07,
-  waage: [C.c08[0], C.c09[1]], fossil: [C.c10[0], C.c11[1]], kult: C.c12, kalender: C.c13, finale: C.c14, award: C.c15, frage: [C.c16[0], DUR],
+  waage: [C.c08[0], C.c09b[1]], fossil: [C.c10[0], C.c11[1]], kult: C.c12, kalender: C.c13, finale: C.c14, award: C.c15, frage: [C.c16[0], DUR],
 };
 const S = (k) => [T[k][0], f2(T[k][1] - T[k][0])];
 const scenes = [];
@@ -198,16 +200,17 @@ const bounceF = (sx, sy, rx, ry) => (ph) => ph < 0.5
 // ================= HOOK picture (frame 0 = thumbnail motif): handheld, chat bubbles rain from all sides onto one pixel hero =================
 const HH0 = { l: 90, t: 870 };
 const RAIN = [ // [glyph, colour, start x, start y, end x, end y] in frame coordinates (bubble centre)
-  ["up", 0, 130, 680, 420, 990], ["A", 1, 960, 680, 680, 985], ["left", 2, 1000, 1090, 760, 1100], ["right", 3, 70, 1100, 330, 1110],
-  ["B", 4, 260, 1330, 430, 1210], ["down", 1, 540, 680, 560, 950], ["A", 0, 880, 1310, 690, 1200], ["up", 3, 70, 860, 360, 1020],
-  ["right", 2, 1010, 880, 730, 1020], ["left", 4, 720, 680, 620, 960],
+  // all bubbles stay inside x 80-1000 (the rain zone clips at the side margins)
+  ["up", 0, 170, 690, 420, 990], ["A", 1, 880, 690, 680, 985], ["left", 2, 920, 1090, 740, 1100], ["right", 3, 160, 1100, 340, 1110],
+  ["B", 4, 280, 1330, 430, 1210], ["down", 1, 540, 680, 560, 950], ["A", 0, 860, 1310, 690, 1200], ["up", 3, 160, 860, 360, 1020],
+  ["right", 2, 920, 880, 730, 1020], ["left", 4, 720, 680, 620, 960],
 ];
 const RAIN_D = 1.3;
 const hookCss = (p) => `${HH_CSS}
    #${p}-glow{${abs(110, 780, 860, 600)}border-radius:50%;background:radial-gradient(circle,rgba(46,196,182,.42) 0%,rgba(46,196,182,.12) 45%,rgba(46,196,182,0) 70%);}
    #${p}-hhw{${abs(HH0.l, HH0.t, 900, 470)}transform-origin:50% 60%;}
-   #${p}-rain{${abs(40, 620, 1000, 770)}overflow:hidden;}
-   #${p}-rin{position:absolute;left:-40px;top:-620px;width:1080px;height:1920px;}`;
+   #${p}-rain{${abs(80, 620, 920, 770)}overflow:hidden;}
+   #${p}-rin{position:absolute;left:-80px;top:-620px;width:1080px;height:1920px;}`;
 const hookBody = (p) => `      <div id="${p}-glow"></div>
       <div id="${p}-hhw" class="${p}-stk">${HANDHELD(p, SCREEN(p))}</div>
       <div id="${p}-rain"><div id="${p}-rin">
@@ -428,7 +431,7 @@ ${cur(3, 2.05)}
 }
 
 // ================= CHAOS: the handheld wobbles gently, bubbles circle it; three bubbles shove Klotz (c07) =================
-const CHAOS_HITS = [0.75, 1.1, 1.45]; // local arrival times of the shove bubbles
+const CHAOS_HITS = [0.6, 0.85, 1.1]; // local arrival times of the shove bubbles
 {
   const p = "chaos";
   const [s, d] = S(p);
@@ -466,7 +469,7 @@ ${shove.map(([, , sx, sy], i) => {
 {
   const p = "waage";
   const [s, d] = S(p);
-  const L9 = f2(C.c09[0] - s);
+  const L9 = f2(C.c09[0] - s), L9B = f2(C.c09b[0] - s);
   const PV = [540, 960], HALF = 310;
   const tilt = (degs, dur, at) => {
     const ry = degs.map((g) => f2(Math.sin((g * Math.PI) / 180) * HALF));
@@ -487,14 +490,14 @@ ${shove.map(([, , sx, sy], i) => {
   scenes.push(scene(p, "Waage Anarchie Demokratie", s, d,
     `.waage-pan{position:absolute;width:300px;height:250px;}
      #waage-post{${abs(PV[0] - 18, PV[1], 36, 370)}background:linear-gradient(90deg,${GOLD_D},${GOLD},${GOLD_D});border:7px solid ${K};border-radius:10px;}
-     #waage-base{${abs(480, 1322, 120, 70)}}
+     #waage-base{${abs(508, 1322, 64, 70)}}
      #waage-beam{${abs(PV[0] - HALF - 20, PV[1] - 140, (HALF + 20) * 2, 160)}transform-origin:50% 87.5%;}
      #waage-dial{${abs(PV[0] - 110, PV[1] - 130, 220, 120)}}
      .waage-lb{position:absolute;top:1292px;${LBL(72)}}
-     #waage-l1{left:100px;color:${YEL};} #waage-l2{left:606px;color:#9FD3FF;letter-spacing:-0.03em;}`,
+     #waage-l1{left:100px;color:${YEL};transform-origin:0% 50%;} #waage-l2{left:572px;transform-origin:100% 50%;color:#9FD3FF;letter-spacing:-0.04em;}`,
     `      <svg id="waage-dial" viewBox="0 0 220 120" overflow="visible"><path d="M14 112 A96 96 0 0 1 206 112" fill="#1B2444" stroke="${K}" stroke-width="8"/><path d="M40 108 A70 70 0 0 1 180 108" fill="none" stroke="${YEL}" stroke-width="8" stroke-dasharray="6 16"/></svg>
       <div id="waage-post" class="waage-stk"></div>
-      <svg id="waage-base" class="waage-stk" viewBox="0 0 120 70" overflow="visible"><path d="M30 6 H90 L116 64 H4 Z" fill="${GOLD}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/></svg>
+      <svg id="waage-base" class="waage-stk" viewBox="0 0 64 70" overflow="visible"><path d="M16 6 H48 L62 64 H2 Z" fill="${GOLD}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/></svg>
       <div id="waage-beam" class="waage-stk"><svg viewBox="0 0 ${(HALF + 20) * 2} 160" width="${(HALF + 20) * 2}" height="160" overflow="visible">
         <path d="M${HALF + 20} 140 L${HALF + 20} 30" stroke="${K}" stroke-width="16" stroke-linecap="round"/><path d="M${HALF + 20} 140 L${HALF + 20} 30" stroke="${RED}" stroke-width="8" stroke-linecap="round"/>
         <rect x="10" y="128" width="${HALF * 2 + 20}" height="24" rx="12" fill="${GOLD}" stroke="${K}" stroke-width="7"/><circle cx="${HALF + 20}" cy="140" r="20" fill="${YEL}" stroke="${K}" stroke-width="7"/></svg></div>
@@ -505,11 +508,15 @@ ${shove.map(([, , sx, sy], i) => {
       tl.fromTo(["#waage-pl", "#waage-pr", "#waage-beam"], { scale: 0.85 }, { scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 0);
       tl.fromTo(["#waage-l1", "#waage-l2"], { scale: 0.8 }, { scale: 1, duration: 0.25, ease: "back.out(2.4)", stagger: 0.12 }, 0.2);
       // the vote is undecided: slow tilt one way, then the other
-${tilt([0, -9, 7, -4], 1.9, 0.1)}
+${tilt([0, -9, 7, -4], 1.85, 0.1)}
       tl.to("#waage-l1", { keyframes: { scale: [1, 1.12, 1] }, duration: 0.4, ease: "sine.inOut" }, 0.5);
       tl.to("#waage-l2", { keyframes: { scale: [1, 1.12, 1] }, duration: 0.4, ease: "sine.inOut" }, 1.15);
-      // ${L9}: the pointer swings back and forth
-${tilt([-4, 12, -12, 12, -12, 10, -8, 0], 1.9, L9)}`));
+      // ${L9}: ANARCHIE? DEMOKRATIE? - one side, then the other
+${tilt([-4, 9, -9, 0], 1.5, L9)}
+      tl.to("#waage-l1", { keyframes: { scale: [1, 1.12, 1] }, duration: 0.4, ease: "sine.inOut" }, ${f2(L9 + 0.1)});
+      tl.to("#waage-l2", { keyframes: { scale: [1, 1.12, 1] }, duration: 0.4, ease: "sine.inOut" }, ${f2(L9 + 0.6)});
+      // ${L9B}: the chat switches back and forth, the pointer swings with it
+${tilt([0, 12, -12, 12, -12, 12, -12, 0], 2.3, L9B)}`, { kb: false }));
 }
 
 // ================= FOSSIL: inventory, the cursor keeps landing on the spiral fossil (c10 + c11) =================
@@ -796,7 +803,8 @@ const caps = [
   { id: "c06", words: ["Rauf.", "Runter.", "/", "Rauf.", "Ins", "*MENÜ."] },
   { id: "c07", words: ["Totales", "*CHAOS."], shake: true },
   { id: "c08", words: ["Dann", "kommt", "/", "eine", "Abstimmung:"] },
-  { id: "c09", words: ["#ANARCHIE?", "/", "#DEMOKRATIE?", "/", "Wer", "gewinnt?"], wide: true },
+  { id: "c09", words: ["#ANARCHIE?", "/", "#DEMOKRATIE?", "/", "Per", "Mehrheit."], wide: true },
+  { id: "c09b", words: ["Der", "Chat", "wechselt", "/", "hin", "und", "her."] },
   { id: "c10", words: ["Und", "ein", "*FOSSIL", "/", "ohne", "Nutzen."] },
   { id: "c11", words: ["Ständig", "wird", "/", "es", "ausgewählt."] },
   { id: "c12", words: ["Der", "Chat", "macht", "/", "es", "zum", "*KULT."], shake: true },
@@ -806,7 +814,7 @@ const caps = [
   { id: "c16", words: ["Hättest", "du", "„A“", "/", `gedrückt${NB}–`, "/", "oder", "*CHAOS?"] },
   { id: "c17", words: HOOKW, loop: true, wide: true },
 ].map((c) => ({ ...c, s: C[c.id][0], e: C[c.id][1] }));
-const ST = 0.065, PD = 0.22, KD = 0.24, EXIT = 0.12;
+const ST = 0.055, PD = 0.2, KD = 0.22, EXIT = 0.12;
 let capHtml = "", capJs = "";
 const report = [];
 for (const c of caps) {
@@ -839,7 +847,7 @@ for (const c of caps) {
       if (c.shake) capJs += `      tl.to("#${c.id}-w${i}", { keyframes: { x: [0, -10, 10, -6, 4, 0], rotation: [0, -3, 3, -2, 0, 0] }, duration: 0.36, ease: "none" }, ${f2(at + 0.28)});\n`;
       full = Math.max(full, at + KD);
     } else {
-      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: ${PD}, ease: "back.out(1.6)" }, ${at});\n`;
+      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: ${PD}, ease: "${c.wide ? "power2.out" : "back.out(1.6)"}" }, ${at});\n`;
       full = Math.max(full, at + PD);
     }
   });
@@ -896,8 +904,8 @@ const KN = [C.c12[0] + 0.1, C.c12[1] - 0.2]; // kneeling before the fossil
 const WINK = f2(C.c16[0] + 1.5);
 const moods = [
   [C.c02[0], "surprised"], [C.c03[0], "curious"], [C.c04[0], "look"], [C.c05[0], "happy"], [C.c06[0], "look"],
-  [A0 + 0.08, "press"], [A0 + 0.72, "surprised"], [A0 + 1.42, "jawdrop"],
-  [C.c08[0], "curious"], [C.c09[0], "look"], [C.c10[0], "surprised"], [C.c11[0], "impressed"], [KN[0], "pray"], [C.c13[0], "curious"],
+  [A0 + 0.08, "press"], [A0 + 0.58, "surprised"], [A0 + 1.08, "jawdrop"],
+  [C.c08[0], "curious"], [C.c09[0], "look"], [C.c09b[0], "curious"], [C.c10[0], "surprised"], [C.c11[0], "impressed"], [KN[0], "pray"], [C.c13[0], "curious"],
   [C.c14[0], "jawdrop"], [C.c14[0] + 0.8, "cheer"], [C.c15[0], "proud"], [C.c16[0], "happy"], [LOOPK + 0.08, "shock"],
 ];
 
@@ -986,7 +994,7 @@ kJs += `      // GAG: Klotz presses "A" ...
       tl.to("#k-armL", { keyframes: { rotation: [80, 92, 80] }, duration: 0.18, ease: "power1.inOut", repeat: 1, repeatDelay: 0.1 }, ${f2(A0 + 0.16)});
       // ... and gets shoved by the chat: every bubble that arrives pushes him a bit further to the right
 ${CHAOS_HITS.map((h, i) => `      tl.to("#k-wrap", { x: ${24 + i * 22}, rotation: ${6 + i * 4}, duration: 0.12, ease: "power2.out" }, ${f2(A0 + h)});
-      tl.to("#k-wrap", { x: ${14 + i * 22}, rotation: ${2 + i * 3}, duration: 0.2, ease: "sine.inOut" }, ${f2(A0 + h + 0.12)});`).join("\n")}
+      tl.to("#k-wrap", { x: ${14 + i * 22}, rotation: ${2 + i * 3}, duration: 0.12, ease: "sine.inOut" }, ${f2(A0 + h + 0.12)});`).join("\n")}
       tl.to("#k-sweat", { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, ${f2(A0 + CHAOS_HITS[0])});
       tl.to("#k-sweat", { keyframes: { y: [0, 30] }, duration: 0.5, ease: "power1.in", repeat: 1 }, ${f2(A0 + CHAOS_HITS[0] + 0.2)});
       tl.to("#k-sweat", { opacity: 0, scale: 0, duration: 0.15 }, ${f2(C.c07[1] - 0.25)});
@@ -1003,7 +1011,7 @@ ${CHAOS_HITS.map((h, i) => `      tl.to("#k-wrap", { x: ${24 + i * 22}, rotation
       tl.to("#k-wrap", { y: 0, rotation: 0, duration: 0.2, ease: "back.out(1.6)" }, ${f2(KN[1])});
       tl.to("#k-cand", { opacity: 0, scale: 0, rotation: 0, duration: 0.15 }, ${f2(KN[1])});
       // waage: the eyes follow the swinging pointer
-      tl.to(["#k-pupL", "#k-pupR"], { keyframes: { x: [-14, 14, -14, 14, -14, 0] }, duration: 1.8, ease: "sine.inOut" }, ${f2(C.c09[0] + 0.1)});
+      tl.to(["#k-pupL", "#k-pupR"], { keyframes: { x: [-14, 14, -14, 14, -14, 14, -14, 0] }, duration: 2.2, ease: "sine.inOut" }, ${f2(C.c09b[0] + 0.15)});
       // kalender: the eyes follow the pages
       tl.to(["#k-pupL", "#k-pupR"], { keyframes: { y: [-10, 6, -10, 6, -10] }, duration: 0.84, ease: "none" }, ${f2(C.c13[0] + 0.42)});
       // finale: cheering jump
@@ -1048,9 +1056,9 @@ const sfx = [
   [c("c04"), "whoosh1", 0.35], [c("c04") + 0.05, "pop1", 0.4], [c("c04") + 0.5, "pop2", 0.4], [c("c04") + 0.95, "pop1", 0.4], [c("c04") + 1.0, "blip1", 0.45], [c("c04") + 1.5, "jump", 0.45], [c("c04") + 2.0, "blip3", 0.45], [c("c04") + 2.2, "chatter", 0.35],
   [c("c05"), "whoosh2", 0.4], [c("c05") + 0.1, "steps", 0.45], [c("c05") + 0.75, "pop2", 0.4], [c("c05") + 1.45, "spin", 0.4], [c("c05") + 1.95, "pop1", 0.3],
   [c("c06"), "whoosh1", 0.35], [c("c06") + 0.3, "blip2", 0.45], [c("c06") + 0.65, "blip1", 0.45], [c("c06") + 1.0, "blip2", 0.45], [c("c06") + 1.3, "menu", 0.45], [c("c06") + 1.82, "menu", 0.45], [c("c06") + 2.05, "blip1", 0.35],
-  [c("c07"), "whoosh2", 0.4], [c("c07"), "chatter", 0.5], [c("c07") + 0.16, "click", 0.55], [c("c07") + 0.44, "click", 0.55], [c("c07") + 0.75, "bonk", 0.5], [c("c07") + 1.1, "bonk", 0.5], [c("c07") + 1.45, "bonk", 0.55], [c("c07") + 1.5, "boing", 0.35],
+  [c("c07"), "whoosh2", 0.4], [c("c07"), "chatter", 0.5], [c("c07") + 0.16, "click", 0.55], [c("c07") + 0.44, "click", 0.55], [c("c07") + 0.6, "bonk", 0.5], [c("c07") + 0.85, "bonk", 0.5], [c("c07") + 1.1, "bonk", 0.55], [c("c07") + 1.15, "boing", 0.35],
   [c("c08"), "whoosh1", 0.35], [c("c08") + 0.1, "creak", 0.45], [c("c08") + 0.25, "pop1", 0.35], [c("c08") + 1.1, "creak", 0.4],
-  [c("c09"), "tick", 0.45], [c("c09") + 0.5, "tick", 0.45], [c("c09") + 1.0, "tick", 0.45], [c("c09") + 1.5, "tick", 0.4],
+  [c("c09"), "pop1", 0.4], [c("c09") + 0.5, "tick", 0.4], [c("c09b"), "tick", 0.45], [c("c09b") + 0.33, "tick", 0.45], [c("c09b") + 0.66, "tick", 0.45], [c("c09b") + 1.0, "tick", 0.45], [c("c09b") + 1.33, "tick", 0.45], [c("c09b") + 1.66, "tick", 0.4], [c("c09b") + 0.2, "chatter", 0.35],
   [c("c10"), "whoosh2", 0.4], [c("c10") + 0.3, "blip2", 0.4], [c("c10") + 0.6, "blip2", 0.4], [c("c10") + 0.9, "sparkle", 0.45], [c("c10") + 1.0, "ding", 0.35],
   [c("c11") + 0.1, "blip1", 0.4], [c("c11") + 0.42, "select", 0.45], [c("c11") + 0.74, "blip1", 0.4], [c("c11") + 1.06, "select", 0.45], [c("c11") + 1.38, "blip1", 0.4], [c("c11") + 1.7, "select", 0.5],
   [c("c12"), "choir", 0.5], [c("c12") + 0.1, "pop1", 0.3], [c("c12") + 0.5, "sparkle", 0.4], [c("c12") + 1.4, "chime", 0.35],

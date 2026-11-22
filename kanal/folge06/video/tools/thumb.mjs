@@ -1,5 +1,5 @@
 // Upload thumbnail: the frame-0 motif (handheld, chat bubbles raining on one pixel hero, Klotz shocked bottom right),
-// rendered from the real composition at t = 0, captions hidden, picture slightly enlarged, "1 MIO. SPIELER?!" in yellow.
+// rendered from the real composition at t = 0, captions hidden, picture slightly enlarged, "NUR 1 FIGUR?!" in yellow.
 // Usage: PUPPETEER_CORE=<path> node tools/thumb.mjs <preview_url> <out_png>
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
@@ -17,9 +17,9 @@ await p.evaluate(() => {
     [data-composition-id="hook"] { transform: scale(1.12); transform-origin: 540px 1180px; }
     #thumb-txt { position: absolute; left: 70px; top: 300px; width: 940px; text-align: center; z-index: 99; font-family: 'Lilita One'; color: #FFD23F;
       line-height: 1.0; -webkit-text-stroke: 28px #0A0F22; paint-order: stroke fill; text-shadow: 0 18px 0 #050814; }
-    #thumb-txt span { display: block; } #thumb-txt .a { font-size: 230px; } #thumb-txt .b { font-size: 176px; }`;
+    #thumb-txt span { display: block; } #thumb-txt .a { font-size: 230px; } #thumb-txt .b { font-size: 200px; }`;
   document.head.appendChild(st);
-  const d = document.createElement("div"); d.id = "thumb-txt"; d.innerHTML = '<span class="a">1 MIO.</span><span class="b">SPIELER?!</span>';
+  const d = document.createElement("div"); d.id = "thumb-txt"; d.innerHTML = '<span class="a">NUR 1</span><span class="b">FIGUR?!</span>';
   document.querySelector("#root").appendChild(d);
 });
 await p.evaluate(() => document.fonts.ready);

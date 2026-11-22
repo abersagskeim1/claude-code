@@ -13,3 +13,10 @@
 - overlap.mjs (40 px, jedes Frame, Text und Klotz): keine Treffer. layout.mjs: 17 Einblendungen ohne Waise, Tinte x 82–998, y 288–692. Fließtext 92 px, Schlagworte 140 px, WIRKLICH 172 px, Grafik-Beschriftungen ≥ 72 px.
 - cutcheck.py: 0 Löcher an 13 Schnitten + Loop. lidcheck: nie beide Lider zu, nur f1099–1103 rechtes Auge.
 - Ton: +8,6 dB + Limiter (4× überabgetastet) → −14,0 LUFS, True Peak −1,7 dBTP, 38,600 s wie das Bild.
+
+## Nachbesserung nach Prüfung (22.11.)
+- Waage: Basis schmaler, DEMOKRATIE-Schild 72 px mit engerer Laufweite, Puls zur Außenkante verankert, kein Drift-Zoom in der Szene → rechte Kante max. x 974 (vorher 1024).
+- „Wer gewinnt?“ ersetzt: c09 „ANARCHIE? / DEMOKRATIE? / Per Mehrheit.“ (sonst Waise), neu c09b „Der Chat wechselt / hin und her.“ mit pendelndem Zeiger und Klotz-Augen.
+- Wort-Pop schneller (Schritt 0,055 s), Schnitte auf dem Frame-Raster (Zehntelsekunden). „EINE Figur.“ ab 1,6 s: früher reicht die Lesezeit des Hooks nicht (4 × 0,35 s + Ausblendung).
+- Chat-Regen auf x 80–1000 begrenzt. Thumbnail „NUR 1 FIGUR?!“.
+- Nach dem letzten Render: 39,5 s / 1185 Frames, −14,0 LUFS, −2,0 dBTP, 39,500 s; check 0 Fehler; overlap, layout, lidcheck, cutcheck (0 Löcher an 13 Schnitten + Loop) ohne Befund.

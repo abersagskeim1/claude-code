@@ -47,7 +47,7 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
       // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
-      tl.fromTo("#befehle-kb", { scale: 1 }, { scale: 1.035, duration: 2.9, ease: "none" }, 0);
+      tl.fromTo("#befehle-kb", { scale: 1 }, { scale: 1.035, duration: 2.8, ease: "none" }, 0);
       tl.fromTo("#befehle-hhs", { scale: 0.85 }, { scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 0);
       gsap.set("#befehle-s0", { opacity: 0 });
       gsap.set("#befehle-s1", { opacity: 0 });
@@ -79,7 +79,7 @@
       tl.set("#befehle-s2", { opacity: 1 }, 2.1);
       tl.set("#befehle-s3", { opacity: 1 }, 2.1);
       // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
-      tl.to("#befehle-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.8);
+      tl.to("#befehle-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.7);
       window.__timelines["befehle"] = tl;
     })();
   </script>

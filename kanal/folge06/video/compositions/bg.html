@@ -19,9 +19,9 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
       // every move covers whole periods, so the last frame leads straight back into frame 0
-      tl.fromTo("#bg-p1", { y: 0 }, { y: -1920, duration: 38.6, ease: "none" }, 0);
-      tl.fromTo("#bg-p2", { y: 0 }, { y: -3840, duration: 38.6, ease: "none" }, 0);
-      tl.fromTo("#bg-sun", { opacity: 1 }, { keyframes: { opacity: [1, 0.7, 1] }, duration: 9.65, ease: "sine.inOut", repeat: 3 }, 0);
+      tl.fromTo("#bg-p1", { y: 0 }, { y: -1920, duration: 39.5, ease: "none" }, 0);
+      tl.fromTo("#bg-p2", { y: 0 }, { y: -3840, duration: 39.5, ease: "none" }, 0);
+      tl.fromTo("#bg-sun", { opacity: 1 }, { keyframes: { opacity: [1, 0.7, 1] }, duration: 9.875, ease: "sine.inOut", repeat: 3 }, 0);
       window.__timelines["bg"] = tl;
     })();
   </script>

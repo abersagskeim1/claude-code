@@ -252,7 +252,7 @@ save("fanfare", fanfare(), -6)
 
 
 # --- music: light chiptune, 128 bpm; pulse lead, triangle bass, noise hats; a short gap before the punchline ---
-def chiptune(total, gaps=((29.35, 29.8),)):
+def chiptune(total, gaps=((30.95, 31.4),)):
     N = int(round(SR * total))
     x = np.zeros(N)
     spb = 60 / 128

@@ -49,10 +49,10 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
       // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
-      tl.fromTo("#chaos-kb", { scale: 1 }, { scale: 1.035, duration: 2, ease: "none" }, 0);
+      tl.fromTo("#chaos-kb", { scale: 1 }, { scale: 1.035, duration: 1.6, ease: "none" }, 0);
       // gentle wobble only (no flashing): slow sine sway of the handheld
       tl.to("#chaos-hhw", { keyframes: { rotation: [0, 2.5, 0, -2.5, 0], y: [0, -8, 0, -8, 0] }, duration: 1.0, ease: "none", repeat: 1 }, 0);
-      tl.to("#chaos-hero", { rotation: 720, duration: 2, ease: "none" }, 0);
+      tl.to("#chaos-hero", { rotation: 720, duration: 1.6, ease: "none" }, 0);
       tl.to("#chaos-mm", { keyframes: { scaleY: [1, 0.15, 1] }, duration: 0.9, ease: "sine.inOut", repeat: 1 }, 0.2);
       gsap.set("#chaos-o0", { x: 430, y: 0, scale: 1, opacity: 1, rotation: 0 });
       tl.to("#chaos-o0", { keyframes: { ...{"x":[430,304.056,0,-304.056,-430,-304.056,0,304.056,430],"y":[0,205.061,290,205.061,0,-205.061,-290,-205.061,0],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[0,12,0,-12,0,12,0,-12,0]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
@@ -68,19 +68,19 @@
       tl.to("#chaos-o5", { keyframes: { ...{"x":[215,415.348,372.391,111.292,-215,-415.348,-372.391,-111.292,215],"y":[-251.147,-75.058,145,280.118,251.147,75.058,-145,-280.118,-251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[-10.392,-6,10.392,6,-10.392,-6,10.392,6,-10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
 
       gsap.set("#chaos-s0", { opacity: 0 });
-      tl.set("#chaos-s0", { opacity: 1 }, 0.35);
-      tl.fromTo("#chaos-s0", { x: -410, y: -620, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.35);
-      tl.to("#chaos-s0", { x: -160, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.75);
+      tl.set("#chaos-s0", { opacity: 1 }, 0.2);
+      tl.fromTo("#chaos-s0", { x: -410, y: -620, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.2);
+      tl.to("#chaos-s0", { x: -160, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.6);
       gsap.set("#chaos-s1", { opacity: 0 });
-      tl.set("#chaos-s1", { opacity: 1 }, 0.7);
-      tl.fromTo("#chaos-s1", { x: -460, y: -420, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.7);
-      tl.to("#chaos-s1", { x: -200, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 1.1);
+      tl.set("#chaos-s1", { opacity: 1 }, 0.45);
+      tl.fromTo("#chaos-s1", { x: -460, y: -420, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.45);
+      tl.to("#chaos-s1", { x: -200, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.85);
       gsap.set("#chaos-s2", { opacity: 0 });
-      tl.set("#chaos-s2", { opacity: 1 }, 1.05);
-      tl.fromTo("#chaos-s2", { x: -220, y: -630, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 1.05);
-      tl.to("#chaos-s2", { x: -240, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 1.45);
+      tl.set("#chaos-s2", { opacity: 1 }, 0.7);
+      tl.fromTo("#chaos-s2", { x: -220, y: -630, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.7);
+      tl.to("#chaos-s2", { x: -240, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 1.1);
       // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
-      tl.to("#chaos-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 1.9);
+      tl.to("#chaos-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 1.5);
       window.__timelines["chaos"] = tl;
     })();
   </script>
