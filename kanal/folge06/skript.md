@@ -1,6 +1,6 @@
 # Folge 6: Twitch Plays Pokémon (WIRKLICH PASSIERT?! #6)
 
-Länge ca. 35–39 s · 9:16 · Text im Bild (Wort-für-Wort), Klotz reagiert. Ästhetik dieser Folge: Chat-Flut (Pfeil-Befehle ↑↓←→ A B als Sprechblasen-Regen), generischer Retro-Handheld (eigene Form, keine Marke), Pixel-Held und eigene erfundene Pixel-Monster (KEINE echten Pokémon), Spiral-Fossil.
+Länge ca. 39,5 s · 9:16 · Text im Bild (Wort-für-Wort), Klotz reagiert. Ästhetik dieser Folge: Chat-Flut (Pfeil-Befehle ↑↓←→ A B als Sprechblasen-Regen), generischer Retro-Handheld (eigene Form, keine Marke), Pixel-Held und eigene erfundene Pixel-Monster (KEINE echten Pokémon), Spiral-Fossil.
 Klotz-Gag (neu): Klotz versucht im Chat-Regen selbst „A“ zu drücken, wird von Tausenden Pfeilen herumgeschubst, kniet am Ende vor dem Fossil (Kerzen-Gag „Lord Helix“-Anspielung als „Heiliges Fossil“).
 
 | Zeit | Text im Bild (≤ 6 Wörter) | Bild |
