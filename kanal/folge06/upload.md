@@ -7,12 +7,12 @@ Reihenfolge wie in YouTube Studio:
 
 ## Titel
 ```
-Eine MILLION Leute spielen EIN Spiel?! 🤯🎮 #Shorts
+Eine MILLION Leute spielen ein Spiel?! 🤯🎮 #Shorts
 ```
 
 ## Beschreibung
 ```
-2014 steuerten über eine Million Menschen gleichzeitig eine einzige Spielfigur – per Chat. Totales Chaos. Und dann? 🎮🌀
+2014 steuerten über eine Million Menschen eine einzige Spielfigur – per Chat. Totales Chaos. Und dann? 🎮🌀
 Hättest du „A“ gedrückt – oder Chaos? Schreib's in die Kommentare!
 
 WIRKLICH PASSIERT?! #6 – absurde Geschichten, die wirklich passiert sind.
