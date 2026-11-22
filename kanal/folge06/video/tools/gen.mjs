@@ -175,19 +175,22 @@ function burst(p, n, cx, cy, size, rad, seed) {
   return { html, js };
 }
 // a motion along a sampled path: f(ph) -> {x, y, s, o, r}; linear between 9 samples
-function pathTween(sel, f, ph0, ph1, dur, at, repeat = 0, n = 8) {
+// clamp: a chat bubble (150 px wide, rotated up to ~15 deg -> half width <= 90 px) whose centre rests at cx stays inside x 80-1000
+const BHW = 90;
+const clampX = (x, cx) => (cx == null ? x : Math.min(1000 - BHW - cx, Math.max(80 + BHW - cx, x)));
+function pathTween(sel, f, ph0, ph1, dur, at, repeat = 0, n = 8, cx = null) {
   const ks = { x: [], y: [], scale: [], opacity: [], rotation: [] };
-  for (let i = 0; i <= n; i++) { const v = f(ph0 + (ph1 - ph0) * i / n); ks.x.push(f2(v.x)); ks.y.push(f2(v.y)); ks.scale.push(f2(v.s)); ks.opacity.push(f2(v.o)); ks.rotation.push(f2(v.r || 0)); }
+  for (let i = 0; i <= n; i++) { const v = f(ph0 + (ph1 - ph0) * i / n); ks.x.push(f2(clampX(v.x, cx))); ks.y.push(f2(v.y)); ks.scale.push(f2(v.s)); ks.opacity.push(f2(v.o)); ks.rotation.push(f2(v.r || 0)); }
   return `      tl.to("${sel}", { keyframes: { ...${JSON.stringify(ks)}, easeEach: "none" }, duration: ${f2(dur)}, ease: "none"${repeat ? `, repeat: ${repeat}` : ""} }, ${f2(at)});\n`;
 }
 // endless flight: starts at phase ph at time t0, covers `total` seconds
-function loopFly(sel, f, ph, D, t0, total) {
+function loopFly(sel, f, ph, D, t0, total, cx = null) {
   const v = f(ph);
-  let s = `      gsap.set("${sel}", { x: ${f2(v.x)}, y: ${f2(v.y)}, scale: ${f2(v.s)}, opacity: ${f2(v.o)}, rotation: ${f2(v.r || 0)} });\n`;
+  let s = `      gsap.set("${sel}", { x: ${f2(clampX(v.x, cx))}, y: ${f2(v.y)}, scale: ${f2(v.s)}, opacity: ${f2(v.o)}, rotation: ${f2(v.r || 0)} });\n`;
   const first = D * (1 - ph);
-  s += pathTween(sel, f, ph, 1, first, t0);
+  s += pathTween(sel, f, ph, 1, first, t0, 0, 8, cx);
   const rest = total - first;
-  if (rest > 0) s += pathTween(sel, f, 0, 1, D, t0 + first, Math.ceil(rest / D) - 1);
+  if (rest > 0) s += pathTween(sel, f, 0, 1, D, t0 + first, Math.ceil(rest / D) - 1, 8, cx);
   return s;
 }
 // straight rain flight from start (sx,sy) to end (ex,ey); the element sits at the end point
@@ -217,7 +220,7 @@ const hookBody = (p) => `      <div id="${p}-glow"></div>
 ${RAIN.map(([k, c, , , ex, ey], i) => `        <div id="${p}-r${i}" class="bw" style="left:${ex - 75}px;top:${ey - 67}px;">${BUB(k, BCOL[c])}</div>`).join("\n")}
       </div></div>`;
 // the rain: phase i/n at local time t0; `shift` moves all phases (the loop scene ends in the frame-0 phase)
-const rainJs = (p, t0, total, shift = 0) => RAIN.map(([, , sx, sy, ex, ey], i) => loopFly(`#${p}-r${i}`, rainF(sx, sy, ex, ey), (((i / RAIN.length + shift) % 1) + 1) % 1, RAIN_D, t0, total)).join("");
+const rainJs = (p, t0, total, shift = 0) => RAIN.map(([, , sx, sy, ex, ey], i) => loopFly(`#${p}-r${i}`, rainF(sx, sy, ex, ey), (((i / RAIN.length + shift) % 1) + 1) % 1, RAIN_D, t0, total, ex)).join("");
 // the hero on the screen fidgets (x, flips), ends where it starts
 const fidget = (p, t0, d) => {
   const n = Math.max(1, Math.round(d / 0.4));
@@ -248,8 +251,8 @@ ${rainJs(p, 0, d)}${fidget(p, 0, d)}
      #figur-hero{position:absolute;inset:0;transform-origin:50% 100%;}
      #figur-plat{${abs(270, HY + 14 * PX - 6, 540, 104)}}
      #figur-ex{${abs(HX + 5 * PX - 21 + 150, HY - 150, 42, 112)}transform-origin:50% 100%;}
-     #figur-zone{${abs(40, 640, 1000, 750)}overflow:hidden;}
-     #figur-zin{position:absolute;left:-40px;top:-640px;width:1080px;height:1920px;}`,
+     #figur-zone{${abs(80, 640, 920, 750)}overflow:hidden;}
+     #figur-zin{position:absolute;left:-80px;top:-640px;width:1080px;height:1920px;}`,
     `      <div id="figur-plat" class="figur-stk">${PIX(["GLGLGLGLGLGLGLGLGLGLGLGLGLGL", "GGGGGGGGGGGGGGGGGGGGGGGGGGGG", "DDDDDDDDDDDDDDDDDDDDDDDDDDDD", "DdDDdDDDdDDdDDDdDDdDDDdDDdDD", "DDDDDDDDDDDDDDDDDDDDDDDDDDDD"], { G: GRASS, L: GRASS_L, D: "#9A6B3C", d: "#7A5028" }, 19.3)}</div>
       <div id="figur-hw" class="figur-stk"><div id="figur-hero">${PIX(HERO, HERO_P, PX)}</div></div>
       <div id="figur-ex" class="figur-stk">${PIX(EXCL, { Y: YEL }, 14)}</div>
@@ -262,7 +265,7 @@ ${hits.map(([hx, hy, , , , , k, c], i) => `        <div id="figur-r${i}" class="
       tl.to("#figur-hero", { keyframes: { rotation: [0, -7, 7, -7, 7, 0], x: [0, -12, 12, -12, 12, 0], scaleY: [1, 0.94, 1.04, 0.94, 1.04, 1] }, duration: 0.8, ease: "none", repeat: ${Math.ceil(d / 0.8) - 1} }, 0.05);
       tl.fromTo("#figur-ex", { scale: 0, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.25, ease: "back.out(3)" }, 0.25);
       tl.to("#figur-ex", { keyframes: { y: [0, -16, 0] }, duration: 0.4, ease: "sine.inOut", repeat: ${Math.floor((d - 0.6) / 0.4) - 1} }, 0.55);
-${hits.map(([, , sx, sy, rx, ry], i) => loopFly(`#figur-r${i}`, bounceF(sx, sy, rx, ry), (i / hits.length * 0.9 + 0.35) % 1, 1.0, 0, d)).join("")}
+${hits.map(([hx, , sx, sy, rx, ry], i) => loopFly(`#figur-r${i}`, bounceF(sx, sy, rx, ry), (i / hits.length * 0.9 + 0.35) % 1, 1.0, 0, d, hx)).join("")}
 ${b1.js(0.9)}`));
 }
 
@@ -323,8 +326,8 @@ ${glyphs.map((_, i) => i >= 4 ? `      tl.fromTo("#twitch-row${i}", { scale: 0.6
      #befehle-hhs{${abs(HL, HT, 900 * HS, 470 * HS)}}
      #befehle-hhw{position:absolute;left:0;top:0;width:900px;height:470px;transform:scale(${HS});transform-origin:0 0;}
      .befehle-big{position:absolute;width:150px;height:134px;}
-     #befehle-zone{${abs(40, 600, 1000, 790)}overflow:hidden;}
-     #befehle-zin{position:absolute;left:-40px;top:-600px;width:1080px;height:1920px;}`,
+     #befehle-zone{${abs(80, 600, 920, 790)}overflow:hidden;}
+     #befehle-zin{position:absolute;left:-80px;top:-600px;width:1080px;height:1920px;}`,
     `      <div id="befehle-hhs" class="befehle-stk"><div id="befehle-hhw">${HANDHELD(p, SCREEN(p))}</div></div>
       <div id="befehle-zone"><div id="befehle-zin">
 ${B3.map(([k, c, x, y], i) => `        <div id="befehle-b${i}" class="befehle-big" style="left:${x - 75}px;top:${y - 67}px;">${BUB(k, BCOL[c])}</div>`).join("\n")}
@@ -342,7 +345,7 @@ ${B3.map(([, , x, y], i) => {
       tl.to("#befehle-hero", { y: -50, duration: 0.25, ease: "power2.out" }, 1.03);
       tl.to("#befehle-hero", { keyframes: { y: [-50, -110, -50] }, duration: 0.4, ease: "power1.inOut" }, 1.53);
       tl.to("#befehle-hero", { scaleX: -1, x: -60, y: 0, duration: 0.3, ease: "power2.out" }, 2.03);
-${stream.map(([, , sx, sy], i) => loopFly(`#befehle-s${i}`, rainF(sx, sy, SC[0], SC[1]), (i * 0.25) % 1, 0.9, 2.1, d - 2.1).replace(/gsap\.set\("#befehle-s\d+", \{[^}]*\}\);\n/, "")).join("")}
+${stream.map(([, , sx, sy], i) => loopFly(`#befehle-s${i}`, rainF(sx, sy, SC[0], SC[1]), (i * 0.25) % 1, 0.9, 2.1, d - 2.1, SC[0]).replace(/gsap\.set\("#befehle-s\d+", \{[^}]*\}\);\n/, "")).join("")}
 ${stream.map((_, i) => `      tl.set("#befehle-s${i}", { opacity: 1 }, 2.1);`).join("\n")}`));
 }
 
@@ -436,14 +439,14 @@ const CHAOS_HITS = [0.6, 0.85, 1.1]; // local arrival times of the shove bubbles
   const p = "chaos";
   const [s, d] = S(p);
   const orb = [["up", 0], ["A", 1], ["left", 2], ["B", 3], ["right", 4], ["down", 1]];
-  const OC = [540, 995], RX = 430, RY = 290;
+  const OC = [540, 995], RX = 370, RY = 290; // orbit stays inside x 80-1000 with the bubble width
   const orbF = (k) => (ph) => { const a = (ph + k / orb.length) * Math.PI * 2; return { x: Math.cos(a) * RX, y: Math.sin(a) * RY, s: 1, o: 1, r: 12 * Math.sin(a * 2) }; };
-  const shove = [["A", 1, 170, 700], ["up", 2, 120, 900], ["A", 3, 360, 690]];
+  const shove = [["A", 1, 190, 700], ["up", 2, 180, 900], ["A", 3, 360, 690]];
   const HIT = [580, 1320];
   scenes.push(scene(p, "Totales Chaos", s, d, HH_CSS + `
      #chaos-hhw{${abs(90, 760, 900, 470)}transform-origin:50% 50%;}
-     #chaos-zone{${abs(40, 540, 1000, 860)}overflow:hidden;}
-     #chaos-zin{position:absolute;left:-40px;top:-540px;width:1080px;height:1920px;}
+     #chaos-zone{${abs(80, 540, 920, 860)}overflow:hidden;}
+     #chaos-zin{position:absolute;left:-80px;top:-540px;width:1080px;height:1920px;}
      #chaos-mm{position:absolute;left:250px;top:24px;width:160px;height:150px;border-radius:14px;background:#fff;border:6px solid ${K};transform-origin:100% 0%;}
      #chaos-mm i{position:absolute;left:18px;width:110px;height:16px;border-radius:8px;background:${NAVY};}`,
     `      <div id="chaos-hhw" class="chaos-stk">${HANDHELD(p, SCREEN(p, 9, `<div id="chaos-mm"><i style="top:22px"></i><i style="top:58px"></i><i style="top:94px"></i></div>`))}</div>
@@ -455,7 +458,7 @@ ${shove.map(([k, c], i) => `        <div id="chaos-s${i}" class="bw" style="left
       tl.to("#chaos-hhw", { keyframes: { rotation: [0, 2.5, 0, -2.5, 0], y: [0, -8, 0, -8, 0] }, duration: 1.0, ease: "none", repeat: ${Math.ceil(d) - 1} }, 0);
       tl.to("#chaos-hero", { rotation: 720, duration: ${d}, ease: "none" }, 0);
       tl.to("#chaos-mm", { keyframes: { scaleY: [1, 0.15, 1] }, duration: 0.9, ease: "sine.inOut", repeat: 1 }, 0.2);
-${orb.map((_, i) => loopFly(`#chaos-o${i}`, orbF(i), 0, 2.2, 0, d)).join("")}
+${orb.map((_, i) => loopFly(`#chaos-o${i}`, orbF(i), 0, 2.2, 0, d, OC[0])).join("")}
 ${shove.map(([, , sx, sy], i) => {
       const at = CHAOS_HITS[i], st = f2(at - 0.4);
       return `      gsap.set("#chaos-s${i}", { opacity: 0 });

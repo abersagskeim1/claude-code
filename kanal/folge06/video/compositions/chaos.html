@@ -10,8 +10,8 @@
      .hh-scr{position:absolute;left:236px;top:66px;width:428px;height:308px;border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#8FD3FF 0%,#C8ECFF 62%,#49B85A 62%,#49B85A 100%);}
      .hh-scr .tuft{position:absolute;}
      #chaos-hhw{position:absolute;left:90px;top:760px;width:900px;height:470px;transform-origin:50% 50%;}
-     #chaos-zone{position:absolute;left:40px;top:540px;width:1000px;height:860px;overflow:hidden;}
-     #chaos-zin{position:absolute;left:-40px;top:-540px;width:1080px;height:1920px;}
+     #chaos-zone{position:absolute;left:80px;top:540px;width:920px;height:860px;overflow:hidden;}
+     #chaos-zin{position:absolute;left:-80px;top:-540px;width:1080px;height:1920px;}
      #chaos-mm{position:absolute;left:250px;top:24px;width:160px;height:150px;border-radius:14px;background:#fff;border:6px solid #0A0F22;transform-origin:100% 0%;}
      #chaos-mm i{position:absolute;left:18px;width:110px;height:16px;border-radius:8px;background:#1A2238;}
   </style>
@@ -54,26 +54,26 @@
       tl.to("#chaos-hhw", { keyframes: { rotation: [0, 2.5, 0, -2.5, 0], y: [0, -8, 0, -8, 0] }, duration: 1.0, ease: "none", repeat: 1 }, 0);
       tl.to("#chaos-hero", { rotation: 720, duration: 1.6, ease: "none" }, 0);
       tl.to("#chaos-mm", { keyframes: { scaleY: [1, 0.15, 1] }, duration: 0.9, ease: "sine.inOut", repeat: 1 }, 0.2);
-      gsap.set("#chaos-o0", { x: 430, y: 0, scale: 1, opacity: 1, rotation: 0 });
-      tl.to("#chaos-o0", { keyframes: { ...{"x":[430,304.056,0,-304.056,-430,-304.056,0,304.056,430],"y":[0,205.061,290,205.061,0,-205.061,-290,-205.061,0],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[0,12,0,-12,0,12,0,-12,0]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
-      gsap.set("#chaos-o1", { x: 215, y: 251.147, scale: 1, opacity: 1, rotation: 10.392 });
-      tl.to("#chaos-o1", { keyframes: { ...{"x":[215,-111.292,-372.391,-415.348,-215,111.292,372.391,415.348,215],"y":[251.147,280.118,145,-75.058,-251.147,-280.118,-145,75.058,251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[10.392,-6,-10.392,6,10.392,-6,-10.392,6,10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
-      gsap.set("#chaos-o2", { x: -215, y: 251.147, scale: 1, opacity: 1, rotation: -10.392 });
-      tl.to("#chaos-o2", { keyframes: { ...{"x":[-215,-415.348,-372.391,-111.292,215,415.348,372.391,111.292,-215],"y":[251.147,75.058,-145,-280.118,-251.147,-75.058,145,280.118,251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[-10.392,-6,10.392,6,-10.392,-6,10.392,6,-10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
-      gsap.set("#chaos-o3", { x: -430, y: 0, scale: 1, opacity: 1, rotation: 0 });
-      tl.to("#chaos-o3", { keyframes: { ...{"x":[-430,-304.056,0,304.056,430,304.056,0,-304.056,-430],"y":[0,-205.061,-290,-205.061,0,205.061,290,205.061,0],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[0,12,0,-12,0,12,0,-12,0]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
-      gsap.set("#chaos-o4", { x: -215, y: -251.147, scale: 1, opacity: 1, rotation: 10.392 });
-      tl.to("#chaos-o4", { keyframes: { ...{"x":[-215,111.292,372.391,415.348,215,-111.292,-372.391,-415.348,-215],"y":[-251.147,-280.118,-145,75.058,251.147,280.118,145,-75.058,-251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[10.392,-6,-10.392,6,10.392,-6,-10.392,6,10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
-      gsap.set("#chaos-o5", { x: 215, y: -251.147, scale: 1, opacity: 1, rotation: -10.392 });
-      tl.to("#chaos-o5", { keyframes: { ...{"x":[215,415.348,372.391,111.292,-215,-415.348,-372.391,-111.292,215],"y":[-251.147,-75.058,145,280.118,251.147,75.058,-145,-280.118,-251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[-10.392,-6,10.392,6,-10.392,-6,10.392,6,-10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
+      gsap.set("#chaos-o0", { x: 370, y: 0, scale: 1, opacity: 1, rotation: 0 });
+      tl.to("#chaos-o0", { keyframes: { ...{"x":[370,261.63,0,-261.63,-370,-261.63,0,261.63,370],"y":[0,205.061,290,205.061,0,-205.061,-290,-205.061,0],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[0,12,0,-12,0,12,0,-12,0]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
+      gsap.set("#chaos-o1", { x: 185, y: 251.147, scale: 1, opacity: 1, rotation: 10.392 });
+      tl.to("#chaos-o1", { keyframes: { ...{"x":[185,-95.763,-320.429,-357.393,-185,95.763,320.429,357.393,185],"y":[251.147,280.118,145,-75.058,-251.147,-280.118,-145,75.058,251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[10.392,-6,-10.392,6,10.392,-6,-10.392,6,10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
+      gsap.set("#chaos-o2", { x: -185, y: 251.147, scale: 1, opacity: 1, rotation: -10.392 });
+      tl.to("#chaos-o2", { keyframes: { ...{"x":[-185,-357.393,-320.429,-95.763,185,357.393,320.429,95.763,-185],"y":[251.147,75.058,-145,-280.118,-251.147,-75.058,145,280.118,251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[-10.392,-6,10.392,6,-10.392,-6,10.392,6,-10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
+      gsap.set("#chaos-o3", { x: -370, y: 0, scale: 1, opacity: 1, rotation: 0 });
+      tl.to("#chaos-o3", { keyframes: { ...{"x":[-370,-261.63,0,261.63,370,261.63,0,-261.63,-370],"y":[0,-205.061,-290,-205.061,0,205.061,290,205.061,0],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[0,12,0,-12,0,12,0,-12,0]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
+      gsap.set("#chaos-o4", { x: -185, y: -251.147, scale: 1, opacity: 1, rotation: 10.392 });
+      tl.to("#chaos-o4", { keyframes: { ...{"x":[-185,95.763,320.429,357.393,185,-95.763,-320.429,-357.393,-185],"y":[-251.147,-280.118,-145,75.058,251.147,280.118,145,-75.058,-251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[10.392,-6,-10.392,6,10.392,-6,-10.392,6,10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
+      gsap.set("#chaos-o5", { x: 185, y: -251.147, scale: 1, opacity: 1, rotation: -10.392 });
+      tl.to("#chaos-o5", { keyframes: { ...{"x":[185,357.393,320.429,95.763,-185,-357.393,-320.429,-95.763,185],"y":[-251.147,-75.058,145,280.118,251.147,75.058,-145,-280.118,-251.147],"scale":[1,1,1,1,1,1,1,1,1],"opacity":[1,1,1,1,1,1,1,1,1],"rotation":[-10.392,-6,10.392,6,-10.392,-6,10.392,6,-10.392]}, easeEach: "none" }, duration: 2.2, ease: "none" }, 0);
 
       gsap.set("#chaos-s0", { opacity: 0 });
       tl.set("#chaos-s0", { opacity: 1 }, 0.2);
-      tl.fromTo("#chaos-s0", { x: -410, y: -620, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.2);
+      tl.fromTo("#chaos-s0", { x: -390, y: -620, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.2);
       tl.to("#chaos-s0", { x: -160, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.6);
       gsap.set("#chaos-s1", { opacity: 0 });
       tl.set("#chaos-s1", { opacity: 1 }, 0.45);
-      tl.fromTo("#chaos-s1", { x: -460, y: -420, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.45);
+      tl.fromTo("#chaos-s1", { x: -400, y: -420, rotation: -20 }, { x: 0, y: 0, rotation: 0, duration: 0.4, ease: "power2.in", immediateRender: false }, 0.45);
       tl.to("#chaos-s1", { x: -200, y: -260, rotation: -200, scale: 0.6, opacity: 0, duration: 0.4, ease: "power2.out" }, 0.85);
       gsap.set("#chaos-s2", { opacity: 0 });
       tl.set("#chaos-s2", { opacity: 1 }, 0.7);
