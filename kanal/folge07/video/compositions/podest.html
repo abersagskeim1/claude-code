@@ -1,0 +1,57 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #podest-out, #podest-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .podest-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #podest-ped{position:absolute;left:330px;top:1160px;width:420px;height:220px;}
+     #podest-bk{position:absolute;left:420px;top:880px;width:240px;height:264px;transform-origin:50% 100%;}
+     #podest-bl{position:absolute;left:150px;top:790px;width:130px;height:300px;} #podest-br{position:absolute;left:800px;top:790px;width:130px;height:300px;}
+  </style>
+  <div id="root" data-composition-id="podest" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="podest-out"><div id="podest-kb">
+      <svg id="podest-bl" class="podest-stk" viewBox="0 0 130 300" overflow="visible"><rect x="10" y="0" width="110" height="14" rx="7" fill="#8E5A26" stroke="#0A0F22" stroke-width="6"/><path d="M18 10 H112 V250 L65 290 L18 250 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M42 10 V262 M88 10 V262" stroke="#FFD23F" stroke-width="16"/></svg>
+      <svg id="podest-br" class="podest-stk" viewBox="0 0 130 300" overflow="visible"><rect x="10" y="0" width="110" height="14" rx="7" fill="#8E5A26" stroke="#0A0F22" stroke-width="6"/><path d="M18 10 H112 V250 L65 290 L18 250 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M42 10 V262 M88 10 V262" stroke="#FFD23F" stroke-width="16"/></svg>
+      <div id="podest-ped" class="podest-stk"><svg viewBox="0 0 420 220" width="100%" height="100%" overflow="visible">
+    <rect x="20" y="10" width="380" height="44" rx="12" fill="#C3CAD9" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="44" y="54" width="332" height="128" fill="#9AA3B8" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M44 100 H376 M44 142 H376 M120 54 V100 M260 54 V100 M190 100 V142 M320 100 V142 M100 142 V182 M240 142 V182" stroke="#6E7790" stroke-width="6"/>
+    <rect x="8" y="176" width="404" height="40" rx="12" fill="#C3CAD9" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M30 24 H390" stroke="#F2B705" stroke-width="8" stroke-linecap="round"/></svg></div>
+      <div id="podest-bk" class="podest-stk"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+    <g id="podest-b-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </svg></div>
+      <div id="podest-t-0" class="spk" style="left:277px;top:877px;width:46px;height:46px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="podest-t-1" class="spk" style="left:764px;top:854px;width:52px;height:52px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="podest-t-2" class="spk" style="left:240px;top:1130px;width:40px;height:40px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="podest-t-3" class="spk" style="left:808px;top:1118px;width:44px;height:44px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#podest-kb", { scale: 1 }, { scale: 1.03, duration: 2.8, ease: "none" }, 0);
+      tl.fromTo("#podest-ped", { scaleY: 0.8 }, { scaleY: 1, duration: 0.3, ease: "back.out(1.8)", transformOrigin: "50% 100%" }, 0);
+      tl.fromTo(["#podest-bl", "#podest-br"], { scaleY: 0.3 }, { scaleY: 1, duration: 0.35, ease: "back.out(1.6)", transformOrigin: "50% 0%", stagger: 0.08 }, 0.05);
+      // the bucket arrives from the left in an arc (small at the cut), lands on the pedestal and squashes
+      tl.fromTo("#podest-bk", { x: -260, y: -40, scale: 0.55, rotation: -30 }, { keyframes: { x: [-260, -150, 0], y: [-40, -110, 0], scale: [0.55, 0.8, 1], rotation: [-30, -15, 0] }, duration: 0.7, ease: "power1.inOut" }, 0);
+      tl.to("#podest-bk", { keyframes: { scaleY: [1, 0.86, 1.05, 1], scaleX: [1, 1.1, 0.97, 1] }, duration: 0.35, ease: "none" }, 0.7);
+      tl.to("#podest-bk", { keyframes: { y: [0, -12, 0] }, duration: 0.8, ease: "sine.inOut", repeat: 1 }, 1.1);
+      tl.fromTo("#podest-t-0", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.919, ease: "sine.inOut", repeat: 3 }, 0.093);
+      tl.fromTo("#podest-t-1", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.877, ease: "sine.inOut", repeat: 3 }, 0.046);
+      tl.fromTo("#podest-t-2", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.978, ease: "sine.inOut", repeat: 2 }, 0.07);
+      tl.fromTo("#podest-t-3", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.984, ease: "sine.inOut", repeat: 2 }, 0.138);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#podest-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.7);
+      window.__timelines["podest"] = tl;
+    })();
+  </script>
+</template>

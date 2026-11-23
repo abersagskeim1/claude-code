@@ -1,0 +1,59 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #turm-out, #turm-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .turm-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #turm-tw{position:absolute;left:760px;top:800px;width:210px;height:380px;}
+     #turm-bk{position:absolute;left:812px;top:918px;width:106px;height:117px;}
+     #turm-fp{position:absolute;left:852px;top:750px;width:10px;height:60px;background:#C9CFDB;border:3px solid #0A0F22;}
+     #turm-moon{position:absolute;left:170px;top:800px;width:140px;height:140px;}
+     #turm-st{position:absolute;left:340px;top:880px;width:300px;height:200px;}
+  </style>
+  <div id="root" data-composition-id="turm" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="turm-out"><div id="turm-kb">
+      <svg id="turm-moon" viewBox="0 0 140 140" overflow="visible"><path d="M100 10 A64 64 0 1 0 130 100 A52 52 0 1 1 100 10 Z" fill="#FFF3C4" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg>
+      <svg id="turm-st" viewBox="0 0 300 200" overflow="visible"><g fill="#FFF3C4"><circle cx="20" cy="40" r="6"/><circle cx="140" cy="20" r="5"/><circle cx="260" cy="70" r="7"/><circle cx="80" cy="150" r="5"/><circle cx="210" cy="170" r="6"/></g></svg>
+      <div id="turm-tw" class="turm-stk"><svg viewBox="0 0 210 380" width="210" height="380" overflow="visible">
+        <path d="M0 40 h28 v-30 h-28 Z M46 40 h28 v-30 h-28 Z M92 40 h28 v-30 h-28 Z M138 40 h28 v-30 h-28 Z M184 40 h28 v-30 h-28 Z " fill="#9AA3B8" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
+        <rect x="0" y="40" width="210" height="340" fill="#9AA3B8" stroke="#0A0F22" stroke-width="8"/>
+        <path d="M0 110 H210 M0 250 H210 M0 330 H210 M60 40 V110 M170 40 V110 M110 250 V330 M50 330 V380 M180 330 V380" stroke="#6E7790" stroke-width="6"/>
+        <path d="M44 240 V150 Q105 90 166 150 V240 Z" fill="#141B33" stroke="#0A0F22" stroke-width="8"/>
+        <rect x="30" y="238" width="150" height="20" rx="6" fill="#C3CAD9" stroke="#0A0F22" stroke-width="6"/></svg></div>
+      <div id="turm-bk"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+    <g id="turm-b-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </svg></div>
+      <div id="turm-fp"></div>
+      <div id="turm-fw" class="turm-stk" style="position:absolute;left:862px;top:750px;width:100px;height:62px;"><svg viewBox="0 0 160 100" width="100%" height="100%" overflow="visible"><g id="turm-g">
+    <path d="M0 6 Q40 -6 80 6 L80 94 Q40 82 0 94 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M80 6 Q120 18 156 6 L156 94 Q120 106 80 94 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#turm-kb", { scale: 1 }, { scale: 1.03, duration: 2.4, ease: "none" }, 0);
+      tl.fromTo("#turm-tw", { scaleY: 0.85 }, { scaleY: 1, duration: 0.35, ease: "back.out(1.8)", transformOrigin: "50% 100%" }, 0);
+      // the bucket peeks out of the window, ducks, peeks again
+      tl.fromTo("#turm-bk", { y: 60, scale: 0.6 }, { keyframes: { y: [60, 0, 0, 40, 0], scale: [0.6, 1, 1, 0.8, 1] }, duration: 1.6, ease: "sine.inOut" }, 0.15);
+      tl.to("#turm-bk", { keyframes: { rotation: [0, -8, 8, 0] }, duration: 0.6, ease: "sine.inOut" }, 1.75);
+      gsap.set("#turm-g", { svgOrigin: "0 50" });
+      tl.to("#turm-g", { keyframes: { skewY: [0, 8, -6, 0] }, duration: 0.6, ease: "none", repeat: 3 }, 0);
+      tl.to("#turm-st", { keyframes: { opacity: [1, 0.5, 1] }, duration: 0.8, ease: "sine.inOut", repeat: 2 }, 0);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#turm-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.3);
+      window.__timelines["turm"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,93 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #frage-out, #frage-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .frage-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    
+   #frage-beam{position:absolute;left:300px;top:770px;width:480px;height:620px;}
+   #frage-ped{position:absolute;left:300px;top:1218px;width:480px;height:170px;}
+   #frage-hb{position:absolute;left:330px;top:800px;width:420px;height:462px;transform-origin:50% 100%;}
+   #frage-shL{position:absolute;left:112px;top:930px;width:180px;height:216px;transform-origin:50% 100%;}
+   #frage-shR{position:absolute;left:788px;top:930px;width:180px;height:216px;transform-origin:50% 100%;}
+     #frage-bb{position:absolute;left:170px;top:770px;width:740px;height:520px;}
+     #frage-q{position:absolute;left:250px;top:830px;width:170px;height:295px;transform-origin:50% 90%;}
+     #frage-bk{position:absolute;left:520px;top:860px;width:300px;height:330px;transform-origin:50% 100%;}
+  </style>
+  <div id="root" data-composition-id="frage" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="frage-out"><div id="frage-kb">
+      <svg id="frage-beam" viewBox="0 0 480 620" overflow="visible"><defs><linearGradient id="frage-bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE58A" stop-opacity=".05"/><stop offset=".7" stop-color="#FFE58A" stop-opacity=".42"/><stop offset="1" stop-color="#FFE58A" stop-opacity=".55"/></linearGradient></defs>
+        <path d="M170 0 H310 L470 520 Q240 560 10 520 Z" fill="url(#frage-bg1)"/></svg>
+      <div id="frage-ped" class="frage-stk"><svg viewBox="0 0 420 220" width="100%" height="100%" overflow="visible">
+    <rect x="20" y="10" width="380" height="44" rx="12" fill="#C3CAD9" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="44" y="54" width="332" height="128" fill="#9AA3B8" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M44 100 H376 M44 142 H376 M120 54 V100 M260 54 V100 M190 100 V142 M320 100 V142 M100 142 V182 M240 142 V182" stroke="#6E7790" stroke-width="6"/>
+    <rect x="8" y="176" width="404" height="40" rx="12" fill="#C3CAD9" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M30 24 H390" stroke="#F2B705" stroke-width="8" stroke-linecap="round"/></svg></div>
+      <div id="frage-shL" class="frage-stk"><svg viewBox="0 0 200 240" width="100%" height="100%" overflow="visible">
+    <path d="M10 10 H100 V232 Q10 200 10 110 Z" fill="#FFD23F"/><path d="M100 10 H190 V110 Q190 200 100 232 Z" fill="#2F6BFF"/>
+    <path d="M24 22 H84 V60 Q50 52 24 70 Z" fill="#fff" opacity=".28"/>
+    <path d="M10 10 H190 V110 Q190 200 100 232 Q10 200 10 110 Z" fill="none" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 22 H178 V110 Q178 190 100 218 Q22 190 22 110 Z" fill="none" stroke="#0A0F22" stroke-width="3" opacity=".35"/></svg></div>
+      <div id="frage-shR" class="frage-stk"><svg viewBox="0 0 200 240" width="100%" height="100%" overflow="visible">
+    <path d="M10 10 H100 V232 Q10 200 10 110 Z" fill="#E0302F"/><path d="M100 10 H190 V110 Q190 200 100 232 Z" fill="#FFFFFF"/>
+    <path d="M24 22 H84 V60 Q50 52 24 70 Z" fill="#fff" opacity=".28"/>
+    <path d="M10 10 H190 V110 Q190 200 100 232 Q10 200 10 110 Z" fill="none" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 22 H178 V110 Q178 190 100 218 Q22 190 22 110 Z" fill="none" stroke="#0A0F22" stroke-width="3" opacity=".35"/></svg></div>
+      <div id="frage-hb" class="frage-stk"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+    <g id="frage-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </svg></div>
+      <svg id="frage-bb" class="frage-stk" viewBox="0 0 740 520" overflow="visible"><path d="M60 10 H680 Q730 10 730 60 V380 Q730 430 680 430 H300 L180 510 L200 430 H60 Q10 430 10 380 V60 Q10 10 60 10 Z" fill="#F3E2B8" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/><path d="M40 40 H700" stroke="#D9BC80" stroke-width="6" stroke-dasharray="18 10"/></svg>
+      <div id="frage-q"><svg viewBox="0 0 300 520" width="100%" height="100%" overflow="visible">
+    <path d="M40 150 Q40 20 150 20 Q262 20 262 140 Q262 214 196 250 Q168 268 168 320 V350 H112 V306 Q112 236 172 204 Q206 184 206 142 Q206 80 150 80 Q100 80 100 150 Z" fill="#FF3B3B" stroke="#0A0F22" stroke-width="14" stroke-linejoin="round"/>
+    <circle cx="140" cy="440" r="44" fill="#FF3B3B" stroke="#0A0F22" stroke-width="14"/>
+    <path d="M70 120 Q80 60 140 48" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".55"/></svg></div>
+      <div id="frage-bk"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+    <g id="frage-b-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+
+      gsap.set(["#frage-beam", "#frage-ped", "#frage-shL", "#frage-shR", "#frage-hb"], { opacity: 0 });
+      tl.fromTo("#frage-bb", { scale: 0.8, rotation: -4, transformOrigin: "30% 100%" }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2)" }, 0);
+      tl.fromTo("#frage-q", { scale: 0.4 }, { scale: 1, duration: 0.3, ease: "back.out(2.6)" }, 0.15);
+      tl.fromTo("#frage-bk", { scale: 0.4, rotation: 20 }, { scale: 0.9, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.25);
+      tl.to("#frage-q", { keyframes: { rotation: [0, 10, -8, 0] }, duration: 0.8, ease: "sine.inOut", repeat: 1 }, 0.5);
+      tl.to("#frage-bk", { keyframes: { y: [0, -16, 0], rotation: [0, -5, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 2 }, 0.6);
+      // loop: the bubble shrinks away and is gone in the frame the hook picture appears (the question text is still on screen)
+      tl.to(["#frage-bb", "#frage-q", "#frage-bk"], { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.9, 0.75] }, duration: 0.1, ease: "none" }, 2.52);
+      tl.set(["#frage-bb", "#frage-q", "#frage-bk"], { opacity: 0 }, 2.62);
+      tl.set(["#frage-beam", "#frage-ped", "#frage-shL", "#frage-shR", "#frage-hb"], { opacity: 1 }, 2.62);
+      tl.fromTo("#frage-hb", { scale: 0.8 }, { scale: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false }, 2.62);
+      tl.fromTo(["#frage-shL", "#frage-shR"], { scale: 0.8 }, { scale: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false }, 2.62);
+      tl.fromTo("#frage-ped", { scaleY: 0.8 }, { scaleY: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false, transformOrigin: "50% 100%" }, 2.62);
+      tl.fromTo("#frage-beam", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power2.out", immediateRender: false }, 2.62);
+      // the hook pose: the last frame is (nearly) frame 0 again (tail 0.78 s)
+
+      window.__timelines["frage"] = tl;
+    })();
+  </script>
+</template>

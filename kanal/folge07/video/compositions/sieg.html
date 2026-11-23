@@ -1,0 +1,55 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #sieg-out, #sieg-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .sieg-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #sieg-mound{position:absolute;left:330px;top:1260px;width:420px;height:120px;}
+     #sieg-pole{position:absolute;left:450px;top:690px;width:24px;height:600px;background:linear-gradient(90deg,#8C95AA,#E4E8F0,#8C95AA);border:6px solid #0A0F22;border-radius:12px;}
+     #sieg-knob{position:absolute;left:440px;top:664px;width:44px;height:44px;border-radius:50%;background:#F2B705;border:6px solid #0A0F22;}
+     #sieg-fw{position:absolute;left:476px;top:720px;width:300px;height:186px;transform-origin:0% 50%;}
+     #sieg-sh{position:absolute;left:160px;top:1010px;width:170px;height:204px;}
+  </style>
+  <div id="root" data-composition-id="sieg" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="sieg-out"><div id="sieg-kb">
+      <svg id="sieg-mound" viewBox="0 0 420 120" overflow="visible"><path d="M0 120 Q60 20 210 14 Q360 20 420 120 Z" fill="#2B6A47" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/></svg>
+      <div id="sieg-pole"></div><div id="sieg-knob"></div>
+      <div id="sieg-fw" class="sieg-stk"><svg viewBox="0 0 160 100" width="100%" height="100%" overflow="visible"><g id="sieg-g">
+    <path d="M0 6 Q40 -6 80 6 L80 94 Q40 82 0 94 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M80 6 Q120 18 156 6 L156 94 Q120 106 80 94 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></svg></div>
+      <div id="sieg-sh" class="sieg-stk"><svg viewBox="0 0 200 240" width="100%" height="100%" overflow="visible">
+    <path d="M10 10 H100 V232 Q10 200 10 110 Z" fill="#FFD23F"/><path d="M100 10 H190 V110 Q190 200 100 232 Z" fill="#2F6BFF"/>
+    <path d="M24 22 H84 V60 Q50 52 24 70 Z" fill="#fff" opacity=".28"/>
+    <path d="M10 10 H190 V110 Q190 200 100 232 Q10 200 10 110 Z" fill="none" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 22 H178 V110 Q178 190 100 218 Q22 190 22 110 Z" fill="none" stroke="#0A0F22" stroke-width="3" opacity=".35"/></svg></div>
+      <div id="sieg-b-0" class="spk" style="left:617.5px;top:797.5px;width:45px;height:45px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-1" class="spk" style="left:609.5px;top:789.5px;width:61px;height:61px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-2" class="spk" style="left:611.5px;top:791.5px;width:57px;height:57px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-3" class="spk" style="left:610.5px;top:790.5px;width:59px;height:59px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-4" class="spk" style="left:616px;top:796px;width:48px;height:48px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-5" class="spk" style="left:615px;top:795px;width:50px;height:50px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-6" class="spk" style="left:617.5px;top:797.5px;width:45px;height:45px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-7" class="spk" style="left:610px;top:790px;width:60px;height:60px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-8" class="spk" style="left:614px;top:794px;width:52px;height:52px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="sieg-b-9" class="spk" style="left:615px;top:795px;width:50px;height:50px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#sieg-kb", { scale: 1 }, { scale: 1.03, duration: 1.6, ease: "none" }, 0);
+      // the flag starts low on the pole (visible at the cut) and is hoisted
+      tl.fromTo("#sieg-fw", { y: 380, scaleX: 0.6 }, { y: 0, scaleX: 1, duration: 0.6, ease: "power2.out" }, 0);
+      gsap.set("#sieg-g", { svgOrigin: "0 50" });
+      tl.to("#sieg-g", { keyframes: { skewY: [0, 7, -5, 0], scaleX: [1, 0.95, 1.02, 1] }, duration: 0.5, ease: "none", repeat: 2 }, 0);
+      tl.fromTo("#sieg-sh", { scale: 0.7, rotation: -12 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.4)" }, 0.1);
+      tl.to("#sieg-sh", { keyframes: { y: [0, -20, 0] }, duration: 0.4, ease: "sine.inOut", repeat: 1 }, 0.6);
+      tl.fromTo("#sieg-b-0", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 149], y: [0, 66], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-1", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 91], y: [0, 102], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-2", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -4], y: [0, 146], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-3", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -73], y: [0, 137], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-4", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -169], y: [0, 51], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-5", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -156], y: [0, -25], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-6", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -138], y: [0, -138], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-7", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, -19], y: [0, -167], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-8", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 93], y: [0, -158], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      tl.fromTo("#sieg-b-9", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, 133], y: [0, -45], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, 0.55);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#sieg-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 1.5);
+      window.__timelines["sieg"] = tl;
+    })();
+  </script>
+</template>

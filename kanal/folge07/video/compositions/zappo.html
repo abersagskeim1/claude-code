@@ -1,0 +1,57 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #zappo-out, #zappo-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .zappo-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #zappo-hill{position:absolute;left:110px;top:1190px;width:860px;height:140px;}
+     #zappo-cs{position:absolute;left:300px;top:880px;width:480px;height:400px;}
+     .zappo-pole{position:absolute;width:12px;height:150px;background:#C9CFDB;border:4px solid #0A0F22;border-radius:6px;}
+     .zappo-fw{position:absolute;width:150px;height:94px;}
+     #zappo-c1{position:absolute;left:130px;top:800px;width:200px;height:90px;} #zappo-c2{position:absolute;left:760px;top:830px;width:200px;height:90px;}
+  </style>
+  <div id="root" data-composition-id="zappo" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="zappo-out"><div id="zappo-kb">
+      <svg id="zappo-c1" viewBox="0 0 200 90" overflow="visible"><path d="M20 80 Q0 50 40 44 Q50 10 96 20 Q130 0 150 34 Q196 34 184 80 Z" fill="#3A4774" opacity=".8"/></svg>
+      <svg id="zappo-c2" viewBox="0 0 200 90" overflow="visible"><path d="M20 80 Q0 50 40 44 Q50 10 96 20 Q130 0 150 34 Q196 34 184 80 Z" fill="#3A4774" opacity=".8"/></svg>
+      <svg id="zappo-hill" viewBox="0 0 860 140" overflow="visible"><path d="M0 140 Q120 40 430 30 Q740 40 860 140 Z" fill="#2B6A47" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M200 90 q14 -12 28 0 M600 80 q14 -12 28 0 M420 60 q14 -12 28 0" stroke="#4FA66A" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+      <div id="zappo-cs" class="zappo-stk"><svg viewBox="0 0 480 400" width="100%" height="100%" overflow="visible">
+    <path d="M20 120 h16 v-22 h-16 Z M48 120 h16 v-22 h-16 Z M76 120 h16 v-22 h-16 Z M104 120 h16 v-22 h-16 Z M132 120 h16 v-22 h-16 Z M340 120 h16 v-22 h-16 Z M368 120 h16 v-22 h-16 Z M396 120 h16 v-22 h-16 Z M424 120 h16 v-22 h-16 Z M452 120 h16 v-22 h-16 Z M160 80 h16 v-22 h-16 Z M188 80 h16 v-22 h-16 Z M216 80 h16 v-22 h-16 Z M244 80 h16 v-22 h-16 Z M272 80 h16 v-22 h-16 Z M300 80 h16 v-22 h-16 Z M328 80 h16 v-22 h-16 Z " fill="#3B4670" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
+    <rect x="20" y="120" width="120" height="276" fill="#3B4670" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="340" y="120" width="120" height="276" fill="#3B4670" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="150" y="80" width="180" height="316" fill="#3B4670" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M200 396 V300 Q240 250 280 300 V396 Z" fill="#141B33" stroke="#0A0F22" stroke-width="7"/>
+    <path d="M214 396 V306 M240 396 V284 M266 396 V306" stroke="#2A3352" stroke-width="5"/>
+    <rect x="66" y="180" width="28" height="52" rx="14" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/><rect x="386" y="180" width="28" height="52" rx="14" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/>
+    <rect x="226" y="130" width="28" height="52" rx="14" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/>
+    <path d="M40 260 h30 M100 300 h26 M360 250 h30 M410 320 h30 M170 200 h30 M290 220 h26" stroke="#56628F" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div id="zappo-fl1-p" class="zappo-pole" style="left:360px;top:780px;"></div><div id="zappo-fl1" class="zappo-fw" style="left:374px;top:780px;"><svg viewBox="0 0 160 100" width="100%" height="100%" overflow="visible"><g id="zappo-fl1-g">
+    <path d="M0 6 Q40 -6 80 6 L80 94 Q40 82 0 94 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M80 6 Q120 18 156 6 L156 94 Q120 106 80 94 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></svg></div>
+      <div id="zappo-fl2-p" class="zappo-pole" style="left:600px;top:780px;"></div><div id="zappo-fl2" class="zappo-fw" style="left:614px;top:780px;"><svg viewBox="0 0 160 100" width="100%" height="100%" overflow="visible"><g id="zappo-fl2-g">
+    <path d="M0 6 Q40 -6 80 6 L80 94 Q40 82 0 94 Z" fill="#E0302F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M80 6 Q120 18 156 6 L156 94 Q120 106 80 94 Z" fill="#FFFFFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#zappo-kb", { scale: 1 }, { scale: 1.03, duration: 2.8, ease: "none" }, 0);
+      tl.fromTo("#zappo-cs", { scaleY: 0.86 }, { scaleY: 1, duration: 0.35, ease: "back.out(1.8)", transformOrigin: "50% 100%" }, 0);
+      tl.fromTo("#zappo-hill", { y: 30 }, { y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo("#zappo-fl1", { scaleX: 0.2 }, { scaleX: 1, duration: 0.3, ease: "back.out(2)", transformOrigin: "0% 50%" }, 0.2);
+      gsap.set("#zappo-fl1-g", { svgOrigin: "0 50" });
+      tl.to("#zappo-fl1-g", { keyframes: { skewY: [0, 8, -6, 0], scaleX: [1, 0.94, 1.02, 1] }, duration: 0.6, ease: "none", repeat: 3 }, 0);
+      tl.fromTo("#zappo-fl2", { scaleX: 0.2 }, { scaleX: 1, duration: 0.3, ease: "back.out(2)", transformOrigin: "0% 50%" }, 0.32);
+      gsap.set("#zappo-fl2-g", { svgOrigin: "0 50" });
+      tl.to("#zappo-fl2-g", { keyframes: { skewY: [0, 8, -6, 0], scaleX: [1, 0.94, 1.02, 1] }, duration: 0.6, ease: "none", repeat: 3 }, 0.1);
+      tl.to("#zappo-c1", { x: 40, duration: 2.8, ease: "none" }, 0);
+      tl.to("#zappo-c2", { x: -40, duration: 2.8, ease: "none" }, 0);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#zappo-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.7);
+      window.__timelines["zappo"] = tl;
+    })();
+  </script>
+</template>

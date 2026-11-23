@@ -1,0 +1,69 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hook-out, #hook-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .hook-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    
+   #hook-beam{position:absolute;left:300px;top:770px;width:480px;height:620px;}
+   #hook-ped{position:absolute;left:300px;top:1218px;width:480px;height:170px;}
+   #hook-hb{position:absolute;left:330px;top:800px;width:420px;height:462px;transform-origin:50% 100%;}
+   #hook-shL{position:absolute;left:112px;top:930px;width:180px;height:216px;transform-origin:50% 100%;}
+   #hook-shR{position:absolute;left:788px;top:930px;width:180px;height:216px;transform-origin:50% 100%;}
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="hook-out"><div id="hook-kb">
+      <svg id="hook-beam" viewBox="0 0 480 620" overflow="visible"><defs><linearGradient id="hook-bg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE58A" stop-opacity=".05"/><stop offset=".7" stop-color="#FFE58A" stop-opacity=".42"/><stop offset="1" stop-color="#FFE58A" stop-opacity=".55"/></linearGradient></defs>
+        <path d="M170 0 H310 L470 520 Q240 560 10 520 Z" fill="url(#hook-bg1)"/></svg>
+      <div id="hook-ped" class="hook-stk"><svg viewBox="0 0 420 220" width="100%" height="100%" overflow="visible">
+    <rect x="20" y="10" width="380" height="44" rx="12" fill="#C3CAD9" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="44" y="54" width="332" height="128" fill="#9AA3B8" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M44 100 H376 M44 142 H376 M120 54 V100 M260 54 V100 M190 100 V142 M320 100 V142 M100 142 V182 M240 142 V182" stroke="#6E7790" stroke-width="6"/>
+    <rect x="8" y="176" width="404" height="40" rx="12" fill="#C3CAD9" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M30 24 H390" stroke="#F2B705" stroke-width="8" stroke-linecap="round"/></svg></div>
+      <div id="hook-shL" class="hook-stk"><svg viewBox="0 0 200 240" width="100%" height="100%" overflow="visible">
+    <path d="M10 10 H100 V232 Q10 200 10 110 Z" fill="#FFD23F"/><path d="M100 10 H190 V110 Q190 200 100 232 Z" fill="#2F6BFF"/>
+    <path d="M24 22 H84 V60 Q50 52 24 70 Z" fill="#fff" opacity=".28"/>
+    <path d="M10 10 H190 V110 Q190 200 100 232 Q10 200 10 110 Z" fill="none" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 22 H178 V110 Q178 190 100 218 Q22 190 22 110 Z" fill="none" stroke="#0A0F22" stroke-width="3" opacity=".35"/></svg></div>
+      <div id="hook-shR" class="hook-stk"><svg viewBox="0 0 200 240" width="100%" height="100%" overflow="visible">
+    <path d="M10 10 H100 V232 Q10 200 10 110 Z" fill="#E0302F"/><path d="M100 10 H190 V110 Q190 200 100 232 Z" fill="#FFFFFF"/>
+    <path d="M24 22 H84 V60 Q50 52 24 70 Z" fill="#fff" opacity=".28"/>
+    <path d="M10 10 H190 V110 Q190 200 100 232 Q10 200 10 110 Z" fill="none" stroke="#0A0F22" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M22 22 H178 V110 Q178 190 100 218 Q22 190 22 110 Z" fill="none" stroke="#0A0F22" stroke-width="3" opacity=".35"/></svg></div>
+      <div id="hook-hb" class="hook-stk"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+    <g id="hook-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </svg></div>
+      <div id="hook-t-0" class="spk" style="left:265px;top:835px;width:50px;height:50px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="hook-t-1" class="spk" style="left:778px;top:818px;width:44px;height:44px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="hook-t-2" class="spk" style="left:242px;top:1160px;width:40px;height:40px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="hook-t-3" class="spk" style="left:803px;top:1177px;width:46px;height:46px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+
+      // frame 0 already shows the full motif (thumbnail picture)
+      tl.to("#hook-hb", { keyframes: { y: [0, -16, 0], rotation: [0, -2, 0] }, duration: 1.15, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#hook-shL", { keyframes: { rotation: [0, 5, 0] }, duration: 1.15, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#hook-shR", { keyframes: { rotation: [0, -5, 0] }, duration: 1.15, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#hook-beam", { keyframes: { opacity: [1, 0.7, 1] }, duration: 1.15, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.fromTo("#hook-t-0", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.748, ease: "sine.inOut", repeat: 3 }, 0.033);
+      tl.fromTo("#hook-t-1", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.907, ease: "sine.inOut", repeat: 2 }, 0.006);
+      tl.fromTo("#hook-t-2", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.865, ease: "sine.inOut", repeat: 2 }, 0.154);
+      tl.fromTo("#hook-t-3", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.909, ease: "sine.inOut", repeat: 2 }, 0.104);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#hook-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.2);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

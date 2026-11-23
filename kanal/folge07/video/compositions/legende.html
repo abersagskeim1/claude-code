@@ -1,0 +1,67 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #legende-out, #legende-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .legende-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #legende-moon{position:absolute;left:760px;top:780px;width:170px;height:170px;}
+     #legende-gr{position:absolute;left:110px;top:1290px;width:860px;height:70px;}
+     #legende-fig{position:absolute;left:150px;top:1010px;width:220px;height:286px;transform-origin:50% 100%;}
+     .legende-fp{position:absolute;width:50px;height:30px;}
+     #legende-bush{position:absolute;left:800px;top:1150px;width:170px;height:150px;}
+  </style>
+  <div id="root" data-composition-id="legende" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="legende-out"><div id="legende-kb">
+      <svg id="legende-moon" viewBox="0 0 170 170" overflow="visible"><circle cx="85" cy="85" r="78" fill="#FFF3C4" stroke="#0A0F22" stroke-width="7"/><circle cx="58" cy="66" r="14" fill="#EAD9A0"/><circle cx="108" cy="110" r="20" fill="#EAD9A0"/><circle cx="112" cy="54" r="9" fill="#EAD9A0"/></svg>
+      <svg id="legende-bush" class="legende-stk" viewBox="0 0 170 150" overflow="visible"><path d="M10 140 Q0 80 50 70 Q60 20 100 30 Q150 30 150 80 Q172 100 160 140 Z" fill="#2E7A4A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M50 100 q10 -10 20 0 M100 70 q10 -10 20 0" stroke="#4FA66A" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+      <svg id="legende-gr" viewBox="0 0 860 70" overflow="visible"><path d="M0 30 Q215 0 430 26 Q645 52 860 24 L860 70 L0 70 Z" fill="#26305A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></svg>
+      <svg id="legende-f0" class="legende-fp" style="left:220px;top:1300px;" viewBox="0 0 50 30" width="50" height="30"><ellipse cx="25" cy="15" rx="22" ry="11" fill="#2A3360"/></svg><svg id="legende-f1" class="legende-fp" style="left:310px;top:1318px;" viewBox="0 0 50 30" width="50" height="30"><ellipse cx="25" cy="15" rx="22" ry="11" fill="#2A3360"/></svg><svg id="legende-f2" class="legende-fp" style="left:400px;top:1300px;" viewBox="0 0 50 30" width="50" height="30"><ellipse cx="25" cy="15" rx="22" ry="11" fill="#2A3360"/></svg><svg id="legende-f3" class="legende-fp" style="left:490px;top:1318px;" viewBox="0 0 50 30" width="50" height="30"><ellipse cx="25" cy="15" rx="22" ry="11" fill="#2A3360"/></svg><svg id="legende-f4" class="legende-fp" style="left:580px;top:1300px;" viewBox="0 0 50 30" width="50" height="30"><ellipse cx="25" cy="15" rx="22" ry="11" fill="#2A3360"/></svg>
+      <div id="legende-fig" class="legende-stk"><svg viewBox="0 0 200 260" width="100%" height="100%" overflow="visible">
+    <g id="legende-s-legs"><path id="legende-s-legL" d="M78 196 L66 246 L48 250" fill="none" stroke="#0A0F22" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="legende-s-legR" d="M118 196 L132 242 L150 236" fill="none" stroke="#0A0F22" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <path d="M100 14 Q160 22 164 96 L172 206 Q100 222 28 206 L38 96 Q42 22 100 14 Z" fill="#4B3B8C" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M100 30 Q146 36 146 92 Q140 126 100 128 Q60 126 56 92 Q56 36 100 30 Z" fill="#1A1433" stroke="#0A0F22" stroke-width="5"/>
+    <ellipse cx="86" cy="86" rx="11" ry="14" fill="#fff"/><ellipse cx="122" cy="86" rx="11" ry="14" fill="#fff"/>
+    <circle id="legende-s-pupL" cx="92" cy="88" r="6" fill="#0A0F22"/><circle id="legende-s-pupR" cx="128" cy="88" r="6" fill="#0A0F22"/>
+    <path d="M100 14 Q120 -6 150 8" fill="none" stroke="#0A0F22" stroke-width="8" stroke-linecap="round"/>
+    <g transform="translate(106 118) scale(.36)">
+    <g id="legende-s-b-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </g>
+    <circle cx="112" cy="178" r="13" fill="#4B3B8C" stroke="#0A0F22" stroke-width="6"/><circle cx="196" cy="178" r="13" fill="#4B3B8C" stroke="#0A0F22" stroke-width="6"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#legende-kb", { scale: 1 }, { scale: 1.03, duration: 2.8, ease: "none" }, 0);
+      // tiptoe: 6 little hops to the right, the legs swap, a footprint stays behind
+      gsap.set("#legende-s-legL", { svgOrigin: "78 196" }); gsap.set("#legende-s-legR", { svgOrigin: "118 196" });
+      tl.fromTo("#legende-fig", { x: 0 }, { x: 470, duration: 2.5, ease: "none" }, 0);
+      tl.to("#legende-fig", { keyframes: { y: [0, -34, 0], rotation: [0, 4, 0] }, duration: 0.417, ease: "sine.inOut", repeat: 5 }, 0);
+      tl.to("#legende-s-legL", { keyframes: { rotation: [0, -24, 0] }, duration: 0.417, ease: "sine.inOut", repeat: 5 }, 0);
+      tl.to("#legende-s-legR", { keyframes: { rotation: [0, 24, 0] }, duration: 0.417, ease: "sine.inOut", repeat: 5 }, 0);
+      tl.to(["#legende-s-pupL", "#legende-s-pupR"], { keyframes: { x: [0, -10, -10, 6, 0] }, duration: 1.2, ease: "none", repeat: 1 }, 0.1);
+      tl.fromTo("#legende-f0", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.15 }, 0.25);
+      tl.fromTo("#legende-f1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.15 }, 0.667);
+      tl.fromTo("#legende-f2", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.15 }, 1.083);
+      tl.fromTo("#legende-f3", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.15 }, 1.5);
+      tl.fromTo("#legende-f4", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.15 }, 1.917);
+      tl.to("#legende-moon", { keyframes: { y: [0, -8, 0] }, duration: 1.4, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#legende-bush", { keyframes: { scaleY: [1, 1.05, 1] }, duration: 0.7, ease: "sine.inOut", repeat: 3, transformOrigin: "50% 100%" }, 0);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#legende-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.7);
+      window.__timelines["legende"] = tl;
+    })();
+  </script>
+</template>

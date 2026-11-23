@@ -1,0 +1,73 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #burg-out, #burg-kb { position: absolute; inset: 0; transform-origin: 540px 1060px; }
+    .burg-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #burg-cs{position:absolute;left:560px;top:900px;width:380px;height:316px;}
+     #burg-pole{position:absolute;left:738px;top:770px;width:12px;height:150px;background:#C9CFDB;border:4px solid #0A0F22;border-radius:6px;}
+     #burg-fa{position:absolute;left:752px;top:772px;width:150px;height:94px;transform-origin:0% 50%;} #burg-fb{position:absolute;left:752px;top:772px;width:150px;height:94px;transform-origin:0% 50%;}
+     #burg-lb{position:absolute;left:120px;top:800px;width:520px;height:80px;font-family:'Lilita One';font-size:78px;line-height:1;color:#FFD23F;-webkit-text-stroke:12px #0A0F22;paint-order:stroke fill;text-shadow:0 8px 0 rgba(0,0,0,.35);white-space:nowrap;}
+     #burg-ar{position:absolute;left:170px;top:900px;width:380px;height:280px;}
+     #burg-bk{position:absolute;left:130px;top:1150px;width:150px;height:165px;}
+  </style>
+  <div id="root" data-composition-id="burg" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="burg-out"><div id="burg-kb">
+      <div id="burg-cs" class="burg-stk"><svg viewBox="0 0 480 400" width="100%" height="100%" overflow="visible">
+    <path d="M20 120 h16 v-22 h-16 Z M48 120 h16 v-22 h-16 Z M76 120 h16 v-22 h-16 Z M104 120 h16 v-22 h-16 Z M132 120 h16 v-22 h-16 Z M340 120 h16 v-22 h-16 Z M368 120 h16 v-22 h-16 Z M396 120 h16 v-22 h-16 Z M424 120 h16 v-22 h-16 Z M452 120 h16 v-22 h-16 Z M160 80 h16 v-22 h-16 Z M188 80 h16 v-22 h-16 Z M216 80 h16 v-22 h-16 Z M244 80 h16 v-22 h-16 Z M272 80 h16 v-22 h-16 Z M300 80 h16 v-22 h-16 Z M328 80 h16 v-22 h-16 Z " fill="#3B4670" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
+    <rect x="20" y="120" width="120" height="276" fill="#3B4670" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="340" y="120" width="120" height="276" fill="#3B4670" stroke="#0A0F22" stroke-width="8"/>
+    <rect x="150" y="80" width="180" height="316" fill="#3B4670" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M200 396 V300 Q240 250 280 300 V396 Z" fill="#141B33" stroke="#0A0F22" stroke-width="7"/>
+    <path d="M214 396 V306 M240 396 V284 M266 396 V306" stroke="#2A3352" stroke-width="5"/>
+    <rect x="66" y="180" width="28" height="52" rx="14" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/><rect x="386" y="180" width="28" height="52" rx="14" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/>
+    <rect x="226" y="130" width="28" height="52" rx="14" fill="#FFD23F" stroke="#0A0F22" stroke-width="5"/>
+    <path d="M40 260 h30 M100 300 h26 M360 250 h30 M410 320 h30 M170 200 h30 M290 220 h26" stroke="#56628F" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div id="burg-pole"></div>
+      <div id="burg-fa" class="burg-stk"><svg viewBox="0 0 160 100" width="100%" height="100%" overflow="visible"><g id="burg-ga">
+    <path d="M0 6 Q40 -6 80 6 L80 94 Q40 82 0 94 Z" fill="#E0302F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M80 6 Q120 18 156 6 L156 94 Q120 106 80 94 Z" fill="#FFFFFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></svg></div>
+      <div id="burg-fb" class="burg-stk"><svg viewBox="0 0 160 100" width="100%" height="100%" overflow="visible"><g id="burg-gb">
+    <path d="M0 6 Q40 -6 80 6 L80 94 Q40 82 0 94 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M80 6 Q120 18 156 6 L156 94 Q120 106 80 94 Z" fill="#2F6BFF" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/></g></svg></div>
+      <div id="burg-lb">ECHTER GRUND</div>
+      <svg id="burg-ar" viewBox="0 0 380 280" overflow="visible"><path id="burg-arp" d="M40 10 Q60 200 330 210" fill="none" stroke="#0A0F22" stroke-width="30" stroke-linecap="round"/><path d="M40 10 Q60 200 330 210" fill="none" stroke="#FFD23F" stroke-width="16" stroke-linecap="round"/>
+        <path d="M300 160 L372 212 L298 262 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/></svg>
+      <div id="burg-bk" class="burg-stk"><svg viewBox="0 0 300 330" width="100%" height="100%" overflow="visible">
+    <g id="burg-b-hdl"><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#0A0F22" stroke-width="22" stroke-linecap="round"/><path d="M36 128 Q150 -26 264 128" fill="none" stroke="#5E6678" stroke-width="11" stroke-linecap="round"/><path d="M80 70 Q150 18 220 70" fill="none" stroke="#B8C0D0" stroke-width="4" stroke-linecap="round"/></g>
+    <path d="M30 120 L62 306 Q150 330 238 306 L270 120 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
+    <path d="M30 120 L62 306 Q80 312 96 314 L72 124 Z" fill="#8E5A26" opacity=".45"/>
+    <path d="M232 132 L214 308" stroke="#E0A35C" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <path d="M78 128 L97.2 312" stroke="#8E5A26" stroke-width="5"/><path d="M126 128 L132.4 312" stroke="#8E5A26" stroke-width="5"/><path d="M174 128 L167.6 312" stroke="#8E5A26" stroke-width="5"/><path d="M222 128 L202.8 312" stroke="#8E5A26" stroke-width="5"/>
+    <path d="M35.161 150 L264.839 150 L260.022 178 L39.978 178 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="53.57" cy="164" r="5" fill="#C9CFDB"/><circle cx="246.43" cy="164" r="5" fill="#C9CFDB"/><circle cx="150" cy="164" r="5" fill="#C9CFDB"/>
+    <path d="M53.742 258 L246.258 258 L241.785 284 L58.215 284 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/><circle cx="71.978" cy="271" r="5" fill="#C9CFDB"/><circle cx="228.022" cy="271" r="5" fill="#C9CFDB"/><circle cx="150" cy="271" r="5" fill="#C9CFDB"/>
+    <ellipse cx="150" cy="120" rx="120" ry="28" fill="#8E5A26" stroke="#0A0F22" stroke-width="9"/>
+    <ellipse cx="150" cy="122" rx="100" ry="18" fill="#4A2A10"/>
+    <circle cx="36" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/><circle cx="264" cy="128" r="13" fill="#5E6678" stroke="#0A0F22" stroke-width="6"/>
+  </svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#burg-kb", { scale: 1 }, { scale: 1.03, duration: 2.8, ease: "none" }, 0);
+      tl.fromTo("#burg-cs", { scaleY: 0.85 }, { scaleY: 1, duration: 0.35, ease: "back.out(1.8)", transformOrigin: "50% 100%" }, 0);
+      tl.fromTo("#burg-lb", { scale: 0.6, rotation: -6 }, { scale: 1, rotation: -3, duration: 0.3, ease: "back.out(2.4)" }, 0.15);
+      tl.fromTo("#burg-ar", { scale: 0.3, opacity: 0, transformOrigin: "10% 4%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, 0.3);
+      tl.to("#burg-ar", { keyframes: { x: [0, 14, 0], y: [0, 6, 0] }, duration: 0.5, ease: "sine.inOut", repeat: 3 }, 0.6);
+      // the bucket is only a side note: small and greyed out
+      tl.fromTo("#burg-bk", { scale: 1, rotation: 0 }, { scale: 0.8, rotation: -14, opacity: 0.55, duration: 0.4, ease: "power2.out" }, 0.5);
+      // the castle changes hands: red-white flag down, yellow-blue flag up (no fighting shown)
+      gsap.set("#burg-fb", { scaleX: 0 });
+      tl.to("#burg-fa", { scaleX: 0, duration: 0.2, ease: "back.in(2)" }, 1.25);
+      tl.to("#burg-fb", { scaleX: 1, duration: 0.3, ease: "back.out(2.4)" }, 1.45);
+      gsap.set(["#burg-ga", "#burg-gb"], { svgOrigin: "0 50" });
+      tl.to(["#burg-ga", "#burg-gb"], { keyframes: { skewY: [0, 7, -5, 0] }, duration: 0.55, ease: "none", repeat: 4 }, 0);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#burg-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.7);
+      window.__timelines["burg"] = tl;
+    })();
+  </script>
+</template>
