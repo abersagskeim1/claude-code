@@ -11,7 +11,7 @@ Ton der Folge: lustig über die Legende, nicht über die Schlacht. Keine Opferza
 | 4,6 | Zwei Städte in Italien: | Karte mit zwei Punkten |
 | 6,4 | **MODENA** gegen **BOLOGNA**. | zwei Wappen-Schilde prallen voreinander zusammen |
 | 8,6 | Die Legende: Ein Eimer wird geklaut. | Figur schleicht mit Eimer davon; Klotz setzt Eimer als Helm auf |
-| 11,0 | Und deshalb gibt es Krieg. | Schilde zittern, Funken |
+| 11,0 | Angeblich deshalb: **KRIEG**. (Etikett „LEGENDE?“) | Schilde zittern, Funken |
 | 13,0 | Es kommt zur Schlacht von Zappolino. | Burg-Silhouette, Fahnen (keine Kampfszene) |
 | 15,4 | Modena gewinnt. | Gelb-blaue Fahne geht hoch |
 | 17,2 | Aber jetzt kommt's: | Klotz zieht den Eimer vom Kopf |
@@ -20,7 +20,7 @@ Ton der Folge: lustig über die Legende, nicht über die Schlacht. Keine Opferza
 | 23,4 | Den Eimer nahm Modena **DANACH** mit. | Eimer wandert als Trophäe auf ein Podest |
 | 25,8 | Als Siegertrophäe. | Lorbeerkranz um den Eimer |
 | 27,4 | Und der Mythos? | Fragezeichen |
-| 28,8 | Kam von einem Spott-**GEDICHT**. | Feder schreibt, Buch klappt auf mit „1622“ |
+| 28,8 | Berühmt durch ein Spott-**GEDICHT** von 1622. | Feder schreibt, Buch klappt auf mit „1622“ |
 | 31,0 | Der Eimer blieb in Modena. | Eimer im Turm-Fenster (generischer Turm), Klotz stempelt „FAKT-CHECK“ und grinst |
 | 33,2 | Welche Legende glaubst du bis heute? | Kommentar-Frage; Loop auf Frame 1 |
 
