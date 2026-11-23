@@ -32,8 +32,8 @@ const STAMP = "#D7262E";
 
 // ================= timing: one row per caption; one scene per caption; cuts on whole tenths =================
 // a caption with n words needs n x 0.35 s (min 1.1 s) fully readable + the word pop-in + the exit
-const CD = [["c01", 2.3], ["c02", 2.4], ["c03", 2.0], ["c04", 1.7], ["c05", 2.8], ["c06", 1.6], ["c07", 2.8], ["c08", 1.6], ["c09", 2.4],
-  ["c10", 2.8], ["c11", 2.8], ["c12", 2.8], ["c13", 1.7], ["c14", 1.6], ["c15", 2.8], ["c16", 2.4], ["c17", 2.8], ["c18", 0.6]];
+const CD = [["c01", 2.3], ["c02", 2.4], ["c03", 2.0], ["c04", 1.7], ["c05", 2.8], ["c06", 1.9], ["c07", 2.8], ["c08", 1.6], ["c09", 2.4],
+  ["c10", 2.8], ["c11", 2.8], ["c12", 2.8], ["c13", 1.6], ["c14", 1.6], ["c15", 2.8], ["c16", 2.4], ["c17", 2.7], ["c18", 0.6]];
 const C = {};
 { let t = 0; for (const [id, d] of CD) { C[id] = [f2(t), f2(t + d)]; t += d; } }
 export const DUR = C.c18[1];
@@ -727,7 +727,7 @@ const caps = [
   { id: "c12", words: ["Den", "Eimer", "/", "nahm", "Modena", "/", "*DANACH", "mit."] },
   { id: "c13", words: ["Als", "Siegertrophäe."] },
   { id: "c14", words: ["Und", "der", "Mythos?"] },
-  { id: "c15", words: ["Kam", "aus", "einem", "/", "Spott-", "+*GEDICHT", "/", "von", "1622."] },
+  { id: "c15", words: ["Berühmt", "durch", "ein", "/", "Spott-", "+*GEDICHT", "/", "von", "1622."] },
   { id: "c16", words: ["Der", "Eimer", "blieb", "/", "in", "*MODENA."] },
   { id: "c17", words: ["Welche", "Legende", "/", "glaubst", "du", "/", "bis", "*HEUTE?"], hard: true },
   { id: "c18", words: HOOKW, loop: true },
@@ -926,8 +926,11 @@ for (const [t, m] of moods) {
   kJs += setMood(m, f2(t + 0.03), 0.22);
 }
 // GAG 1: the bucket comes down from above onto Klotz's head: a knight's helmet; he sees nothing and stumbles
-const PEEK = [f2(C.c06[0] + 0.3), f2(C.c07[0] + 0.5), f2(C.c07[0] + 1.8)]; // not during c05: the lifted rim would come too close to the scene
 const STUMBLE0 = f2(HELM_ON + 0.5), STUMBLE1 = f2(C.c08[0] - 0.1);
+// peeks: in the left-leaning phase of a stumble step (so the tilted helmet stays left of x 1000), only in c06/c07
+// (not during c05: the lifted rim would come too close to the scene); checked below
+const PEEK = [3, 5, 7].map((k) => f2(STUMBLE0 + 0.8 * k - 0.2));
+for (const t of PEEK) if (t < C.c06[0] || t + 0.8 > C.c08[0]) throw new Error("peek outside c06/c07: " + t);
 const stN = Math.floor((STUMBLE1 - STUMBLE0) / 0.8);
 kJs += `      // GAG 1: bucket helmet on (${HELM_ON})
       tl.to("#k-armL", { rotation: 165, duration: 0.18, ease: "power2.out" }, ${f2(HELM_ON - 0.15)});

@@ -20,3 +20,8 @@
 - Helm: dreimal hebt Klotz den Rand an, das linke Auge lugt voll geöffnet hervor (Riemen blendet dabei aus), das rechte bleibt bedeckt.
 - Ton: master.sh misst jetzt die kodierte Datei (AAC 256 kb/s) und senkt bei Bedarf die Limiter-Decke.
 - Nach dem letzten Render: 39,9 s, −14,0 LUFS, −1,7 dBTP, 39,900 s; check 0 Fehler; overlap, layout, lidcheck ohne Befund; bounds Tinte x 92–999, DOM x 98–1000; cutcheck 0 Löcher an 16 Schnitten + Loop.
+
+## Nachbesserung 2 (23.11.)
+- c15 „Berühmt durch ein / Spott-GEDICHT / von 1622.“ (31,5–34,3 s, Breite 880 px). c06 „Angeblich deshalb: KRIEG.“ 0,3 s länger (11,2–13,1 s); dafür c13 und c17 je 0,1 s kürzer (Lesezeit weiter erfüllt). Gesamt 40,0 s.
+- Helm-Blicke im linksgeneigten Teil des Stolperschritts (11,7 / 13,3 / 14,9 s), sonst ragte der gekippte Helm 3 Frames über x 1000.
+- Nach dem letzten Render: −14,0 LUFS, −3,6 dBTP, 40,000 s; check 0 Fehler; overlap, layout, lidcheck ohne Befund; bounds Tinte x 92–999; cutcheck 0 Löcher.

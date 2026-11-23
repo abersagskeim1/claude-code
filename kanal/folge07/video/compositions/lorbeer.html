@@ -34,16 +34,16 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
       // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
-      tl.fromTo("#lorbeer-kb", { scale: 1 }, { scale: 1.03, duration: 1.7, ease: "none" }, 0);
+      tl.fromTo("#lorbeer-kb", { scale: 1 }, { scale: 1.03, duration: 1.6, ease: "none" }, 0);
       gsap.set("#lorbeer-rg", { svgOrigin: "300 300" });
-      tl.to("#lorbeer-rg", { rotation: 30, duration: 1.7, ease: "none" }, 0);
+      tl.to("#lorbeer-rg", { rotation: 30, duration: 1.6, ease: "none" }, 0);
       tl.fromTo("#lorbeer-bk", { scale: 0.85 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, 0);
       tl.fromTo("#lorbeer-wl", { scaleX: 0.3, rotation: -20 }, { scaleX: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 0.1);
       tl.fromTo("#lorbeer-wr", { scaleX: 0.3, rotation: 20 }, { scaleX: 1, rotation: 0, duration: 0.4, ease: "back.out(2)" }, 0.18);
       tl.fromTo("#lorbeer-rib", { scale: 0, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.4);
       tl.to("#lorbeer-bk", { keyframes: { rotation: [0, -4, 4, 0] }, duration: 0.8, ease: "sine.inOut", repeat: 1 }, 0.4);
       // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
-      tl.to("#lorbeer-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 1.6);
+      tl.to("#lorbeer-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 1.5);
       window.__timelines["lorbeer"] = tl;
     })();
   </script>

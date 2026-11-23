@@ -78,10 +78,10 @@
       tl.fromTo("#frage-bk", { scale: 0.4, rotation: 20 }, { scale: 0.9, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.25);
       tl.to("#frage-q", { keyframes: { rotation: [0, 10, -8, 0] }, duration: 0.8, ease: "sine.inOut", repeat: 1 }, 0.5);
       tl.to("#frage-bk", { keyframes: { y: [0, -16, 0], rotation: [0, -5, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 2 }, 0.6);
-      // loop (2.8): hard switch in one frame - bubble gone, hook picture in its frame-0 pose (incl. sparkles at their start scale)
+      // loop (2.7): hard switch in one frame - bubble gone, hook picture in its frame-0 pose (incl. sparkles at their start scale)
       gsap.set(["#frage-t-0", "#frage-t-1", "#frage-t-2", "#frage-t-3"], { scale: 0.3, rotation: 0, opacity: 0 });
-      tl.set(["#frage-bb", "#frage-q", "#frage-bk"], { opacity: 0 }, 2.8);
-      tl.set(["#frage-beam", "#frage-ped", "#frage-shL", "#frage-shR", "#frage-hb", "#frage-t-0", "#frage-t-1", "#frage-t-2", "#frage-t-3"], { opacity: 1 }, 2.8);
+      tl.set(["#frage-bb", "#frage-q", "#frage-bk"], { opacity: 0 }, 2.7);
+      tl.set(["#frage-beam", "#frage-ped", "#frage-shL", "#frage-shR", "#frage-hb", "#frage-t-0", "#frage-t-1", "#frage-t-2", "#frage-t-3"], { opacity: 1 }, 2.7);
       // the last frame is frame 0 again
 
       window.__timelines["frage"] = tl;
