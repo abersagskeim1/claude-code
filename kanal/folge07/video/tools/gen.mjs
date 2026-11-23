@@ -32,11 +32,12 @@ const STAMP = "#D7262E";
 
 // ================= timing: one row per caption; one scene per caption; cuts on whole tenths =================
 // a caption with n words needs n x 0.35 s (min 1.1 s) fully readable + the word pop-in + the exit
-const CD = [["c01", 2.3], ["c02", 2.4], ["c03", 2.0], ["c04", 1.7], ["c05", 2.8], ["c06", 2.4], ["c07", 2.8], ["c08", 1.6], ["c09", 2.4],
-  ["c10", 2.8], ["c11", 2.8], ["c12", 2.8], ["c13", 1.7], ["c14", 1.6], ["c15", 2.0], ["c16", 2.4], ["c17", 2.8], ["c18", 0.6]];
+const CD = [["c01", 2.3], ["c02", 2.4], ["c03", 2.0], ["c04", 1.7], ["c05", 2.8], ["c06", 1.6], ["c07", 2.8], ["c08", 1.6], ["c09", 2.4],
+  ["c10", 2.8], ["c11", 2.8], ["c12", 2.8], ["c13", 1.7], ["c14", 1.6], ["c15", 2.8], ["c16", 2.4], ["c17", 2.8], ["c18", 0.6]];
 const C = {};
 { let t = 0; for (const [id, d] of CD) { C[id] = [f2(t), f2(t + d)]; t += d; } }
 export const DUR = C.c18[1];
+const LAST = f2(DUR - 1 / 30); // time of the last frame: all loop cycles end here, so it equals frame 0
 const T = {
   hook: C.c01, rolle: C.c02, karte: C.c03, schilde: C.c04, legende: C.c05, zittern: C.c06, zappo: C.c07, sieg: C.c08, aber: C.c09,
   stempel: C.c10, burg: C.c11, podest: C.c12, lorbeer: C.c13, mythos: C.c14, gedicht: C.c15, turm: C.c16, frage: [C.c17[0], DUR],
@@ -361,13 +362,16 @@ ${Array.from({ length: 5 }, (_, i) => `      tl.fromTo("#legende-f${i}", { opaci
   const p = "zittern";
   const [s, d] = S(p);
   const RS = mulberry32(611);
-  const sp = Array.from({ length: 7 }, (_, i) => ({ x: 470 + Math.round(RS() * 140), y: 880 + Math.round(RS() * 200), s: 40 + Math.round(RS() * 30), t: f2(0.15 + i * 0.28) }));
+  const sp = Array.from({ length: 5 }, (_, i) => ({ x: 470 + Math.round(RS() * 140), y: 900 + Math.round(RS() * 180), s: 40 + Math.round(RS() * 30), t: f2(0.15 + i * 0.24) }));
   scenes.push(scene(p, "Schilde zittern", s, d,
     `#zittern-l{${abs(130, 840, 280, 336)}transform-origin:50% 100%;}
      #zittern-r{${abs(670, 840, 280, 336)}transform-origin:50% 100%;}
      #zittern-bk{${abs(470, 1110, 140, 154)}}
+     #zittern-lb{${abs(340, 700, 400, 104)}border-radius:18px;background:${PAPER};border:8px solid ${K};transform-origin:50% 0%;}
+     #zittern-lbt{position:absolute;left:0;top:10px;width:384px;text-align:center;font-family:'Lilita One';font-size:78px;line-height:1;color:${INK};}
      #zittern-gl{${abs(380, 830, 320, 300)}border-radius:50%;background:radial-gradient(circle,rgba(255,59,59,.45) 0%,rgba(255,59,59,0) 68%);}`,
     `      <div id="zittern-gl"></div>
+      <div id="zittern-lb" class="zittern-stk"><div id="zittern-lbt">LEGENDE?</div></div>
       <div id="zittern-l" class="zittern-stk">${SHIELD(...MOD)}</div>
       <div id="zittern-r" class="zittern-stk">${SHIELD(...BOL)}</div>
       <div id="zittern-bk" class="zittern-stk">${BUCKET("zittern-b")}</div>
@@ -376,7 +380,10 @@ ${sp.map((q, i) => `      <div id="zittern-s${i}" class="spk" style="left:${q.x 
       // trembling: fast small x/rotation jitter, both shields leaning towards each other
       tl.to("#zittern-l", { keyframes: { x: [0, -6, 5, -4, 6, 0], rotation: [6, 4, 8, 5, 7, 6] }, duration: 0.3, ease: "none", repeat: ${Math.floor((d - 0.3) / 0.3) - 1} }, 0.15);
       tl.to("#zittern-r", { keyframes: { x: [0, 6, -5, 4, -6, 0], rotation: [-6, -4, -8, -5, -7, -6] }, duration: 0.3, ease: "none", repeat: ${Math.floor((d - 0.3) / 0.3) - 1} }, 0.15);
-      tl.to("#zittern-bk", { keyframes: { y: [0, -14, 0], rotation: [0, -6, 6, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 2 }, 0.2);
+      tl.to("#zittern-bk", { keyframes: { y: [0, -14, 0], rotation: [0, -6, 6, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 1 }, 0.2);
+      // the cause is only the legend: a parchment tag LEGENDE? hangs over the scene
+      tl.fromTo("#zittern-lb", { scale: 0.6, rotation: -10 }, { scale: 1, rotation: -4, duration: 0.3, ease: "back.out(2.4)" }, 0.05);
+      tl.to("#zittern-lb", { keyframes: { rotation: [-4, 3, -4] }, duration: 0.7, ease: "sine.inOut", repeat: 1 }, 0.35);
       tl.fromTo("#zittern-gl", { opacity: 0.4, scale: 0.8 }, { keyframes: { opacity: [0.4, 1, 0.6, 1], scale: [0.8, 1.05, 0.95, 1.05] }, duration: ${f2(d - 0.2)}, ease: "sine.inOut" }, 0);
 ${sp.map((q, i) => `      tl.fromTo("#zittern-s${i}", { scale: 0, rotation: 0 }, { keyframes: { scale: [0, 1.2, 0], rotation: [0, 90] }, duration: 0.4, ease: "power1.out", immediateRender: true }, ${q.t});`).join("\n")}`));
 }
@@ -640,13 +647,12 @@ ${[0, 1, 2, 3].map((i) => `      tl.to("#gedicht-s${i}", { strokeDashoffset: 0, 
   const p = "frage";
   const [s, d] = S(p);
   const LOOP = f2(C.c18[0] - s);
-  const PEN0 = f2(LOOP - 0.18), BUB0 = f2(PEN0 - 0.1);
-  const tail = f2(d - PEN0);
+  const tw = twinkle("frage-t", [[290, 860, 50], [800, 840, 44], [262, 1180, 40], [826, 1200, 46]], d, 1325);
   scenes.push(scene(p, "Frage und Loop", s, d, hookCss(p) + `
      #frage-bb{${abs(170, 770, 740, 520)}}
      #frage-q{${abs(250, 830, 170, 295)}transform-origin:50% 90%;}
      #frage-bk{${abs(520, 860, 300, 330)}transform-origin:50% 100%;}`,
-    hookBody(p) + `
+    hookBody(p) + "\n      " + tw.html + `
       <svg id="frage-bb" class="frage-stk" viewBox="0 0 740 520" overflow="visible"><path d="M60 10 H680 Q730 10 730 60 V380 Q730 430 680 430 H300 L180 510 L200 430 H60 Q10 430 10 380 V60 Q10 10 60 10 Z" fill="${PAPER}" stroke="${K}" stroke-width="10" stroke-linejoin="round"/><path d="M40 40 H700" stroke="${PAPER_D}" stroke-width="6" stroke-dasharray="18 10"/></svg>
       <div id="frage-q">${QMARK(RED)}</div>
       <div id="frage-bk">${BUCKET("frage-b")}</div>`,
@@ -656,15 +662,11 @@ ${[0, 1, 2, 3].map((i) => `      tl.to("#gedicht-s${i}", { strokeDashoffset: 0, 
       tl.fromTo("#frage-bk", { scale: 0.4, rotation: 20 }, { scale: 0.9, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.25);
       tl.to("#frage-q", { keyframes: { rotation: [0, 10, -8, 0] }, duration: 0.8, ease: "sine.inOut", repeat: 1 }, 0.5);
       tl.to("#frage-bk", { keyframes: { y: [0, -16, 0], rotation: [0, -5, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 2 }, 0.6);
-      // loop: the bubble shrinks away and is gone in the frame the hook picture appears (the question text is still on screen)
-      tl.to(["#frage-bb", "#frage-q", "#frage-bk"], { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.9, 0.75] }, duration: 0.1, ease: "none" }, ${BUB0});
-      tl.set(["#frage-bb", "#frage-q", "#frage-bk"], { opacity: 0 }, ${PEN0});
-      tl.set(["#frage-beam", "#frage-ped", "#frage-shL", "#frage-shR", "#frage-hb"], { opacity: 1 }, ${PEN0});
-      tl.fromTo("#frage-hb", { scale: 0.8 }, { scale: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false }, ${PEN0});
-      tl.fromTo(["#frage-shL", "#frage-shR"], { scale: 0.8 }, { scale: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false }, ${PEN0});
-      tl.fromTo("#frage-ped", { scaleY: 0.8 }, { scaleY: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: false, transformOrigin: "50% 100%" }, ${PEN0});
-      tl.fromTo("#frage-beam", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power2.out", immediateRender: false }, ${PEN0});
-      // the hook pose: the last frame is (nearly) frame 0 again (tail ${tail} s)`,
+      // loop (${LOOP}): hard switch in one frame - bubble gone, hook picture in its frame-0 pose (incl. sparkles at their start scale)
+      gsap.set([${[0, 1, 2, 3].map((i) => `"#frage-t-${i}"`).join(", ")}], { scale: 0.3, rotation: 0, opacity: 0 });
+      tl.set(["#frage-bb", "#frage-q", "#frage-bk"], { opacity: 0 }, ${LOOP});
+      tl.set(["#frage-beam", "#frage-ped", "#frage-shL", "#frage-shR", "#frage-hb", ${[0, 1, 2, 3].map((i) => `"#frage-t-${i}"`).join(", ")}], { opacity: 1 }, ${LOOP});
+      // the last frame is frame 0 again`,
     { exit: false, kb: false }));
 }
 // ================= background: night blue, parchment dust, distant hills (all loop-seamless) =================
@@ -695,9 +697,9 @@ ${[0, 1, 2, 3].map((i) => `      tl.to("#gedicht-s${i}", { strokeDashoffset: 0, 
     (function () {
       const tl = gsap.timeline({ paused: true });
       // every move covers whole periods, so the last frame leads straight back into frame 0
-      tl.fromTo("#bg-p1", { y: 0 }, { y: -1920, duration: ${DUR}, ease: "none" }, 0);
-      tl.fromTo("#bg-p2", { y: 0 }, { y: -3840, duration: ${DUR}, ease: "none" }, 0);
-      tl.fromTo("#bg-glow", { opacity: 1 }, { keyframes: { opacity: [1, 0.6, 1] }, duration: ${f2(DUR / 4)}, ease: "sine.inOut", repeat: 3 }, 0);
+      tl.fromTo("#bg-p1", { y: 0 }, { y: -1920, duration: ${LAST}, ease: "none" }, 0);
+      tl.fromTo("#bg-p2", { y: 0 }, { y: -3840, duration: ${LAST}, ease: "none" }, 0);
+      tl.fromTo("#bg-glow", { opacity: 1 }, { keyframes: { opacity: [1, 0.6, 1] }, duration: ${(LAST / 4).toFixed(5)}, ease: "sine.inOut", repeat: 3 }, 0);
       window.__timelines["bg"] = tl;
     })();
   </script>
@@ -716,7 +718,7 @@ const caps = [
   { id: "c03", words: ["Zwei", "Städte", "/", "in", "Italien:"] },
   { id: "c04", words: ["*MODENA", "/", "gegen", "#BOLOGNA"], shake: true },
   { id: "c05", words: ["Die", "Legende:", "/", "Ein", "Eimer", "/", "wird", "geklaut."] },
-  { id: "c06", words: ["Und", "deshalb", "/", "gibt", "es", "*KRIEG."] },
+  { id: "c06", words: ["Angeblich", "/", "deshalb:", "*KRIEG."] },
   { id: "c07", words: ["Es", "kommt", "zur", "/", "Schlacht", "/", "von", "Zappolino."] },
   { id: "c08", words: ["Modena", "gewinnt."] },
   { id: "c09", words: ["Aber", "jetzt", "/", "kommt", "der", "Clou:"] },
@@ -725,9 +727,9 @@ const caps = [
   { id: "c12", words: ["Den", "Eimer", "/", "nahm", "Modena", "/", "*DANACH", "mit."] },
   { id: "c13", words: ["Als", "Siegertrophäe."] },
   { id: "c14", words: ["Und", "der", "Mythos?"] },
-  { id: "c15", words: ["Kam", "von", "einem", "/", "Spott-", "+*GEDICHT."] },
+  { id: "c15", words: ["Kam", "aus", "einem", "/", "Spott-", "+*GEDICHT", "/", "von", "1622."] },
   { id: "c16", words: ["Der", "Eimer", "blieb", "/", "in", "*MODENA."] },
-  { id: "c17", words: ["Welche", "Legende", "/", "glaubst", "du", "/", "bis", "*HEUTE?"] },
+  { id: "c17", words: ["Welche", "Legende", "/", "glaubst", "du", "/", "bis", "*HEUTE?"], hard: true },
   { id: "c18", words: HOOKW, loop: true },
 ].map((c) => ({ ...c, s: C[c.id][0], e: C[c.id][1] }));
 const ST = 0.055, PD = 0.2, KD = 0.22, EXIT = 0.12;
@@ -761,9 +763,8 @@ for (const c of caps) {
       if (k) capJs += `      tl.to("#${c.id}-w${i}", { keyframes: { scale: [1, 1.08, 1], rotation: [0, -3, 0] }, duration: 0.4, ease: "power1.inOut" }, 0.3);\n`;
       return;
     }
-    if (c.loop) { // loop copy: the whole line pops in at once and is complete before the last frames
-      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.15, ease: "power2.out" }, ${f2(c.s)});\n`;
-      full = Math.max(full, c.s + 0.15);
+    if (c.loop) { // loop copy: the whole line stands from its first frame on (hard switch, same picture as frame 0)
+      full = c.s;
       return;
     }
     const at = f2(c.s + 0.02 + n * ST);
@@ -779,8 +780,9 @@ for (const c of caps) {
   });
   if (wc > 6) throw new Error(c.id + " has more than 6 words");
   if (c.loop) { report.push(`${c.id} loop copy of c01, complete @${full.toFixed(2)} (end ${c.e})`); if (full > DUR - 0.1) throw new Error("loop caption not complete before the end"); continue; }
-  const ex = f2(c.e - EXIT - 0.01);
-  capJs += `      tl.to("#${c.id} .g", { opacity: 0, scale: 0.85, duration: ${EXIT}, ease: "power2.in" }, ${ex});\n`;
+  // "hard": no exit fade, the next caption replaces it in the cut frame (the loop seam)
+  const ex = c.hard ? c.e : f2(c.e - EXIT - 0.01);
+  if (!c.hard) capJs += `      tl.to("#${c.id} .g", { opacity: 0, scale: 0.85, duration: ${EXIT}, ease: "power2.in" }, ${ex});\n`;
   const readable = f2(ex - full), need = Math.max(1.1, 0.35 * wc);
   report.push(`${c.id} ${wc}w ${c.s}-${c.e} full@${full.toFixed(2)} readable ${readable}s need ${need.toFixed(2)}s ${readable >= need - 1e-6 ? "ok" : "TOO SHORT"}`);
   if (readable < need - 1e-6) throw new Error(c.id + " too short");
@@ -863,8 +865,8 @@ const klotzSvg = `<svg viewBox="0 0 300 330" width="100%" height="100%" overflow
   <g id="k-mouth"><ellipse cx="150" cy="228" rx="26" ry="28" fill="#3A0A0A" stroke="#2A0505" stroke-width="4"/><ellipse cx="150" cy="244" rx="15" ry="8" fill="#FF5A6E"/></g>
   <g id="k-grin"><path d="M98 212 Q150 278 202 212 Q150 226 98 212 Z" fill="#3A0A0A" stroke="#2A0505" stroke-width="4" stroke-linejoin="round"/><path d="M128 246 Q150 256 172 246 Q150 238 128 246 Z" fill="#FF5A6E"/></g>
   <g id="k-sweat"><path d="M262 92 Q276 112 270 124 Q262 132 254 124 Q248 112 262 92 Z" fill="#9FD3FF" stroke="#2A4A7A" stroke-width="4"/></g>
-  <g id="k-helm" class="k-prop">
-    <path d="M36 196 Q150 372 264 196" fill="none" stroke="${K}" stroke-width="16" stroke-linecap="round"/><path d="M36 196 Q150 372 264 196" fill="none" stroke="${IRON}" stroke-width="8" stroke-linecap="round"/>
+  <g id="k-helmT"><g id="k-helm" class="k-prop">
+    <g id="k-strap"><path d="M36 196 Q150 372 264 196" fill="none" stroke="${K}" stroke-width="16" stroke-linecap="round"/><path d="M36 196 Q150 372 264 196" fill="none" stroke="${IRON}" stroke-width="8" stroke-linecap="round"/></g>
     <path d="M28 202 L60 16 Q150 -4 240 16 L272 202 Q150 222 28 202 Z" fill="${WOOD}" stroke="${K}" stroke-width="9" stroke-linejoin="round"/>
     <path d="M28 202 L60 16 Q76 12 92 10 L68 206 Z" fill="${WOOD_D}" opacity=".45"/>
     <path d="M84 20 L66 204 M120 14 L114 208 M180 14 L186 208 M216 20 L234 204" stroke="${WOOD_D}" stroke-width="5"/>
@@ -872,7 +874,7 @@ const klotzSvg = `<svg viewBox="0 0 300 330" width="100%" height="100%" overflow
     <path d="M58 40 L242 40 L246 64 L54 64 Z" fill="${IRON}" stroke="${K}" stroke-width="6" stroke-linejoin="round"/>
     <path d="M26 192 Q150 214 274 192 L276 214 Q150 236 24 214 Z" fill="${WOOD_D}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
     <circle cx="36" cy="200" r="11" fill="${IRON}" stroke="${K}" stroke-width="5"/><circle cx="264" cy="200" r="11" fill="${IRON}" stroke="${K}" stroke-width="5"/>
-  </g>
+  </g></g>
 </svg>`;
 // the scroll on a little easel left of Klotz (FAKT-CHECK imprint at 72 px, inside y 280-1500), and the stamp he uses
 const kScroll = `<svg viewBox="0 0 280 520" width="280" height="520" overflow="visible">
@@ -903,7 +905,7 @@ kJs += `      gsap.set("#k-armL", { svgOrigin: "48 190" }); gsap.set("#k-armR", 
       gsap.set("#k-browL", { svgOrigin: "109 81" }); gsap.set("#k-browR", { svgOrigin: "191 81" });
       gsap.set("#k-mouth", { svgOrigin: "150 228" }); gsap.set("#k-grin", { svgOrigin: "150 230" });
       gsap.set("#k-sweat", { svgOrigin: "262 92", opacity: 0, scale: 0 });
-      gsap.set("#k-helm", { svgOrigin: "150 210", opacity: 0, y: -90 });
+      gsap.set("#k-helm", { svgOrigin: "150 210", opacity: 0, y: -90 }); gsap.set("#k-helmT", { svgOrigin: "272 206" });
       gsap.set("#k-scroll", { opacity: 0, scale: 0, transformOrigin: "50% 100%" }); gsap.set("#k-imp", { opacity: 0, scale: 1.4, rotation: -8 });
       gsap.set("#k-stamp", { opacity: 0, scale: 0, transformOrigin: "50% 100%" });
       gsap.set(["#k-eyeL", "#k-eyeR"], { scale: ${p0.eye} });
@@ -914,7 +916,7 @@ kJs += `      gsap.set("#k-armL", { svgOrigin: "48 190" }); gsap.set("#k-armR", 
       gsap.set("#k-armL", { rotation: ${p0.aL} }); gsap.set("#k-armR", { rotation: ${p0.aR} });
       gsap.set("#k-wrap", { x: 0, y: 0, rotation: 0, scale: 1 }); gsap.set("#k-sq", { scaleX: 1, scaleY: 1 });
       // idle bob: whole half-cycles over the film, ends where it starts
-      tl.fromTo("#k-bob", { y: 0 }, { y: -12, duration: ${(DUR / 80).toFixed(5)}, ease: "sine.inOut", yoyo: true, repeat: 79 }, 0);
+      tl.fromTo("#k-bob", { y: 0 }, { y: -12, duration: ${(LAST / 80).toFixed(5)}, ease: "sine.inOut", yoyo: true, repeat: 79 }, 0);
       // hook: shocked jump
       tl.to("#k-wrap", { keyframes: { y: [0, -18, 0, -8, 0] }, duration: 0.6, ease: "none" }, 0.3);
 `;
@@ -924,6 +926,7 @@ for (const [t, m] of moods) {
   kJs += setMood(m, f2(t + 0.03), 0.22);
 }
 // GAG 1: the bucket comes down from above onto Klotz's head: a knight's helmet; he sees nothing and stumbles
+const PEEK = [f2(C.c06[0] + 0.3), f2(C.c07[0] + 0.5), f2(C.c07[0] + 1.8)]; // not during c05: the lifted rim would come too close to the scene
 const STUMBLE0 = f2(HELM_ON + 0.5), STUMBLE1 = f2(C.c08[0] - 0.1);
 const stN = Math.floor((STUMBLE1 - STUMBLE0) / 0.8);
 kJs += `      // GAG 1: bucket helmet on (${HELM_ON})
@@ -934,8 +937,13 @@ kJs += `      // GAG 1: bucket helmet on (${HELM_ON})
       tl.to("#k-sq", { keyframes: { scaleY: [1, 0.84, 1.05, 1], scaleX: [1, 1.1, 0.97, 1] }, duration: 0.35, ease: "none" }, ${f2(HELM_ON + 0.18)});
       // he cannot see: small stumbling steps on the spot (x stays within +-18 px), tilting
       tl.to("#k-wrap", { keyframes: { x: [0, -18, -8, 6, 2, 0], rotation: [0, -7, -2, 4, 1, 0], y: [0, -10, 0, -10, 0, 0] }, duration: 0.8, ease: "none", repeat: ${stN - 1} }, ${STUMBLE0});
+      // now and then one eye peeks out under the lifted helmet rim (the eye stays fully open, the other stays covered)
+${PEEK.map((t) => `      tl.to("#k-helmT", { keyframes: { rotation: [0, 30, 30, 0], x: [0, -20, -20, 0] }, duration: 0.8, ease: "power2.inOut" }, ${t});
+      tl.to("#k-strap", { keyframes: { opacity: [1, 0, 0, 1] }, duration: 0.8, ease: "none" }, ${t});
+      tl.to("#k-eyeL", { keyframes: { y: [0, 76, 76, 0] }, duration: 0.8, ease: "power2.inOut" }, ${t});
+      tl.to("#k-pupL", { keyframes: { x: [0, -12, 12, 0] }, duration: 0.8, ease: "sine.inOut" }, ${t});`).join("\n")}
       tl.to("#k-sweat", { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, ${f2(C.c06[0] + 0.2)});
-      tl.to("#k-sweat", { keyframes: { y: [0, 30] }, duration: 0.5, ease: "power1.in", repeat: 2 }, ${f2(C.c06[0] + 0.4)});
+      tl.to("#k-sweat", { keyframes: { y: [0, 30] }, duration: 0.5, ease: "power1.in", repeat: 1 }, ${f2(C.c06[0] + 0.4)});
       tl.to("#k-sweat", { opacity: 0, scale: 0, y: 0, duration: 0.15 }, ${f2(C.c07[0] + 0.1)});
       // c08: cheering blindly (arms up, hopping)
       tl.to("#k-wrap", { keyframes: { y: [0, -24, 0, -18, 0], rotation: [0, 4, 0, -4, 0] }, duration: 0.8, ease: "none" }, ${f2(C.c08[0] + 0.1)});

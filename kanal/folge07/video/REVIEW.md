@@ -13,3 +13,10 @@
 - overlap.mjs (40 px, jedes Frame, Text, Klotz, Helm, Rolle, Stempel): keine Treffer. layout.mjs: 18 Einblendungen ohne Waise, Tinte x 87–998, y 304–686, max. Breite 911. Fließtext 92 px, Schlagworte 140 px, GRUND 200 px, Beschriftungen ≥ 72 px.
 - bounds.mjs: DOM x 98–1000, Tinte x 92–999 über alle 1197 Frames. cutcheck.py: 0 Löcher an 16 Schnitten + Loop. lidcheck: nie ein Lid zu.
 - Ton: +11,0 dB, 15-kHz-Tiefpass, Limiter (4× überabgetastet) → −14,0 LUFS, True Peak −1,8 dBTP, 39,900 s wie das Bild.
+
+## Nachbesserung nach Prüfung (23.11.)
+- c15 „Kam aus einem / Spott-GEDICHT / von 1622.“ (keine Waise, 6 Wörter, 2,8 s). c06 „Angeblich / deshalb: KRIEG.“ (1,6 s) + Pergament-Etikett „LEGENDE?“ (78 px) über Schilden und Eimer.
+- Loop: harter Wechsel im selben Frame (Blase → Hook-Bild, c17 → c18 ohne Aus-/Einblenden); alle Zyklen (Hintergrund, Wippen) enden auf dem letzten Frame → letztes Frame = Frame 0 (verlustfreie Snapshots: 0 abweichende Pixel).
+- Helm: dreimal hebt Klotz den Rand an, das linke Auge lugt voll geöffnet hervor (Riemen blendet dabei aus), das rechte bleibt bedeckt.
+- Ton: master.sh misst jetzt die kodierte Datei (AAC 256 kb/s) und senkt bei Bedarf die Limiter-Decke.
+- Nach dem letzten Render: 39,9 s, −14,0 LUFS, −1,7 dBTP, 39,900 s; check 0 Fehler; overlap, layout, lidcheck ohne Befund; bounds Tinte x 92–999, DOM x 98–1000; cutcheck 0 Löcher an 16 Schnitten + Loop.

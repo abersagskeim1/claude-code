@@ -304,7 +304,7 @@ def pl(f, d=0.45):
     return _pc[k]
 
 
-def music(total, gaps=((20.95, 21.15),)):
+def music(total, gaps=((20.1, 20.32),)):
     N = int(round(SR * total))
     x = np.zeros(N)
     spb = 60 / 116

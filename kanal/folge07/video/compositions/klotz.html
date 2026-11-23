@@ -44,8 +44,8 @@
   <g id="k-mouth"><ellipse cx="150" cy="228" rx="26" ry="28" fill="#3A0A0A" stroke="#2A0505" stroke-width="4"/><ellipse cx="150" cy="244" rx="15" ry="8" fill="#FF5A6E"/></g>
   <g id="k-grin"><path d="M98 212 Q150 278 202 212 Q150 226 98 212 Z" fill="#3A0A0A" stroke="#2A0505" stroke-width="4" stroke-linejoin="round"/><path d="M128 246 Q150 256 172 246 Q150 238 128 246 Z" fill="#FF5A6E"/></g>
   <g id="k-sweat"><path d="M262 92 Q276 112 270 124 Q262 132 254 124 Q248 112 262 92 Z" fill="#9FD3FF" stroke="#2A4A7A" stroke-width="4"/></g>
-  <g id="k-helm" class="k-prop">
-    <path d="M36 196 Q150 372 264 196" fill="none" stroke="#0A0F22" stroke-width="16" stroke-linecap="round"/><path d="M36 196 Q150 372 264 196" fill="none" stroke="#5E6678" stroke-width="8" stroke-linecap="round"/>
+  <g id="k-helmT"><g id="k-helm" class="k-prop">
+    <g id="k-strap"><path d="M36 196 Q150 372 264 196" fill="none" stroke="#0A0F22" stroke-width="16" stroke-linecap="round"/><path d="M36 196 Q150 372 264 196" fill="none" stroke="#5E6678" stroke-width="8" stroke-linecap="round"/></g>
     <path d="M28 202 L60 16 Q150 -4 240 16 L272 202 Q150 222 28 202 Z" fill="#C8873F" stroke="#0A0F22" stroke-width="9" stroke-linejoin="round"/>
     <path d="M28 202 L60 16 Q76 12 92 10 L68 206 Z" fill="#8E5A26" opacity=".45"/>
     <path d="M84 20 L66 204 M120 14 L114 208 M180 14 L186 208 M216 20 L234 204" stroke="#8E5A26" stroke-width="5"/>
@@ -53,7 +53,7 @@
     <path d="M58 40 L242 40 L246 64 L54 64 Z" fill="#5E6678" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
     <path d="M26 192 Q150 214 274 192 L276 214 Q150 236 24 214 Z" fill="#8E5A26" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
     <circle cx="36" cy="200" r="11" fill="#5E6678" stroke="#0A0F22" stroke-width="5"/><circle cx="264" cy="200" r="11" fill="#5E6678" stroke="#0A0F22" stroke-width="5"/>
-  </g>
+  </g></g>
 </svg>
     </div></div></div>
     <div id="k-stamp" class="k-prop"><svg viewBox="0 0 260 220" width="100%" height="100%" overflow="visible">
@@ -72,7 +72,7 @@
       gsap.set("#k-browL", { svgOrigin: "109 81" }); gsap.set("#k-browR", { svgOrigin: "191 81" });
       gsap.set("#k-mouth", { svgOrigin: "150 228" }); gsap.set("#k-grin", { svgOrigin: "150 230" });
       gsap.set("#k-sweat", { svgOrigin: "262 92", opacity: 0, scale: 0 });
-      gsap.set("#k-helm", { svgOrigin: "150 210", opacity: 0, y: -90 });
+      gsap.set("#k-helm", { svgOrigin: "150 210", opacity: 0, y: -90 }); gsap.set("#k-helmT", { svgOrigin: "272 206" });
       gsap.set("#k-scroll", { opacity: 0, scale: 0, transformOrigin: "50% 100%" }); gsap.set("#k-imp", { opacity: 0, scale: 1.4, rotation: -8 });
       gsap.set("#k-stamp", { opacity: 0, scale: 0, transformOrigin: "50% 100%" });
       gsap.set(["#k-eyeL", "#k-eyeR"], { scale: 1.12 });
@@ -83,7 +83,7 @@
       gsap.set("#k-armL", { rotation: 70 }); gsap.set("#k-armR", { rotation: -45 });
       gsap.set("#k-wrap", { x: 0, y: 0, rotation: 0, scale: 1 }); gsap.set("#k-sq", { scaleX: 1, scaleY: 1 });
       // idle bob: whole half-cycles over the film, ends where it starts
-      tl.fromTo("#k-bob", { y: 0 }, { y: -12, duration: 0.49875, ease: "sine.inOut", yoyo: true, repeat: 79 }, 0);
+      tl.fromTo("#k-bob", { y: 0 }, { y: -12, duration: 0.49834, ease: "sine.inOut", yoyo: true, repeat: 79 }, 0);
       // hook: shocked jump
       tl.to("#k-wrap", { keyframes: { y: [0, -18, 0, -8, 0] }, duration: 0.6, ease: "none" }, 0.3);
       // curious @ 2.3
@@ -152,105 +152,105 @@
       tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 11.23);
       tl.to("#k-armL", { rotation: 105, duration: 0.286, ease: "power3.out" }, 11.27);
       tl.to("#k-armR", { rotation: -30, duration: 0.286, ease: "power3.out" }, 11.31);
-      // helm @ 13.7
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 13.65);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 13.73);
-      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 13.73);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 13.73);
-      tl.to("#k-browL", { y: -10, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 13.73);
-      tl.to("#k-browR", { y: -10, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 13.73);
-      tl.to("#k-mouth", { scaleX: 0.45, scaleY: 0.5, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 13.73);
-      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 13.73);
-      tl.to("#k-armL", { rotation: 25, duration: 0.286, ease: "power3.out" }, 13.77);
-      tl.to("#k-armR", { rotation: -25, duration: 0.286, ease: "power3.out" }, 13.81);
-      // cheer @ 16.4
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 16.35);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 16.43);
-      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: -4, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 16.43);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 16.43);
-      tl.to("#k-browL", { y: -16, rotation: -6, duration: 0.22, ease: "back.out(1.8)" }, 16.43);
-      tl.to("#k-browR", { y: -16, rotation: 6, duration: 0.22, ease: "back.out(1.8)" }, 16.43);
-      tl.to("#k-mouth", { scaleX: 0.001, scaleY: 0.001, y: 0, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 16.43);
-      tl.to("#k-grin", { scale: 0.9, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 16.43);
-      tl.to("#k-armL", { rotation: 160, duration: 0.286, ease: "power3.out" }, 16.47);
-      tl.to("#k-armR", { rotation: 200, duration: 0.286, ease: "power3.out" }, 16.51);
-      // shock @ 18.45
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 18.4);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.12, duration: 0.22, ease: "back.out(1.8)" }, 18.48);
-      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: 0.6, duration: 0.22, ease: "back.out(1.8)" }, 18.48);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 18.48);
-      tl.to("#k-browL", { y: -18, rotation: -6, duration: 0.22, ease: "back.out(1.8)" }, 18.48);
-      tl.to("#k-browR", { y: -18, rotation: 6, duration: 0.22, ease: "back.out(1.8)" }, 18.48);
-      tl.to("#k-mouth", { scaleX: 1, scaleY: 1.1, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 18.48);
-      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 18.48);
-      tl.to("#k-armL", { rotation: 70, duration: 0.286, ease: "power3.out" }, 18.52);
-      tl.to("#k-armR", { rotation: -45, duration: 0.286, ease: "power3.out" }, 18.56);
-      // jawdrop @ 21
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 20.95);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.18, duration: 0.22, ease: "back.out(1.8)" }, 21.03);
-      tl.to(["#k-pupL", "#k-pupR"], { x: -6, y: -8, scale: 0.55, duration: 0.22, ease: "back.out(1.8)" }, 21.03);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 21.03);
-      tl.to("#k-browL", { y: -22, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 21.03);
-      tl.to("#k-browR", { y: -22, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 21.03);
-      tl.to("#k-mouth", { scaleX: 1.1, scaleY: 1.7, y: 14, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 21.03);
-      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 21.03);
-      tl.to("#k-armL", { rotation: 60, duration: 0.286, ease: "power3.out" }, 21.07);
-      tl.to("#k-armR", { rotation: -45, duration: 0.286, ease: "power3.out" }, 21.11);
-      // impressed @ 23.2
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 23.15);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 23.23);
-      tl.to(["#k-pupL", "#k-pupR"], { x: -6, y: -4, scale: 0.9, duration: 0.22, ease: "back.out(1.8)" }, 23.23);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 23.23);
-      tl.to("#k-browL", { y: -12, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 23.23);
-      tl.to("#k-browR", { y: -12, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 23.23);
-      tl.to("#k-mouth", { scaleX: 0.45, scaleY: 0.45, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 23.23);
-      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 23.23);
-      tl.to("#k-armL", { rotation: 40, duration: 0.286, ease: "power3.out" }, 23.27);
-      tl.to("#k-armR", { rotation: -40, duration: 0.286, ease: "power3.out" }, 23.31);
-      // happy @ 26
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 25.95);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.04, duration: 0.22, ease: "back.out(1.8)" }, 26.03);
-      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 26.03);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 26.03);
-      tl.to("#k-browL", { y: -10, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 26.03);
-      tl.to("#k-browR", { y: -10, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 26.03);
-      tl.to("#k-mouth", { scaleX: 0.001, scaleY: 0.001, y: 0, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 26.03);
-      tl.to("#k-grin", { scale: 0.8, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 26.03);
-      tl.to("#k-armL", { rotation: 35, duration: 0.286, ease: "power3.out" }, 26.07);
-      tl.to("#k-armR", { rotation: -35, duration: 0.286, ease: "power3.out" }, 26.11);
-      // proud @ 28.8
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 28.75);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 28.83);
-      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: -2, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 28.83);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 28.83);
-      tl.to("#k-browL", { y: -14, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 28.83);
-      tl.to("#k-browR", { y: -14, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 28.83);
-      tl.to("#k-mouth", { scaleX: 0.001, scaleY: 0.001, y: 0, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 28.83);
-      tl.to("#k-grin", { scale: 0.75, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 28.83);
-      tl.to("#k-armL", { rotation: 30, duration: 0.286, ease: "power3.out" }, 28.87);
-      tl.to("#k-armR", { rotation: -30, duration: 0.286, ease: "power3.out" }, 28.91);
-      // curious @ 30.5
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 30.45);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 30.53);
-      tl.to(["#k-pupL", "#k-pupR"], { x: -14, y: -10, scale: 1.1, duration: 0.22, ease: "back.out(1.8)" }, 30.53);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 30.53);
-      tl.to("#k-browL", { y: -18, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 30.53);
-      tl.to("#k-browR", { y: -4, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 30.53);
-      tl.to("#k-mouth", { scaleX: 0.5, scaleY: 0.35, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 30.53);
-      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 30.53);
-      tl.to("#k-armL", { rotation: 40, duration: 0.286, ease: "power3.out" }, 30.57);
-      tl.to("#k-armR", { rotation: -40, duration: 0.286, ease: "power3.out" }, 30.61);
-      // look @ 32.1
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 32.05);
-      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.06, duration: 0.22, ease: "back.out(1.8)" }, 32.13);
-      tl.to(["#k-pupL", "#k-pupR"], { x: -14, y: -12, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 32.13);
-      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 32.13);
-      tl.to("#k-browL", { y: -14, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 32.13);
-      tl.to("#k-browR", { y: -14, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 32.13);
-      tl.to("#k-mouth", { scaleX: 0.5, scaleY: 0.5, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 32.13);
-      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 32.13);
-      tl.to("#k-armL", { rotation: 40, duration: 0.286, ease: "power3.out" }, 32.17);
-      tl.to("#k-armR", { rotation: -40, duration: 0.286, ease: "power3.out" }, 32.21);
+      // helm @ 12.9
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 12.85);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 12.93);
+      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 12.93);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 12.93);
+      tl.to("#k-browL", { y: -10, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 12.93);
+      tl.to("#k-browR", { y: -10, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 12.93);
+      tl.to("#k-mouth", { scaleX: 0.45, scaleY: 0.5, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 12.93);
+      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 12.93);
+      tl.to("#k-armL", { rotation: 25, duration: 0.286, ease: "power3.out" }, 12.97);
+      tl.to("#k-armR", { rotation: -25, duration: 0.286, ease: "power3.out" }, 13.01);
+      // cheer @ 15.6
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 15.55);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 15.63);
+      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: -4, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 15.63);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 15.63);
+      tl.to("#k-browL", { y: -16, rotation: -6, duration: 0.22, ease: "back.out(1.8)" }, 15.63);
+      tl.to("#k-browR", { y: -16, rotation: 6, duration: 0.22, ease: "back.out(1.8)" }, 15.63);
+      tl.to("#k-mouth", { scaleX: 0.001, scaleY: 0.001, y: 0, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 15.63);
+      tl.to("#k-grin", { scale: 0.9, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 15.63);
+      tl.to("#k-armL", { rotation: 160, duration: 0.286, ease: "power3.out" }, 15.67);
+      tl.to("#k-armR", { rotation: 200, duration: 0.286, ease: "power3.out" }, 15.71);
+      // shock @ 17.65
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 17.6);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.12, duration: 0.22, ease: "back.out(1.8)" }, 17.68);
+      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: 0.6, duration: 0.22, ease: "back.out(1.8)" }, 17.68);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 17.68);
+      tl.to("#k-browL", { y: -18, rotation: -6, duration: 0.22, ease: "back.out(1.8)" }, 17.68);
+      tl.to("#k-browR", { y: -18, rotation: 6, duration: 0.22, ease: "back.out(1.8)" }, 17.68);
+      tl.to("#k-mouth", { scaleX: 1, scaleY: 1.1, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 17.68);
+      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 17.68);
+      tl.to("#k-armL", { rotation: 70, duration: 0.286, ease: "power3.out" }, 17.72);
+      tl.to("#k-armR", { rotation: -45, duration: 0.286, ease: "power3.out" }, 17.76);
+      // jawdrop @ 20.2
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 20.15);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.18, duration: 0.22, ease: "back.out(1.8)" }, 20.23);
+      tl.to(["#k-pupL", "#k-pupR"], { x: -6, y: -8, scale: 0.55, duration: 0.22, ease: "back.out(1.8)" }, 20.23);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 20.23);
+      tl.to("#k-browL", { y: -22, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 20.23);
+      tl.to("#k-browR", { y: -22, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 20.23);
+      tl.to("#k-mouth", { scaleX: 1.1, scaleY: 1.7, y: 14, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 20.23);
+      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 20.23);
+      tl.to("#k-armL", { rotation: 60, duration: 0.286, ease: "power3.out" }, 20.27);
+      tl.to("#k-armR", { rotation: -45, duration: 0.286, ease: "power3.out" }, 20.31);
+      // impressed @ 22.4
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 22.35);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 22.43);
+      tl.to(["#k-pupL", "#k-pupR"], { x: -6, y: -4, scale: 0.9, duration: 0.22, ease: "back.out(1.8)" }, 22.43);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 22.43);
+      tl.to("#k-browL", { y: -12, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 22.43);
+      tl.to("#k-browR", { y: -12, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 22.43);
+      tl.to("#k-mouth", { scaleX: 0.45, scaleY: 0.45, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 22.43);
+      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 22.43);
+      tl.to("#k-armL", { rotation: 40, duration: 0.286, ease: "power3.out" }, 22.47);
+      tl.to("#k-armR", { rotation: -40, duration: 0.286, ease: "power3.out" }, 22.51);
+      // happy @ 25.2
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 25.15);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.04, duration: 0.22, ease: "back.out(1.8)" }, 25.23);
+      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: 0, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 25.23);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 25.23);
+      tl.to("#k-browL", { y: -10, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 25.23);
+      tl.to("#k-browR", { y: -10, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 25.23);
+      tl.to("#k-mouth", { scaleX: 0.001, scaleY: 0.001, y: 0, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 25.23);
+      tl.to("#k-grin", { scale: 0.8, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 25.23);
+      tl.to("#k-armL", { rotation: 35, duration: 0.286, ease: "power3.out" }, 25.27);
+      tl.to("#k-armR", { rotation: -35, duration: 0.286, ease: "power3.out" }, 25.31);
+      // proud @ 28
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 27.95);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 28.03);
+      tl.to(["#k-pupL", "#k-pupR"], { x: 0, y: -2, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 28.03);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 28.03);
+      tl.to("#k-browL", { y: -14, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 28.03);
+      tl.to("#k-browR", { y: -14, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 28.03);
+      tl.to("#k-mouth", { scaleX: 0.001, scaleY: 0.001, y: 0, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 28.03);
+      tl.to("#k-grin", { scale: 0.75, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 28.03);
+      tl.to("#k-armL", { rotation: 30, duration: 0.286, ease: "power3.out" }, 28.07);
+      tl.to("#k-armR", { rotation: -30, duration: 0.286, ease: "power3.out" }, 28.11);
+      // curious @ 29.7
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 29.65);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.05, duration: 0.22, ease: "back.out(1.8)" }, 29.73);
+      tl.to(["#k-pupL", "#k-pupR"], { x: -14, y: -10, scale: 1.1, duration: 0.22, ease: "back.out(1.8)" }, 29.73);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 29.73);
+      tl.to("#k-browL", { y: -18, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 29.73);
+      tl.to("#k-browR", { y: -4, rotation: 0, duration: 0.22, ease: "back.out(1.8)" }, 29.73);
+      tl.to("#k-mouth", { scaleX: 0.5, scaleY: 0.35, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 29.73);
+      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 29.73);
+      tl.to("#k-armL", { rotation: 40, duration: 0.286, ease: "power3.out" }, 29.77);
+      tl.to("#k-armR", { rotation: -40, duration: 0.286, ease: "power3.out" }, 29.81);
+      // look @ 31.3
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 31.25);
+      tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.06, duration: 0.22, ease: "back.out(1.8)" }, 31.33);
+      tl.to(["#k-pupL", "#k-pupR"], { x: -14, y: -12, scale: 1, duration: 0.22, ease: "back.out(1.8)" }, 31.33);
+      tl.to(["#k-lidL", "#k-lidR"], { scaleY: 0, duration: 0.22, ease: "power2.out" }, 31.33);
+      tl.to("#k-browL", { y: -14, rotation: -4, duration: 0.22, ease: "back.out(1.8)" }, 31.33);
+      tl.to("#k-browR", { y: -14, rotation: 4, duration: 0.22, ease: "back.out(1.8)" }, 31.33);
+      tl.to("#k-mouth", { scaleX: 0.5, scaleY: 0.5, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.8)" }, 31.33);
+      tl.to("#k-grin", { scale: 0.2, opacity: 0, duration: 0.22, ease: "back.out(1.8)" }, 31.33);
+      tl.to("#k-armL", { rotation: 40, duration: 0.286, ease: "power3.out" }, 31.37);
+      tl.to("#k-armR", { rotation: -40, duration: 0.286, ease: "power3.out" }, 31.41);
       // stamp @ 34.4
       tl.to("#k-sq", { keyframes: { scaleY: [1, 0.9, 1.06, 1], scaleX: [1, 1.07, 0.97, 1] }, duration: 0.3, ease: "none" }, 34.35);
       tl.to(["#k-eyeL", "#k-eyeR"], { scale: 1.1, duration: 0.22, ease: "back.out(1.8)" }, 34.43);
@@ -302,17 +302,30 @@
       tl.to("#k-helm", { y: 0, duration: 0.25, ease: "power2.in" }, 9);
       tl.to("#k-sq", { keyframes: { scaleY: [1, 0.84, 1.05, 1], scaleX: [1, 1.1, 0.97, 1] }, duration: 0.35, ease: "none" }, 9.18);
       // he cannot see: small stumbling steps on the spot (x stays within +-18 px), tilting
-      tl.to("#k-wrap", { keyframes: { x: [0, -18, -8, 6, 2, 0], rotation: [0, -7, -2, 4, 1, 0], y: [0, -10, 0, -10, 0, 0] }, duration: 0.8, ease: "none", repeat: 7 }, 9.5);
+      tl.to("#k-wrap", { keyframes: { x: [0, -18, -8, 6, 2, 0], rotation: [0, -7, -2, 4, 1, 0], y: [0, -10, 0, -10, 0, 0] }, duration: 0.8, ease: "none", repeat: 6 }, 9.5);
+      // now and then one eye peeks out under the lifted helmet rim (the eye stays fully open, the other stays covered)
+      tl.to("#k-helmT", { keyframes: { rotation: [0, 30, 30, 0], x: [0, -20, -20, 0] }, duration: 0.8, ease: "power2.inOut" }, 11.5);
+      tl.to("#k-strap", { keyframes: { opacity: [1, 0, 0, 1] }, duration: 0.8, ease: "none" }, 11.5);
+      tl.to("#k-eyeL", { keyframes: { y: [0, 76, 76, 0] }, duration: 0.8, ease: "power2.inOut" }, 11.5);
+      tl.to("#k-pupL", { keyframes: { x: [0, -12, 12, 0] }, duration: 0.8, ease: "sine.inOut" }, 11.5);
+      tl.to("#k-helmT", { keyframes: { rotation: [0, 30, 30, 0], x: [0, -20, -20, 0] }, duration: 0.8, ease: "power2.inOut" }, 13.3);
+      tl.to("#k-strap", { keyframes: { opacity: [1, 0, 0, 1] }, duration: 0.8, ease: "none" }, 13.3);
+      tl.to("#k-eyeL", { keyframes: { y: [0, 76, 76, 0] }, duration: 0.8, ease: "power2.inOut" }, 13.3);
+      tl.to("#k-pupL", { keyframes: { x: [0, -12, 12, 0] }, duration: 0.8, ease: "sine.inOut" }, 13.3);
+      tl.to("#k-helmT", { keyframes: { rotation: [0, 30, 30, 0], x: [0, -20, -20, 0] }, duration: 0.8, ease: "power2.inOut" }, 14.6);
+      tl.to("#k-strap", { keyframes: { opacity: [1, 0, 0, 1] }, duration: 0.8, ease: "none" }, 14.6);
+      tl.to("#k-eyeL", { keyframes: { y: [0, 76, 76, 0] }, duration: 0.8, ease: "power2.inOut" }, 14.6);
+      tl.to("#k-pupL", { keyframes: { x: [0, -12, 12, 0] }, duration: 0.8, ease: "sine.inOut" }, 14.6);
       tl.to("#k-sweat", { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)" }, 11.4);
-      tl.to("#k-sweat", { keyframes: { y: [0, 30] }, duration: 0.5, ease: "power1.in", repeat: 2 }, 11.6);
-      tl.to("#k-sweat", { opacity: 0, scale: 0, y: 0, duration: 0.15 }, 13.7);
+      tl.to("#k-sweat", { keyframes: { y: [0, 30] }, duration: 0.5, ease: "power1.in", repeat: 1 }, 11.6);
+      tl.to("#k-sweat", { opacity: 0, scale: 0, y: 0, duration: 0.15 }, 12.9);
       // c08: cheering blindly (arms up, hopping)
-      tl.to("#k-wrap", { keyframes: { y: [0, -24, 0, -18, 0], rotation: [0, 4, 0, -4, 0] }, duration: 0.8, ease: "none" }, 16.5);
-      // c09: pulls the bucket off (18.25): arms up, the helmet pops up and away (fades, does not fly into the picture)
-      tl.to("#k-armL", { rotation: 170, duration: 0.15, ease: "power2.out" }, 18.1);
-      tl.to("#k-armR", { rotation: 190, duration: 0.15, ease: "power2.out" }, 18.1);
-      tl.to("#k-helm", { keyframes: { y: [0, -40, -90], rotation: [0, -10, -30], scale: [1, 0.9, 0.4], opacity: [1, 1, 0] }, duration: 0.3, ease: "power2.out" }, 18.25);
-      tl.to("#k-sq", { keyframes: { scaleY: [1, 1.12, 0.94, 1], scaleX: [1, 0.94, 1.05, 1] }, duration: 0.35, ease: "none" }, 18.25);
+      tl.to("#k-wrap", { keyframes: { y: [0, -24, 0, -18, 0], rotation: [0, 4, 0, -4, 0] }, duration: 0.8, ease: "none" }, 15.7);
+      // c09: pulls the bucket off (17.45): arms up, the helmet pops up and away (fades, does not fly into the picture)
+      tl.to("#k-armL", { rotation: 170, duration: 0.15, ease: "power2.out" }, 17.3);
+      tl.to("#k-armR", { rotation: 190, duration: 0.15, ease: "power2.out" }, 17.3);
+      tl.to("#k-helm", { keyframes: { y: [0, -40, -90], rotation: [0, -10, -30], scale: [1, 0.9, 0.4], opacity: [1, 1, 0] }, duration: 0.3, ease: "power2.out" }, 17.45);
+      tl.to("#k-sq", { keyframes: { scaleY: [1, 1.12, 0.94, 1], scaleX: [1, 0.94, 1.05, 1] }, duration: 0.35, ease: "none" }, 17.45);
       // GAG 2 (34.4): a scroll on an easel pops up left of him, he grabs a stamp and stamps FAKT-CHECK on it, then grins
       tl.to("#k-scroll", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 34.15);
       tl.fromTo("#k-stamp", { x: 0, y: 0, rotation: 0 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.4)", immediateRender: false }, 34.4);
