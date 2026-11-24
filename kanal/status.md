@@ -9,8 +9,9 @@
 | 5 | Sir Nils Olav | fertig (39,7 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-21 |
 | 6 | Twitch Plays Pokémon | fertig (39,5 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-22 |
 | 7 | Der Eimer-Krieg (Mythos-Check) | fertig (40,0 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-23 |
+| 8 | Der Kuchen-Krieg | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-24 |
 
-Nächste Folge: **8** (siehe serienplan.md)
+Nächste Folge: **9** (siehe serienplan.md)
 
 Offene KANN-Punkte Folge 2 (nicht behoben): 3 Frames nur Hintergrund+Klotz bei 38,07–38,13 s; Zeilenumbrüche „echt.“ / „Land.“ allein in der Zeile.
 
@@ -21,3 +22,5 @@ Offene KANN-Punkte Folge 4: kurze Lücke/Überdeckung bei 2,23 s und 18,43 s; Kl
 Folge 5: Hook ohne Zahl bewusst freigegeben (Bibel §2.2 Abweichung).
 
 Folge 6: Klotz-Position (unten, im Shorts-UI-Bereich) aus Serien-Konsistenz freigegeben; „EINE Figur.“ ab ~1,6–1,8 s freigegeben.
+
+Folge 8: Hook ohne Zahl und Länderschilder im Thumbnail (zusätzlich zu 2 gelben Wörtern) bewusst freigegeben.

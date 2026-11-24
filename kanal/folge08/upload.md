@@ -7,7 +7,7 @@ Reihenfolge wie in YouTube Studio:
 
 ## Titel
 ```
-Wegen einem Konditor in den KRIEG?! 🤯🍰 #Shorts
+Wegen eines Konditors in den KRIEG?! 🤯🍰 #Shorts
 ```
 
 ## Beschreibung
