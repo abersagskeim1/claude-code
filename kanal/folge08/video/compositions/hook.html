@@ -1,0 +1,65 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #hook-out, #hook-kb { position: absolute; inset: 0; transform-origin: 540px 1050px; }
+    .hook-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    
+   #hook-glow{position:absolute;left:240px;top:770px;width:600px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,179,199,.40) 0%,rgba(255,179,199,0) 66%);}
+   #hook-plL{position:absolute;left:140px;top:790px;width:30px;height:330px;} #hook-plR{position:absolute;left:910px;top:790px;width:30px;height:330px;}
+   #hook-flL{position:absolute;left:166px;top:806px;width:250px;height:167px;} #hook-flR{position:absolute;left:664px;top:806px;width:250px;height:167px;}
+   #hook-st{position:absolute;left:330px;top:1086px;width:420px;height:230px;}
+   #hook-tt{position:absolute;left:350px;top:822px;width:380px;height:323px;transform-origin:50% 95%;}
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="hook-out"><div id="hook-kb">
+      <div id="hook-glow"></div>
+      <div id="hook-plL"><svg viewBox="0 0 30 330" width="100%" height="100%" overflow="visible"><rect x="8" y="10" width="14" height="320" rx="7" fill="#D9DCE8" stroke="#0A0F22" stroke-width="6"/><circle cx="15" cy="12" r="12" fill="#F2B705" stroke="#0A0F22" stroke-width="6"/></svg></div><div id="hook-flL" class="hook-stk"><svg viewBox="0 0 240 160" width="100%" height="100%" overflow="visible"><defs><clipPath id="hook-fgL-cp"><path d="M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z"/></clipPath></defs>
+    <g id="hook-fgL"><g clip-path="url(#hook-fgL-cp)"><rect x="0" y="-20" width="80" height="200" fill="#1F9D55"/><rect x="80" y="-20" width="80" height="200" fill="#FFFFFF"/><rect x="160" y="-20" width="80" height="200" fill="#D62828"/>
+    <path d="M0 40 Q60 22 120 40 T240 40" stroke="#000" stroke-opacity=".08" stroke-width="22" fill="none"/></g>
+    <path d="M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z" fill="none" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/></g></svg></div>
+      <div id="hook-plR"><svg viewBox="0 0 30 330" width="100%" height="100%" overflow="visible"><rect x="8" y="10" width="14" height="320" rx="7" fill="#D9DCE8" stroke="#0A0F22" stroke-width="6"/><circle cx="15" cy="12" r="12" fill="#F2B705" stroke="#0A0F22" stroke-width="6"/></svg></div><div id="hook-flR" class="hook-stk"><svg viewBox="0 0 240 160" width="100%" height="100%" overflow="visible"><defs><clipPath id="hook-fgR-cp"><path d="M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z"/></clipPath></defs>
+    <g id="hook-fgR"><g clip-path="url(#hook-fgR-cp)"><rect x="0" y="-20" width="80" height="200" fill="#2F5BD3"/><rect x="80" y="-20" width="80" height="200" fill="#FFFFFF"/><rect x="160" y="-20" width="80" height="200" fill="#E63946"/>
+    <path d="M0 40 Q60 22 120 40 T240 40" stroke="#000" stroke-opacity=".08" stroke-width="22" fill="none"/></g>
+    <path d="M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z" fill="none" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/></g></svg></div>
+      <div id="hook-st" class="hook-stk"><svg viewBox="0 0 360 240" width="100%" height="100%" overflow="visible">
+    <path d="M150 46 H210 L224 196 H136 Z" fill="#C7B8FF" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M166 56 L160 186" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".5"/>
+    <ellipse cx="180" cy="208" rx="96" ry="26" fill="#8F7FD6" stroke="#0A0F22" stroke-width="8"/>
+    <ellipse cx="180" cy="34" rx="172" ry="28" fill="#9FE3C9" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M14 38 Q30 62 50 50 Q70 70 92 54 Q114 72 136 56 Q158 74 180 58 Q202 74 224 56 Q246 72 268 54 Q290 70 310 50 Q330 62 346 38" fill="#5DBF9C" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
+    <ellipse cx="120" cy="26" rx="50" ry="7" fill="#fff" opacity=".55"/></svg></div>
+      <div id="hook-tt" class="hook-stk"><svg viewBox="0 0 200 170" width="100%" height="100%" overflow="visible">
+    <path d="M14 96 L36 156 Q100 170 164 156 L186 96 Z" fill="#E9A65A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M44 106 L56 154 M72 104 L78 160 M100 104 V162 M128 104 L122 160 M156 106 L144 154" stroke="#C7843A" stroke-width="5" stroke-linecap="round"/>
+    <path d="M10 98 Q16 62 58 64 Q68 36 100 42 Q132 36 142 64 Q184 62 190 98 Q100 118 10 98 Z" fill="#FFF1D6" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M34 84 Q50 74 66 80 M124 78 Q140 72 160 82" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M100 22 Q130 10 134 38 Q132 64 100 76 Q68 64 66 38 Q70 10 100 22 Z" fill="#FF4D6D" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
+    <ellipse cx="86" cy="40" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="112" cy="36" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="100" cy="56" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="120" cy="54" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="80" cy="56" rx="3" ry="5" fill="#FFE08A"/>
+    <path d="M100 22 Q92 6 80 10 Q90 16 100 22 Q108 4 122 8 Q112 16 100 22 Z" fill="#3FAE5A" stroke="#0A0F22" stroke-width="4" stroke-linejoin="round"/>
+    <ellipse cx="82" cy="30" rx="7" ry="4" fill="#fff" opacity=".6" transform="rotate(-30 82 30)"/></svg></div>
+      <div id="hook-t-0" class="spk" style="left:225px;top:1025px;width:50px;height:50px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFB3C7" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="hook-t-1" class="spk" style="left:818px;top:1018px;width:44px;height:44px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="hook-t-2" class="spk" style="left:262px;top:1230px;width:40px;height:40px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#FFB3C7" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div><div id="hook-t-3" class="spk" style="left:777px;top:1227px;width:46px;height:46px;"><svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="#fff" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+
+      // frame 0 already shows the full motif (thumbnail picture)
+      gsap.set("#hook-fgL", { svgOrigin: "0 80" }); gsap.set("#hook-fgR", { svgOrigin: "0 80" });
+      tl.to("#hook-tt", { keyframes: { y: [0, -18, 0], rotation: [0, 2, 0], scaleY: [1, 1.03, 1] }, duration: 1.1, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#hook-fgL", { keyframes: { skewY: [0, 5, 0], scaleX: [1, 0.96, 1] }, duration: 1.1, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#hook-fgR", { keyframes: { skewY: [0, -5, 0], scaleX: [1, 0.96, 1] }, duration: 1.1, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.to("#hook-glow", { keyframes: { opacity: [1, 0.65, 1] }, duration: 1.1, ease: "sine.inOut", repeat: 1 }, 0);
+      tl.fromTo("#hook-t-0", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.949, ease: "sine.inOut", repeat: 2 }, 0.02);
+      tl.fromTo("#hook-t-1", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.939, ease: "sine.inOut", repeat: 2 }, 0.199);
+      tl.fromTo("#hook-t-2", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.906, ease: "sine.inOut", repeat: 2 }, 0.049);
+      tl.fromTo("#hook-t-3", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.968, ease: "sine.inOut", repeat: 2 }, 0.193);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#hook-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.1);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,54 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #waage-out, #waage-kb { position: absolute; inset: 0; transform-origin: 540px 1050px; }
+    .waage-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #waage-pi{position:absolute;left:440px;top:870px;width:200px;height:460px;}
+     #waage-bm{position:absolute;left:200px;top:870px;width:680px;height:60px;transform-origin:340px 30px;}
+     #waage-pL{position:absolute;left:114px;top:900px;width:220px;height:200px;} #waage-pR{position:absolute;left:746px;top:900px;width:220px;height:200px;}
+     #waage-tL{position:absolute;left:170px;top:978px;width:110px;height:94px;}
+     .waage-rs{position:absolute;width:150px;height:36px;}
+  </style>
+  <div id="root" data-composition-id="waage" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="waage-out"><div id="waage-kb">
+      <div id="waage-pi" class="waage-stk"><svg viewBox="0 0 200 460" width="100%" height="100%" overflow="visible">
+    <path d="M84 40 H116 L124 400 H76 Z" fill="#F2B705" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M20 450 Q20 400 100 396 Q180 400 180 450 Z" fill="#B07A00" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+    <circle cx="100" cy="34" r="28" fill="#FFD23F" stroke="#0A0F22" stroke-width="8"/></svg></div>
+      <div id="waage-gL"><div id="waage-pL" class="waage-stk"><svg viewBox="0 0 220 200" width="100%" height="100%" overflow="visible"><path d="M110 4 L24 150 M110 4 L196 150" stroke="#0A0F22" stroke-width="7"/><path d="M110 4 L24 150 M110 4 L196 150" stroke="#D9DCE8" stroke-width="3"/>
+    <path d="M6 150 H214 Q200 196 110 196 Q20 196 6 150 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M30 164 H120" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".6"/></svg></div><div id="waage-tL"><svg viewBox="0 0 200 170" width="100%" height="100%" overflow="visible">
+    <path d="M14 96 L36 156 Q100 170 164 156 L186 96 Z" fill="#E9A65A" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M44 106 L56 154 M72 104 L78 160 M100 104 V162 M128 104 L122 160 M156 106 L144 154" stroke="#C7843A" stroke-width="5" stroke-linecap="round"/>
+    <path d="M10 98 Q16 62 58 64 Q68 36 100 42 Q132 36 142 64 Q184 62 190 98 Q100 118 10 98 Z" fill="#FFF1D6" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M34 84 Q50 74 66 80 M124 78 Q140 72 160 82" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M100 22 Q130 10 134 38 Q132 64 100 76 Q68 64 66 38 Q70 10 100 22 Z" fill="#FF4D6D" stroke="#0A0F22" stroke-width="6" stroke-linejoin="round"/>
+    <ellipse cx="86" cy="40" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="112" cy="36" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="100" cy="56" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="120" cy="54" rx="3" ry="5" fill="#FFE08A"/><ellipse cx="80" cy="56" rx="3" ry="5" fill="#FFE08A"/>
+    <path d="M100 22 Q92 6 80 10 Q90 16 100 22 Q108 4 122 8 Q112 16 100 22 Z" fill="#3FAE5A" stroke="#0A0F22" stroke-width="4" stroke-linejoin="round"/>
+    <ellipse cx="82" cy="30" rx="7" ry="4" fill="#fff" opacity=".6" transform="rotate(-30 82 30)"/></svg></div></div>
+      <div id="waage-gR"><div id="waage-pR" class="waage-stk"><svg viewBox="0 0 220 200" width="100%" height="100%" overflow="visible"><path d="M110 4 L24 150 M110 4 L196 150" stroke="#0A0F22" stroke-width="7"/><path d="M110 4 L24 150 M110 4 L196 150" stroke="#D9DCE8" stroke-width="3"/>
+    <path d="M6 150 H214 Q200 196 110 196 Q20 196 6 150 Z" fill="#FFD23F" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M30 164 H120" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".6"/></svg></div>
+        <div id="waage-r0" class="waage-rs" style="left:780px;top:1012px;"><svg viewBox="0 0 380 90" width="100%" height="100%" overflow="visible"><path d="M6 14 L374 6 L370 80 L10 86 Z" fill="#FFFDF4" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M45.331545607186854 28 H287.4055790156126" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/><path d="M47.19444927293807 46 H304.5732849370688" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/><path d="M58.89322605449706 64 H210.7414150889963" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/></svg></div>
+        <div id="waage-r1" class="waage-rs" style="left:786px;top:982px;"><svg viewBox="0 0 380 90" width="100%" height="100%" overflow="visible"><path d="M6 14 L374 6 L370 80 L10 86 Z" fill="#FFB3C7" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M57.30339376721531 28 H221.68683723546565" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/><path d="M55.43644438497722 46 H313.2697290275246" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/><path d="M49.84195853583515 64 H260.93823841772974" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/></svg></div>
+        <div id="waage-r2" class="waage-rs" style="left:780px;top:952px;"><svg viewBox="0 0 380 90" width="100%" height="100%" overflow="visible"><path d="M6 14 L374 6 L370 80 L10 86 Z" fill="#9FE3C9" stroke="#0A0F22" stroke-width="7" stroke-linejoin="round"/><path d="M47.246063402853906 28 H315.98496567457914" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/><path d="M47.87035899236798 46 H316.77175246179104" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/><path d="M48.64743103738874 64 H207.78851374052465" stroke="#4A4E6A" stroke-width="6" stroke-linecap="round" opacity=".35"/></svg></div></div>
+      <div id="waage-bm" class="waage-stk"><svg viewBox="0 0 680 60" width="100%" height="100%" overflow="visible"><rect x="10" y="18" width="660" height="24" rx="12" fill="#FFD23F" stroke="#0A0F22" stroke-width="8"/><circle cx="340" cy="30" r="18" fill="#F2B705" stroke="#0A0F22" stroke-width="7"/><circle cx="24" cy="30" r="10" fill="#B07A00" stroke="#0A0F22" stroke-width="5"/><circle cx="656" cy="30" r="10" fill="#B07A00" stroke="#0A0F22" stroke-width="5"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#waage-kb", { scale: 1 }, { scale: 1.03, duration: 2.1, ease: "none" }, 0);
+      // level at the cut, then the bills side sinks (with a little overshoot)
+      tl.fromTo("#waage-bm", { rotation: 0 }, { keyframes: { rotation: [0, 14, 9, 11] }, duration: 0.7, ease: "power2.out" }, 0.35);
+      tl.fromTo("#waage-gL", { y: 0 }, { keyframes: { y: [0, -77.059, -51.059, -61.059] }, duration: 0.7, ease: "power2.out" }, 0.35);
+      tl.fromTo("#waage-gR", { y: 0 }, { keyframes: { y: [0, 77.059, 51.059, 61.059] }, duration: 0.7, ease: "power2.out" }, 0.35);
+      tl.to("#waage-tL", { keyframes: { y: [0, -30, 0], rotation: [0, -10, 0] }, duration: 0.4, ease: "power2.out" }, 0.55);
+      tl.to("#waage-kb", { keyframes: { x: [0, -10, 7, -4, 0], y: [0, 3, -2, 0, 0] }, duration: 0.35, ease: "sine.inOut" }, 0.58);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#waage-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2);
+      window.__timelines["waage"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,47 @@
+<template>
+  <style>
+    @font-face{font-family:'Lilita One';src:url('assets/fonts/LilitaOne-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block;}
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #anlass-out, #anlass-kb { position: absolute; inset: 0; transform-origin: 540px 1050px; }
+    .anlass-stk { filter: drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 14px 0 rgba(0,0,0,.35)); }
+    .spk { position: absolute; }
+    #anlass-pl{position:absolute;left:130px;top:790px;width:30px;height:520px;}
+     #anlass-fl{position:absolute;left:156px;top:806px;width:270px;height:180px;}
+     #anlass-rc{position:absolute;left:600px;top:800px;width:300px;height:420px;transform-origin:50% 0%;}
+     #anlass-tot{position:absolute;left:600px;top:1070px;width:300px;font-family:'Lilita One';font-size:76px;line-height:1;color:#D7262E;white-space:nowrap;text-align:center;}
+     #anlass-gl{position:absolute;left:250px;top:1060px;width:330px;height:187px;transform-origin:0% 50%;}
+  </style>
+  <div id="root" data-composition-id="anlass" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="anlass-out"><div id="anlass-kb">
+      <div id="anlass-pl"><svg viewBox="0 0 30 520" width="100%" height="100%" overflow="visible"><rect x="8" y="10" width="14" height="510" rx="7" fill="#D9DCE8" stroke="#0A0F22" stroke-width="6"/><circle cx="15" cy="12" r="12" fill="#F2B705" stroke="#0A0F22" stroke-width="6"/></svg></div><div id="anlass-fl" class="anlass-stk"><svg viewBox="0 0 240 160" width="100%" height="100%" overflow="visible"><defs><clipPath id="anlass-fg-cp"><path d="M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z"/></clipPath></defs>
+    <g id="anlass-fg"><g clip-path="url(#anlass-fg-cp)"><rect x="0" y="-20" width="80" height="200" fill="#2F5BD3"/><rect x="80" y="-20" width="80" height="200" fill="#FFFFFF"/><rect x="160" y="-20" width="80" height="200" fill="#E63946"/>
+    <path d="M0 40 Q60 22 120 40 T240 40" stroke="#000" stroke-opacity=".08" stroke-width="22" fill="none"/></g>
+    <path d="M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z" fill="none" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/></g></svg></div>
+      <div id="anlass-rc" class="anlass-stk"><svg viewBox="0 0 360 500" width="100%" height="100%" overflow="visible"><path d="M0 0 H360 V480 L345 500 L330 480 L315 500 L300 480 L285 500 L270 480 L255 500 L240 480 L225 500 L210 480 L195 500 L180 480 L165 500 L150 480 L135 500 L120 480 L105 500 L90 480 L75 500 L60 480 L45 500 L30 480 L15 500 L0 480 Z" fill="#FFFDF4" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/><path d="M30 60 H150" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M250 60 H330" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M30 110 H180" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M250 110 H330" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M30 160 H210" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M250 160 H330" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M30 210 H150" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M250 210 H330" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M30 260 H180" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M250 260 H330" stroke="#4A4E6A" stroke-width="10" stroke-linecap="round" opacity=".45"/><path d="M24 300 H336" stroke="#4A4E6A" stroke-width="6" stroke-dasharray="12 10"/></svg></div>
+      <div id="anlass-tot">60.000</div>
+      <div id="anlass-gl" class="anlass-stk"><svg viewBox="0 0 300 170" width="100%" height="100%" overflow="visible">
+    <rect x="4" y="44" width="70" height="96" rx="16" fill="#2F5BD3" stroke="#0A0F22" stroke-width="8"/>
+    <path d="M70 52 Q100 34 150 50 L270 56 Q296 58 296 78 Q296 98 270 98 L190 100 Q200 116 186 128 Q196 142 180 152 Q170 168 140 160 L100 156 Q70 150 70 130 Z" fill="#fff" stroke="#0A0F22" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M150 100 H190 M146 128 H186" stroke="#0A0F22" stroke-width="6" stroke-linecap="round"/><path d="M110 64 Q140 58 170 66" stroke="#DDE2F0" stroke-width="7" fill="none" stroke-linecap="round"/></svg></div>
+    </div></div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
+      tl.fromTo("#anlass-kb", { scale: 1 }, { scale: 1.03, duration: 2.4, ease: "none" }, 0);
+      gsap.set("#anlass-fg", { svgOrigin: "0 80" });
+      tl.to("#anlass-fg", { keyframes: { skewY: [0, 6, -4, 0], scaleX: [1, 0.95, 1.02, 1] }, duration: 0.8, ease: "none", repeat: 2 }, 0);
+      tl.fromTo("#anlass-gl", { x: -40, rotation: -4 }, { x: 0, rotation: 0, duration: 0.3, ease: "back.out(2)" }, 0);
+      // poke, poke, poke
+      tl.to("#anlass-gl", { keyframes: { x: [0, 26, 0] }, duration: 0.3, ease: "power2.inOut", repeat: 2 }, 0.45);
+      tl.to(["#anlass-rc", "#anlass-tot"], { keyframes: { x: [0, 8, 0], rotation: [0, 1.5, 0] }, duration: 0.2, ease: "power1.out" }, 0.58);
+      tl.to(["#anlass-rc", "#anlass-tot"], { keyframes: { x: [0, 8, 0], rotation: [0, 1.5, 0] }, duration: 0.2, ease: "power1.out" }, 0.88);
+      tl.to(["#anlass-rc", "#anlass-tot"], { keyframes: { x: [0, 8, 0], rotation: [0, 1.5, 0] }, duration: 0.2, ease: "power1.out" }, 1.18);
+      tl.to("#anlass-tot", { keyframes: { scale: [1, 1.1, 1] }, duration: 0.4, ease: "sine.inOut" }, 1.5);
+      // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
+      tl.to("#anlass-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.3);
+      window.__timelines["anlass"] = tl;
+    })();
+  </script>
+</template>
