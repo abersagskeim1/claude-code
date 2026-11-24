@@ -37,15 +37,15 @@ const STONE = "#A9A7C7", STONE_D = "#7B79A0", STONE_L = "#CFCDE6", STAMP = "#D72
 
 // ================= timing: one row per caption; one scene per caption; cuts on whole tenths =================
 // a caption with n words needs n x 0.35 s (min 1.1 s) fully readable + the word pop-in + the exit
-const CD = [["c01", 2.2], ["c02", 2.4], ["c03", 2.4], ["c04", 2.2], ["c05", 2.4], ["c06", 2.1], ["c07", 2.4], ["c08", 2.4], ["c09", 1.8],
-  ["c10", 2.4], ["c11", 2.1], ["c12", 2.4], ["c13", 2.1], ["c14", 2.0], ["c15", 2.8], ["c16", 2.8], ["c17", 2.3], ["c18", 0.6]];
+const CD = [["c01", 2.0], ["c02", 2.4], ["c03", 2.4], ["c04", 1.8], ["c05", 2.4], ["c06", 2.1], ["c07", 2.4], ["c08", 2.4], ["c09", 1.6],
+  ["c10", 2.4], ["c11", 2.1], ["c12", 2.4], ["c13", 2.1], ["c14", 2.0], ["c15", 2.0], ["c15b", 1.6], ["c16", 2.8], ["c17", 2.3], ["c18", 0.6]];
 const C = {};
 { let t = 0; for (const [id, d] of CD) { C[id] = [f2(t), f2(t + d)]; t += d; } }
 export const DUR = C.c18[1];
 const LAST = f2(DUR - 1 / 30); // time of the last frame: all loop cycles end here, so it equals frame 0
 const T = {
   hook: C.c01, kal: C.c02, laden: C.c03, leer: C.c04, preis: C.c05, rechn: C.c06, anlass: C.c07, zettel: C.c08, stapel: C.c09,
-  hafen: C.c10, waage: C.c11, torte: C.c12, frieden: C.c13, vorhang: C.c14, stiefel: C.c15, grab: C.c16, frage: [C.c17[0], DUR],
+  hafen: C.c10, waage: C.c11, torte: C.c12, frieden: C.c13, vorhang: C.c14, stiefel: [C.c15[0], C.c15b[1]], grab: C.c16, frage: [C.c17[0], DUR],
 };
 const S = (k) => [T[k][0], f2(T[k][1] - T[k][0])];
 const scenes = [];
@@ -73,11 +73,12 @@ const STAND = () => `<svg viewBox="0 0 360 240" width="100%" height="100%" overf
     <path d="M14 38 Q30 62 50 50 Q70 70 92 54 Q114 72 136 56 Q158 74 180 58 Q202 74 224 56 Q246 72 268 54 Q290 70 310 50 Q330 62 346 38" fill="${MINT_D}" stroke="${K}" stroke-width="6" stroke-linejoin="round"/>
     <ellipse cx="120" cy="26" rx="50" ry="7" fill="#fff" opacity=".55"/></svg>`;
 // simplified tricolour flag (three vertical bands, no emblem), viewBox 240 x 160, waving; unique clip id
-const FLAG3 = (id, cols) => {
+const FLAG3 = (id, cols, emb = false) => {
   const wave = "M0 10 Q60 -8 120 10 T240 10 V150 Q180 168 120 150 T0 150 Z";
   return `<svg viewBox="0 0 240 160" width="100%" height="100%" overflow="visible"><defs><clipPath id="${id}-cp"><path d="${wave}"/></clipPath></defs>
     <g id="${id}"><g clip-path="url(#${id}-cp)"><rect x="0" y="-20" width="80" height="200" fill="${cols[0]}"/><rect x="80" y="-20" width="80" height="200" fill="${cols[1]}"/><rect x="160" y="-20" width="80" height="200" fill="${cols[2]}"/>
-    <path d="M0 40 Q60 22 120 40 T240 40" stroke="#000" stroke-opacity=".08" stroke-width="22" fill="none"/></g>
+    <path d="M0 40 Q60 22 120 40 T240 40" stroke="#000" stroke-opacity=".08" stroke-width="22" fill="none"/>
+    ${emb ? `<g transform="translate(120 82)"><circle r="27" fill="#8B5A2B" stroke="${K}" stroke-width="5"/><path d="M-4 16 V-14 Q-4 -19 0 -19 Q4 -19 4 -14 V16 Z M-4 4 H-10 Q-13 4 -13 1 V-7 Q-13 -10 -10.5 -10 Q-8 -10 -8 -7 V-1 H-4 M4 -2 H10 Q13 -2 13 -5 V-11 Q13 -14 10.5 -14 Q8 -14 8 -11 V-7 H4" fill="#2FA35A" stroke="#14331F" stroke-width="2.5" stroke-linejoin="round"/></g>` : ""}</g>
     <path d="${wave}" fill="none" stroke="${K}" stroke-width="8" stroke-linejoin="round"/></g></svg>`;
 };
 const POLE = (h) => `<svg viewBox="0 0 30 ${h}" width="100%" height="100%" overflow="visible"><rect x="8" y="10" width="14" height="${h - 10}" rx="7" fill="#D9DCE8" stroke="${K}" stroke-width="6"/><circle cx="15" cy="12" r="12" fill="${GOLD}" stroke="${K}" stroke-width="6"/></svg>`;
@@ -185,9 +186,11 @@ const SLICE = () => `<svg viewBox="0 0 520 420" width="100%" height="100%" overf
 // sunburst rays (rotate the inner group), viewBox 700 x 700
 const RAYS = (id, col = "#FFE58A") => `<svg viewBox="0 0 700 700" width="100%" height="100%" overflow="visible"><g id="${id}">${Array.from({ length: 12 }, (_, i) => { const a = (i * 30) * Math.PI / 180, b = (i * 30 + 13) * Math.PI / 180; return `<path d="M350 350 L${f2(350 + Math.cos(a) * 340)} ${f2(350 + Math.sin(a) * 340)} L${f2(350 + Math.cos(b) * 340)} ${f2(350 + Math.sin(b) * 340)} Z" fill="${col}" opacity=".22"/>`; }).join("")}</g></svg>`;
 // hand + sleeve reaching to the right, viewBox 400 x 160
-const ARMHAND = (sleeve) => `<svg viewBox="0 0 400 160" width="100%" height="100%" overflow="visible">
+// tricolour cuff: cols in screen order left to right (the mirrored arm gets them reversed in the source)
+const ARMHAND = (sleeve, cols) => `<svg viewBox="0 0 400 160" width="100%" height="100%" overflow="visible">
     <path d="M0 40 H230 L240 124 H0 Z" fill="${sleeve}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
-    <rect x="216" y="34" width="34" height="96" rx="10" fill="#fff" stroke="${K}" stroke-width="7"/>
+    ${cols.map((c, i) => `<rect x="${172 + i * 26}" y="32" width="26" height="100" fill="${c}"/>`).join("")}
+    <rect x="172" y="32" width="78" height="100" rx="8" fill="none" stroke="${K}" stroke-width="7"/><path d="M198 32 V132 M224 32 V132" stroke="${K}" stroke-width="4"/>
     <path d="M246 52 Q300 36 350 52 Q392 60 392 84 Q392 104 360 106 L340 108 Q346 132 320 136 L272 134 Q248 130 246 110 Z" fill="${PEACH}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
     <path d="M300 60 Q330 52 360 62" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".6"/></svg>`;
 const COIN = () => `<svg viewBox="0 0 80 80" width="100%" height="100%" overflow="visible"><circle cx="40" cy="40" r="34" fill="${YEL}" stroke="${K}" stroke-width="7"/><circle cx="40" cy="40" r="20" fill="none" stroke="${GOLD_D}" stroke-width="5"/><path d="M26 26 Q34 18 44 18" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`;
@@ -262,11 +265,11 @@ ${exit ? `      // exit: the old picture is gone exactly at the cut, the next on
   return { id, title, start, dur };
 }
 const shake = (sel, at, a = 10, d = 0.4) => `      tl.to("${sel}", { keyframes: { x: [0, ${-a}, ${f2(a * 0.7)}, ${f2(-a * 0.4)}, 0], y: [0, ${f2(a * 0.3)}, ${f2(-a * 0.2)}, 0, 0] }, duration: ${d}, ease: "sine.inOut" }, ${at});`;
-function burst(p, n, cx, cy, size, rad, seed, cols = [YEL, "#fff"]) {
+function burst(p, n, cx, cy, size, rad, seed, cols = [YEL, "#fff"], r0 = 0, arc = null) {
   const RS = mulberry32(seed);
-  const items = Array.from({ length: n }, (_, i) => { const a = (i / n) * Math.PI * 2 + RS() * 0.5; const rr = rad * (0.7 + RS() * 0.5); return { x: Math.round(Math.cos(a) * rr), y: Math.round(Math.sin(a) * rr), s: Math.round(size * (0.7 + RS() * 0.6)) }; });
+  const items = Array.from({ length: n }, (_, i) => { const a0 = (i / n) * Math.PI * 2 + RS() * 0.5; const a = arc ? (arc[0] + (arc[1] - arc[0]) * (i + 0.5) / n) * Math.PI / 180 : a0; const rr = rad * (0.7 + RS() * 0.5); return { x: Math.round(Math.cos(a) * rr), y: Math.round(Math.sin(a) * rr), s: Math.round(size * (0.7 + RS() * 0.6)) }; });
   const html = items.map((it, i) => `<div id="${p}-${i}" class="spk" style="left:${cx - it.s / 2}px;top:${cy - it.s / 2}px;width:${it.s}px;height:${it.s}px;">${SPARK(cols[i % cols.length])}</div>`).join("");
-  const js = (at) => items.map((it, i) => `      tl.fromTo("#${p}-${i}", { x: 0, y: 0, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [0, ${it.x}], y: [0, ${it.y}], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, ${at});`).join("\n");
+  const js = (at) => items.map((it, i) => `      tl.fromTo("#${p}-${i}", { x: ${Math.round(it.x * r0)}, y: ${Math.round(it.y * r0)}, scale: 0, rotation: 0, opacity: 1 }, { keyframes: { x: [${Math.round(it.x * r0)}, ${it.x}], y: [${Math.round(it.y * r0)}, ${it.y}], scale: [0, 1.1, 0], rotation: [0, 120] }, duration: 0.6, ease: "power1.out", immediateRender: true }, ${at});`).join("\n");
   return { html, js };
 }
 function twinkle(p, spots, d, seed) {
@@ -278,14 +281,19 @@ function twinkle(p, spots, d, seed) {
 
 // ================= HOOK picture (frame 0 = thumbnail motif): giant tartlet on a cake stand, two simplified flags behind =================
 const hookCss = (p) => `
-   #${p}-glow{${abs(240, 770, 600, 520)}border-radius:50%;background:radial-gradient(circle,rgba(255,179,199,.40) 0%,rgba(255,179,199,0) 66%);}
-   #${p}-plL{${abs(140, 790, 30, 330)}} #${p}-plR{${abs(910, 790, 30, 330)}}
-   #${p}-flL{${abs(166, 806, 250, 167)}} #${p}-flR{${abs(664, 806, 250, 167)}}
-   #${p}-st{${abs(330, 1086, 420, 230)}}
-   #${p}-tt{${abs(350, 822, 380, 323)}transform-origin:50% 95%;}`;
+   #${p}-glow{${abs(260, 840, 560, 480)}border-radius:50%;background:radial-gradient(circle,rgba(255,179,199,.40) 0%,rgba(255,179,199,0) 66%);}
+   #${p}-plL{${abs(140, 620, 30, 280)}} #${p}-plR{${abs(910, 620, 30, 280)}}
+   #${p}-flL{${abs(166, 634, 250, 167)}} #${p}-flR{${abs(664, 634, 250, 167)}}
+   #${p}-lbL{${abs(118, 808, 346, 92)}border-radius:18px;background:${CREAM};border:7px solid ${K};}
+   #${p}-lbR{${abs(494, 808, 484, 92)}border-radius:18px;background:${CREAM};border:7px solid ${K};}
+   #${p}-lbLt,#${p}-lbRt{position:absolute;left:0;top:6px;width:100%;${LBL(74, "#26305A")}}
+   #${p}-st{${abs(380, 1128, 320, 213)}}
+   #${p}-tt{${abs(380, 902, 320, 272)}transform-origin:50% 95%;}`;
 const hookBody = (p) => `      <div id="${p}-glow"></div>
-      <div id="${p}-plL">${POLE(330)}</div><div id="${p}-flL" class="${p}-stk">${FLAG3(p + "-fgL", MX)}</div>
-      <div id="${p}-plR">${POLE(330)}</div><div id="${p}-flR" class="${p}-stk">${FLAG3(p + "-fgR", FR)}</div>
+      <div id="${p}-plL">${POLE(280)}</div><div id="${p}-flL" class="${p}-stk">${FLAG3(p + "-fgL", MX, true)}</div>
+      <div id="${p}-plR">${POLE(280)}</div><div id="${p}-flR" class="${p}-stk">${FLAG3(p + "-fgR", FR)}</div>
+      <div id="${p}-lbL" class="${p}-stk"><div id="${p}-lbLt">MEXIKO</div></div>
+      <div id="${p}-lbR" class="${p}-stk"><div id="${p}-lbRt">FRANKREICH</div></div>
       <div id="${p}-st" class="${p}-stk">${STAND()}</div>
       <div id="${p}-tt" class="${p}-stk">${TART()}</div>`;
 // idle motion of the hook picture; all moves are whole periods starting from the rest pose
@@ -409,7 +417,7 @@ ${cr.map((c, i) => `      tl.fromTo("#leer-c${i}", { y: 0, opacity: 0, rotation:
 {
   const p = "rechn";
   const [s, d] = S(p);
-  const b = burst("rechn-b", 8, 540, 1210, 46, 210, 6000, [YEL, "#fff", PINK]);
+  const b = burst("rechn-b", 8, 540, 1060, 46, 230, 6000, [YEL, "#fff", PINK], 0.45, [210, 330]);
   scenes.push(scene(p, "Rechnung rollt aus", s, d,
     `#rechn-rc{${abs(360, 830, 360, 500)}transform-origin:50% 0%;}
      #rechn-roll{${abs(310, 776, 460, 110)}}
@@ -571,7 +579,7 @@ ${shake("#torte-kb", 0.6, 8, 0.35)}`));
      #frieden-pL{${abs(150, 1060, 200, 182)}} #frieden-pR{${abs(730, 1060, 200, 182)}}
      .frieden-cn{position:absolute;width:64px;height:64px;}
      #frieden-fL{${abs(170, 1270, 120, 80)}} #frieden-fR{${abs(790, 1270, 120, 80)}}`,
-    `      <div id="frieden-hs"><div id="frieden-aL" class="frieden-stk">${ARMHAND(MX[0])}</div><div id="frieden-aR" class="frieden-stk">${ARMHAND(FR[0])}</div></div>
+    `      <div id="frieden-hs"><div id="frieden-aL" class="frieden-stk">${ARMHAND("#3A4270", MX)}</div><div id="frieden-aR" class="frieden-stk">${ARMHAND("#3A4270", FR.slice().reverse())}</div></div>
       <div id="frieden-pi" class="frieden-stk">${PILLAR()}</div>
       <div id="frieden-pL" class="frieden-stk">${PAN()}</div><div id="frieden-pR" class="frieden-stk">${PAN()}</div>
       <div id="frieden-bm" class="frieden-stk">${BEAM()}</div>
@@ -667,7 +675,7 @@ ${tw.js}`));
       <div id="frage-sl">${SLICE()}</div>
       <div id="frage-fk">${FORK()}</div>
       <div id="frage-ht">${HEART()}</div>`,
-    `      gsap.set(["#frage-glow", "#frage-plL", "#frage-flL", "#frage-plR", "#frage-flR", "#frage-st", "#frage-tt"], { opacity: 0 });
+    `      gsap.set(["#frage-glow", "#frage-plL", "#frage-flL", "#frage-plR", "#frage-flR", "#frage-lbL", "#frage-lbR", "#frage-st", "#frage-tt"], { opacity: 0 });
       tl.fromTo("#frage-bb", { scale: 0.85, rotation: -3 }, { scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2)" }, 0);
       tl.fromTo("#frage-sl", { scale: 0.6 }, { scale: 1, duration: 0.3, ease: "back.out(2.6)" }, 0.1);
       tl.fromTo("#frage-fk", { scale: 0.5, rotation: 30 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.2);
@@ -677,7 +685,7 @@ ${tw.js}`));
       // loop (${LOOP}): hard switch in one frame - bubble gone, hook picture in its frame-0 pose (incl. sparkles at their start scale)
       gsap.set([${[0, 1, 2, 3].map((i) => `"#frage-t-${i}"`).join(", ")}], { scale: 0.3, rotation: 0, opacity: 0 });
       tl.set(["#frage-bb", "#frage-sl", "#frage-fk", "#frage-ht"], { opacity: 0 }, ${LOOP});
-      tl.set(["#frage-glow", "#frage-plL", "#frage-flL", "#frage-plR", "#frage-flR", "#frage-st", "#frage-tt", ${[0, 1, 2, 3].map((i) => `"#frage-t-${i}"`).join(", ")}], { opacity: 1 }, ${LOOP});
+      tl.set(["#frage-glow", "#frage-plL", "#frage-flL", "#frage-plR", "#frage-flR", "#frage-lbL", "#frage-lbR", "#frage-st", "#frage-tt", ${[0, 1, 2, 3].map((i) => `"#frage-t-${i}"`).join(", ")}], { opacity: 1 }, ${LOOP});
       // the last frame is frame 0 again`,
     { exit: false, kb: false }));
 }
@@ -741,7 +749,8 @@ const caps = [
   { id: "c12", words: ["!KUCHEN-", "/", "+!KRIEG", "/", "heißt", "er", "seitdem."], shake: true },
   { id: "c13", words: ["*1839:", "Frieden.", "/", "Mexiko", "zahlt."] },
   { id: "c14", words: ["Und", "jetzt", "/", "das", "Skurrilste?"] },
-  { id: "c15", words: ["General", "/", "Santa", "Anna", "/", "verliert", "ein", "*BEIN."] },
+  { id: "c15", words: ["Mexikos", "General", "/", "Santa", "Anna\u00a0…"] },
+  { id: "c15b", words: ["verliert", "ein", "*BEIN."] },
   { id: "c16", words: ["Das", "Bein", "/", "bekommt", "später", "/", "ein", "#BEGRÄBNIS."] },
   { id: "c17", words: ["Wofür", "würdest", "du", "/", "Krieg", "führen?"], hard: true },
   { id: "c18", words: HOOKW, loop: true },

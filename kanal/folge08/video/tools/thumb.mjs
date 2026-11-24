@@ -1,5 +1,5 @@
 // Upload thumbnail (Folge 8): the frame-0 motif (tartlet on the cake stand, two simplified flags, Klotz with toque shocked bottom right),
-// rendered from the real composition at t = 0, captions hidden, the tartlet enlarged, "60.000 PESOS?!" in yellow with a thick outline.
+// rendered from the real composition at t = 0, captions hidden, the picture moved down under the text, country signs MEXIKO / FRANKREICH, "60.000 PESOS?!" in yellow with a thick outline.
 // Usage: PUPPETEER_CORE=<path> node tools/thumb.mjs <preview_url> <out_png>
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
@@ -14,9 +14,8 @@ const seek = (t) => p.evaluate(async (t) => { window.__player.renderSeek(t); if 
 await p.evaluate(() => {
   const st = document.createElement("style");
   st.textContent = `[data-composition-id="captions"] { opacity: 0 !important; }
-    #hook-out { transform: translateY(90px) !important; }
-    #hook-tt { scale: 1.28; }
-    #hook-glow { scale: 1.2; }
+    #hook-out { transform: translateY(150px) !important; }
+    #hook-glow { scale: 1.15; }
     #thumb-txt { position: absolute; left: 70px; top: 290px; width: 940px; text-align: center; z-index: 99; font-family: 'Lilita One'; color: #FFD23F;
       line-height: 1.0; -webkit-text-stroke: 28px #0A0F22; paint-order: stroke fill; text-shadow: 0 18px 0 #050814; }
     #thumb-txt span { display: block; } #thumb-txt .a { font-size: 230px; letter-spacing: -0.02em; } #thumb-txt .b { font-size: 200px; }`;

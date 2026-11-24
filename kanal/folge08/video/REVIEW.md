@@ -13,3 +13,10 @@
 - overlap.mjs (40 px, jedes Frame): keine Treffer. layout.mjs: 18 Einblendungen ohne Waise, Tinte x 81–991, y 285–773, max. Breite 910. Fließtext 92 px, Schlagworte 140 px, KUCHEN-KRIEG 200 px, Beschriftungen ≥ 76 px.
 - bounds.mjs: DOM x 87–1000, Tinte x 82–999 über alle 1194 Frames. cutcheck.py: 0 Löcher an 16 Schnitten + Loop; letztes Frame ≈ Frame 0 (mittlere Abweichung 0,2/255). lidcheck: nie ein Lid zu.
 - Ton: +6,7 dB, Limiter → −14,0 LUFS, True Peak −3,9 dBTP, 39,800 s wie das Bild.
+
+## Nachbesserung nach Prüfung (24.11.)
+- Hook/Loop/Thumbnail: Fahnen nach oben, darunter Schilder „MEXIKO“ / „FRANKREICH“ (74 px), Mexiko-Fahne mit vereinfachtem Emblem (brauner Kreis, grüner Kaktus); Törtchen und Ständer etwas kleiner darunter. Titel neu: „Wegen einem Konditor in den KRIEG?! 🤯🍰 #Shorts“.
+- Handschlag: Ärmel neutral, Trikolore-Manschetten (am Bildschirm von links nach rechts: Mexiko grün-weiß-rot, Frankreich blau-weiß-rot).
+- Funkeln bei 60.000 steigt jetzt nach oben aus dem Bon; mindestens 91 px Abstand zum Punkt (inkl. Sprung der Zahl).
+- „Mexikos General / Santa Anna …“ (2,0 s) + „verliert ein BEIN.“ (1,6 s); dafür c01 2,0 s, c04 1,8 s, c09 1,6 s (Lesezeit erfüllt). Musikpause jetzt vor 24,0 s (`sfx.py assets/sfx 39.8 23.78`).
+- Nach dem letzten Render: 39,8 s, −14,0 LUFS, −3,9 dBTP, 39,800 s; check 0 Fehler; overlap, layout, lidcheck ohne Befund; bounds Tinte x 82–999, DOM x 87–1000; cutcheck 0 Löcher an 16 Schnitten + Loop.

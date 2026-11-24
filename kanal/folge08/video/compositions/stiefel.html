@@ -27,20 +27,20 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
       // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
-      tl.fromTo("#stiefel-kb", { scale: 1 }, { scale: 1.03, duration: 2.8, ease: "none" }, 0);
+      tl.fromTo("#stiefel-kb", { scale: 1 }, { scale: 1.03, duration: 3.6, ease: "none" }, 0);
       gsap.set("#stiefel-rg", { svgOrigin: "350 350" });
-      tl.fromTo("#stiefel-rg", { rotation: 0 }, { rotation: -45, duration: 2.8, ease: "none" }, 0);
+      tl.fromTo("#stiefel-rg", { rotation: 0 }, { rotation: -45, duration: 3.6, ease: "none" }, 0);
       tl.fromTo("#stiefel-bt", { scale: 0.9, y: -20 }, { scale: 1, y: 0, duration: 0.35, ease: "back.out(2.4)" }, 0);
       // the boot hops on its cushion, proud
       tl.to("#stiefel-bt", { keyframes: { y: [0, -40, 0], rotation: [0, -6, 0], scaleY: [1, 1.04, 0.94] }, duration: 0.5, ease: "power1.inOut", repeat: 3 }, 0.5);
       tl.to("#stiefel-cu", { keyframes: { scaleY: [1, 1, 0.9, 1] }, duration: 0.5, ease: "none", repeat: 3, transformOrigin: "50% 100%" }, 0.5);
       tl.to("#stiefel-bt", { y: 0, rotation: 0, scaleY: 1, duration: 0.2 }, 2.5);
-      tl.fromTo("#stiefel-t-0", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.793, ease: "sine.inOut", repeat: 3 }, 0.119);
-      tl.fromTo("#stiefel-t-1", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.971, ease: "sine.inOut", repeat: 2 }, 0.062);
-      tl.fromTo("#stiefel-t-2", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.976, ease: "sine.inOut", repeat: 2 }, 0.021);
-      tl.fromTo("#stiefel-t-3", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.759, ease: "sine.inOut", repeat: 3 }, 0.14);
+      tl.fromTo("#stiefel-t-0", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.793, ease: "sine.inOut", repeat: 4 }, 0.119);
+      tl.fromTo("#stiefel-t-1", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.971, ease: "sine.inOut", repeat: 3 }, 0.062);
+      tl.fromTo("#stiefel-t-2", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.976, ease: "sine.inOut", repeat: 3 }, 0.021);
+      tl.fromTo("#stiefel-t-3", { scale: 0.3, rotation: 0 }, { keyframes: { scale: [0.3, 1, 0.3], rotation: [0, 45, 90] }, duration: 0.759, ease: "sine.inOut", repeat: 4 }, 0.14);
       // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
-      tl.to("#stiefel-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.7);
+      tl.to("#stiefel-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 3.5);
       window.__timelines["stiefel"] = tl;
     })();
   </script>
