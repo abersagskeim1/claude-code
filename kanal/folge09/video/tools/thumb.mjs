@@ -1,5 +1,5 @@
 // Upload thumbnail (Folge 9): the frame-0 motif (art-deco frame, own tower with the red euro sign without text, hat + moustache, Klotz with mini top hat shocked bottom right),
-// rendered from the real composition at t = 0, captions hidden, the picture moved down under the text, "ZU VERKAUFEN?!" in yellow with a thick outline.
+// rendered from the real composition at t = 0, captions hidden, the picture moved down under the text, "GEKAUFT?!" in yellow with a thick outline.
 // Usage: PUPPETEER_CORE=<path> node tools/thumb.mjs <preview_url> <out_png>
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
@@ -18,9 +18,9 @@ await p.evaluate(() => {
     #hook-glow { scale: 1.1; }
     #thumb-txt { position: absolute; left: 70px; top: 290px; width: 940px; text-align: center; z-index: 99; font-family: 'Lilita One'; color: #FFD23F;
       line-height: 1.0; -webkit-text-stroke: 28px #0A0F22; paint-order: stroke fill; text-shadow: 0 18px 0 #050814; }
-    #thumb-txt span { display: block; } #thumb-txt .a { font-size: 200px; } #thumb-txt .b { font-size: 140px; letter-spacing: -0.01em; }`;
+    #thumb-txt span { display: block; } #thumb-txt .a { font-size: 180px; margin-top: 110px; } #thumb-txt .b { font-size: 140px; letter-spacing: -0.01em; }`;
   document.head.appendChild(st);
-  const d = document.createElement("div"); d.id = "thumb-txt"; d.innerHTML = '<span class="a">ZU</span><span class="b">VERKAUFEN?!</span>';
+  const d = document.createElement("div"); d.id = "thumb-txt"; d.innerHTML = '<span class="a">GEKAUFT?!</span>';
   document.querySelector("#root").appendChild(d);
 });
 await p.evaluate(() => document.fonts.ready);

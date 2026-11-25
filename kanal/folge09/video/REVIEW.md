@@ -13,3 +13,8 @@
 - overlap.mjs (40 px, jedes Frame): keine Treffer. layout.mjs: 18 Einblendungen ohne Waise, max. Breite 884, y 300–646. Fließtext 92 px, Schlagworte 140 px, NOCHMAL 190 px, Beschriftungen 76–80 px.
 - bounds.mjs: DOM x 87–1000, Tinte x 82–999. cutcheck.py: 0 Löcher an 16 Schnitten + Loop. lidcheck: nie ein Lid zu.
 - Ton: −14,0 LUFS, True Peak −3,8 dBTP, 39,800 s wie das Bild.
+
+## Nachbesserung nach Prüfung (25.11.)
+- Hook/Loop dreizeilig „1925. / Er verkauft den / EIFFELTURM.“ (140 px, ohne negative Laufweite, `kwx` gestrichen); layout.mjs meldet dafür ORPHAN (gewollt, „den EIFFELTURM.“ wäre ohne negative Laufweite > 920 px).
+- Namensschild „VICTOR LUSTIG“ (76 px); Käufer 1 (braune Mütze) mit Schild „KÄUFER 1“ in c07, c09, c10; Käufer 2 (blaue Mütze) mit „KÄUFER 2“ in c13. Art-déco-Rahmen 2 px eingerückt. Thumbnail-Text „GEKAUFT?!“.
+- Nach dem letzten Render: check 0 Fehler; overlap, lidcheck ohne Befund; bounds Tinte x 82–999, DOM x 87–1000; cutcheck 0 Löcher; −14,0 LUFS, −3,8 dBTP, 39,800 s.

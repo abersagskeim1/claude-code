@@ -86,11 +86,11 @@ const MONO = () => `<svg viewBox="0 0 120 200" width="100%" height="100%" overfl
     <circle cx="60" cy="60" r="44" fill="#BFE6FF" fill-opacity=".35" stroke="${K}" stroke-width="16"/><circle cx="60" cy="60" r="44" fill="none" stroke="${GOLD}" stroke-width="8"/>
     <path d="M36 44 Q44 30 60 28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`;
 // buyer symbol parts: flat cap (viewBox 260 x 140), money sack (viewBox 220 x 240)
-const CAP = () => `<svg viewBox="0 0 260 140" width="100%" height="100%" overflow="visible">
-    <path d="M20 104 Q14 34 116 22 Q206 18 222 76 L226 96 Q120 120 20 104 Z" fill="${TWEED}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
-    <path d="M60 42 Q70 72 64 100 M112 30 V108 M162 32 Q172 62 174 98" stroke="${TWEED_D}" stroke-width="5" fill="none" stroke-linecap="round"/>
-    <path d="M150 92 Q236 84 252 110 Q204 134 118 112 Z" fill="${TWEED_D}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
-    <circle cx="116" cy="24" r="10" fill="${TWEED_D}" stroke="${K}" stroke-width="5"/></svg>`;
+const CAP = (col = TWEED, dk = TWEED_D) => `<svg viewBox="0 0 260 140" width="100%" height="100%" overflow="visible">
+    <path d="M20 104 Q14 34 116 22 Q206 18 222 76 L226 96 Q120 120 20 104 Z" fill="${col}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M60 42 Q70 72 64 100 M112 30 V108 M162 32 Q172 62 174 98" stroke="${dk}" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M150 92 Q236 84 252 110 Q204 134 118 112 Z" fill="${dk}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
+    <circle cx="116" cy="24" r="10" fill="${dk}" stroke="${K}" stroke-width="5"/></svg>`;
 const SACK = (id) => `<svg viewBox="0 0 220 240" width="100%" height="100%" overflow="visible">
     <path d="M70 58 Q8 110 18 172 Q28 234 110 234 Q192 234 202 172 Q212 110 150 58 Z" fill="${SACKC}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
     ${id ? `<path id="${id}" d="M70 58 Q8 110 18 172 Q28 234 110 234 Q192 234 202 172 Q212 110 150 58 Z" fill="${RED}" opacity="0"/>` : ""}
@@ -279,24 +279,24 @@ const lustig = (p, hx, hy, hw) => {
     html: `<div id="${p}-hat" class="STKC">${HAT()}</div><div id="${p}-must" class="STKC">${MUST()}</div>`, mustTop: hy + hh + Math.round(hw * 0.32), mustBot: hy + hh + Math.round(hw * 0.32) + mh };
 };
 // the buyer symbol (cap above a money sack, no face): ids p-cap, p-sack (+ p-sred red overlay)
-const buyer = (p, x, y, w) => {
+const buyer = (p, x, y, w, col, dk) => {
   const ch = Math.round(w * 140 / 260), sw = Math.round(w * 0.85), sh = Math.round(sw * 240 / 220);
   return { css: `#${p}-cap{${abs(x, y, w, ch)}transform-origin:50% 100%;} #${p}-sack{${abs(x + Math.round((w - sw) / 2), y + ch + 12, sw, sh)}transform-origin:50% 100%;}`,
-    html: `<div id="${p}-cap" class="STKC">${CAP()}</div><div id="${p}-sack" class="STKC">${SACK(p + "-sred")}</div>`, bottom: y + ch + 12 + sh };
+    html: `<div id="${p}-cap" class="STKC">${CAP(col, dk)}</div><div id="${p}-sack" class="STKC">${SACK(p + "-sred")}</div>`, bottom: y + ch + 12 + sh };
 };
 const stk = (s, p) => s.replace(/STKC/g, p + "-stk");
 
 // ================= HOOK picture (frame 0 = thumbnail motif): art-deco frame, own tower with the red euro sign, hat + moustache floating =================
 const hookCss = (p) => `
    #${p}-glow{${abs(180, 780, 720, 560)}border-radius:50%;background:radial-gradient(circle,rgba(255,229,138,.30) 0%,rgba(255,229,138,0) 66%);}
-   #${p}-fr{${abs(150, 760, 780, 580)}}
+   #${p}-fr{${abs(152, 760, 776, 580)}}
    #${p}-tw{${abs(214, 796, 270, 504)}transform-origin:50% 100%;}
    #${p}-str{${abs(330, 960, 180, 90)}}
    #${p}-sw{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:420px 980px;}
    #${p}-sg{${abs(292, 1040, 290, 213)}}
    ${lustig(p, 650, 830, 220).css}`;
 const hookBody = (p) => stk(`      <div id="${p}-glow"></div>
-      <div id="${p}-fr">${DECO(780, 580)}</div>
+      <div id="${p}-fr">${DECO(776, 580)}</div>
       <div id="${p}-tw" class="STKC">${TOWER(p + "-t")}</div>
       <div id="${p}-sw"><svg id="${p}-str" viewBox="0 0 180 90" overflow="visible"><path d="M90 20 L20 86 M90 20 L160 86" stroke="${K}" stroke-width="10" fill="none"/><path d="M90 20 L20 86 M90 20 L160 86" stroke="#E9E6F5" stroke-width="4" fill="none"/><circle cx="90" cy="20" r="12" fill="${STEEL}" stroke="${K}" stroke-width="5"/></svg>
       <div id="${p}-sg" class="STKC">${SIGN("eur")}</div></div>
@@ -336,7 +336,7 @@ ${tw.js}`, { kb: false }));
       ${L.html}
       <div id="name-mo">${MONO()}</div>
       <div id="name-gl" class="spk">${SPARK("#fff")}</div>
-${plate("name-pl", 370, 1222, 340, 104, "LUSTIG", 80, GOLD, K)}`, p),
+${plate("name-pl", 250, 1222, 580, 104, "VICTOR LUSTIG", 76, GOLD, K)}`, p),
     `      tl.fromTo("#name-ov", { scale: 0.92 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, 0);
       // hat tip: lifts and bows twice
       tl.to("#name-hat", { keyframes: { y: [0, -40, 0], rotation: [0, -12, 0] }, duration: 0.5, ease: "power1.inOut", repeat: 1, repeatDelay: 0.3 }, 0.3);
@@ -446,7 +446,7 @@ ${shake("#waage-kb", 1.3, 9, 0.35)}`));
      #angel-bb{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:735px 1250px;}`,
     stk(`      <div id="angel-sw"><div id="angel-ln">${HOOKLINE()}</div><div id="angel-bt" class="STKC">${TOWER("angel-t")}</div></div>
       <div id="angel-bb">${B.html}</div>
-${plate("angel-pl", 590, 1236, 290, 100, "KÄUFER", 76)}`, p),
+${plate("angel-pl", 565, 1236, 340, 100, "KÄUFER 1", 76)}`, p),
     `      // the bait swings
       tl.fromTo("#angel-sw", { rotation: 5 }, { keyframes: { rotation: [5, -5, 4, -3, 0] }, duration: 1.4, ease: "sine.inOut" }, 0);
       // the buyer leans towards the bait, twice, then bites (sack jumps)
@@ -488,14 +488,15 @@ ${fp.map(([, , t], i) => `      tl.fromTo("#scheck-f${i}", { opacity: 0, scale: 
 {
   const p = "kaeufer";
   const [s, d] = S(p);
-  const B = buyer(p, 410, 880, 260);
+  const B = buyer(p, 410, 836, 260);
   scenes.push(scene(p, "Kaeufer im Spotlight", s, d,
     `#kaeufer-cn{${abs(330, 760, 420, 580)}}
      ${B.css}
      #kaeufer-q{position:absolute;left:690px;top:850px;width:200px;${LBL(240, YEL)}-webkit-text-stroke:18px ${K};paint-order:stroke fill;transform-origin:50% 90%;}`,
     stk(`      <div id="kaeufer-cn">${CONE()}</div>
       ${B.html}
-      <div id="kaeufer-q">?</div>`, p),
+      <div id="kaeufer-q">?</div>
+${plate("kaeufer-pl", 370, 1250, 340, 100, "KÄUFER 1", 76)}`, p),
     `      tl.fromTo("#kaeufer-cn", { opacity: 0.5 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, 0);
       tl.fromTo("#kaeufer-q", { scale: 0.6, rotation: 14 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(3)" }, 0.1);
       tl.to("#kaeufer-q", { keyframes: { rotation: [0, -10, 8, 0], y: [0, -14, 0, 0] }, duration: 0.8, ease: "sine.inOut" }, 0.5);
@@ -522,7 +523,7 @@ ${fp.map(([, , t], i) => `      tl.fromTo("#scheck-f${i}", { opacity: 0, scale: 
       ${B.html}
 ${puffs.map(([x, y], i) => `      <div id="peinlich-p${i}" class="peinlich-pf" style="left:${x}px;top:${y}px;">${STEAM()}</div>`).join("\n")}
       <div id="peinlich-d0" class="peinlich-dr" style="left:556px;top:1030px;">${DROP()}</div><div id="peinlich-d1" class="peinlich-dr" style="left:866px;top:1060px;">${DROP()}</div>
-${plate("peinlich-pl", 570, 1236, 290, 100, "KÄUFER", 76)}`, p),
+${plate("peinlich-pl", 545, 1236, 340, 100, "KÄUFER 1", 76)}`, p),
     `      // the phone rings (vibration rings) and the receiver lifts ... then is put back, slowly: no call to the police
       tl.fromTo("#peinlich-rg", { opacity: 1, scale: 0.8 }, { keyframes: { opacity: [1, 1, 0], scale: [0.8, 1.1, 1.2] }, duration: 0.5, ease: "power1.out" }, 0);
       tl.fromTo("#peinlich-rc", { x: 0, y: 0, rotation: 0 }, { keyframes: { x: [0, 120, 150], y: [0, -60, -70], rotation: [0, -25, -30] }, duration: 0.4, ease: "power2.out" }, 0.25);
@@ -588,21 +589,22 @@ ${b.js(0.3)}
 {
   const p = "polizei";
   const [s, d] = S(p);
-  const B = buyer(p, 660, 1010, 220);
+  const B = buyer(p, 680, 880, 200, "#4A6FD0", "#2C4790");
   scenes.push(scene(p, "Sirene, Pfeife, Kaeufer", s, d,
     `#polizei-gl{${abs(400, 760, 280, 280)}border-radius:50%;background:radial-gradient(circle,rgba(90,150,255,.55) 0%,rgba(90,150,255,0) 68%);}
      #polizei-sr{${abs(450, 800, 180, 180)}}
      #polizei-bm{${abs(380, 740, 320, 320)}}
      #polizei-wh{${abs(150, 1110, 300, 170)}transform-origin:20% 50%;}
      #polizei-ln{${abs(170, 1010, 200, 100)}}
-     #polizei-bb{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:770px 1330px;}
+     #polizei-bb{position:absolute;left:0;top:0;width:1080px;height:1920px;transform-origin:780px 1210px;}
      ${B.css}`,
     stk(`      <div id="polizei-gl"></div>
       <svg id="polizei-bm" viewBox="0 0 320 320" overflow="visible"><g id="polizei-bg"><path d="M160 160 L310 110 L310 210 Z M160 160 L10 110 L10 210 Z" fill="#9CC2FF" opacity=".35"/></g></svg>
       <div id="polizei-sr" class="STKC">${SIREN()}</div>
       <svg id="polizei-ln" viewBox="0 0 200 100" overflow="visible"><path d="M30 80 Q20 50 40 20 M90 84 V16 M150 80 Q160 50 140 20" stroke="${YEL}" stroke-width="9" fill="none" stroke-linecap="round"/></svg>
       <div id="polizei-wh" class="STKC">${WHISTLE()}</div>
-      <div id="polizei-bb">${B.html}</div>`, p),
+      <div id="polizei-bb">${B.html}</div>
+${plate("polizei-pl", 610, 1226, 340, 100, "KÄUFER 2", 76)}`, p),
     `      gsap.set("#polizei-bg", { svgOrigin: "160 160" }); gsap.set("#polizei-ln", { opacity: 0, scale: 0.6 });
       tl.fromTo("#polizei-bg", { rotation: 0 }, { rotation: 360, duration: 1.4, ease: "none", repeat: 1 }, 0);
       tl.fromTo("#polizei-gl", { scale: 0.85, opacity: 1 }, { keyframes: { scale: [0.85, 1.08, 0.85], opacity: [1, 0.5, 1] }, duration: 0.7, ease: "sine.inOut", repeat: 3 }, 0);
@@ -745,10 +747,10 @@ ${shake("#gitter-kb", 0.4, 8, 0.3)}
 }
 
 // ================= captions =================
-// "*" keyword (yellow Lilita, 140 px), "#" the same with tighter letters, "%" tightest, "!" punchline (largest, 200 px). "/" line break.
+// "*" keyword (yellow Lilita, 140 px), "#" the same with tighter letters, "!" punchline (largest, 200 px). "/" line break.
 // "+" glues a word to the one before (no gap): counted as one word.
 // Fixed word gap: every word has 11 px margins.
-const HOOKW = ["*1925.", "Er", "verkauft", "/", "den", "%EIFFELTURM."];
+const HOOKW = ["*1925.", "/", "Er", "verkauft", "den", "/", "*EIFFELTURM."];
 const caps = [
   { id: "c01", words: HOOKW, still: true },
   { id: "c02", words: ["Er", "heißt", "/", "Victor", "Lustig."] },
@@ -777,14 +779,14 @@ for (const c of caps) {
   const track = caps.indexOf(c) % 2;
   const glue = (w) => w[0] === "+";
   const core = (w) => (glue(w) ? w.slice(1) : w);
-  const kind = (w) => (w === "/" ? "br" : "*!#%".includes(core(w)[0]) && core(w).length > 1 ? core(w)[0] : "");
+  const kind = (w) => (w === "/" ? "br" : "*!#".includes(core(w)[0]) && core(w).length > 1 ? core(w)[0] : "");
   const spans = c.words.map((w, i) => {
     const k = kind(w);
     if (k === "br") return `<br/>`;
     const txt = (k ? core(w).slice(1) : core(w)).replace(/</g, "&lt;");
     const nx = c.words[i + 1] === "/" ? c.words[i + 2] : c.words[i + 1];
     const gl = [glue(w) ? "gl" : "", nx && glue(nx) ? "gr" : ""].filter(Boolean).join(" ");
-    const cls = { "*": "w kw", "#": "w kw kwn", "%": "w kw kwx", "!": "w pt", "": "w" }[k] + (gl ? " " + gl : "");
+    const cls = { "*": "w kw", "#": "w kw kwn", "!": "w pt", "": "w" }[k] + (gl ? " " + gl : "");
     return `<span id="${c.id}-o${i}" class="${cls}"><span id="${c.id}-w${i}" class="g">${txt}</span></span>`;
   });
   let inner = "";
@@ -831,7 +833,7 @@ fs.writeFileSync(path.join(OUT, "compositions", "captions.html"), `<template>
     .w.gl { margin-left: 0; } .w.gr { margin-right: 0; }
     .g { display: inline-block; }
     .kw { font-family: 'Lilita One'; font-weight: 400; color: ${YEL}; font-size: 140px; line-height: 1.0; text-transform: uppercase; letter-spacing: 0.01em; }
-    .kwn { letter-spacing: -0.04em; } .kwx { letter-spacing: -0.09em; }
+    .kwn { letter-spacing: -0.04em; }
     .pt { font-family: 'Lilita One'; font-weight: 400; color: ${YEL}; font-size: 190px; line-height: 0.95; letter-spacing: 0; -webkit-text-stroke: 24px ${K}; text-shadow: 0 14px 0 #050814; }
   </style>
   <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
