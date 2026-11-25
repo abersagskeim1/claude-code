@@ -10,8 +10,9 @@
 | 6 | Twitch Plays Pokémon | fertig (39,5 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-22 |
 | 7 | Der Eimer-Krieg (Mythos-Check) | fertig (40,0 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-23 |
 | 8 | Der Kuchen-Krieg | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-24 |
+| 9 | Der Mann, der den Eiffelturm verkaufte | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-25 |
 
-Nächste Folge: **9** (siehe serienplan.md)
+Nächste Folge: **10** (siehe serienplan.md)
 
 Offene KANN-Punkte Folge 2 (nicht behoben): 3 Frames nur Hintergrund+Klotz bei 38,07–38,13 s; Zeilenumbrüche „echt.“ / „Land.“ allein in der Zeile.
 
