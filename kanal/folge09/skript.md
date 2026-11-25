@@ -6,7 +6,7 @@ Klotz-Gag (neu): Klotz trägt Mini-Zylinder und Schnurrbart-Aufkleber, will selb
 | Zeit | Text im Bild (≤ 6 Wörter) | Bild |
 |---|---|---|
 | 0,0 | **1925.** Er verkauft den **EIFFELTURM**. | Frame 1 = Thumbnail-Motiv: Turm-Silhouette mit großem rotem Schild „ZU VERKAUFEN“, Zylinder + Schnurrbart schweben daneben; Klotz unten rechts geschockt |
-| 2,6 | Er heißt Victor Lustig. | Zylinder + Schnurrbart + Monokel, Namensschild |
+| 2,6 | Er heißt Victor Lustig. | Zylinder + Schnurrbart + Monokel, Namensschild „VICTOR LUSTIG“ |
 | 4,6 | Ein Betrüger. Ein sehr guter. | Spielkarten fächern sich auf |
 | 6,8 | Er gibt sich als Beamter aus. | Ausweis-Karte mit Stempel „AMTLICH?“ |
 | 9,0 | Seine Story: Der Turm muss weg. | Turm wackelt, Schraubenschlüssel, Rostflecken |
