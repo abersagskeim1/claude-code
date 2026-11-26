@@ -11,7 +11,7 @@ Klotz-Gag (neu): Klotz hört bei der Strategie-Tafel brav zu, macht Notizen — 
 | 6,2 | Eine Gruppe plant den Angriff. | Strategie-Tafel mit Pfeilen, Pixel-Figuren im Kreis |
 | 8,4 | Ganz genau. Mit Strategie. | Pfeile zeichnen sich, Klotz macht Notizen |
 | 10,6 | Chance laut Rechnung: **32,33** %. | Taschenrechner zeigt „32,33“, Periodenstrich |
-| 13,0 | Nur einer hört nicht zu. | Pixel-Held mit Kopfhörer-Icon, kaut |
+| 13,0 | Nur einer ist nicht dabei. | Pixel-Held mit Teller/„AFK“-Schild |
 | 15,0 | Er kommt zurück vom Essen … | Hühnchenkeule-Icon |
 | 17,0 | und rennt einfach **LOS**. | Held stürmt, Sprechblase „LEEROY JENKINS!“ (Schrift, Pixel-Stil) |
 | 19,2 | Die Gruppe rennt hinterher. | Figuren hasten nach, Panik-Schweißtropfen |
@@ -20,7 +20,7 @@ Klotz-Gag (neu): Klotz hört bei der Strategie-Tafel brav zu, macht Notizen — 
 | 25,6 | Sogar im TV-Quiz „Jeopardy!“. | Quiz-Tafel (generisch, kein Logo), Fragezeichen |
 | 28,0 | Und die Wahrheit? | Klotz beugt sich vor |
 | 29,4 | Alles war **INSZENIERT**. | Filmklappe knallt, größte Schrift |
-| 31,8 | Der Spielehersteller feierte ihn trotzdem. | Pokal mit Pixel-Held, Konfetti |
+| 31,8 | Und die Spielefirma feierte ihn. | Pokal mit Pixel-Held, Konfetti |
 | 34,0 | Hast du auch mal einfach losgerannt? | Kommentar-Frage; Klotz mit Hühnchenkeule zwinkert; Loop auf Frame 1 |
 
 ## Faktencheck (Websuche, 26.11.2026)
@@ -31,7 +31,8 @@ Klotz-Gag (neu): Klotz hört bei der Strategie-Tafel brav zu, macht Notizen — 
 | Gruppe plant Angriff (Rookery), Leeroy kommt zurück und stürmt los | belegt | Wikipedia, TIME |
 | „32,33 % (Periode)“ Überlebenschance im Video | belegt (bekanntes Zitat, PC Gamer greift es auf) | Know Your Meme, PC Gamer |
 | „At least I have chicken“ / Essen | belegt | Wikipedia, Know Your Meme |
-| Gruppe stirbt | belegt | Wikipedia, Engadget |
+| Gruppe rennt hinterher und stirbt | belegt | Wikipedia, Engadget |
+| „eines der ältesten Gaming-/Internet-Memes“ (nur Beschreibung) | belegt („one of the internet's oldest memes“) | PC Gamer (20-Jahre-Artikel) |
 | Meme, Erwähnung bei „Jeopardy!“ | belegt | Wikipedia, Know Your Meme |
 | Video war inszeniert | belegt („staged“) | Vice/Broadly, Engadget, Daily Dot |
 | Blizzard griff ihn auf (Erfolg „Leeroy!“, Karte) | belegt („embraced by Blizzard“) | Engadget, Wikipedia |
