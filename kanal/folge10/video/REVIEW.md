@@ -14,3 +14,7 @@
 - overlap.mjs (40 px, jedes Frame): keine Treffer. layout.mjs: 18 Einblendungen ohne Waise, max. Breite 900, y 300–646, Tinte x 84–994.
 - bounds.mjs: DOM x 83–1000, Tinte x 82–999. cutcheck.py: 0 Löcher an 16 Schnitten + Loop. lidcheck: nie beide Lider, Zwinkern f1102–1113.
 - Ton: −14,0 LUFS, True Peak −3,7 dBTP, Audio 38,800 s wie das Bild.
+
+## Nachbesserung nach Prüfung (26.11.)
+- c07: Kopfhörer + Noten ersetzt durch Schild „AFK“ (80 px) und Teller mit Hühnchenkeule. c16: „Und die Spielefirma / feierte ihn.“ (88 px, Box 906 px, Tinte 912 px). „KLOTZ!“-Blase steht 0,3 s länger (bis 23,8 s).
+- Nach dem letzten Render: check ok; overlap, lidcheck ohne Befund; layout ok; bounds Tinte x 82–999, DOM x 83–1000; cutcheck 0 Löcher; −14,0 LUFS, −3,7 dBTP, 38,800 s.

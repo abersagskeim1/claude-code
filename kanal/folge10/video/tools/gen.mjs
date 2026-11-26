@@ -3,7 +3,7 @@
 // Technique from Folge 1-9 (scene helper, Klotz rig, captions with fixed word gap, id checks, exit before the cut).
 // New in Folge 10: fantasy pixel-dungeon look (own pixel sprites, no game assets). Own drawings: pixel hero with a raised
 // sword, pixel group members, dragon eggs, cute baby dragons, pixel bitmap font for the battle cry, two "??" speech bubbles,
-// dungeon entrance with torches, chalk strategy board with drawn arrows, calculator "32,33" with the period bar, headphones,
+// dungeon entrance with torches, chalk strategy board with drawn arrows, calculator "32,33" with the period bar,
 // chicken leg, comic tombstones, multiplying screens with hearts/share icons, generic quiz board, stage curtain,
 // film clapperboard, trophy, pixel comment bubble.
 // Klotz gag: listens at the strategy board and takes notes (notepad + pencil), then runs off himself shouting "KLOTZ!"
@@ -130,6 +130,7 @@ const PTXT = (str, col = YEL) => {
 };
 
 // ================= vector drawings (own designs) =================
+const inner = (svg) => svg.replace(/^<svg[^>]*>|<\/svg>$/g, "");
 const SPARK = (col = YEL) => `<svg viewBox="0 0 100 100" width="100%" height="100%" overflow="visible"><path d="M50 2 Q56 44 98 50 Q56 56 50 98 Q44 56 2 50 Q44 44 50 2 Z" fill="${col}" stroke="${K}" stroke-width="6" stroke-linejoin="round"/></svg>`;
 // speech bubble outline (viewBox 360 x 300), tail bottom-left or bottom-right
 const SBUB = (right = false) => `<svg viewBox="0 0 360 300" width="100%" height="100%" overflow="visible"><g transform="${right ? "translate(360 0) scale(-1 1)" : ""}">
@@ -169,10 +170,6 @@ const CALC = () => `<svg viewBox="0 0 480 640" width="100%" height="100%" overfl
   <rect x="44" y="52" width="392" height="170" rx="18" fill="#9FD9A8" stroke="${K}" stroke-width="10"/><rect x="56" y="64" width="368" height="20" rx="8" fill="#BDEBC2"/>
   ${[0, 1, 2, 3].map((r) => [0, 1, 2, 3].map((c) => `<rect id="rechner-k${r}${c}" x="${52 + c * 98}" y="${262 + r * 90}" width="80" height="70" rx="16" fill="${c === 3 ? (r === 3 ? RED : "#FF9F1C") : "#E9E6F5"}" stroke="${K}" stroke-width="8"/>`).join("")).join("")}
   <path d="M367 287 H389 M378 276 V298 M367 373 H389 M370 459 L386 475 M386 459 L370 475 M367 552 H389 M367 562 H389" stroke="${K}" stroke-width="7" stroke-linecap="round"/></svg>`;
-// headphones (viewBox 340 x 260)
-const PHONES = () => `<svg viewBox="0 0 340 260" width="100%" height="100%" overflow="visible"><path d="M40 170 Q40 20 170 20 Q300 20 300 170" fill="none" stroke="${K}" stroke-width="36" stroke-linecap="round"/><path d="M40 170 Q40 20 170 20 Q300 20 300 170" fill="none" stroke="${RED}" stroke-width="18" stroke-linecap="round"/>
-  <rect x="6" y="140" width="70" height="114" rx="26" fill="${RED}" stroke="${K}" stroke-width="10"/><rect x="264" y="140" width="70" height="114" rx="26" fill="${RED}" stroke="${K}" stroke-width="10"/><rect x="22" y="160" width="20" height="70" rx="10" fill="#FF8080"/></svg>`;
-const NOTE = (col = YEL) => `<svg viewBox="0 0 80 110" width="100%" height="100%" overflow="visible"><path d="M30 86 V14 L72 4 V70" fill="none" stroke="${K}" stroke-width="14" stroke-linejoin="round"/><path d="M30 86 V14 L72 4 V70" fill="none" stroke="${col}" stroke-width="6" stroke-linejoin="round"/><ellipse cx="20" cy="88" rx="18" ry="14" fill="${col}" stroke="${K}" stroke-width="6"/><ellipse cx="62" cy="74" rx="18" ry="14" fill="${col}" stroke="${K}" stroke-width="6"/></svg>`;
 // chicken leg (viewBox 300 x 300), bone bottom-left
 const LEG = (bite = false) => `<svg viewBox="0 0 300 300" width="100%" height="100%" overflow="visible">
   <path d="M120 200 L62 262" stroke="${K}" stroke-width="44" stroke-linecap="round"/><path d="M120 200 L62 262" stroke="${CREAM}" stroke-width="26" stroke-linecap="round"/>
@@ -414,15 +411,14 @@ ${shake("#rechner-c", 1.05, 8, 0.35)}
       tl.to("#rechner-c", { keyframes: { scaleY: [1, 1.03, 1] }, duration: 0.4, ease: "sine.inOut", repeat: 1 }, 1.5);`));
 }
 
-// ================= KOPFHOERER: the hero (LEEROY) with headphones chews, music notes; the group talks to him in vain (c07) =================
+// ================= KOPFHOERER (scene id kept): the hero (LEEROY) is AFK and chews, a plate with a chicken leg; the group talks to him in vain (c07) =================
 {
   const p = "kopfhoerer";
   const [s, d] = S(p);
-  scenes.push(scene(p, "Held mit Kopfhoerer", s, d,
+  scenes.push(scene(p, "Held AFK beim Essen", s, d,
     `#kopfhoerer-h{${abs(560, 860, 252, 288)}transform-origin:50% 100%;}
-     #kopfhoerer-ph{${abs(576, 836, 220, 168)}transform-origin:50% 100%;}
+     #kopfhoerer-dish{${abs(826, 1050, 150, 120)}transform-origin:50% 100%;}
      #kopfhoerer-m{${abs(668, 952, 36, 14)}background:#3A0A0A;transform-origin:50% 0%;}
-     .kopfhoerer-n{position:absolute;width:60px;height:82px;}
      .kopfhoerer-fg{position:absolute;top:1010px;width:126px;height:144px;transform-origin:50% 100%;}
      #kopfhoerer-bb{${abs(150, 790, 300, 250)}transform-origin:30% 100%;}
      #kopfhoerer-dt{${abs(0, 48, 300, 110)}${LBL(110, "#fff")}}`,
@@ -430,18 +426,18 @@ ${shake("#rechner-c", 1.05, 8, 0.35)}
 ${[0, 1, 2].map((i) => `      <div id="kopfhoerer-f${i}" class="kopfhoerer-fg STKC" style="left:${120 + i * 112}px;">${FIGS(MATES[i])}</div>`).join("\n")}
       <div id="kopfhoerer-hb" style="position:absolute;inset:0;"><div id="kopfhoerer-h" class="STKC">${FIGS(HPAL(), true)}</div>
       <div id="kopfhoerer-m"></div>
-      <div id="kopfhoerer-ph" class="STKC">${PHONES()}</div></div>
-      <div id="kopfhoerer-n0" class="kopfhoerer-n STKC" style="left:850px;top:860px;">${NOTE(YEL)}</div>
-      <div id="kopfhoerer-n1" class="kopfhoerer-n STKC" style="left:880px;top:1010px;">${NOTE("#9FD3FF")}</div>
+      </div>
+      <div id="kopfhoerer-dish" class="STKC"><svg viewBox="0 0 150 120" width="100%" height="100%" overflow="visible"><ellipse cx="75" cy="96" rx="70" ry="20" fill="#E9E6F5" stroke="${K}" stroke-width="8"/><ellipse cx="75" cy="92" rx="44" ry="10" fill="#C9CEDD"/><svg x="20" y="0" width="110" height="110" viewBox="0 0 300 300" overflow="visible">${inner(LEG(true))}</svg></svg></div>
+${plate("kopfhoerer-afk", 590, 730, 200, 100, "AFK", 80, RED, "#fff")}
 ${plate("kopfhoerer-pl", 536, 1190, 300, 100, "LEEROY", 80, YEL, K)}`, p),
     `      tl.fromTo("#kopfhoerer-bb", { scale: 0.75 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)" }, 0);
       tl.to("#kopfhoerer-dt", { keyframes: { x: [0, 6, -6, 0] }, duration: 0.5, ease: "none", repeat: 3 }, 0.3);
       // chewing: the mouth opens and closes, the head nods to the music
       tl.to("#kopfhoerer-m", { keyframes: { scaleY: [1, 0.2, 1] }, duration: 0.24, ease: "none", repeat: 8 }, 0);
       tl.to("#kopfhoerer-hb", { keyframes: { y: [0, 8, 0] }, duration: 0.48, ease: "sine.inOut", repeat: 4 }, 0);
-      tl.to("#kopfhoerer-ph", { keyframes: { rotation: [0, -3, 0, 3, 0] }, duration: 0.96, ease: "sine.inOut", repeat: 1 }, 0);
-      tl.to("#kopfhoerer-n0", { keyframes: { y: [0, -50, 0], rotation: [0, 14, 0] }, duration: 1.1, ease: "sine.inOut", repeat: 1 }, 0);
-      tl.to("#kopfhoerer-n1", { keyframes: { y: [0, -60, 0], rotation: [0, -14, 0] }, duration: 1.1, ease: "sine.inOut", repeat: 1 }, 0.3);
+      tl.fromTo("#kopfhoerer-afk", { rotation: 6 }, { keyframes: { rotation: [6, -5, 3, -1, 0] }, duration: 1.0, ease: "sine.out" }, 0.05);
+      tl.to("#kopfhoerer-afk", { keyframes: { scale: [1, 1.08, 1] }, duration: 0.5, ease: "sine.inOut", repeat: 1 }, 1.1);
+      tl.to("#kopfhoerer-dish", { keyframes: { rotation: [0, -4, 4, 0], y: [0, -10, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 2 }, 0.2);
 ${[0, 1, 2].map((i) => `      tl.to("#kopfhoerer-f${i}", { keyframes: { y: [0, -14, 0] }, duration: 0.3, ease: "power1.out", repeat: 2, repeatDelay: 0.25 }, ${f2(0.1 + i * 0.12)});`).join("\n")}
       tl.fromTo("#kopfhoerer-pl", { rotation: -5 }, { keyframes: { rotation: [-5, 4, -2, 1, 0] }, duration: 1.0, ease: "sine.out" }, 0.05);`));
 }
@@ -727,7 +723,7 @@ const caps = [
   { id: "c13", words: ["Sogar", "„Jeopardy!“", "/", "fragt", "danach."] },
   { id: "c14", words: ["Und", "die", "Wahrheit?"] },
   { id: "c15", words: ["!INSZENIERT", "/", "war", "alles."], shake: true },
-  { id: "c16", words: ["Trotzdem", "/", "feierte", "ihn", "/", "die", "Spielefirma."] },
+  { id: "c16", words: ["Und", "die", "Spielefirma", "/", "feierte", "ihn."], cls: "s90" },
   { id: "c17", words: ["Rennst", "du", "auch", "/", "mal", "einfach", "los?"], hard: true },
   { id: "c18", words: HOOKW, loop: true },
 ].map((c) => ({ ...c, s: C[c.id][0], e: C[c.id][1] }));
@@ -751,7 +747,7 @@ for (const c of caps) {
   });
   let inner = "";
   spans.forEach((sp, i) => { inner += (i && !glue(c.words[i]) ? " " : "") + sp; });
-  capHtml += `      <div id="${c.id}" class="cap clip" data-start="${c.s}" data-duration="${d}" data-track-index="${track}" data-layout-allow-overlap>${inner.replace(/ <br\/> /g, "<br/>").replace(/ <br\/>/g, "<br/>")}</div>\n`;
+  capHtml += `      <div id="${c.id}" class="cap clip${c.cls ? " " + c.cls : ""}" data-start="${c.s}" data-duration="${d}" data-track-index="${track}" data-layout-allow-overlap>${inner.replace(/ <br\/> /g, "<br/>").replace(/ <br\/>/g, "<br/>")}</div>\n`;
   capJs += `      // ${c.id}\n`;
   let full = c.s, n = 0, wc = 0;
   c.words.forEach((w, i) => {
@@ -790,6 +786,7 @@ fs.writeFileSync(path.join(OUT, "compositions", "captions.html"), `<template>
     .cap { position: absolute; left: 60px; top: 300px; width: 960px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900;
       font-size: 92px; line-height: 1.12; color: #fff; letter-spacing: 0; word-spacing: 0; }
     .w { display: inline-block; margin: 0 11px; -webkit-text-stroke: 16px ${K}; paint-order: stroke fill; text-shadow: 0 9px 0 #050814; }
+    .cap.s90 { font-size: 88px; } /* c16: 'Und die Spielefirma' stays under 920 px without a smaller word gap */
     .w.gl { margin-left: 0; } .w.gr { margin-right: 0; }
     .g { display: inline-block; }
     .kw { font-family: 'Lilita One'; font-weight: 400; color: ${YEL}; font-size: 140px; line-height: 1.0; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -915,7 +912,7 @@ ${[0, 1, 2].map((i) => `      tl.to("#k-ln${i}", { scaleX: 1, duration: 0.4, eas
       tl.to("#k-bob", { keyframes: { y: [0, -16, 0, -16, 0, -16, 0] }, duration: 0.6, ease: "none", repeat: 1 }, ${RUN_T});
       tl.to("#k-shout", { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(3)" }, ${f2(RUN_T + 0.1)});
       tl.to("#k-shout", { keyframes: { rotation: [0, -4, 4, -2, 0] }, duration: 0.5, ease: "none" }, ${f2(RUN_T + 0.3)});
-      tl.to("#k-shout", { opacity: 0, scale: 0.6, duration: 0.15, ease: "power2.in" }, ${f2(RUN_T + 0.95)});
+      tl.to("#k-shout", { opacity: 0, scale: 0.6, duration: 0.15, ease: "power2.in" }, ${f2(RUN_T + 1.25)});
       // c14: he leans forward (towards the truth) and back
       tl.to("#k-wrap", { keyframes: { rotation: [0, -9, -9, 0], y: [0, 4, 4, 0] }, duration: 1.3, ease: "power2.inOut" }, ${f2(C.c14[0] + 0.1)});
       // GAG 3 (${LEG_ON}): he holds a chicken leg, takes a bite and winks (one eye only)

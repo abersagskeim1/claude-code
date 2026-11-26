@@ -5,6 +5,7 @@
     .cap { position: absolute; left: 60px; top: 300px; width: 960px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900;
       font-size: 92px; line-height: 1.12; color: #fff; letter-spacing: 0; word-spacing: 0; }
     .w { display: inline-block; margin: 0 11px; -webkit-text-stroke: 16px #0A0F22; paint-order: stroke fill; text-shadow: 0 9px 0 #050814; }
+    .cap.s90 { font-size: 88px; } /* c16: 'Und die Spielefirma' stays under 920 px without a smaller word gap */
     .w.gl { margin-left: 0; } .w.gr { margin-right: 0; }
     .g { display: inline-block; }
     .kw { font-family: 'Lilita One'; font-weight: 400; color: #FFD23F; font-size: 140px; line-height: 1.0; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -26,7 +27,7 @@
       <div id="c13" class="cap clip" data-start="26.6" data-duration="2.2" data-track-index="0" data-layout-allow-overlap><span id="c13-o0" class="w"><span id="c13-w0" class="g">Sogar</span></span> <span id="c13-o1" class="w"><span id="c13-w1" class="g">„Jeopardy!“</span></span><br/><span id="c13-o3" class="w"><span id="c13-w3" class="g">fragt</span></span> <span id="c13-o4" class="w"><span id="c13-w4" class="g">danach.</span></span></div>
       <div id="c14" class="cap clip" data-start="28.8" data-duration="1.6" data-track-index="1" data-layout-allow-overlap><span id="c14-o0" class="w"><span id="c14-w0" class="g">Und</span></span> <span id="c14-o1" class="w"><span id="c14-w1" class="g">die</span></span> <span id="c14-o2" class="w"><span id="c14-w2" class="g">Wahrheit?</span></span></div>
       <div id="c15" class="cap clip" data-start="30.4" data-duration="2.4" data-track-index="0" data-layout-allow-overlap><span id="c15-o0" class="w pt"><span id="c15-w0" class="g">INSZENIERT</span></span><br/><span id="c15-o2" class="w"><span id="c15-w2" class="g">war</span></span> <span id="c15-o3" class="w"><span id="c15-w3" class="g">alles.</span></span></div>
-      <div id="c16" class="cap clip" data-start="32.8" data-duration="2.6" data-track-index="1" data-layout-allow-overlap><span id="c16-o0" class="w"><span id="c16-w0" class="g">Trotzdem</span></span><br/><span id="c16-o2" class="w"><span id="c16-w2" class="g">feierte</span></span> <span id="c16-o3" class="w"><span id="c16-w3" class="g">ihn</span></span><br/><span id="c16-o5" class="w"><span id="c16-w5" class="g">die</span></span> <span id="c16-o6" class="w"><span id="c16-w6" class="g">Spielefirma.</span></span></div>
+      <div id="c16" class="cap clip s90" data-start="32.8" data-duration="2.6" data-track-index="1" data-layout-allow-overlap><span id="c16-o0" class="w"><span id="c16-w0" class="g">Und</span></span> <span id="c16-o1" class="w"><span id="c16-w1" class="g">die</span></span> <span id="c16-o2" class="w"><span id="c16-w2" class="g">Spielefirma</span></span><br/><span id="c16-o4" class="w"><span id="c16-w4" class="g">feierte</span></span> <span id="c16-o5" class="w"><span id="c16-w5" class="g">ihn.</span></span></div>
       <div id="c17" class="cap clip" data-start="35.4" data-duration="2.8" data-track-index="0" data-layout-allow-overlap><span id="c17-o0" class="w"><span id="c17-w0" class="g">Rennst</span></span> <span id="c17-o1" class="w"><span id="c17-w1" class="g">du</span></span> <span id="c17-o2" class="w"><span id="c17-w2" class="g">auch</span></span><br/><span id="c17-o4" class="w"><span id="c17-w4" class="g">mal</span></span> <span id="c17-o5" class="w"><span id="c17-w5" class="g">einfach</span></span> <span id="c17-o6" class="w"><span id="c17-w6" class="g">los?</span></span></div>
       <div id="c18" class="cap clip" data-start="38.2" data-duration="0.6" data-track-index="1" data-layout-allow-overlap><span id="c18-o0" class="w"><span id="c18-w0" class="g">Ein</span></span> <span id="c18-o1" class="w"><span id="c18-w1" class="g">Typ</span></span><br/><span id="c18-o3" class="w"><span id="c18-w3" class="g">ruiniert</span></span> <span id="c18-o4" class="w kw"><span id="c18-w4" class="g">ALLES.</span></span></div>
   </div>
@@ -128,10 +129,10 @@
       tl.to("#c15 .g", { opacity: 0, scale: 0.85, duration: 0.12, ease: "power2.in" }, 32.67);
       // c16
       tl.fromTo("#c16-w0", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.82);
-      tl.fromTo("#c16-w2", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.875);
-      tl.fromTo("#c16-w3", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.93);
-      tl.fromTo("#c16-w5", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.985);
-      tl.fromTo("#c16-w6", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 33.04);
+      tl.fromTo("#c16-w1", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.875);
+      tl.fromTo("#c16-w2", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.93);
+      tl.fromTo("#c16-w4", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 32.985);
+      tl.fromTo("#c16-w5", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 33.04);
       tl.to("#c16 .g", { opacity: 0, scale: 0.85, duration: 0.12, ease: "power2.in" }, 35.27);
       // c17
       tl.fromTo("#c17-w0", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)" }, 35.42);

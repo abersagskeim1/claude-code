@@ -11,7 +11,7 @@ Klotz-Gag (neu): Klotz hört bei der Strategie-Tafel brav zu, macht Notizen — 
 | 6,2 | Eine Gruppe plant den Angriff. | Strategie-Tafel mit Pfeilen, Pixel-Figuren im Kreis |
 | 8,4 | Ganz genau. Mit Strategie. | Pfeile zeichnen sich, Klotz macht Notizen |
 | 10,6 | Chance laut Rechnung: **32,33** %. | Taschenrechner zeigt „32,33“, Periodenstrich |
-| 13,0 | Nur einer ist nicht dabei. | Pixel-Held mit Teller/„AFK“-Schild |
+| 13,0 | Nur einer hört nicht zu. | Pixel-Held mit Teller/„AFK“-Schild |
 | 15,0 | Er kommt zurück vom Essen … | Hühnchenkeule-Icon |
 | 17,0 | und rennt einfach **LOS**. | Held stürmt, Sprechblase „LEEROY JENKINS!“ (Schrift, Pixel-Stil) |
 | 19,2 | Die Gruppe rennt hinterher. | Figuren hasten nach, Panik-Schweißtropfen |

@@ -11,8 +11,9 @@
 | 7 | Der Eimer-Krieg (Mythos-Check) | fertig (40,0 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-23 |
 | 8 | Der Kuchen-Krieg | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-24 |
 | 9 | Der Mann, der den Eiffelturm verkaufte | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-25 |
+| 10 | Leeroy Jenkins (Staffelfinale) | fertig (38,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-26 |
 
-Nächste Folge: **10** (siehe serienplan.md)
+Nächste Folge: **11** – Staffel 1 ist komplett. Nächster Lauf: Staffel 2 (10 neue Ideen) in serienplan.md entwerfen, dann Folge 11 bauen.
 
 Offene KANN-Punkte Folge 2 (nicht behoben): 3 Frames nur Hintergrund+Klotz bei 38,07–38,13 s; Zeilenumbrüche „echt.“ / „Land.“ allein in der Zeile.
 
@@ -25,3 +26,5 @@ Folge 5: Hook ohne Zahl bewusst freigegeben (Bibel §2.2 Abweichung).
 Folge 6: Klotz-Position (unten, im Shorts-UI-Bereich) aus Serien-Konsistenz freigegeben; „EINE Figur.“ ab ~1,6–1,8 s freigegeben.
 
 Folge 8: Hook ohne Zahl und Länderschilder im Thumbnail (zusätzlich zu 2 gelben Wörtern) bewusst freigegeben.
+
+Folge 10: Hook ohne Zahl freigegeben (wie Folge 5 und 8); Frame-1-Text ≠ Thumbnail-Text bewusst (Motiv gleich).
