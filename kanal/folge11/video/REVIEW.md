@@ -13,3 +13,9 @@
 - overlap.mjs (40 px, jedes Frame): keine Treffer. layout.mjs: 17 Einblendungen ohne Waise, max. Breite 900, Tinte y 288–653, x 85–993.
 - bounds.mjs: DOM x 87–1000, Tinte x 86–999. cutcheck.py: 0 Löcher an 15 Schnitten + Loop. lidcheck: kein Frame mit geschlossenen Lidern.
 - Ton: −14,0 LUFS, True Peak −3,1 dBTP, Audio 38,000 s wie das Bild.
+
+## Nachbesserung nach Prüfung (27.11.)
+- Hook „2007: Die / SCHWEIZ / marschiert ein?!“ ab Frame 0 lesbar; zweite Einblendung „Im März. Mitten / in der Nacht.“.
+- Fahne Liechtenstein (c07, c09, c10) als glatte SVG-Pfade, Welle per Pfad-Morph statt versetzter Streifen.
+- Loop: Klotz' Schweißtropfen ab 37,4 s aus wie in Frame 0.
+- Nach dem letzten Render: check ok; overlap, lidcheck ohne Befund; layout ok; bounds Tinte x 86–999, DOM x 87–1000; cutcheck 0 Löcher; −14,0 LUFS, −3,1 dBTP, 38,000 s. Thumbnail unverändert (Frame-1-Motiv gleich).

@@ -314,7 +314,7 @@
       // loop (37.4): border props off, cheeks normal, frame-0 shock pose with the jump
       tl.set(["#k-bl", "#k-lf"], { opacity: 0 }, 37.4);
       tl.set(["#k-chkL", "#k-chkR"], { opacity: 0.4, scale: 1 }, 37.4);
-      tl.set("#k-sweat", { opacity: 1, scale: 1, y: 0 }, 37.4);
+      tl.set("#k-sweat", { opacity: 0, scale: 0, y: 0 }, 37.4); // frame 0 has no sweat drop yet, so the last frame matches it
       tl.to("#k-wrap", { keyframes: { y: [0, -16, 0] }, duration: 0.3, ease: "none" }, 37.45);
       window.__timelines["klotz"] = tl;
     })();

@@ -116,10 +116,21 @@ const MAP = (p) => SV(860, 610, `<rect x="6" y="6" width="848" height="598" rx="
   <path d="M287 6 V604 M573 6 V604" stroke="#B9C7A0" stroke-width="5" opacity=".8"/>
   <path d="M130 10 L850 600" fill="none" stroke="${K}" stroke-width="18" stroke-dasharray="34 22" stroke-linecap="round"/><path d="M130 10 L850 600" fill="none" stroke="${RED}" stroke-width="9" stroke-dasharray="34 22" stroke-linecap="round"/>
   ${FP.map(([x, y, a], i) => FOOT(x, y, a, `${p}-fp${i}`)).join("")}`);
-// waving flag of Liechtenstein: vertical strips, blue over red (no crown); ids p-k0..
-const FLAG_N = 10;
-const LIFLAG = (p, w = 440, h = 300) => { const sw = w / FLAG_N; return SV(w, h, Array.from({ length: FLAG_N }, (_, i) => `<g id="${p}-k${i}"><rect x="${f2(i * sw - 0.5)}" y="0" width="${f2(sw + 1)}" height="${h / 2}" fill="${LI_BLUE}"/><rect x="${f2(i * sw - 0.5)}" y="${h / 2}" width="${f2(sw + 1)}" height="${h / 2}" fill="${LI_RED}"/></g>`).join("") + `<rect x="0" y="0" width="${w}" height="${h}" fill="none" stroke="${K}" stroke-width="8"/>`); };
-const flagWave = (p, t0, d, amp = 10) => { const n = Math.max(1, Math.round(d / 0.6)), per = f2(d / n); return Array.from({ length: FLAG_N }, (_, i) => { const ph = (i / FLAG_N) * Math.PI * 2; const a = f2(Math.sin(ph) * amp), b = f2(Math.sin(ph + Math.PI / 2) * amp), c = f2(Math.sin(ph + Math.PI) * amp), e = f2(Math.sin(ph + Math.PI * 1.5) * amp); return `      tl.fromTo("#${p}-k${i}", { y: ${a} }, { keyframes: { y: [${a}, ${b}, ${c}, ${e}, ${a}] }, duration: ${per}, ease: "none", repeat: ${n - 1}, immediateRender: true }, ${t0});`; }).join("\n"); };
+// flag of Liechtenstein, blue over red (no crown), as smooth SVG paths: the wave is a sine along the edges, the amplitude
+// grows away from the pole. ids p-fb (blue), p-fr (red), p-fo (outline); flagWave tweens their "d" between 4 phases.
+const FLAG_N = 28;
+const flagPaths = (w, h, a, ph) => {
+  const xs = Array.from({ length: FLAG_N + 1 }, (_, i) => (i / FLAG_N) * w);
+  const wy = (x) => a * Math.sin((2 * Math.PI * x) / w + ph) * (x / w);
+  const edge = (base, rev) => { const pts = xs.map((x) => `${f2(x)} ${f2(a + base + wy(x))}`); return (rev ? pts.reverse() : pts).join(" L"); };
+  const H = h - 2 * a;
+  return { b: `M${edge(0)} L${edge(H / 2, true)} Z`, r: `M${edge(H / 2)} L${edge(H, true)} Z`, o: `M${edge(0)} L${edge(H, true)} Z` };
+};
+const LIFLAG = (p, w = 440, h = 300) => { const a = Math.round(h * 0.06), q = flagPaths(w, h, a, 0); return SV(w, h, `<path id="${p}-fb" d="${q.b}" fill="${LI_BLUE}"/><path id="${p}-fr" d="${q.r}" fill="${LI_RED}"/><path id="${p}-fo" d="${q.o}" fill="none" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>`); };
+const FLAGSIZE = {};
+const flagWave = (p, t0, d) => { const [w, h] = FLAGSIZE[p], a = Math.round(h * 0.06); const n = Math.max(1, Math.round(d / 0.8)), per = f2(d / n);
+  const ph = [1, 2, 3, 4].map((k) => flagPaths(w, h, a, (-k * Math.PI) / 2));
+  return ["b", "r", "o"].map((c) => `      tl.to("#${p}-f${c}", { keyframes: [${ph.map((q) => `{ attr: { d: "${q[c]}" }, duration: ${f2(per / 4)}, ease: "none" }`).join(", ")}], repeat: ${n - 1} }, ${t0});`).join("\n"); };
 const SWISSFLAG = () => SV(100, 100, `<rect x="4" y="4" width="92" height="92" rx="6" fill="${CH_RED}" stroke="${K}" stroke-width="7"/><rect x="40" y="20" width="20" height="60" fill="#fff"/><rect x="20" y="40" width="60" height="20" fill="#fff"/>`);
 // cardboard box, opened, empty inside (viewBox 480 x 400)
 const BOX = () => SV(480, 400, `<path d="M20 70 L460 70 L460 390 L20 390 Z" fill="#C8894A" stroke="${K}" stroke-width="12" stroke-linejoin="round"/><path d="M20 70 L460 70 L420 130 L60 130 Z" fill="#2A1A10" stroke="${K}" stroke-width="10" stroke-linejoin="round"/>
@@ -374,12 +385,12 @@ ${FP.map((_, i) => `      tl.fromTo("#karte-fp${i}", { opacity: 0, scale: 1.6 },
      #schild-po{${abs(320, 1000, 22, 370)}background:${STONE_L};border:5px solid ${K};border-radius:8px;}
      #schild-fl{${abs(342, 1010, 400, 270)}}`,
     stk(`      <div id="schild-po" class="STKC"></div>
-      <div id="schild-fl" class="STKC">${LIFLAG("schild", 400, 270)}</div>
+      <div id="schild-fl" class="STKC">${(FLAGSIZE.schild = [400, 270], LIFLAG("schild", 400, 270))}</div>
 ${plate("schild-pl", 160, 790, 760, 160, "LIECHTENSTEIN", 90, LIBG, "#fff")}`, p),
     `      tl.fromTo("#schild-pl", { scale: 0.55 }, { scale: 1, duration: 0.45, ease: "back.out(1.4)" }, 0);
       tl.to("#schild-pl", { keyframes: { rotation: [0, -2, 2, 0] }, duration: 0.6, ease: "sine.inOut" }, 0.6);
       tl.fromTo("#schild-fl", { scaleX: 0.6, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.35, ease: "back.out(2)" }, 0.1);
-${flagWave("schild", 0, d, 9)}`));
+${flagWave("schild", 0, d)}`));
 }
 
 // ================= MUNITION: an empty cardboard box with the word LEER, a moth flutters out (c08) =================
@@ -418,7 +429,7 @@ ${shake("#mun-bx", 0.57, 8, 0.3)}
      .umkehr-g{position:absolute;left:0;top:0;width:1080px;height:1920px;} .sold{transform-origin:50% 100%;}`,
     stk(`      <div id="umkehr-ln">${DASH(30, 600, "M15 12 V588", "umkehr-ln")}</div>
 ${plate("umkehr-ch", 110, 790, 340, 104, "SCHWEIZ", 72, CHBG, "#fff")}
-      <div id="umkehr-lf" class="STKC">${LIFLAG("umkehr-lf", 150, 102)}</div>
+      <div id="umkehr-lf" class="STKC">${(FLAGSIZE["umkehr-lf"] = [150, 102], LIFLAG("umkehr-lf", 150, 102))}</div>
       <div id="umkehr-ar" class="STKC">${UTURN()}</div>
 ${pos.map(([x, y], i) => `      <div id="umkehr-g${i}" class="umkehr-g">
 ${SOLD(`umkehr-r${i}`, x, y, 0.7)}
@@ -432,7 +443,7 @@ ${pos.map((_, i) => `      tl.fromTo("#umkehr-g${i}", { x: 0 }, { x: 24, duratio
       tl.to("#umkehr-g${i}", { x: ${DX + 24}, duration: ${f2(d - WALK - 0.1)}, ease: "power1.inOut" }, ${f2(WALK + i * 0.05)});`).join("\n")}
 ${march(pos.map((_, i) => `umkehr-r${i}`), 0, TURN)}${march(pos.map((_, i) => `umkehr-l${i}`), TURN, f2(d - TURN))}${flicker(pos.map((_, i) => `umkehr-l${i}`), TURN, f2(d - TURN))}
       tl.fromTo(["#umkehr-ln-dk", "#umkehr-ln-dy"], { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": 66 }, duration: ${d}, ease: "none" }, 0);
-${flagWave("umkehr-lf", 0, d, 4)}`));
+${flagWave("umkehr-lf", 0, d)}`));
 }
 
 // ================= FAHNE: Liechtenstein's flag waves, label LIECHTENSTEIN, a big "?" (c10) =================
@@ -445,13 +456,13 @@ ${flagWave("umkehr-lf", 0, d, 4)}`));
      #fahne-q{${abs(760, 800, 200, 260)}${LBL(240, YEL)}-webkit-text-stroke:16px ${K};paint-order:stroke fill;transform-origin:50% 90%;}
      #fahne-lb{transform-origin:50% 50%;}`,
     stk(`      <div id="fahne-po" class="STKC"></div>
-      <div id="fahne-fl" class="STKC">${LIFLAG("fahne", 420, 290)}</div>
+      <div id="fahne-fl" class="STKC">${(FLAGSIZE.fahne = [420, 290], LIFLAG("fahne", 420, 290))}</div>
       <div id="fahne-q">?</div>
 ${plate("fahne-lb", 320, 1172, 600, 110, "LIECHTENSTEIN", 72, `background:${CREAM};`, LI_BLUE)}`, p),
     `      tl.fromTo("#fahne-q", { scale: 0.5, rotation: 20 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.1);
       tl.to("#fahne-q", { keyframes: { rotation: [0, -8, 6, -4, 0] }, duration: 0.8, ease: "sine.inOut", repeat: 1 }, 0.4);
       tl.fromTo("#fahne-lb", { scale: 0.8 }, { scale: 1, duration: 0.25, ease: "back.out(2.4)" }, 0);
-${flagWave("fahne", 0, d, 10)}`));
+${flagWave("fahne", 0, d)}`));
 }
 
 // ================= DORF: sleeping village, dark windows, "Zzz" rises from the houses (not from Klotz) (c11) =================
@@ -610,10 +621,10 @@ ${[0, 1, 2].map((g) => `      tl.fromTo("#bg-st${g}", { opacity: 1 }, { keyframe
 // "*" keyword (yellow Lilita, 140 px), "!" punchline (largest, 160 px). "/" line break.
 // "+" glues a word to the one before (no gap): counted as one word.
 // Fixed word gap: every word has 11 px margins. No negative letter spacing anywhere.
-const HOOKW = ["Die", "*SCHWEIZ", "/", "marschiert", "ein?!"];
+const HOOKW = ["2007:", "Die", "/", "*SCHWEIZ", "/", "marschiert", "ein?!"];
 const caps = [
   { id: "c01", words: HOOKW, still: true },
-  { id: "c02", words: ["März", "*2007.", "/", "Mitten", "in", "/", "der", "Nacht."] },
+  { id: "c02", words: ["Im", "März.", "Mitten", "/", "in", "der", "Nacht."] },
   { id: "c03", words: ["Rund", "*170", "/", "Schweizer", "Soldaten", "/", "beim", "Training."], cls: "s88" },
   { id: "c04", words: ["Schlechtes", "/", "Wetter.", "Dunkel.", "/", "Und", "dann:"] },
   { id: "c05", words: ["Sie", "biegen", "/", "*FALSCH", "ab."], shake: true },
@@ -827,7 +838,7 @@ kJs += `      // GAG 1 (${MAP_ON}): he holds the hiking map - upside down - and 
       // loop (${LOOPK}): border props off, cheeks normal, frame-0 shock pose with the jump
       tl.set(["#k-bl", "#k-lf"], { opacity: 0 }, ${LOOPK});
       tl.set(["#k-chkL", "#k-chkR"], { opacity: 0.4, scale: 1 }, ${LOOPK});
-      tl.set("#k-sweat", { opacity: 1, scale: 1, y: 0 }, ${LOOPK});
+      tl.set("#k-sweat", { opacity: 0, scale: 0, y: 0 }, ${LOOPK}); // frame 0 has no sweat drop yet, so the last frame matches it
       tl.to("#k-wrap", { keyframes: { y: [0, -16, 0] }, duration: 0.3, ease: "none" }, ${f2(LOOPK + 0.05)});
 `;
 fs.writeFileSync(path.join(OUT, "compositions", "klotz.html"), `<template>

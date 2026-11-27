@@ -12,8 +12,9 @@
 | 8 | Der Kuchen-Krieg | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-24 |
 | 9 | Der Mann, der den Eiffelturm verkaufte | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-25 |
 | 10 | Leeroy Jenkins (Staffelfinale) | fertig (38,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-26 |
+| 11 | Die Schweiz „erobert“ Liechtenstein (Staffel 2) | fertig (38,0 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-27 |
 
-Nächste Folge: **11** – Staffel 1 ist komplett. Nächster Lauf: Staffel 2 (10 neue Ideen) in serienplan.md entwerfen, dann Folge 11 bauen.
+Nächste Folge: **12** (Staffel 2, siehe serienplan.md)
 
 Offene KANN-Punkte Folge 2 (nicht behoben): 3 Frames nur Hintergrund+Klotz bei 38,07–38,13 s; Zeilenumbrüche „echt.“ / „Land.“ allein in der Zeile.
 
