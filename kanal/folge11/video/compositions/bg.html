@@ -1,0 +1,25 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0E1530; }
+    #bg-sky { position: absolute; inset: 0; background: linear-gradient(180deg, #080D24 0%, #0E1530 40%, #172058 75%, #1C2560 100%); }
+    #bg-mt { position: absolute; left: 0; top: 0; }
+    .bg-st { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="bg" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="bg-sky"></div>
+    <svg id="bg-st0" class="bg-st" width="1080" height="1920"><circle cx="786" cy="208" r="4.2" fill="#fff" opacity=".7"/><circle cx="317" cy="172" r="3.7" fill="#fff" opacity=".7"/><circle cx="75" cy="243" r="4.8" fill="#fff" opacity=".7"/><circle cx="323" cy="44" r="3.5" fill="#fff" opacity=".7"/><circle cx="929" cy="66" r="4.6" fill="#fff" opacity=".7"/><circle cx="410" cy="860" r="4.7" fill="#fff" opacity=".7"/><circle cx="1020" cy="825" r="3.8" fill="#fff" opacity=".7"/><circle cx="298" cy="880" r="2.5" fill="#fff" opacity=".7"/><circle cx="332" cy="822" r="3.5" fill="#fff" opacity=".7"/><circle cx="977" cy="1036" r="4.4" fill="#fff" opacity=".7"/><circle cx="641" cy="1070" r="2.9" fill="#fff" opacity=".7"/><circle cx="842" cy="858" r="2.9" fill="#fff" opacity=".7"/></svg>
+    <svg id="bg-st1" class="bg-st" width="1080" height="1920"><circle cx="72" cy="120" r="4.7" fill="#fff" opacity=".7"/><circle cx="494" cy="158" r="4.2" fill="#fff" opacity=".7"/><circle cx="898" cy="46" r="4.5" fill="#fff" opacity=".7"/><circle cx="583" cy="182" r="3.1" fill="#fff" opacity=".7"/><circle cx="272" cy="35" r="2.7" fill="#fff" opacity=".7"/><circle cx="219" cy="912" r="3" fill="#fff" opacity=".7"/><circle cx="330" cy="725" r="3.9" fill="#fff" opacity=".7"/><circle cx="286" cy="778" r="2.3" fill="#fff" opacity=".7"/><circle cx="214" cy="985" r="2.4" fill="#fff" opacity=".7"/><circle cx="587" cy="927" r="2.3" fill="#fff" opacity=".7"/><circle cx="176" cy="868" r="3" fill="#fff" opacity=".7"/></svg>
+    <svg id="bg-st2" class="bg-st" width="1080" height="1920"><circle cx="539" cy="202" r="4.4" fill="#fff" opacity=".7"/><circle cx="82" cy="206" r="4.7" fill="#fff" opacity=".7"/><circle cx="466" cy="178" r="4.2" fill="#fff" opacity=".7"/><circle cx="646" cy="60" r="2.1" fill="#fff" opacity=".7"/><circle cx="647" cy="900" r="4.7" fill="#fff" opacity=".7"/><circle cx="970" cy="859" r="3.3" fill="#fff" opacity=".7"/><circle cx="61" cy="870" r="3.3" fill="#fff" opacity=".7"/><circle cx="608" cy="884" r="2.8" fill="#fff" opacity=".7"/><circle cx="966" cy="984" r="2.6" fill="#fff" opacity=".7"/><circle cx="550" cy="903" r="2.5" fill="#fff" opacity=".7"/><circle cx="621" cy="775" r="4" fill="#fff" opacity=".7"/></svg>
+    <svg id="bg-mt" width="1080" height="1920" viewBox="0 0 1080 1920"><path d="M0 1300 L90 1180 L170 1240 L290 1090 L380 1180 L470 1120 L560 1210 L680 1060 L790 1170 L880 1110 L1000 1200 L1080 1150 L1080 1920 L0 1920 Z" fill="#1A2458"/><path d="M290 1090 L330 1140 L305 1150 L282 1134 L262 1146 L256 1130 Z M680 1060 L722 1110 L698 1118 L676 1104 L654 1116 L650 1100 Z" fill="#8E9AD0" opacity=".55"/><path d="M0 1460 L120 1380 L240 1450 L360 1330 L500 1440 L620 1370 L760 1470 L900 1360 L1080 1440 L1080 1920 L0 1920 Z" fill="#121A44"/><path d="M360 1330 L400 1372 L378 1380 L356 1366 L336 1376 L332 1362 Z M900 1360 L940 1400 L918 1408 L896 1394 L874 1404 L872 1390 Z" fill="#7A86BE" opacity=".5"/></svg>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // twinkle: whole periods over the film, so the last frame leads straight back into frame 0
+      tl.fromTo("#bg-st0", { opacity: 1 }, { keyframes: { opacity: [1, 0.35, 1] }, duration: 6.32783, ease: "sine.inOut", repeat: 5 }, 0);
+      tl.fromTo("#bg-st1", { opacity: 1 }, { keyframes: { opacity: [1, 0.5, 1] }, duration: 4.74587, ease: "sine.inOut", repeat: 7 }, 0);
+      tl.fromTo("#bg-st2", { opacity: 1 }, { keyframes: { opacity: [1, 0.4, 1] }, duration: 3.79670, ease: "sine.inOut", repeat: 9 }, 0);
+      window.__timelines["bg"] = tl;
+    })();
+  </script>
+</template>

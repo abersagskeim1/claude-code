@@ -19,3 +19,22 @@ Hinweise
 - Alle Zahlen werden pro Folge erst im Skript per Websuche geprüft. Die Hooks oben sind Entwürfe.
 - Folgen mit Todesopfern (z. B. Kuchen-Krieg) humorvoll nur über die Absurdität des Anlasses, nie über Opfer.
 - Nach Folge 10: Staffel 2 mit neuem Untertitel starten (Folge-1-Effekt nutzen), z. B. „WIRKLICH PASSIERT?! Gaming-Edition“.
+
+---
+
+# Serienplan: „WIRKLICH PASSIERT?!“ (Staffel 2)
+
+Entworfen am 27.11.2026 nach Bibel und Erfahrungen aus Staffel 1 (Mix Geschichte + Gaming, Mythos-Checks und Wendungen kamen in der Prüfung gut an). Jede Folge eigenständig; alle Zahlen werden erst im Skript per Websuche geprüft – Hooks sind Entwürfe. Keine Folgen, deren Witz auf Kosten von Opfern geht.
+
+| # | Geschichte | Hook-Idee (≤ 2 s) | Pointe / Wendung | Warum stark |
+|---|---|---|---|---|
+| 11 | **Die Schweiz marschiert aus Versehen in Liechtenstein ein** (2007) | „Die SCHWEIZ greift an?!“ | Liechtenstein hat es nicht mal gemerkt. | Absurd, harmlos, Nachbarland-Humor |
+| 12 | **Atari vergräbt Spiele in der Wüste** (1983, ausgegraben 2014) | „Tausende SPIELE in der Wüste vergraben.“ | Der „Mythos“ war echt – 2014 ausgegraben. | Gaming + Mythos-Check |
+| 13 | **Der Mann, der ein Flugzeug aß** (Michel Lotito) | „Er hat ein FLUGZEUG gegessen.“ | Stück für Stück, über Jahre. | Unglaublich, Kommentar-Köder |
+| 14 | **Ein Teilchen aus dem All in Mario 64?** (Speedrun-„Upwarp“) | „Ein Bug aus dem WELTALL?!“ | Theorie, nie bewiesen → Mythos-Check | Gaming-Rätsel |
+| 15 | **Sealand – ein Land auf einer Plattform** | „Dieses LAND ist eine Plattform.“ | Fürstentum mit eigenen Briefmarken/Titeln | Absurd + visuell |
+| 16 | **Ein Hund als Bürgermeister** (Rabbit Hash, Kentucky) | „Der BÜRGERMEISTER ist ein Hund.“ | Gewählt per Spendenwahl, mehrfach | Niedlich, Kommentar-Köder |
+| 17 | **13-Jähriger „besiegt“ Tetris** (2023/24) | „Er hat TETRIS durchgespielt.“ | Erst seit Jahrzehnten möglich – Spiel stürzt ab | Gaming-Rekord |
+| 18 | **Der Mann, der den Mond verkauft** (Dennis Hope) | „Er verkauft GRUNDSTÜCKE auf dem Mond.“ | Rechtliche Grauzone (prüfen!) | Absurd, Geld-Anker |
+| 19 | **Bir Tawil – Land, das keiner will** | „Dieses LAND will niemand.“ | Ein Mann ernennt sich zum König (2014) | Geografie-Kuriosum |
+| 20 | **Caligulas Pferd als Konsul?** (Mythos-Check) | „Ein PFERD in der Regierung?!“ | Plan oder Witz? Quellen unklar → Legende kennzeichnen | Antike + Mythos |
