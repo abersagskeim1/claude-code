@@ -6,8 +6,8 @@ Ton: friedlich, niemand wurde verletzt, kein Konflikt – reiner Orientierungs-F
 
 | Zeit | Text im Bild (≤ 6 Wörter) | Bild |
 |---|---|---|
-| 0,0 | Die **SCHWEIZ** marschiert ein?! | Frame 1 = Thumbnail-Motiv: gestrichelte Grenzlinie in den Bergen, kleine Soldaten-Figuren mit Taschenlampen laufen darüber, Schild „LIECHTENSTEIN“; Klotz unten rechts geschockt |
-| 2,2 | März 2007. Mitten in der Nacht. | Mond, Regen-/Nebelstreifen |
+| 0,0 | 2007: Die **SCHWEIZ** marschiert ein?! | Frame 1 = Thumbnail-Motiv: gestrichelte Grenzlinie in den Bergen, kleine Soldaten-Figuren mit Taschenlampen laufen darüber, Schild „LIECHTENSTEIN“; Klotz unten rechts geschockt |
+| 2,2 | Im März. Mitten in der Nacht. | Mond, Regen-/Nebelstreifen |
 | 4,4 | Rund 170 Schweizer Soldaten trainieren. | Trupp marschiert, Zähler „170“ |
 | 6,6 | Schlechtes Wetter. Dunkel. Und dann: | Nebel wird dichter, Taschenlampen flackern sanft |
 | 8,8 | Sie biegen **FALSCH** ab. | Pfeil „falsch“, Kompassnadel dreht sich; Klotz hält Karte verkehrt herum |
@@ -31,6 +31,8 @@ Ton: friedlich, niemand wurde verletzt, kein Konflikt – reiner Orientierungs-F
 | schlechtes Wetter, Dunkelheit, Trainingsübung | belegt | ABC News, CBC |
 | Distanz > 1,5 km (andere: > 2 km, „über eine Meile“) → „über einen Kilometer“ | belegt (vorsichtig gerundet) | CBC, CBS, Wikipedia |
 | Gewehre ohne Munition | belegt | ABC News, CBS |
+| falsch abgebogen / verirrt (wrong turn) | belegt | ABC News, CBC |
+| Soldaten merken den Fehler und kehren um | belegt („before turning back“) | Wikipedia, CBC |
 | Liechtenstein bemerkte es nicht | belegt | ABC News, Wikipedia |
 | Schweiz informierte Liechtenstein, offizielle Entschuldigung | belegt | Wikipedia, CBC |
 | nicht das erste Mal (frühere Grenzverletzungen); Strichliste mit 3 Strichen = „three times by mistake“ | belegt | The Local („attacked Liechtenstein three times by mistake“), We Are The Mighty |
