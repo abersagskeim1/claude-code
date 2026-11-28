@@ -1,0 +1,25 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0E1530; }
+    #bg-sky { position: absolute; inset: 0; background: linear-gradient(180deg, #0E1530 0%, #1A1C4E 28%, #3B2462 46%, #8A3468 60%, #E2574C 70%, #FF9A3C 76%, #FFC36B 80%, #8A3468 80.5%, #5A2A5E 100%); }
+    #bg-dn { position: absolute; left: 0; top: 0; }
+    .bg-st { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="bg" data-width="1080" data-height="1920" data-layout-allow-overflow>
+    <div id="bg-sky"></div>
+    <svg id="bg-st0" class="bg-st" width="1080" height="1920"><circle cx="206" cy="137" r="2" fill="#fff" opacity=".7"/><circle cx="281" cy="152" r="3.8" fill="#fff" opacity=".7"/><circle cx="656" cy="92" r="3.6" fill="#fff" opacity=".7"/><circle cx="450" cy="206" r="4.2" fill="#fff" opacity=".7"/><circle cx="670" cy="168" r="3.4" fill="#fff" opacity=".7"/><circle cx="630" cy="40" r="4" fill="#fff" opacity=".7"/><circle cx="759" cy="103" r="2.8" fill="#fff" opacity=".7"/><circle cx="971" cy="183" r="2.2" fill="#fff" opacity=".7"/></svg>
+    <svg id="bg-st1" class="bg-st" width="1080" height="1920"><circle cx="203" cy="135" r="4.3" fill="#fff" opacity=".7"/><circle cx="348" cy="55" r="2.7" fill="#fff" opacity=".7"/><circle cx="547" cy="147" r="4.5" fill="#fff" opacity=".7"/><circle cx="740" cy="202" r="2.4" fill="#fff" opacity=".7"/><circle cx="422" cy="47" r="4.2" fill="#fff" opacity=".7"/><circle cx="810" cy="74" r="2.8" fill="#fff" opacity=".7"/><circle cx="702" cy="259" r="2.6" fill="#fff" opacity=".7"/></svg>
+    <svg id="bg-st2" class="bg-st" width="1080" height="1920"><circle cx="376" cy="219" r="3.2" fill="#fff" opacity=".7"/><circle cx="324" cy="223" r="3.7" fill="#fff" opacity=".7"/><circle cx="490" cy="70" r="2.9" fill="#fff" opacity=".7"/><circle cx="996" cy="195" r="4.4" fill="#fff" opacity=".7"/><circle cx="1015" cy="63" r="4.3" fill="#fff" opacity=".7"/><circle cx="659" cy="155" r="3.8" fill="#fff" opacity=".7"/><circle cx="513" cy="63" r="2.6" fill="#fff" opacity=".7"/></svg>
+    <svg id="bg-dn" width="1080" height="1920" viewBox="0 0 1080 1920"><path d="M0 1330 C160 1280 300 1270 440 1300 C600 1334 760 1270 900 1262 C980 1258 1040 1270 1080 1280 L1080 1920 L0 1920 Z" fill="#B0475E"/><g transform="translate(60 1300) scale(0.8)"><path d="M-12 0 V-150 Q-12 -170 0 -170 Q12 -170 12 -150 V0 Z M-12 -70 H-30 Q-42 -70 -42 -84 V-120 Q-42 -130 -34 -130 Q-26 -130 -26 -120 V-86 H-12 Z M12 -96 H30 Q42 -96 42 -110 V-136 Q42 -146 34 -146 Q26 -146 26 -136 V-112 H12 Z" fill="#3A1C46"/></g><g transform="translate(1010 1276) scale(0.7)"><path d="M-12 0 V-150 Q-12 -170 0 -170 Q12 -170 12 -150 V0 Z M-12 -70 H-30 Q-42 -70 -42 -84 V-120 Q-42 -130 -34 -130 Q-26 -130 -26 -120 V-86 H-12 Z M12 -96 H30 Q42 -96 42 -110 V-136 Q42 -146 34 -146 Q26 -146 26 -136 V-112 H12 Z" fill="#3A1C46"/></g><path d="M0 1470 C180 1420 360 1410 520 1440 C700 1474 880 1420 1080 1430 L1080 1920 L0 1920 Z" fill="#6A2E5C"/><g transform="translate(560 1446) scale(0.55)"><path d="M-12 0 V-150 Q-12 -170 0 -170 Q12 -170 12 -150 V0 Z M-12 -70 H-30 Q-42 -70 -42 -84 V-120 Q-42 -130 -34 -130 Q-26 -130 -26 -120 V-86 H-12 Z M12 -96 H30 Q42 -96 42 -110 V-136 Q42 -146 34 -146 Q26 -146 26 -136 V-112 H12 Z" fill="#3A1C46"/></g><path d="M0 1600 C220 1570 420 1580 600 1600 C800 1622 960 1590 1080 1596 L1080 1920 L0 1920 Z" fill="#4A2350"/></svg>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // twinkle: whole periods over the film, so the last frame leads straight back into frame 0
+      tl.fromTo("#bg-st0", { opacity: 1 }, { keyframes: { opacity: [1, 0.35, 1] }, duration: 6.56117, ease: "sine.inOut", repeat: 5 }, 0);
+      tl.fromTo("#bg-st1", { opacity: 1 }, { keyframes: { opacity: [1, 0.5, 1] }, duration: 4.92087, ease: "sine.inOut", repeat: 7 }, 0);
+      tl.fromTo("#bg-st2", { opacity: 1 }, { keyframes: { opacity: [1, 0.4, 1] }, duration: 3.93670, ease: "sine.inOut", repeat: 9 }, 0);
+      window.__timelines["bg"] = tl;
+    })();
+  </script>
+</template>
