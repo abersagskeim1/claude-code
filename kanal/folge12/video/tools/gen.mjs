@@ -39,8 +39,8 @@ const ET = ["#3D8BFF", YEL]; // colours of the generic "E.T." module (own design
 
 // ================= timing: one row per caption; one scene per caption; cuts on whole tenths =================
 // a caption with n words needs n x 0.35 s (min 1.1 s) fully readable + the word pop-in + the exit
-const CD = [["c01", 2.6], ["c02", 2.8], ["c03", 2.0], ["c04", 2.0], ["c05", 2.4], ["c06", 2.4], ["c07", 2.2], ["c08", 2.8], ["c09", 2.4],
-  ["c10", 2.2], ["c11", 2.4], ["c12", 2.0], ["c13", 2.8], ["c14", 2.4], ["c15", 2.8], ["c16", 2.6], ["c17", 0.6]];
+const CD = [["c01", 2.6], ["c02", 2.8], ["c03", 2.0], ["c04", 2.0], ["c05", 2.4], ["c06", 2.4], ["c07", 2.4], ["c08", 2.8], ["c09", 2.4],
+  ["c10", 2.2], ["c11", 2.4], ["c12", 2.0], ["c13", 2.8], ["c14", 2.4], ["c15", 2.8], ["c16", 2.4], ["c17", 0.6]];
 const C = {};
 { let t = 0; for (const [id, d] of CD) { C[id] = [f2(t), f2(t + d)]; t += d; } }
 export const DUR = C.c17[1];
@@ -155,8 +155,10 @@ const FONTFACE = `@font-face{font-family:'Lilita One';src:url('data:font/woff2;b
 const abs = (l, t, w, h) => `position:absolute;left:${l}px;top:${t}px;width:${w}px;${h != null ? `height:${h}px;` : ""}`;
 const LBL = (size, col = K) => `font-family:'Lilita One';font-size:${size}px;line-height:1;color:${col};white-space:nowrap;text-align:center;letter-spacing:0.02em;`;
 // plate with a label; white labels get a dark outline for contrast
-const plate = (id, l, t, w, h, txt, size = 80, bg = `background:${CREAM};`, col = K) => `      <div id="${id}" class="plate" style="${abs(l, t, w, h)}${bg}"><div id="${id}-t" style="position:absolute;left:0;top:${Math.round((h - 14 - size) / 2) + 4}px;width:100%;${LBL(size, col)}${col === "#fff" ? `-webkit-text-stroke:10px ${K};paint-order:stroke fill;` : ""}">${txt}</div></div>`;
+const plate = (id, l, t, w, h, txt, size = 80, bg = `background:${CREAM};`, col = K) => `      <div id="${id}" class="plate" style="${abs(l, t, w, h)}${bg}"><div id="${id}-t" style="position:absolute;left:0;top:${Math.round((h - 14 - size) / 2) + 4}px;width:100%;${LBL(size, col)}${col === "#fff" ? `-webkit-text-stroke:10px ${K};paint-order:stroke fill;` : ""}">${NUMDOT(txt)}</div></div>`;
 const stk = (s, p) => s.replace(/STKC/g, p + "-stk");
+// a dot between digits ("1.300", "700.000") gets its own element with 0.08 em space on both sides (no negative letter spacing)
+const NUMDOT = (t) => t.replace(/(\d)\.(\d)/g, '$1<span class="nd" style="display:inline-block;margin:0 0.08em;">.</span>$2');
 
 const EXD = 0.1; // exit: shrink + dim over the last 3 frames, gone exactly at the cut
 function scene(id, title, start, dur, css, body, js, opts = {}) {
@@ -462,7 +464,7 @@ ${shake("#kiste-cf", 1.6, 5, 0.3)}`));
   scenes.push(scene(p, "LEGENDE mit Fragezeichen-Kaestchen", s, d,
     `#legende-pl{transform-origin:50% 50%;}
      #legende-cb{${abs(400, 1050, 240, 240)}transform-origin:50% 50%;}
-     #legende-q{${abs(400, 1060, 240, 230)}${LBL(200, YEL)}-webkit-text-stroke:16px ${K};paint-order:stroke fill;transform-origin:50% 80%;}
+     #legende-q{${abs(400, 1080, 240, 200)}${LBL(180, YEL)}-webkit-text-stroke:16px ${K};paint-order:stroke fill;transform-origin:50% 80%;}
      #legende-ln{${abs(660, 1010, 220, 280)}transform-origin:50% 50%;}`,
     stk(`${plate("legende-pl", 240, 820, 600, 150, "LEGENDE", 100, `background:#F6E3B8;`)}
       <div id="legende-cb" class="STKC">${CHECKBOX()}</div>
@@ -472,7 +474,7 @@ ${shake("#kiste-cf", 1.6, 5, 0.3)}`));
       tl.fromTo("#legende-cb", { scale: 0.6, rotation: -10 }, { scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, 0.05);
       tl.fromTo("#legende-q", { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, 0.25);
       tl.to("#legende-q", { keyframes: { rotation: [0, -10, 8, -5, 0] }, duration: 0.9, ease: "sine.inOut" }, 0.6);
-      tl.fromTo("#legende-ln", { x: 0, y: 0, rotation: 0 }, { keyframes: { x: [0, -380, -460, -200], y: [0, -40, 30, 10], rotation: [0, -10, 6, 0] }, duration: 1.8, ease: "sine.inOut" }, 0);`));
+      tl.fromTo("#legende-ln", { x: 0, y: 0, rotation: 0 }, { keyframes: { x: [0, -380, -460, -40], y: [0, -40, 30, 10], rotation: [0, -10, 6, 0] }, duration: 1.8, ease: "sine.inOut" }, 0);`));
 }
 
 // ================= MILLIONEN: plate MILLIONEN gets crossed out with a red line (c13) =================
@@ -499,7 +501,7 @@ ${shake("#mil-pl", 1.05, 12, 0.4)}
   const b = burst("haufen-sp", 12, 540, 1150, 60, 400, 700, [YEL, "#fff", ORANGE], 0.45);
   scenes.push(scene(p, "Haufen Module, RUND 700.000", s, d,
     `#haufen-pl{transform-origin:50% 50%;}
-     #haufen-hp{${abs(130, 990, 820, 380)}transform-origin:50% 100%;}`,
+     #haufen-hp{${abs(142, 990, 796, 380)}transform-origin:50% 100%;}`,
     stk(`      <div id="haufen-hp" class="STKC">${HEAP()}</div>
 ${plate("haufen-pl", 180, 820, 720, 150, "RUND 700.000", 96, `background:${YEL};`)}
 ${b.html}`, p),
@@ -543,7 +545,7 @@ ${[0, 1, 2].map((i) => `      tl.fromTo("#museum-g${i}", { scale: 0, rotation: 0
   scenes.push(scene(p, "Frage und Loop", s, d, hookCss(p) + `
      #frage-bb{${abs(170, 800, 740, 440)}transform-origin:30% 100%;}
      .frage-dt{position:absolute;width:70px;height:70px;border-radius:35px;background:${MODG};border:7px solid ${K};}
-     #frage-q{${abs(680, 820, 200, 260)}${LBL(240, YEL)}-webkit-text-stroke:16px ${K};paint-order:stroke fill;transform-origin:50% 90%;}`,
+     #frage-q{${abs(700, 860, 180, 190)}${LBL(170, YEL)}-webkit-text-stroke:16px ${K};paint-order:stroke fill;transform-origin:50% 90%;}`,
     hookBody(p) + `
       <div id="frage-bb" class="frage-stk">${BUBBLE()}</div>
 ${[0, 1, 2].map((i) => `      <div id="frage-dt${i}" class="frage-dt" style="left:${330 + i * 120}px;top:960px;"></div>`).join("\n")}
@@ -596,7 +598,7 @@ ${[0, 1, 2].map((g) => `      tl.fromTo("#bg-st${g}", { opacity: 1 }, { keyframe
 // "+" glues a word to the one before (no gap): counted as one word.
 // Fixed word gap: every word has 11 px margins. No negative letter spacing anywhere.
 // Against orphans / over-wide lines (each change keeps the meaning): hook "1983. / In der WÜSTE / Spiele vergraben?!",
-// "UNVERKAUFT: / viele Module / bleiben liegen.", "Auf einer / Müllkippe in / New Mexico.", "Und tatsächlich: / echte E.T.-Module!", "Geborgen: rund / 1.300 Stück.",
+// "UNVERKAUFT: / viele Module / bleiben liegen.", "Die Legende: / MILLIONEN / sind verbuddelt.", "Auf einer / Müllkippe in / New Mexico.", "Und tatsächlich: / echte E.T.-Module!", "Geborgen: rund / 1.300 Stück.",
 // "Fast. Aber / MILLIONEN / waren es nicht.", "Sondern rund / 700.000 / Module insgesamt.", "Welchen Gaming- / Mythos sollen / wir checken?".
 const HOOKW = ["*1983.", "/", "In", "der", "*WÜSTE", "/", "Spiele", "vergraben?!"];
 const caps = [
@@ -605,8 +607,8 @@ const caps = [
   { id: "c03", words: ["Die", "Firma:", "Atari."] },
   { id: "c04", words: ["Das", "Spiel:", "E.T."] },
   { id: "c05", words: ["Eines", "der", "/", "schlechtesten", "/", "Spiele", "überhaupt."] },
-  { id: "c06", words: ["*UNVERKAUFT:", "/", "viele", "Module", "/", "bleiben", "liegen."], shake: true },
-  { id: "c07", words: ["Die", "Legende:", "/", "alles", "verbuddelt."] },
+  { id: "c06", words: ["*UNVERKAUFT:", "/", "viele", "Module", "/", "bleiben", "liegen."], shake: true, wide: true },
+  { id: "c07", words: ["Die", "Legende:", "/", "*MILLIONEN", "/", "sind", "verbuddelt."] },
   { id: "c08", words: ["Auf", "einer", "/", "Müllkippe", "in", "/", "New", "Mexico."] },
   { id: "c09", words: ["2014:", "Ein", "Team", "/", "*GRÄBT", "nach."], shake: true },
   { id: "c10", words: ["Und", "tatsächlich:", "/", "echte", "E.T.-Module!"], cls: "s88" },
@@ -630,7 +632,7 @@ for (const c of caps) {
   const spans = c.words.map((w, i) => {
     const k = kind(w);
     if (k === "br") return `<br/>`;
-    const txt = (k ? core(w).slice(1) : core(w)).replace(/</g, "&lt;");
+    const txt = NUMDOT((k ? core(w).slice(1) : core(w)).replace(/</g, "&lt;"));
     const nx = c.words[i + 1] === "/" ? c.words[i + 2] : c.words[i + 1];
     const gl = [glue(w) ? "gl" : "", nx && glue(nx) ? "gr" : ""].filter(Boolean).join(" ");
     const cls = { "*": "w kw", "!": "w pt", "": "w" }[k] + (gl ? " " + gl : "");
@@ -646,18 +648,22 @@ for (const c of caps) {
     if (k === "br") return;
     if (!glue(w)) wc++;
     if (c.still) { // frame 0: the whole hook line is already readable
-      if (k) capJs += `      tl.to("#${c.id}-w${i}", { keyframes: { scale: [1, 1.06, 1], rotation: [0, -3, 0] }, duration: 0.4, ease: "power1.inOut" }, 0.3);\n`;
+      if (k) capJs += `      tl.to("#${c.id}-w${i}", { keyframes: { scale: [1, 0.95, 1], y: [0, -8, 0] }, duration: 0.4, ease: "power1.inOut" }, 0.3);\n`;
       return;
     }
     if (c.loop) { full = c.s; return; }
     const at = f2(c.s + 0.02 + n * ST);
     if (!glue(w)) n++;
     if (k) {
-      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 1.15, rotation: -6 }, { opacity: 1, scale: 1, rotation: 0, duration: ${KD}, ease: "back.out(2.2)" }, ${at});\n`;
-      if (c.shake) capJs += `      tl.to("#${c.id}-w${i}", { keyframes: { x: [0, -10, 10, -6, 4, 0], rotation: [0, -3, 3, -2, 0, 0] }, duration: 0.36, ease: "none" }, ${f2(at + 0.28)});\n`;
+      // no scale overshoot: the ink of the keyword never gets wider than in its rest pose (x 80-1000 in every frame)
+      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 0.7, rotation: ${c.wide ? 0 : -6} }, { opacity: 1, scale: 1, rotation: 0, duration: ${KD}, ease: "power3.out" }, ${at});\n`;
+      capJs += `      tl.fromTo("#${c.id}-o${i}", { y: 22 }, { y: 0, duration: ${KD}, ease: "back.out(2.6)" }, ${at});\n`;
+      if (c.shake) capJs += c.wide ? `      tl.to("#${c.id}-w${i}", { keyframes: { y: [0, -10, 8, -5, 3, 0], scale: [1, 0.97, 1, 0.98, 1, 1] }, duration: 0.36, ease: "none" }, ${f2(at + 0.28)});\n`
+        : `      tl.to("#${c.id}-w${i}", { keyframes: { x: [0, -10, 10, -6, 4, 0], rotation: [0, -3, 3, -2, 0, 0] }, duration: 0.36, ease: "none" }, ${f2(at + 0.28)});\n`;
       full = Math.max(full, at + KD);
     } else {
-      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 0.4, y: 26 }, { opacity: 1, scale: 1, y: 0, duration: ${PD}, ease: "back.out(1.6)" }, ${at});\n`;
+      capJs += `      tl.fromTo("#${c.id}-w${i}", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: ${PD}, ease: "power3.out" }, ${at});\n`;
+      capJs += `      tl.fromTo("#${c.id}-o${i}", { y: 26 }, { y: 0, duration: ${PD}, ease: "back.out(1.6)" }, ${at});\n`;
       full = Math.max(full, at + PD);
     }
   });
@@ -681,7 +687,7 @@ fs.writeFileSync(path.join(OUT, "compositions", "captions.html"), `<template>
     .w.gl { margin-left: 0; } .w.gr { margin-right: 0; }
     .g { display: inline-block; }
     .kw { font-family: 'Lilita One'; font-weight: 400; color: ${YEL}; font-size: 140px; line-height: 1.0; text-transform: uppercase; letter-spacing: 0.02em; }
-    .pt { font-family: 'Lilita One'; font-weight: 400; color: ${YEL}; font-size: 200px; line-height: 1.0; letter-spacing: 0.02em; -webkit-text-stroke: 24px ${K}; text-shadow: 0 14px 0 #050814; }
+    .pt { font-family: 'Lilita One'; font-weight: 400; color: ${YEL}; font-size: 200px; line-height: 1.0; letter-spacing: 0.02em; -webkit-text-stroke: 16px ${K}; text-shadow: 0 14px 0 #050814; }
   </style>
   <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
 ${capHtml}  </div>

@@ -4,6 +4,8 @@
 //     (top-level svgs, boxes with a background/border, text labels) - the same element choice as overlap.mjs.
 //  2. INK: a screenshot with captions and background hidden on a magenta ground (half resolution); the leftmost and
 //     rightmost painted pixel (strokes, white outline, drop shadows included).
+//  3. CAPTION INK (Folge 12): every frame again with only the captions on the magenta ground: the painted caption pixels
+//     (fill, stroke, shadow, umlaut dots) incl. pop-in, shake and exit must stay in x 80-1000 and y 280-1500.
 // Usage: PUPPETEER_CORE=<path> node tools/bounds.mjs <preview_url> [t0 t1]
 import { createRequire } from "module";
 import { spawnSync } from "node:child_process";
@@ -57,7 +59,32 @@ for (let f = Math.round(T0 * 30); f < Math.round(T1 * 30); f++) {
   await p.screenshot({ path: png, type: "png" });
   frames.push(png);
 }
+// pass 3: captions only
+await p.evaluate(() => { const st = document.createElement("style"); st.textContent = '#root > [data-composition-id]:not([data-composition-id="captions"]) { opacity: 0 !important; } [data-composition-id="captions"] { opacity: 1 !important; }'; document.head.appendChild(st); });
+const capDir = fs.mkdtempSync(path.join(process.env.BOUNDS_DIR || os.tmpdir(), "capink-"));
+for (let f = Math.round(T0 * 30); f < Math.round(T1 * 30); f++) {
+  const t = f / 30;
+  await p.evaluate(async (t) => { window.__player.renderSeek(t); if (window.__hfWaitForSeekCompletion) await window.__hfWaitForSeekCompletion(); }, t);
+  await p.screenshot({ path: path.join(capDir, `f${String(f).padStart(5, "0")}.png`), type: "png" });
+}
 await b.close();
+const pyc = spawnSync("python3", ["-c", `import sys, glob
+from PIL import Image
+import numpy as np
+L, R, T, B, bad = 9999, -1, 9999, -1, 0
+for fn in sorted(glob.glob(sys.argv[1] + "/f*.png")):
+    a = np.asarray(Image.open(fn).convert("RGB")).astype(int)
+    m = (abs(a[:,:,0]-255) + a[:,:,1] + abs(a[:,:,2]-255)) > 60
+    xs = np.nonzero(m.any(0))[0]; ys = np.nonzero(m.any(1))[0]
+    if not len(xs): continue
+    l, r, t, b = xs.min() * 2, xs.max() * 2 + 1, ys.min() * 2, ys.max() * 2 + 1
+    L, R, T, B = min(L, l), max(R, r), min(T, t), max(B, b)
+    if l < 80 or r > 1000 or t < 280 or b > 1500:
+        bad += 1; print("CAP-INK", fn.split("/")[-1], "x", l, "-", r, "y", t, "-", b)
+print("caption ink x", L, "-", R, "y", T, "-", B, ";", (str(bad) + " frames outside x 80-1000 / y 280-1500") if bad else "all frames inside x 80-1000, y 280-1500")
+`, capDir], { encoding: "utf8", maxBuffer: 1 << 26 });
+process.stdout.write(pyc.stdout + pyc.stderr);
+fs.rmSync(capDir, { recursive: true, force: true });
 const py = spawnSync("python3", ["-c", `import sys, glob
 from PIL import Image
 import numpy as np

@@ -13,8 +13,9 @@
 | 9 | Der Mann, der den Eiffelturm verkaufte | fertig (39,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-25 |
 | 10 | Leeroy Jenkins (Staffelfinale) | fertig (38,8 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-26 |
 | 11 | Die Schweiz „erobert“ Liechtenstein (Staffel 2) | fertig (38,0 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-27 |
+| 12 | Atari vergräbt Spiele in der Wüste | fertig (39,4 s), Prüfung bestanden, Upload manuell durch Nutzer | 2026-11-28 |
 
-Nächste Folge: **12** (Staffel 2, siehe serienplan.md)
+Nächste Folge: **13** (Staffel 2, siehe serienplan.md)
 
 Offene KANN-Punkte Folge 2 (nicht behoben): 3 Frames nur Hintergrund+Klotz bei 38,07–38,13 s; Zeilenumbrüche „echt.“ / „Land.“ allein in der Zeile.
 

@@ -16,7 +16,7 @@
    .mod{transform-origin:50% 80%;}
      #frage-bb{position:absolute;left:170px;top:800px;width:740px;height:440px;transform-origin:30% 100%;}
      .frage-dt{position:absolute;width:70px;height:70px;border-radius:35px;background:#4A4E66;border:7px solid #0A0F22;}
-     #frage-q{position:absolute;left:680px;top:820px;width:200px;height:260px;font-family:'Lilita One';font-size:240px;line-height:1;color:#FFD23F;white-space:nowrap;text-align:center;letter-spacing:0.02em;-webkit-text-stroke:16px #0A0F22;paint-order:stroke fill;transform-origin:50% 90%;}
+     #frage-q{position:absolute;left:700px;top:860px;width:180px;height:190px;font-family:'Lilita One';font-size:170px;line-height:1;color:#FFD23F;white-space:nowrap;text-align:center;letter-spacing:0.02em;-webkit-text-stroke:16px #0A0F22;paint-order:stroke fill;transform-origin:50% 90%;}
   </style>
   <div id="root" data-composition-id="frage" data-width="1080" data-height="1920" data-layout-allow-overflow>
     <div id="frage-out"><div id="frage-kb">
@@ -70,23 +70,23 @@
       tl.fromTo("#frage-dt0", { y: 0 }, { keyframes: { y: [0, -26, 0, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 3, immediateRender: true }, 0);
       tl.fromTo("#frage-dt1", { y: 0 }, { keyframes: { y: [0, -26, 0, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 3, immediateRender: true }, 0.15);
       tl.fromTo("#frage-dt2", { y: 0 }, { keyframes: { y: [0, -26, 0, 0] }, duration: 0.6, ease: "sine.inOut", repeat: 3, immediateRender: true }, 0.3);
-      // loop (2.6): hard switch in one frame - bubble gone, hook picture in its frame-0 pose
-      tl.set(["#frage-bb", "#frage-q", "#frage-dt0", "#frage-dt1", "#frage-dt2"], { opacity: 0 }, 2.6);
-      tl.set(["#frage-sun", "#frage-db", "#frage-df", "#frage-ca", "#frage-gr", "#frage-m0", "#frage-m1", "#frage-m2", "#frage-m3"], { opacity: 1 }, 2.6);
-      tl.fromTo("#frage-m0", { rotation: -16 }, { keyframes: { rotation: [-16, -19, -16] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.6);
-      tl.fromTo("#frage-m1", { rotation: 7 }, { keyframes: { rotation: [7, 10, 7] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.6);
-      tl.fromTo("#frage-m2", { rotation: 20 }, { keyframes: { rotation: [20, 17, 20] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.6);
-      tl.fromTo("#frage-m3", { rotation: -10 }, { keyframes: { rotation: [-10, -7, -10] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.6);
-      tl.fromTo("#frage-sun", { scale: 1 }, { keyframes: { scale: [1, 1.05, 1] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.6);
-      tl.fromTo("#frage-ca", { rotation: 0 }, { keyframes: { rotation: [0, 1.5, 0, -1.5, 0] }, duration: 1.2, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g0", { x: 0, opacity: 1 }, { x: 140, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g1", { x: 0, opacity: 1 }, { x: 170, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g2", { x: 0, opacity: 1 }, { x: 200, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g3", { x: 0, opacity: 1 }, { x: 140, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g4", { x: 0, opacity: 1 }, { x: 130, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g5", { x: 0, opacity: 1 }, { x: -10, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g6", { x: 0, opacity: 1 }, { x: 140, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
-      tl.fromTo("#frage-g7", { x: 0, opacity: 1 }, { x: 170, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.6);
+      // loop (2.4): hard switch in one frame - bubble gone, hook picture in its frame-0 pose
+      tl.set(["#frage-bb", "#frage-q", "#frage-dt0", "#frage-dt1", "#frage-dt2"], { opacity: 0 }, 2.4);
+      tl.set(["#frage-sun", "#frage-db", "#frage-df", "#frage-ca", "#frage-gr", "#frage-m0", "#frage-m1", "#frage-m2", "#frage-m3"], { opacity: 1 }, 2.4);
+      tl.fromTo("#frage-m0", { rotation: -16 }, { keyframes: { rotation: [-16, -19, -16] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.4);
+      tl.fromTo("#frage-m1", { rotation: 7 }, { keyframes: { rotation: [7, 10, 7] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.4);
+      tl.fromTo("#frage-m2", { rotation: 20 }, { keyframes: { rotation: [20, 17, 20] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.4);
+      tl.fromTo("#frage-m3", { rotation: -10 }, { keyframes: { rotation: [-10, -7, -10] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.4);
+      tl.fromTo("#frage-sun", { scale: 1 }, { keyframes: { scale: [1, 1.05, 1] }, duration: 0.6, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.4);
+      tl.fromTo("#frage-ca", { rotation: 0 }, { keyframes: { rotation: [0, 1.5, 0, -1.5, 0] }, duration: 1.2, ease: "sine.inOut", repeat: 0, immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g0", { x: 0, opacity: 1 }, { x: 140, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g1", { x: 0, opacity: 1 }, { x: 170, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g2", { x: 0, opacity: 1 }, { x: 200, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g3", { x: 0, opacity: 1 }, { x: 140, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g4", { x: 0, opacity: 1 }, { x: 130, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g5", { x: 0, opacity: 1 }, { x: -10, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g6", { x: 0, opacity: 1 }, { x: 140, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
+      tl.fromTo("#frage-g7", { x: 0, opacity: 1 }, { x: 170, opacity: 0.2, duration: 0.6, ease: "none", immediateRender: false }, 2.4);
 
 
       window.__timelines["frage"] = tl;

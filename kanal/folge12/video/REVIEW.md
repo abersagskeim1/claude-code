@@ -7,10 +7,17 @@
 - Kein Atari-Logo, keine E.T.-Figur, keine Spielgrafik; Zahlen im Bild nur 1983, 2014, rund 1.300, rund 700.000.
 
 ## Abweichungen vom Skript (gegen Waisenwörter/Breite)
-„1983. / In der WÜSTE / Spiele vergraben?!“ (Wortstellung, „vergraben?!“ stünde sonst allein), „UNVERKAUFT: / viele Module / bleiben liegen.“, „Auf einer / Müllkippe in / New Mexico.“, „Und tatsächlich: / echte E.T.-Module!“ (88 px), „Geborgen: rund / 1.300 Stück.“, „Fast. Aber / MILLIONEN / waren es nicht.“, „Sondern rund / 700.000 / Module insgesamt.“, „Ein Modul steht / heute im Museum.“ (88 px), „Welchen Gaming- / Mythos sollen / wir checken?“.
+„1983. / In der WÜSTE / Spiele vergraben?!“ (Wortstellung, „vergraben?!“ stünde sonst allein), „UNVERKAUFT: / viele Module / bleiben liegen.“, „Die Legende: / MILLIONEN / sind verbuddelt.“, „Auf einer / Müllkippe in / New Mexico.“, „Und tatsächlich: / echte E.T.-Module!“ (88 px), „Geborgen: rund / 1.300 Stück.“, „Fast. Aber / MILLIONEN / waren es nicht.“, „Sondern rund / 700.000 / Module insgesamt.“, „Ein Modul steht / heute im Museum.“ (88 px), „Welchen Gaming- / Mythos sollen / wir checken?“.
 
 ## Gemessen (nach dem letzten Render)
 - `check`: ok (nur Warnungen: Dateigröße/Dichte, Plattform-Safe-Zones, Drehpunkt).
 - overlap.mjs (40 px, jedes Frame): keine Treffer. layout.mjs: 17 Einblendungen ohne Befund, max. Breite 912, Tinte y 303–715.
 - bounds.mjs: DOM x 87–1000, Tinte x 80–999. cutcheck.py: 0 Löcher an 15 Schnitten + Loop. lidcheck: kein Frame mit geschlossenen Lidern.
 - Ton: −14,0 LUFS, True Peak −3,3 dBTP, Audio 39,400 s wie das Bild.
+
+## Nachbesserung nach Prüfung (28.11.)
+- Pop-ins ohne Skalierungs-Overshoot (Skalierung power3.out, Federn nur in y), UNVERKAUFT ohne Drehung, Schüttler dort nur in y. Haufen 12 px eingerückt.
+- Punkt in Zahlen als eigenes Element mit 0,08 em Abstand (Untertitel und Schilder), Kontur der Pointe 700.000 16 px.
+- „?“ in der Kommentar-Blase 170 px, Legende-„?“ 180 px, Lupe verdeckt das „?“ nicht mehr. c07 „Die Legende: / MILLIONEN / sind verbuddelt.“ (2,4 s, c16 dafür 2,4 s).
+- bounds.mjs misst zusätzlich in jedem Frame die Tinte der Untertitel (x 80–1000, y 280–1500).
+- Nach dem letzten Render: check ok; overlap, lidcheck ohne Befund; layout ok; bounds Grafik-Tinte x 80–999, DOM x 87–1000, Untertitel-Tinte x 80–995 / y 300–715; cutcheck 0 Löcher; −14,0 LUFS, −3,6 dBTP, 39,400 s.

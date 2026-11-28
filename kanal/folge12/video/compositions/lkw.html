@@ -44,19 +44,19 @@
     (function () {
       const tl = gsap.timeline({ paused: true });
       // visible from the cut frame on (no delayed fade-in), so no cut shows an empty picture
-      tl.fromTo("#lkw-kb", { scale: 1 }, { scale: 1.03, duration: 2.2, ease: "none" }, 0);
+      tl.fromTo("#lkw-kb", { scale: 1 }, { scale: 1.03, duration: 2.4, ease: "none" }, 0);
       gsap.set("#lkw-w0", { svgOrigin: "80 232" }); gsap.set("#lkw-w1", { svgOrigin: "200 232" }); gsap.set("#lkw-w2", { svgOrigin: "372 232" });
-      tl.fromTo("#lkw-tr", { x: -150 }, { x: 110, duration: 2.1, ease: "power1.inOut" }, 0);
+      tl.fromTo("#lkw-tr", { x: -150 }, { x: 110, duration: 2.3, ease: "power1.inOut" }, 0);
       tl.to("#lkw-tr", { keyframes: { y: [0, -8, 0, -6, 0] }, duration: 0.5, ease: "none", repeat: 3 }, 0);
-      tl.fromTo(["#lkw-w0", "#lkw-w1", "#lkw-w2"], { rotation: 0 }, { rotation: 720, duration: 2.1, ease: "power1.inOut" }, 0);
-      tl.fromTo("#lkw-c0", { x: 0 }, { x: -60, duration: 2.2, ease: "none" }, 0);
-      tl.fromTo("#lkw-c1", { x: 0 }, { x: -90, duration: 2.2, ease: "none" }, 0);
-      tl.fromTo("#lkw-c2", { x: 0 }, { x: -120, duration: 2.2, ease: "none" }, 0);
+      tl.fromTo(["#lkw-w0", "#lkw-w1", "#lkw-w2"], { rotation: 0 }, { rotation: 720, duration: 2.3, ease: "power1.inOut" }, 0);
+      tl.fromTo("#lkw-c0", { x: 0 }, { x: -60, duration: 2.4, ease: "none" }, 0);
+      tl.fromTo("#lkw-c1", { x: 0 }, { x: -90, duration: 2.4, ease: "none" }, 0);
+      tl.fromTo("#lkw-c2", { x: 0 }, { x: -120, duration: 2.4, ease: "none" }, 0);
       tl.fromTo("#lkw-pf0", { scale: 0.3, opacity: 1, x: 0, y: 0 }, { keyframes: { scale: [0.3, 1, 1.15], opacity: [1, 0.9, 0], x: [0, -10, -20], y: [0, -20, -40] }, duration: 0.8, ease: "power1.out", repeat: 1, immediateRender: true }, 0);
       tl.fromTo("#lkw-pf1", { scale: 0.3, opacity: 1, x: 0, y: 0 }, { keyframes: { scale: [0.3, 1, 1.15], opacity: [1, 0.9, 0], x: [0, -10, -20], y: [0, -20, -40] }, duration: 0.8, ease: "power1.out", repeat: 1, immediateRender: true }, 0.25);
       tl.fromTo("#lkw-pf2", { scale: 0.3, opacity: 1, x: 0, y: 0 }, { keyframes: { scale: [0.3, 1, 1.15], opacity: [1, 0.9, 0], x: [0, -10, -20], y: [0, -20, -40] }, duration: 0.8, ease: "power1.out", repeat: 1, immediateRender: true }, 0.5);
       // exit: the old picture is gone exactly at the cut, the next one is there in the same frame
-      tl.to("#lkw-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.1);
+      tl.to("#lkw-out", { keyframes: { opacity: [1, 1, 0.5], scale: [1, 0.95, 0.88] }, duration: 0.1, ease: "none" }, 2.3);
       window.__timelines["lkw"] = tl;
     })();
   </script>
