@@ -11,7 +11,7 @@ Klotz-Gag (neu): Klotz buddelt mit einer Mini-Schaufel mit, findet aber nur eine
 | 6,8 | Das Spiel: E.T. | generisches Modul mit Fragezeichen-Etikett, Label „E.T.“ als Text |
 | 8,8 | Eines der schlechtesten Spiele überhaupt. | Daumen-runter-Icons regnen (hinter Text) |
 | 11,0 | Viele Module bleiben **UNVERKAUFT**. | Regal voller Module, Preisschild fällt |
-| 13,2 | Die Legende: alles verbuddelt. | LKW fährt in die Wüste, Staubwolke |
+| 13,2 | Die Legende: **MILLIONEN** verbuddelt. | LKW fährt in die Wüste, Staubwolke |
 | 15,4 | In New Mexico. Auf einer Müllkippe. | Ortsschild „ALAMOGORDO“ (Schrift), Müllhügel |
 | 17,8 | 2014: Ein Team **GRÄBT** nach. | Bagger, Absperrband; Klotz buddelt mit Mini-Schaufel, findet Socke |
 | 20,0 | Und tatsächlich: E.T.-Module! | Module tauchen aus dem Sand auf, Glitzer |
